@@ -1,0 +1,26 @@
+@font-face {
+	font-family: "Kruti Dev 016";
+	src: url(../resources/K016.TTF) format("truetype");
+}
+
+@font-face {
+	font-family: "MANGAL";
+	src: url(../resources/MANGAL.TTF) format("truetype");
+}
+
+.hindifont {
+	font-family: "Kruti Dev 016", Verdana, Tahoma;
+}
+
+.hindi-size {
+	font-size: 1.1em;
+	line-height: 1.4em;
+}
+
+.hi{
+	font-family: "MANGAL", Verdana, Tahoma;
+}
+
+.hindi{
+	font-weight: 100;
+}

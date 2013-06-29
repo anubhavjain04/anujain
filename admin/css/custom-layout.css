@@ -1,0 +1,13 @@
+@font-face {
+	font-family: "Kruti Dev 016";
+	src: url(../resources/K016.TTF) format("truetype");
+}
+
+.hindifont {
+	font-family: "Kruti Dev 016", Verdana, Tahoma;
+	font-size: 1.4em;
+}
+
+.hindi{
+	font-weight: 100;
+}

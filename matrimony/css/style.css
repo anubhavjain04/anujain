@@ -1,0 +1,1311 @@
+/** default **/
+body {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #000000;
+    font-family: Arial,Helvetica,Tahoma;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0;
+    text-align: left;
+    text-decoration: none;
+}
+form {
+    margin: 0;
+    padding: 0;
+}
+form, fieldset, legend, label, input, textarea, checkbox, option, button, .nobox {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+input[type="text"], input[type="password"] {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #BABABA;
+    border-radius: 3px 3px 3px 3px;
+    color: #666666;
+    font-family: arial,verdana;
+    font-size: 11px;
+    height: 18px;
+    padding: 3px;
+    width: 150px;
+}
+label {
+    font-size: 12px;
+}
+
+h1,h2,h3 {
+	font-weight: normal;
+}
+
+h1{
+	color: #B73A38;
+}
+
+h2{
+	color: #111111;
+}
+
+h3{
+	color: #00429D;
+}
+
+
+/**** header layout ****/
+.topstrip {
+    background:#FFFFFF url("../img/topstrip_bg.gif") repeat-x scroll center top;
+}
+.topbar {
+    float: none;
+    margin: 0 auto;
+    width: 990px;
+}
+.divider{
+	color: #d6d6d6;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.bjm-matrimony-logo{
+	background: url('../images/matrimony-logo.gif') no-repeat left top;
+	width: 230px;
+	height: 45px;
+}
+
+/***** body layout *****/
+#container {
+    border: 0 solid #CCCCCC;
+    margin: 0 auto;
+    text-align: left;
+    width: 990px;
+}
+
+
+.topadd{
+	width: 500px; 
+	height:26px;
+	overflow: hidden;
+}
+
+
+.search-header {
+    background: none repeat scroll 0 0 #E36C14;
+    border-radius: 5px 5px 0 0;
+    height: 20px;
+    padding: 8px;
+}
+
+
+/******** Menu **********/
+ul#topmenu {
+    display: block;
+    font-family: Helvetica,Arial,Verdana,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    height: 30px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    width: auto;
+}
+ul#topmenu li {
+    background: none repeat scroll 0 0 #F8F8F8;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;	
+	-webkit-border-top-left-radius: 5px;
+  	-webkit-border-top-right-radius: 5px;
+  	-moz-border-radius-topleft: 5px;
+  	-moz-border-radius-topright: 5px;
+  
+    display: block;
+    float: left;
+    margin: 0 2px;
+}
+ul#topmenu li a {
+    color: #004276;
+    display: block;
+    float: left;
+    height: 14px;
+    padding: 8px 12px;
+    text-decoration: none;
+}
+ul#topmenu li a:hover {
+    background: none repeat scroll 0 0 #D3D3D3;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;	
+	-webkit-border-top-left-radius: 5px;
+  	-webkit-border-top-right-radius: 5px;
+  	-moz-border-radius-topleft: 5px;
+  	-moz-border-radius-topright: 5px;	
+    color: #111111;
+}
+ul#topmenu li a.current, ul#topmenu li a.current:hover {
+    background: none repeat scroll 0 0 #AA0C25;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #FFFFFF;
+}
+
+
+.knotposn {
+    margin-left: 0;
+    margin-top: -3px;
+    position: absolute;
+	background: #FFFFFF;
+    width: 100px;
+}
+.knotposn .knot{
+	width: 100px;
+	height: 44px;
+	background: #FFFFFF url('../img/knot.jpg') no-repeat;
+}
+#topnav {
+    background: none repeat scroll 0 0 #AA0C25;
+    height: 36px;
+}
+#topnav h1 {
+    display: inline;
+    font: 12px arial,verdana;
+}
+
+/************ form ***************/
+.row {
+    clear: both;
+}
+.row dl {
+    clear: both;
+}
+.row dt {
+    clear: both;
+    float: left;
+    padding: 10px 0 7px;
+    width: 140px;
+}
+.row dd {
+    display: block;
+    float: left;
+    padding: 7px 0;
+}
+
+
+/************* common *************/
+.dot-line {
+    border-bottom: 1px dotted #9D9D9D;
+}
+.margin-reset {
+    margin: 0 auto;
+}
+.wrapper {
+    margin: 0 auto;
+    width: 982px;
+}
+
+.rdclr {
+    color: #FF0000;
+}
+.textfield {
+    background-color: #FFFFFF;
+    border: 1px solid #BABABA;
+    border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px; 
+  	-moz-border-radius: 3px; 	
+    color: #797979;
+    font-family: Arial,Verdana;
+    font-size: 11px;
+    height: 20px;
+    line-height: 20px;
+    padding: 2px 2px 2px 5px !important;
+    text-align: left;
+    vertical-align: middle;
+}
+.txtbox {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #BABABA;
+    border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px; 
+  	-moz-border-radius: 3px;
+    color: #666666;
+    font-family: arial,verdana;
+    font-size: 11px;
+    height: 16px;
+    padding: 3px 0 3px 5px !important;
+    width: 140px;
+}
+.radio {
+    display: inline;
+    float: none;
+    margin: 0 2px 0 3px;
+    vertical-align: middle;
+}
+.clr9{
+	color: #555555;
+}
+.fleft {
+    float: left;
+}
+.fright {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+.cleard {
+    clear: both;
+    height: 1px;
+    width: 1px;
+}
+.disblk {
+    display: block;
+}
+.disnon {
+    display: none;
+}
+.padt1 {
+    padding-top: 1px !important;
+}
+.padt2 {
+    padding-top: 2px;
+}
+.padr2 {
+    padding-right: 2px;
+}
+.padb2 {
+    padding-bottom: 2px;
+}
+.padl2 {
+    padding-left: 2px;
+}
+.pad2 {
+    padding: 2px;
+}
+.pad3 {
+    padding: 3px;
+}
+.padt4 {
+    padding-top: 4px;
+}
+.padr4 {
+    padding-right: 4px;
+}
+.padb4 {
+    padding-bottom: 4px;
+}
+.padl4 {
+    padding-left: 4px;
+}
+.pad4 {
+    padding: 4px;
+}
+.padt5 {
+    padding-top: 5px;
+}
+.padr5 {
+    padding-right: 5px;
+}
+.padb5 {
+    padding-bottom: 5px;
+}
+.padl5 {
+    padding-left: 5px;
+}
+.pad5 {
+    padding: 5px;
+}
+.padt7 {
+    padding-top: 7px;
+}
+.padr7 {
+    padding-right: 7px;
+}
+.padl7 {
+    padding-left: 7px;
+}
+.padb7 {
+    padding-bottom: 7px;
+}
+.pad7 {
+    padding: 7px;
+}
+.padt8 {
+    padding-top: 8px;
+}
+.padr8 {
+    padding-right: 8px;
+}
+.padb8 {
+    padding-bottom: 8px;
+}
+.padl8 {
+    padding-left: 8px;
+}
+.pad8 {
+    padding: 8px;
+}
+.padt10 {
+    padding-top: 10px;
+}
+.padr10 {
+    padding-right: 10px;
+}
+.padb10 {
+    padding-bottom: 10px;
+}
+.padl10 {
+    padding-left: 10px;
+}
+.pad10 {
+    padding: 10px;
+}
+.padt15 {
+    padding-top: 15px;
+}
+.padr15 {
+    padding-right: 15px;
+}
+.padb15 {
+    padding-bottom: 15px;
+}
+.padl15 {
+    padding-left: 15px;
+}
+.pad15 {
+    padding: 15px;
+}
+.padt20 {
+    padding-top: 20px;
+}
+.padr20 {
+    padding-right: 20px;
+}
+.padb20 {
+    padding-bottom: 20px;
+}
+.padl20 {
+    padding-left: 20px;
+}
+.pad20 {
+    padding: 20px;
+}
+.padt25 {
+    padding-top: 25px;
+}
+.padr25 {
+    padding-right: 25px;
+}
+.padb25 {
+    padding-bottom: 25px;
+}
+.padl25 {
+    padding-left: 25px;
+}
+.pad25 {
+    padding: 25px;
+}
+.padt30 {
+    padding-top: 30px;
+}
+.padr30 {
+    padding-right: 30px;
+}
+.padb30 {
+    padding-bottom: 30px;
+}
+.padl30 {
+    padding-left: 30px;
+}
+.pad30 {
+    padding: 30px;
+}
+.padt35 {
+    padding-top: 35px;
+}
+.padr35 {
+    padding-right: 35px;
+}
+.padb35 {
+    padding-bottom: 35px;
+}
+.padl35 {
+    padding-left: 35px;
+}
+.pad35 {
+    padding: 35px;
+}
+.padt12 {
+    padding-top: 12px;
+}
+.padt18 {
+    padding-top: 18px;
+}
+.padt27 {
+    padding-top: 27px;
+}
+.padt40 {
+    padding-top: 40px;
+}
+.mrgl3 {
+    margin-left: 3px;
+}
+.mrgl5 {
+    margin-left: 5px;
+}
+.mrgl23 {
+    margin-left: 33px;
+}
+.mrgl24 {
+    margin-left: 35px;
+}
+.mrgr5 {
+    margin-right: 5px;
+}
+.mrgr15 {
+    margin-right: 15px;
+}
+.mrgb20 {
+    margin-bottom: 20px;
+}
+.mrgr20 {
+    margin-right: 20px;
+}
+.pos-relative {
+    position: relative;
+}
+
+
+.bld {
+    font-weight: bold;
+}
+a {
+    outline: medium none;
+    text-decoration: none;
+}
+a {
+    cursor: pointer;
+}
+img {
+    border: 0 none;
+    vertical-align: middle;
+}
+.pntr {
+    cursor: pointer;
+}
+.tlright {
+    text-align: right;
+}
+.tlleft {
+    text-align: left;
+}
+.tlcenter {
+    text-align: center;
+}
+.tljust {
+    text-align: justify;
+}
+
+.big-btn {
+	border: 1px solid #7d061a;
+	font-size: 16px !important;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	cursor: pointer;	
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	margin-top: 1px;
+	background-color: #ad0c26;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ad0c26), to(#8b071c));
+	background: -moz-linear-gradient(top, #ae0c26, #8b071c);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ad0c26', endColorstr='#ad0c26');
+	padding: 4px 8px;
+	line-height: normal;
+
+
+}
+.medimum-btn {
+    background-color: #ad0c26;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ad0c26), to(#8b071c));
+	background: -moz-linear-gradient(top, #ae0c26, #8b071c);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ad0c26', endColorstr='#ad0c26');
+    border: 1px solid #7D061A;	
+    border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    outline: medium none;
+    padding: 3px 5px;
+    text-decoration: none;
+}
+.small-btn {
+    background-color: #E98100;
+    border: 0 none;
+    border-radius: 2px 2px 2px 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    font: bold 11px arial;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+.grey-btn {
+    background-color: #B4B4B4;
+    border: 1px solid #B4B4B4;
+    border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-size: 12px;
+    font-weight: bold;
+    outline: medium none;
+    padding: 4px 10px;
+    text-decoration: none;
+}
+.btn {
+	background-color: #AE0C26;
+	background: -webkit-gradient(linear, left top, left bottom, from(#AE0C26), to(#AE0C26));
+	background: -moz-linear-gradient(top, #AE0C26, #AE0C26);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#AE0C26', endColorstr='#AE0C26');
+    border: 1px solid #7D061A;
+    border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: normal;
+    margin-top: 1px;
+    padding: 4px 8px;
+    text-align: center;
+    text-transform: uppercase;
+}
+#hpreg dd {
+    float: left;
+    font: 12px arial,verdana;
+    margin: 0;
+}
+#hpreg {
+    margin: 5px 0 0;
+}
+#hpreg dl {
+    clear: both;
+    color: #000000;
+    display: block;
+    font: 11px arial,verdana;
+    height: 25px;
+    margin: 0;
+    padding: 3px 0 2px;
+}
+#hpreg dt {
+    float: left;
+    padding-right: 11px;
+    padding-top: 3px;
+    text-align: right;
+    width: 112px;
+}
+#hpreg dd {
+    float: left;
+    font: 11px arial,verdana;
+    margin-bottom: 1px !important;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+#hpreg select {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #BABABA;
+    border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px; 
+  	-moz-border-radius: 3px;
+    color: #797979;
+    font-family: Arial,Helvetica,Sans-Serif;
+    font-size: 11px;
+    height: 25px;
+    margin: 0;
+    padding: 3px 2px 2px;
+    vertical-align: top;
+    width: 150px;
+}
+.register-bg {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/register-bg.jpg") no-repeat scroll 0 0 transparent;*/
+    color: #CB3300;
+    font: 20px arial;
+    height: 40px;
+    width: 325px;
+}
+.hp-banner {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner.jpg") no-repeat scroll right bottom transparent;*/
+    float: left;
+    height: 510px;
+    width: 635px;
+}
+.hp-banner-txt {
+    padding-right: 5px;
+    padding-top: 160px;
+    width: 210px;
+}
+.hp-banner-txt1 {
+    padding-top: 130px;
+    width: 210px;
+}
+.hp-reg {
+    float: right;
+    height: 490px !important;
+    padding-left: 0;
+    width: 335px;
+}
+.celebrate-banner {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-celebrate-banner.jpg") no-repeat scroll 0 0 transparent;*/
+    height: 60px;
+    width: 989px;
+}
+.tollbg {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-tollbg.gif") no-repeat scroll right top transparent;
+    width: 990px;*/
+}
+.selectfield {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #BABABA;
+    border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px; 
+  	-moz-border-radius: 3px;
+    color: #666666;
+    font-family: arial,verdana;
+    font-size: 11px;
+    height: 22px;
+    padding: 3px 2px 2px 0;
+}
+.link {
+    color: #3399CC;
+}
+.link1 {
+    color: #1D84E4;
+}
+.clrw {
+    color: #FFFFFF;
+}
+.clr1 {
+    color: #999999;
+}
+.clr2 {
+    color: #004276;
+}
+.clr3 {
+    color: #E36C14;
+}
+.clr4 {
+    color: #505050;
+}
+.clr5 {
+    color: #AA0C25;
+}
+.clr6 {
+    color: #323232;
+}
+.clr7 {
+    color: #C4161C;
+}
+.biggertxt {
+    font-size: 230%;
+}
+.biggertxt1 {
+    font-size: 200%;
+}
+.bigtxt {
+    font-size: 180%;
+}
+.bigtxt-l {
+    font-size: 170%;
+}
+.bigtxt-s {
+    font-size: 150%;
+}
+.mediumhdrtxt {
+    font-size: 120%;
+}
+.mediumhdrtxt-m {
+    font-size: 100%;
+}
+.mediumhdrtxt-s {
+    font-size: 90%;
+}
+.mediumtxt {
+    font-size: 85%;
+}
+.smalltxt {
+    font-size: 80%;
+}
+.mediumhdrtxt-payhdr {
+    font-size: 120% !important;
+}
+.lh13 {
+    line-height: 13px;
+}
+.lh14 {
+    line-height: 14px;
+}
+.lh16 {
+    line-height: 16px;
+}
+.lh20 {
+    line-height: 20px;
+}
+.lh25 {
+    line-height: 25px;
+}
+.lh35 {
+    line-height: 35px;
+}
+.curve2 {
+    border-radius: 2px;
+ 	-webkit-border-radius: 2px; 
+ 	-moz-border-radius: 2px; 
+}
+.curve5 {
+    border-radius: 5px;
+	-webkit-border-radius: 5px; 
+ 	-moz-border-radius: 5px; 
+}
+.curve10 {
+    border-radius: 10px;
+	-webkit-border-radius: 10px; 
+ 	-moz-border-radius: 10px; 
+}
+.curve15 {
+    border-radius: 15px;
+	-webkit-border-radius: 15px; 
+ 	-moz-border-radius: 15px; 
+}
+.bgclr1 {
+    background-color: #E4E3E3;
+}
+.bgclr2 {
+    background-color: #FFFFFF;
+}
+.bgclr3 {
+    background-color: #FCEAD3;
+}
+.bgclr4 {
+    background-color: #F8F8F8;
+}
+.bgclr5 {
+    background-color: #004276;
+}
+
+.bdrr {
+    border-right: 1px solid #CCCCCC;
+}
+.bdrb {
+    border-bottom: 1px solid #E5E5E5;
+}
+.bdr1 {
+    border: 1px solid #E9E9E9;
+}
+.bdr2 {
+    border: 1px solid #EDA034;
+}
+.bdr3 {
+    border: 1px solid #FBDCB3;
+}
+.bdr4 {
+    border: 1px solid #F3EFEF;
+}
+.bdr5 {
+    border: 1px solid #F3EFEF;
+}
+.bdr6 {
+    border: 3px solid #7F7F7F;
+}
+.artimgborder {
+    border: 1px solid #F3EFEF;
+}
+.tab-active {
+    background: -moz-linear-gradient(center top , #E5E5E5 0%, #FFFFFF 61%) repeat scroll 0 0 transparent;
+    border-color: #E9E9E9 #E9E9E9 #FFFFFF;
+    border-left: 1px solid #E9E9E9;
+    border-right: 1px solid #E9E9E9;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    font: bold 11px arial;
+    padding: 8px 5px;
+    text-align: center;
+    text-decoration: none;
+}
+.tab-inactive {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #E1E1E1 #E1E1E1 #FFFFFF #E9E9E9;
+    border-left: 1px solid #E9E9E9;
+    border-right: 1px solid #E1E1E1;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    font: bold 11px arial;
+    padding: 8px 5px;
+    text-align: center;
+    text-decoration: none;
+}
+.tab-posn {
+    margin-top: -31px;
+    position: relative;
+    width: 160px;
+}
+.grey-tab-on a {
+    background-color: #575757;
+    border: 1px solid #575757;
+    border-radius: 12px 12px 12px 12px;
+    color: #E9E9E9;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-size: 12px;
+    font-weight: bold;
+    outline: medium none;
+    padding: 4px 15px;
+    text-decoration: none;
+}
+.grey-tab-off a {
+    background-color: #D1D1D1;
+    border: 1px solid #D1D1D1;
+    border-radius: 12px 12px 12px 12px;
+    color: #FCFCFC;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-size: 12px;
+    font-weight: bold;
+    outline: medium none;
+    padding: 4px 15px;
+    text-decoration: none;
+}
+.height18 {
+    height: 18px !important;
+}
+.height25 {
+    height: 25px;
+}
+.height150 {
+    height: 150px;
+}
+.height200 {
+    height: 200px;
+}
+.height300 {
+    height: 300px;
+}
+.wdth10 {
+    width: 10px;
+}
+.wdth20 {
+    width: 20px;
+}
+.wdth50 {
+    width: 50px !important;
+}
+.wdth58 {
+    width: 58px !important;
+}
+.wdth55 {
+    width: 55px !important;
+}
+.wdth65 {
+    width: 65px !important;
+}
+.wdth75 {
+    width: 74px !important;
+}
+.wdth87 {
+    width: 87px !important;
+}
+.wdth90 {
+    width: 90px;
+}
+.wdth106 {
+    width: 106px;
+}
+.wdth130 {
+    width: 130px;
+}
+.wdth150 {
+    width: 150px;
+}
+.wdth120 {
+    width: 119px !important;
+}
+.wdth140 {
+    width: 140px;
+}
+.wdth170 {
+    width: 170px;
+}
+.wdth180 {
+    width: 180px;
+}
+.wdth188 {
+    width: 188px;
+}
+.wdth189 {
+    width: 189px;
+}
+.wdth197 {
+    width: 197px !important;
+}
+.wdth200 {
+    width: 200px;
+}
+.wdth210 {
+    width: 210px;
+}
+.wdth275 {
+    width: 275px;
+}
+.wdth265 {
+    width: 265px;
+}
+.wdth280 {
+    width: 280px;
+}
+.wdth300 {
+    width: 300px;
+}
+.wdth310 {
+    width: 310px;
+}
+.wdth400 {
+    width: 400px;
+}
+.wdth450 {
+    width: 450px;
+}
+.wdth480 {
+    width: 480px;
+}
+.wdth500 {
+    width: 500px;
+}
+.wdth550 {
+    width: 540px;
+}
+.wdth640 {
+    width: 640px;
+}
+.wdth645 {
+    width: 645px;
+}
+.wdth630 {
+    width: 630px;
+}
+.wdth700 {
+    width: 700px;
+}
+.wdth720 {
+    width: 720px;
+}
+.wdth982 {
+    width: 982px;
+}
+.wdth989 {
+    width: 989px;
+}
+.wdth998 {
+    width: 998px;
+}
+.festival-bg {
+    background: none repeat scroll 0 0 #FAEBD7;
+    border: 1px solid #FBDCB3;
+    border-radius: 3px 3px 3px 3px;
+    width: 275px;
+}
+.festival-bigbg {
+    background: none repeat scroll 0 0 #FAEBD7;
+    border: 1px solid #FBDCB3;
+    border-radius: 3px 3px 3px 3px;
+    width: 445px;
+}
+.opacity {
+    opacity: 0.9;
+}
+.foot-top-shadow {
+    border-bottom: 1px solid #ECE9E4;
+    border-top: 1px solid #ECEAE4;
+    box-shadow: 1px -7px 6px -5px #F0F0F0;
+    font-family: arial;
+    line-height: 16px;
+    padding-top: 20px;
+    width: 989px;
+}
+.foot-strip {
+    border-right: 1px solid #E7E7E7;
+    height: 100px;
+}
+.button-action {
+    border-radius: 2px 2px 2px 2px;
+    color: #FFFFFF;
+    display: inline-block;
+    font: 11px arial;
+    outline: medium none;
+    padding: 3px 10px;
+}
+.button-action-bg1 {
+    background-color: #E98100;
+}
+.button-action-bg2 {
+    background-color: #CCCCCC;
+}
+.button-action-bg3 {
+    background-color: #666666;
+}
+.button-action-bg4 {
+    background-color: #EDA034;
+}
+.mm-banner {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/mm-leftbanner-bg.jpg") no-repeat scroll right bottom transparent;*/
+    float: left;
+    height: 350px;
+    width: 505px;
+}
+.banner-title {
+    color: #666666;
+    font: 25px times;
+}
+.mm-reg {
+    float: right;
+    width: 335px;
+}
+.celebrate-banner {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-celebrate-banner.jpg") no-repeat scroll 0 0 transparent;*/
+    height: 60px;
+    width: 989px;
+}
+.disin {
+    display: inline;
+}
+.mobilepos {
+    margin-top: 0 !important;
+    vertical-align: top;
+}
+.hdot {
+    border-bottom: 1px dotted #CCCCCC;
+}
+.errortxt {
+    color: red;
+    font: 11px Arial;
+}
+.black_overlay {
+    background-color: #FFFFFF;
+    display: none;
+    left: 0;
+    opacity: 0.7;
+    position: absolute;
+    top: -1%;
+    width: 100%;
+    z-index: 1000;
+}
+.hp-banner-agr {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-agarwal.jpg") no-repeat scroll right bottom transparent;*/
+    float: left;
+    height: 490px !important;
+    width: 635px;
+}
+.hp-banner-divorcee {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-divorcee.jpg") no-repeat scroll right bottom transparent;*/
+    float: left;
+    height: 490px !important;
+    width: 635px;
+}
+.hp-banner-kayastha {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-kayastha.jpg") no-repeat scroll right bottom transparent;*/
+    height: 490px !important;
+}
+.hp-banner-nair {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-nair.jpg") no-repeat scroll right bottom transparent;*/
+    height: 490px !important;
+}
+.hp-banner-sikh {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-sikh.jpg") no-repeat scroll right bottom transparent;*/
+    height: 490px !important;
+}
+.hp-banner-brahmin {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-bg.gif") no-repeat scroll right bottom transparent;*/
+    float: left;
+    height: 350px;
+    width: 505px;
+}
+.hp-banner-brahmin-txt {
+    color: #666666;
+    font: 25px times;
+    padding: 10px 0;
+    width: auto;
+}
+.hp-banner-jain {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-bg.jpg") no-repeat scroll right bottom transparent;*/
+    float: left;
+    height: 350px;
+    width: 505px;
+}
+.hp-banner-jain-txt {
+    color: #666666;
+    font: 25px times;
+    padding: 10px 0;
+    width: auto;
+}
+.hp-banner-bg {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    /*background-image: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-bg.gif");*/
+    background-origin: padding-box;
+    background-position: right bottom !important;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    float: left;
+    height: 350px !important;
+    width: 505px;
+}
+.hp-banner-bg-txt {
+    color: #666666;
+    font: 25px times;
+    padding: 10px 0;
+    width: auto;
+}
+.pm {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #000000;
+    color: #000000;
+    font: 11px Tahoma;
+    height: 18px;
+    width: 64px;
+}
+.forgotpwddiv {
+    position: absolute;
+    top: 10%;
+    z-index: 2000;
+}
+.quicktourdiv {
+    position: absolute;
+    top: 10%;
+    z-index: 2000;
+}
+.slide5 {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-slide5.gif") no-repeat scroll 0 0 transparent;*/
+    border: 1px solid #F8B107;
+    height: 407px;
+    width: 801px;
+}
+.slide4 {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-slide4.gif") no-repeat scroll 0 0 transparent;*/
+    border: 1px solid #F8B107;
+    height: 407px;
+    width: 801px;
+}
+.slide3 {
+    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-slide3.gif") no-repeat scroll 0 0 transparent;*/
+    border: 1px solid #F8B107;
+    height: 407px;
+    width: 801px;
+}
+.slide2 {
+    background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-slide2.gif") no-repeat scroll 0 0 transparent;
+    border: 1px solid #F8B107;
+    height: 407px;
+    width: 801px;
+}
+.slide1 {
+    background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-slide1.gif") no-repeat scroll 0 0 transparent;
+    border: 1px solid #F8B107;
+    height: 407px;
+    width: 801px;
+}
+.left-stip {
+    background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/left-curve.gif") no-repeat scroll 0 0 transparent;
+    height: 20px;
+    width: 21px;
+}
+.right-stip {
+    background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/right-curve.gif") no-repeat scroll 0 0 transparent;
+    height: 20px;
+    width: 21px;
+}
+.conainerdiv {
+    background-color: #FFFFFF;
+    border: 3px solid #7F7F7F;
+    font-size: 12px;
+    line-height: 18px;
+    width: 480px;
+}
+.close-pwd {
+    color: #333333;
+}
+.black_overlay {
+    background-color: #FFFFFF;
+    display: none;
+    left: 0;
+    opacity: 0.7;
+    position: absolute;
+    top: -1%;
+    width: 100%;
+    z-index: 1000;
+}
+.forgotpwddiv {
+    position: absolute;
+    top: 10%;
+    z-index: 2000;
+}
+.quicktourdiv {
+    position: absolute;
+    top: 10%;
+    z-index: 2000;
+}
+.tlright {
+    text-align: right;
+}
+.forgot-txt {
+    color: #E34614;
+    font-size: 140%;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.matriid-txt {
+    color: #E34614;
+    font-size: 100%;
+    font-weight: bold;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.container-txt {
+    color: #333333;
+    font-size: 11px;
+    padding-top: 5px;
+}
+
+.men{
+	background: transparent url('../images/men.png') no-repeat left bottom;
+	height: 200px;
+	width: 150px;
+}
+.women{
+	background: transparent url('../images/women.png') no-repeat left bottom;
+	height: 200px;
+	width: 150px;
+}
+
