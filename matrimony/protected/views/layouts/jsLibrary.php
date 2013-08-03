@@ -1,0 +1,2 @@
+<script type="text/javascript" data-main="<?php echo Yii::app()->request->baseUrl ."/js/".Yii::app()->getController()->id; ?>/init.js"
+   src="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/require-jquery.js"></script>

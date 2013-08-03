@@ -27,7 +27,7 @@ class MatrimonySectController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','findAll'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -42,6 +42,16 @@ class MatrimonySectController extends Controller
 				'users'=>array('*'),
 			),
 		);
+	}
+	
+	public function actionFindAll()
+	{
+		$modelData = MatrimonySect::model()->findAll(array('order'=>' SectName ASC '));
+		/*$this->render('view',array(
+			'model'=>$this->loadModel($id),
+		));*/
+		
+		echo CJavaScript::jsonEncode($modelData);
 	}
 
 	/**

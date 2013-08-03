@@ -1,11 +1,12 @@
 <div>
   <h1>Search</h1>
-  <div id="tabs">
-    <ul>
-      <li><a href="#tabs-1">Regular</a></li>
-      <li><a href="#tabs-2">By Matrimony Id</a></li>
+  
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#tabs-1" data-toggle="pill">Regular</a></li>
+      <li><a href="#tabs-2" data-toggle="pill">By Matrimony Id</a></li>
     </ul>
-    <div id="tabs-1">
+    <div class="tab-content">
+    <div id="tabs-1" class="tab-pane active">
       <h2>Basic Search Criteria</h2>
       <form id="formRegularSearch" name="formRegularSearch" action='<?php echo Yii::app()->createUrl("/search/results"); ?>' method="post">
         <div style="width:100%;" class="padt20"> 
@@ -14,11 +15,11 @@
             	<dl>
                 	<dt><label class="bld">Looking for</label></dt>
                     <dd>
-                    	<input type="radio" id="bride" name="Search[sex]"  value="0" onclick="checkGenderAge(18);" checked="checked" />
+                    	<input type="radio" id="bride" name="sex"  value="0" data-bind="checked: sex"  />
                         <span class="padl0"></span>
                         <label for="bride">Bride </label>
                         <span class="padl5 padr25"></span>
-                        <input type="radio" id="groom" name="Search[sex]" value="1" onclick="checkGenderAge(21);">
+                        <input type="radio" id="groom" name="sex" value="1" data-bind="checked: sex" />
                       	<span class="padl0"></span>
                       	<label for="groom">Groom </label>
                     </dd>
@@ -29,19 +30,9 @@
             	<dl>
                 	<dt><label class="bld">Age</label></dt>
                     <dd>
-                    	<?php
-							$year = array();
-							for($i=18; $i<=70; $i++){
-								$year[$i] = $i;
-							}
-						?>
-                        <?php
-							echo CHtml::dropDownList('Search[ageFrom]','', $year,array('id'=>'ageFrom', 'class'=>'search-input wdth50 validate[optional,funcCall[validateAgeRange]]'));							
-						?>
+           				<select data-bind="options: ageList, value: ageFrom" class="search-input wdth50"></select>
                         <label class="padl5 padr5">To</label>
-                        <?php
-							echo CHtml::dropDownList('Search[ageTo]','', $year,array('id'=>'ageTo', 'class'=>'search-input wdth50 validate[optional,funcCall[validateAgeRange]]'));							
-						?>
+                        <select data-bind="options: ageList, value: ageTo" class="search-input wdth50"></select>
                         <label class="padl5 padr5">Years</label>
                     </dd>
                 </dl>
@@ -51,26 +42,9 @@
             	<dl>
                 	<dt><label class="bld">Height</label></dt>
                     <dd>
-                    	 <?php
-							$height = array();
-							$initialValue = 119.38;
-							for($i=4; $i<8; $i++){					
-								for($j=0; $j<12; $j++){
-									$initialValue = $initialValue + 2.54;						
-									$key = number_format($initialValue,2);
-									$value = $i.' feet'.(($j==0)?'':' '.$j.' inches');
-									$height[$key]= $value; 
-								}
-							}
-							
-						?>
-						<?php 
-							echo CHtml::dropDownList('Search[heightFrom]','',$height, array('id'=>'heightFrom', 'class'=>'search-input wdth130 validate[optional,funcCall[validateHeightRange]]')); 
-						?>
-                        <label class="padl5 padr5">To</label>
-                        <?php 
-							echo CHtml::dropDownList('Search[heightTo]','',$height, array('id'=>'heightTo', 'class'=>'search-input wdth130 validate[optional,funcCall[validateHeightRange]]')); 
-						?>
+                    	<select data-bind="options: heightList, optionsText: 'text', optionsValue: 'key', value: heightFrom" class="search-input wdth130"></select>
+						<label class="padl5 padr5">To</label>
+                    	<select data-bind="options: heightList, optionsText: 'text', optionsValue: 'key', value: heightTo" class="search-input wdth130"></select>
                     </dd>
                 </dl>
             </div>
@@ -79,11 +53,7 @@
             	<dl>
                 	<dt><label class="bld">Marital Status</label></dt>
                     <dd>
-                    	<?php
-						
-						$maritalStatus = array(''=>'Any','1'=>'Unmarried', '2'=>'Widow / Widower', '3'=>'Divorced', '4'=>'Separated');
-						echo CHtml::checkBoxList('Search[maritalStatus]','',$maritalStatus,array('template'=>'{input}<span class="padl10"></span>{label}','separator'=>'<span class="padl5 padr25"></span>', 'class'=>'validate[required,funcCall[validateMaritalStatus]]'));
-						?>
+                    	<select data-bind="options: maritalStatusList, optionsText: 'text', optionsValue: 'key', selectedOptions: selectedMaritalStatus" size="5" multiple="true" class="search-input wdth130"></select>                    	
                     </dd>
                 </dl>
             </div>
@@ -92,10 +62,7 @@
             	<dl>
                 	<dt><label class="bld">Sect</label></dt>
                     <dd>
-                    	<?php
-                    	$sect = CHtml::listData(MatrimonySect::model()->findAll(array('order'=>' SectName ASC ')),'pkSectId','SectName');
-		                echo CHtml::dropDownList('Search[sect][]','',$sect,array('id'=>'sect', 'prompt'=>'Any', 'class'=>'search-input wdth150', 'onchange'=>'getSubSect($(this).val(), \''.Yii::app()->homeUrl.'/matrimonySubSect/getSubSects\');'));
-						?>
+                    	<select data-bind="options: sectList, optionsText: 'SectName', value: selectedSect, event: {change: afterSectChange}" class="search-input wdth130"></select>                    	
                     </dd>
                 </dl>
             </div>
@@ -104,9 +71,7 @@
             	<dl>
                 	<dt><label class="bld">Sub Sect</label></dt>
                     <dd>
-            			<?php 
-						$subsect = array();
-						echo CHtml::dropDownList('Search[subsect][]','',$subsect,array('id'=>'subsect', 'prompt'=>'Any', 'class'=>'search-input wdth150'));?>
+                    	<select data-bind="options: subSectList, optionsText: 'SubSectName', value: selectedSubSect" class="search-input wdth130"></select>
                     </dd>
                 </dl>
             </div>
@@ -176,7 +141,7 @@
         </div>
       </form>
     </div>
-    <div id="tabs-2">
+    <div id="tabs-2" class="tab-pane">
     	<h2>BY MATRIMONY ID</h2>
       	<form id="formByIDSearch" name="formByIDSearch" action="" method="post">
         	<div style="width:100%;" class="padt20"> 
@@ -204,4 +169,12 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/search.js"></script>
+
+<?php
+	$filepath = Yii::app()->basePath."/views/layouts/jsLibrary.php";
+	include($filepath); 
+?>
+
+
+<!--<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/search/search.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/search/searchPage.js"></script>-->

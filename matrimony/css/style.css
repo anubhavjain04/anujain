@@ -96,6 +96,35 @@ h3{
     padding: 8px;
 }
 
+span.arrow{
+	background: url("jquery-ui/images/ui-icons_004276_256x240.png") no-repeat scroll 0 4px transparent;
+	overflow: hidden;
+	height: 16px;
+	width: 16px;
+	background-position: -32px -16px;
+	float: left;
+}
+
+/***********accordion****************/
+#accordion ul{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;	
+}
+
+#accordion ul li{
+    padding-left: 8px;
+    text-align: left;
+	clear: both;
+}
+#accordion a {
+	color: #004276;
+}
+#accordion a:hover {
+	color: #E36C14;
+}
+/***************************/
+
 
 /******** Menu **********/
 ul#topmenu {
@@ -1308,4 +1337,12 @@ img {
 	height: 200px;
 	width: 150px;
 }
+
+/*************modify jquery-ui************************/
+
+.ui-accordion-content{
+	padding: 1em 1em !important;
+}
+
+
 

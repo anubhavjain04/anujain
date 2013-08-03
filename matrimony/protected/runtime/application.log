@@ -4137,3 +4137,529 @@ Stack trace:
 REQUEST_URI=/bjm-svn/matrimony/index.php/img/banner.jpg
 HTTP_REFERER=http://localhost/bjm-svn/matrimony/index.php/
 ---
+2013/06/29 14:19:52 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (E:\wamp\www\anujain\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\helpers\CHtml.php(140): renderAttributes()
+#1 E:\wamp\www\anujain\framework\web\helpers\CHtml.php(1123): tag()
+#2 E:\wamp\www\anujain\framework\web\helpers\CHtml.php(580): inputField()
+#3 E:\wamp\www\anujain\matrimony\protected\views\search\searchResult.php(20): hiddenField()
+#4 E:\wamp\www\anujain\framework\web\CBaseController.php(127): require()
+#5 E:\wamp\www\anujain\framework\web\CBaseController.php(96): SearchController->renderInternal()
+#6 E:\wamp\www\anujain\framework\web\CController.php(870): SearchController->renderFile()
+#7 E:\wamp\www\anujain\framework\web\CController.php(783): SearchController->renderPartial()
+#8 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(72): SearchController->render()
+#9 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#10 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 E:\wamp\www\anujain\framework\web\CController.php(287): SearchController->runAction()
+#12 E:\wamp\www\anujain\framework\web\CController.php(266): SearchController->runActionWithFilters()
+#13 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): SearchController->run()
+#14 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#15 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 E:\wamp\www\anujain\matrimony\index.php(11): CWebApplication->run()
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+2013/06/29 14:23:21 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (E:\wamp\www\anujain\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\helpers\CHtml.php(140): renderAttributes()
+#1 E:\wamp\www\anujain\framework\web\helpers\CHtml.php(1123): tag()
+#2 E:\wamp\www\anujain\framework\web\helpers\CHtml.php(580): inputField()
+#3 E:\wamp\www\anujain\matrimony\protected\views\search\searchResult.php(20): hiddenField()
+#4 E:\wamp\www\anujain\framework\web\CBaseController.php(127): require()
+#5 E:\wamp\www\anujain\framework\web\CBaseController.php(96): SearchController->renderInternal()
+#6 E:\wamp\www\anujain\framework\web\CController.php(870): SearchController->renderFile()
+#7 E:\wamp\www\anujain\framework\web\CController.php(783): SearchController->renderPartial()
+#8 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(72): SearchController->render()
+#9 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#10 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 E:\wamp\www\anujain\framework\web\CController.php(287): SearchController->runAction()
+#12 E:\wamp\www\anujain\framework\web\CController.php(266): SearchController->runActionWithFilters()
+#13 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): SearchController->run()
+#14 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#15 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 E:\wamp\www\anujain\matrimony\index.php(11): CWebApplication->run()
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+2013/06/29 14:23:37 [error] [php] Trying to get property of non-object (E:\wamp\www\anujain\matrimony\protected\views\search\searchResult.php:20)
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(870): SearchController->renderFile()
+#1 E:\wamp\www\anujain\framework\web\CController.php(783): SearchController->renderPartial()
+#2 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(72): SearchController->render()
+#3 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#4 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 E:\wamp\www\anujain\framework\web\CController.php(287): SearchController->runAction()
+#6 E:\wamp\www\anujain\framework\web\CController.php(266): SearchController->runActionWithFilters()
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): SearchController->run()
+#8 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 E:\wamp\www\anujain\matrimony\index.php(11): CWebApplication->run()
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+2013/06/29 14:24:18 [error] [php] Trying to get property of non-object (E:\wamp\www\anujain\matrimony\protected\views\search\searchResult.php:22)
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(870): SearchController->renderFile()
+#1 E:\wamp\www\anujain\framework\web\CController.php(783): SearchController->renderPartial()
+#2 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(72): SearchController->render()
+#3 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#4 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 E:\wamp\www\anujain\framework\web\CController.php(287): SearchController->runAction()
+#6 E:\wamp\www\anujain\framework\web\CController.php(266): SearchController->runActionWithFilters()
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): SearchController->run()
+#8 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 E:\wamp\www\anujain\matrimony\index.php(11): CWebApplication->run()
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+2013/06/29 14:24:39 [error] [php] Undefined index: Sex (E:\wamp\www\anujain\matrimony\protected\views\search\searchResult.php:22)
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(870): SearchController->renderFile()
+#1 E:\wamp\www\anujain\framework\web\CController.php(783): SearchController->renderPartial()
+#2 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(72): SearchController->render()
+#3 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#4 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 E:\wamp\www\anujain\framework\web\CController.php(287): SearchController->runAction()
+#6 E:\wamp\www\anujain\framework\web\CController.php(266): SearchController->runActionWithFilters()
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): SearchController->run()
+#8 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 E:\wamp\www\anujain\matrimony\index.php(11): CWebApplication->run()
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+2013/06/29 14:24:48 [error] [php] Undefined index: sex (E:\wamp\www\anujain\matrimony\protected\views\search\searchResult.php:22)
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(870): SearchController->renderFile()
+#1 E:\wamp\www\anujain\framework\web\CController.php(783): SearchController->renderPartial()
+#2 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(72): SearchController->render()
+#3 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#4 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 E:\wamp\www\anujain\framework\web\CController.php(287): SearchController->runAction()
+#6 E:\wamp\www\anujain\framework\web\CController.php(266): SearchController->runActionWithFilters()
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): SearchController->run()
+#8 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 E:\wamp\www\anujain\matrimony\index.php(11): CWebApplication->run()
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+2013/06/29 14:25:19 [error] [php] Undefined index: sex (E:\wamp\www\anujain\matrimony\protected\views\search\searchResult.php:23)
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(870): SearchController->renderFile()
+#1 E:\wamp\www\anujain\framework\web\CController.php(783): SearchController->renderPartial()
+#2 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(72): SearchController->render()
+#3 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#4 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 E:\wamp\www\anujain\framework\web\CController.php(287): SearchController->runAction()
+#6 E:\wamp\www\anujain\framework\web\CController.php(266): SearchController->runActionWithFilters()
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): SearchController->run()
+#8 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 E:\wamp\www\anujain\matrimony\index.php(11): CWebApplication->run()
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+2013/06/29 14:25:48 [error] [php] Undefined index: sex (E:\wamp\www\anujain\matrimony\protected\views\search\searchResult.php:23)
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(870): SearchController->renderFile()
+#1 E:\wamp\www\anujain\framework\web\CController.php(783): SearchController->renderPartial()
+#2 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(72): SearchController->render()
+#3 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#4 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 E:\wamp\www\anujain\framework\web\CController.php(287): SearchController->runAction()
+#6 E:\wamp\www\anujain\framework\web\CController.php(266): SearchController->runActionWithFilters()
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): SearchController->run()
+#8 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 E:\wamp\www\anujain\matrimony\index.php(11): CWebApplication->run()
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+2013/06/29 14:26:05 [error] [php] Undefined index: sex (E:\wamp\www\anujain\matrimony\protected\views\search\searchResult.php:23)
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(870): SearchController->renderFile()
+#1 E:\wamp\www\anujain\framework\web\CController.php(783): SearchController->renderPartial()
+#2 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(72): SearchController->render()
+#3 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#4 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 E:\wamp\www\anujain\framework\web\CController.php(287): SearchController->runAction()
+#6 E:\wamp\www\anujain\framework\web\CController.php(266): SearchController->runActionWithFilters()
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): SearchController->run()
+#8 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 E:\wamp\www\anujain\matrimony\index.php(11): CWebApplication->run()
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+2013/06/29 14:26:09 [error] [php] Undefined index: sex (E:\wamp\www\anujain\matrimony\protected\views\search\searchResult.php:23)
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(870): SearchController->renderFile()
+#1 E:\wamp\www\anujain\framework\web\CController.php(783): SearchController->renderPartial()
+#2 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(72): SearchController->render()
+#3 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#4 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 E:\wamp\www\anujain\framework\web\CController.php(287): SearchController->runAction()
+#6 E:\wamp\www\anujain\framework\web\CController.php(266): SearchController->runActionWithFilters()
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): SearchController->run()
+#8 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 E:\wamp\www\anujain\matrimony\index.php(11): CWebApplication->run()
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+2013/06/29 14:27:07 [error] [php] Trying to get property of non-object (E:\wamp\www\anujain\matrimony\protected\views\search\searchResult.php:21)
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(870): SearchController->renderFile()
+#1 E:\wamp\www\anujain\framework\web\CController.php(783): SearchController->renderPartial()
+#2 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(72): SearchController->render()
+#3 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#4 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 E:\wamp\www\anujain\framework\web\CController.php(287): SearchController->runAction()
+#6 E:\wamp\www\anujain\framework\web\CController.php(266): SearchController->runActionWithFilters()
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): SearchController->run()
+#8 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 E:\wamp\www\anujain\matrimony\index.php(11): CWebApplication->run()
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+2013/06/29 14:39:57 [error] [php] Undefined variable: year (E:\wamp\www\anujain\matrimony\protected\views\search\searchResult.php:36)
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(870): SearchController->renderFile()
+#1 E:\wamp\www\anujain\framework\web\CController.php(783): SearchController->renderPartial()
+#2 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(73): SearchController->render()
+#3 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#4 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 E:\wamp\www\anujain\framework\web\CController.php(287): SearchController->runAction()
+#6 E:\wamp\www\anujain\framework\web\CController.php(266): SearchController->runActionWithFilters()
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): SearchController->run()
+#8 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 E:\wamp\www\anujain\matrimony\index.php(11): CWebApplication->run()
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+2013/06/29 14:41:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in E:\wamp\www\anujain\framework\web\CController.php:484
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(271): CController->missingAction('')
+#1 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('')
+#2 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('search')
+#3 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/anujain/matrimony/index.php/search/
+---
+2013/06/29 14:46:15 [error] [exception.CException] exception 'CException' with message 'SearchController cannot find the requested view "error".' in E:\wamp\www\anujain\framework\web\CController.php:879
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(783): CController->renderPartial('error', NULL, true)
+#1 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(75): CController->render('error')
+#2 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#3 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 E:\wamp\www\anujain\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 E:\wamp\www\anujain\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('results')
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('search/results')
+#8 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#10 {main}
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/search/search.html
+---
+2013/06/29 14:46:48 [error] [exception.CException] exception 'CException' with message 'SearchController cannot find the requested view "error".' in E:\wamp\www\anujain\framework\web\CController.php:879
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(783): CController->renderPartial('error', NULL, true)
+#1 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(75): CController->render('error')
+#2 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#3 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 E:\wamp\www\anujain\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 E:\wamp\www\anujain\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('results')
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('search/results')
+#8 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#10 {main}
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+---
+2013/06/29 14:47:32 [error] [exception.CException] exception 'CException' with message 'SearchController cannot find the requested view "error".' in E:\wamp\www\anujain\framework\web\CController.php:879
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(783): CController->renderPartial('error', NULL, true)
+#1 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(75): CController->render('error')
+#2 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#3 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 E:\wamp\www\anujain\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 E:\wamp\www\anujain\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('results')
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('search/results')
+#8 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#10 {main}
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+---
+2013/06/29 14:47:35 [error] [exception.CException] exception 'CException' with message 'SearchController cannot find the requested view "error".' in E:\wamp\www\anujain\framework\web\CController.php:879
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(783): CController->renderPartial('error', NULL, true)
+#1 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(75): CController->render('error')
+#2 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#3 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 E:\wamp\www\anujain\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 E:\wamp\www\anujain\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('results')
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('search/results')
+#8 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#10 {main}
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+---
+2013/06/29 14:56:34 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'The requested search criteria is invalid.' in E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php:76
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#1 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#2 E:\wamp\www\anujain\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#3 E:\wamp\www\anujain\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('results')
+#5 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('search/results')
+#6 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#8 {main}
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+---
+2013/06/29 15:01:30 [error] [php] Undefined variable: data (E:\wamp\www\anujain\matrimony\protected\views\search\searchResult.php:18)
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(870): SearchController->renderFile()
+#1 E:\wamp\www\anujain\framework\web\CController.php(783): SearchController->renderPartial()
+#2 E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php(73): SearchController->render()
+#3 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#4 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 E:\wamp\www\anujain\framework\web\CController.php(287): SearchController->runAction()
+#6 E:\wamp\www\anujain\framework\web\CController.php(266): SearchController->runActionWithFilters()
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): SearchController->run()
+#8 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 E:\wamp\www\anujain\matrimony\index.php(11): CWebApplication->run()
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+2013/06/29 16:25:25 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'The requested search criteria is invalid.' in E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php:75
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#1 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#2 E:\wamp\www\anujain\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#3 E:\wamp\www\anujain\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('results')
+#5 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('search/results')
+#6 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#8 {main}
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+---
+2013/06/29 17:09:01 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'The requested search criteria is invalid.' in E:\wamp\www\anujain\matrimony\protected\controllers\SearchController.php:75
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(50): SearchController->actionResults()
+#1 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#2 E:\wamp\www\anujain\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#3 E:\wamp\www\anujain\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('results')
+#5 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('search/results')
+#6 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#8 {main}
+REQUEST_URI=/anujain/matrimony/index.php/search/results.html
+---
+2013/07/19 17:51:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "js/lib/koGrid-2.1.1.debug.js".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('js/lib/koGrid-2...')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/js/lib/koGrid-2.1.1.debug.js
+---
+2013/07/21 09:28:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "test1".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('test1')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/test1.html
+---
+2013/07/21 09:29:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "test1".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('test1')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/test1
+---
+2013/07/21 09:29:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "test1".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('test1')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/test1.html
+---
+2013/07/21 10:06:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/banner.jpg".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/banner.jpg')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/banner.jpg
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 10:06:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/ribbon-love.gif".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/ribbon-love...')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/ribbon-love.gif
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:13:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/ribbon-love.gif".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/ribbon-love...')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/ribbon-love.gif
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:13:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/banner.jpg".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/banner.jpg')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/banner.jpg
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:15:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/banner.jpg".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/banner.jpg')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/banner.jpg
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:15:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/ribbon-love.gif".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/ribbon-love...')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/ribbon-love.gif
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:15:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/banner.jpg".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/banner.jpg')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/banner.jpg
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:15:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/ribbon-love.gif".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/ribbon-love...')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/ribbon-love.gif
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:15:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/banner.jpg".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/banner.jpg')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/banner.jpg
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:15:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/ribbon-love.gif".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/ribbon-love...')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/ribbon-love.gif
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:15:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/ribbon-love.gif".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/ribbon-love...')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/ribbon-love.gif
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:15:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/banner.jpg".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/banner.jpg')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/banner.jpg
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:16:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/banner.jpg".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/banner.jpg')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/banner.jpg
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:16:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/ribbon-love.gif".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/ribbon-love...')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/ribbon-love.gif
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:16:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/banner.jpg".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/banner.jpg')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/banner.jpg
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:16:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/ribbon-love.gif".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/ribbon-love...')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/ribbon-love.gif
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:16:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/banner.jpg".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/banner.jpg')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/banner.jpg
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/07/21 11:16:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/ribbon-love.gif".' in E:\wamp\www\anujain\framework\web\CWebApplication.php:280
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('img/ribbon-love...')
+#1 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 E:\wamp\www\anujain\matrimony\index.php(11): CApplication->run()
+#3 {main}
+REQUEST_URI=/anujain/matrimony/index.php/img/ribbon-love.gif
+HTTP_REFERER=http://localhost/anujain/matrimony/index.php/
+---
+2013/08/01 17:33:22 [error] [php] Undefined index: sectId (E:\wamp\www\anujain\matrimony\protected\controllers\MatrimonySubSectController.php:197)
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\filters\CFilterChain.php(134): MatrimonySubSectController->runAction()
+#1 E:\wamp\www\anujain\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 E:\wamp\www\anujain\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 E:\wamp\www\anujain\framework\web\filters\CInlineFilter.php(59): MatrimonySubSectController->filterAccessControl()
+#4 E:\wamp\www\anujain\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 E:\wamp\www\anujain\framework\web\CController.php(292): CFilterChain->run()
+#6 E:\wamp\www\anujain\framework\web\CController.php(266): MatrimonySubSectController->runActionWithFilters()
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): MatrimonySubSectController->run()
+#8 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 E:\wamp\www\anujain\matrimony\index.php(11): CWebApplication->run()
+REQUEST_URI=/anujain/matrimony/index.php/matrimonySubSect/getSubSects?sectId=2
+2013/08/01 17:33:41 [error] [php] Undefined index: sectId (E:\wamp\www\anujain\matrimony\protected\controllers\MatrimonySubSectController.php:197)
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\filters\CFilterChain.php(134): MatrimonySubSectController->runAction()
+#1 E:\wamp\www\anujain\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 E:\wamp\www\anujain\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 E:\wamp\www\anujain\framework\web\filters\CInlineFilter.php(59): MatrimonySubSectController->filterAccessControl()
+#4 E:\wamp\www\anujain\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 E:\wamp\www\anujain\framework\web\CController.php(292): CFilterChain->run()
+#6 E:\wamp\www\anujain\framework\web\CController.php(266): MatrimonySubSectController->runActionWithFilters()
+#7 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): MatrimonySubSectController->run()
+#8 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 E:\wamp\www\anujain\matrimony\index.php(11): CWebApplication->run()
+REQUEST_URI=/anujain/matrimony/index.php//matrimonySubSect/getSubSects

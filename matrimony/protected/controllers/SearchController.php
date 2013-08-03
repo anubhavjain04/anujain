@@ -65,11 +65,15 @@ class SearchController extends Controller
 		if(isset($_POST['Search'])){
 			$search = $_POST['Search'];
 			$search['status'] = 1;
-			$dataProvider = $model->search($_POST['Search']);
+			$dataProvider = $model->search($search);
+			
+			$this->render('searchResult',array(
+				'dataProvider'=>$dataProvider,
+				'searchSpec'=>$search,
+			));
+		}else{
+			throw new CHttpException(400,'The requested search criteria is invalid.');
 		}
-		$this->render('searchResult',array(
-			'dataProvider'=>$dataProvider,
-		));
 		
 	}
 

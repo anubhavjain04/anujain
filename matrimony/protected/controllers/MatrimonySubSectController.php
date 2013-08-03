@@ -202,9 +202,7 @@ class MatrimonySubSectController extends Controller
 			$criteria->order = 'SubSectName ASC';
 			$criteria->params=array(":fkSectId"=>$sectId);			
 			$subSectModel = $subSect->findAll($criteria);
-			foreach($subSectModel as $item){
-				echo CHtml::tag('option', array('value'=>$item['pkSubSectId']),  $item['SubSectName']);
-			}	
+			echo CJavaScript::jsonEncode($subSectModel);
 		}
 		else{
 			echo '';

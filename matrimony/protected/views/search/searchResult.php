@@ -2,117 +2,153 @@
   <div class="padt30">
     <div class="fleft wdth280">
       <div class="clrw search-header bld mediumhdrtxt">REFINE SEARCH</div>
-      <div class="pad10 padt20 bdr1">asdfasdf</div>
+      <div class="pad10 padt20 bdr1">
+      	<div>
+          <h3>Refine your search</h3>
+          <div>
+            <p> You can refine your search results by simply modify/change search criteria as given below:- </p>
+          </div>
+        </div>
+        
+        <form id="formSearch" action='<?php echo Yii::app()->createUrl("/search/results"); ?>' method="post">
+            <div id="accordion">
+              <h3>Age</h3>
+              <div>
+                <ul>
+                    <li>
+                    	<span class="arrow"></span>
+                        <span data-bind="text: ageFrom"></span> yrs To <span data-bind="text: ageTo"></span> yrs
+                    </li>
+                </ul>
+                <div class="tlright"><a href='javascript:void(0)' rel="click here to change criteria" data-bind="click: searchDialogViewModel.ageDialog.openDialog">change</a></div>
+                <div data-bind="dialog: searchDialogViewModel.ageDialog.bindDialog(), dialogVisible: searchDialogViewModel.ageDialog.isOpen" style="display: none;">
+                    <select data-bind="options: ageList, value: ageFrom"></select>
+                    <label class="padl5 padr5">To</label>
+                	<select data-bind="options: ageList, value: ageTo"></select>
+                    <label class="padl5 padr5">Years</label>
+                </div>
+              </div>
+              <h3>Height</h3>
+              <div>
+                 <ul>
+                    <li><span class="arrow"></span>
+                        <span data-bind="text: heightInWords(heightFrom())"></span> To <span data-bind="text: heightInWords(heightTo())"></span>
+                    </li>
+                </ul>                
+                <div class="tlright"><a href="javascript:void(0)" rel="click here to change criteria" data-bind="click: searchDialogViewModel.heightDialog.openDialog">change</a></div>
+                <div data-bind="dialog: searchDialogViewModel.heightDialog.bindDialog(), dialogVisible: searchDialogViewModel.heightDialog.isOpen" style="display: none;">
+                    <select data-bind="options: heightList, optionsText: 'value', optionsValue: 'key', value: heightFrom"></select>
+					<label class="padl5 padr5">To</label>
+                    <select data-bind="options: heightList, optionsText: 'value', optionsValue: 'key', value: heightTo"></select>
+                </div>
+              </div>
+              <h3>Marital Status</h3>
+              <div>
+                 <ul>
+                    <li><span class="arrow"></span>Unmarried</li>
+                    <li><span class="arrow"></span>Seperated</li>
+                </ul>
+                <div class="tlright"><a href="javascript:void(0)" rel="click here to change criteria" onclick='$("#dgMaritalStatus").dialog("open");'>change</a></div>
+                <div id="dgMaritalStatus" title="Marital Status" style="display: none;">
+                <?php 
+					$maritalStatus = array(''=>'Any','1'=>'Unmarried', '2'=>'Widow / Widower', '3'=>'Divorced', '4'=>'Separated');
+						echo CHtml::checkBoxList('Search[maritalStatus]','',$maritalStatus,array('template'=>'{input}<span class="padl10"></span>{label}','separator'=>'<span class="padl5 padr25"></span>', 'class'=>'validate[required,funcCall[validateMaritalStatus]]'));
+				?>
+                </div>
+              </div>
+              <h3>Mother Toungue</h3>
+              <div>
+                <ul>
+                    <li><span class="arrow"></span>Hindi</li>
+                    <li><span class="arrow"></span>Gujrati</li>
+                </ul>
+                <div class="tlright"><a href="#" rel="click here to change criteria">more...</a></div>
+              </div>
+              <h3>Sect</h3>
+              <div>
+                <ul>
+                    <li><span class="arrow"></span>Digamber</li>
+                    <li><span class="arrow"></span>Shevetamber</li>
+                </ul>
+                <div class="tlright"><a href="#" rel="click here to change criteria">more...</a></div>
+              </div>
+              <h3>Sub Sect</h3>
+              <div>
+                <ul>
+                    <li><span class="arrow"></span>Digamber-Terapanthi</li>
+                    <li><span class="arrow"></span>Shevetamber-Sthanakvasi</li>
+                </ul>
+                <div class="tlright"><a href="#" rel="click here to change criteria">more...</a></div>
+              </div>
+              <h3>Caste</h3>
+              <div>
+                <ul>
+                    <li><span class="arrow"></span>Jain-Baniya</li>
+                    <li><span class="arrow"></span>Jain-Oswal</li>
+                </ul>
+                <div class="tlright"><a href="#" rel="click here to change criteria">more...</a></div>
+              </div>
+              <h3>Education</h3>
+              <div>
+                <ul>
+                    <li><span class="arrow"></span>Masters - Management / Others</li>
+                    <li><span class="arrow"></span>Others</li>
+                </ul>
+                <div class="tlright"><a href="#" rel="click here to change criteria">more...</a></div>
+              </div>
+              <h3>Occupation</h3>
+              <div>
+                <ul>
+                    <li><span class="arrow"></span>Software Professional (883)</li>
+                    <li><span class="arrow"></span>Doctors</li>
+                </ul>
+                <div class="tlright"><a href="#" rel="click here to change criteria">more...</a></div>
+              </div>
+              <h3>Annual Income</h3>
+              <div>
+                <ul>
+                    <li><span class="arrow"></span>Rs.1 lakh to Rs.3 lakh (1656)</li>
+                </ul>
+                <div class="tlright"><a href="#" rel="click here to change criteria">more...</a></div>
+              </div>
+              <h3>Country</h3>
+              <div>
+                <ul>
+                    <li><span class="arrow"></span>India</li>
+                    <li><span class="arrow"></span>Others</li>
+                </ul>
+                <div class="tlright"><a href="#" rel="click here to change criteria">more...</a></div>
+              </div>
+              <h3>Physical Status</h3>
+              <div>
+                <ul>
+                    <li><span class="arrow"></span>Normal (7250)</li>
+                    <li><span class="arrow"></span>Physically Challenged (59)</li>
+                </ul>
+                <div class="tlright"><a href="#" rel="click here to change criteria">more...</a></div>
+              </div>
+              
+            </div>
+        </form>
+      </div>
     </div>
     <div class="fright wdth700">
-      <?php
-		if($dataProvider && $dataProvider->getItemCount()>0){			
-			$count=$dataProvider->getItemCount();
-			$pagination=$dataProvider->getPagination();
-			$total=$dataProvider->getTotalItemCount();
-			$start=$pagination->currentPage*$pagination->pageSize+1;
-			$end=$start+$count-1;
-			if($end>$total)
-			{
-				$end=$total;
-				$start=$end-$count+1;
-			}
-			?>
-      <h1>Your Search Results (<?php echo $total; ?>)</h1>
-      <div class="dot-line mrgb20"></div>
-      <?php
-			$data = $dataProvider->getData();
-			for($i=0; $i<count($data); $i++ ){
-				$result = $data[$i];
-				$rowtype = "";
-				if($i % 2 == 0){
-					$rowtype = "even";
-				}else{
-					$rowtype = "odd";
-				}
-				
-				?>
-      <div class="bdr1 mrgb20 curve10">
-        <div class="bgclr5 pad15"><span class="bigtxt-s clrw"><?php echo 'BJM'.$result->MemberCode ?></span></div>
-       
-        <div class="pad15"> 
-          <a href="#">
-          	<div class="fleft bdr1 women">
-            	<?php
-					$imgPath = '';										
-					if($result->MemberPhoto && trim($result->MemberPhoto)!=""){
-						$imgPath = Yii::app()->request->baseUrl."/..". Yii::app()->params['matrimonyPath']."/".$result->MemberPhoto;
-					}
-					if($imgPath){
-				?>
-            	<img src='<?php echo $imgPath; ?>' title='<?php echo $result->MemberName ?>' />
-                <?php
-					}
-				?>
-            </div>
-          </a>
-          <div class="fleft pad5 wdth500">
-            <div class="padt3 padb10">
-              <div class="fleft bigtxt-s"><a href="#" class="clr5"><?php echo $result->MemberName ?></a></div>
-              <div class="fright"><input type="button" value="View Full Profile" class="medimum-btn wdth45" /></div>
-              <div class="clear"></div>
-            </div>
-            <div class="padt5">
-              <div class="fleft wdth90 clr3">Age, Height</div>
-              <div class="fleft padl5 padr10">:</div>
-              <div class="fleft clrblack">24 yrs,  5ft 2in - 157cm </div>
-              <div class="cleard"></div>
-            </div>            
-            <div class="padt5">
-              <div class="fleft wdth90 clr3">Sect</div>
-              <div class="fleft padl5 padr10">:</div>
-              <div class="fleft clrblack">Digambar</div>
-              <div class="cleard"></div>
-            </div>
-            <div class="padt5">
-              <div class="fleft wdth90 clr3">Sub Sect</div>
-              <div class="fleft padl5 padr10">:</div>
-              <div class="fleft clrblack">Digambar-Bisapanthi</div>
-              <div class="cleard"></div>
-            </div>
-            <div class="padt5">
-              <div class="fleft wdth90 clr3">Location</div>
-              <div class="fleft padl5 padr10">:</div>
-              <div class="fleft clrblack">Bhubaneshwar, Odisha, India</div>
-              <div class="cleard"></div>
-            </div>
-            <div class="padt5">
-              <div class="fleft wdth90 clr3">Education</div>
-              <div class="fleft padl5 padr10">:</div>
-              <div class="fleft clrblack">BFA</div>
-              <div class="cleard"></div>
-            </div>    
-             <div class="padt5">
-              <div class="fleft wdth90 clr3">Occupation</div>
-              <div class="fleft padl5 padr10">:</div>
-              <div class="fleft clrblack">BFA</div>
-              <div class="cleard"></div>
-            </div>        
-          </div>
-          <div class="cleard"></div>
-          <div class="padt10">
-            <div class="pad5 bgclr4">
-                
-                
-                
-            </div>
-        </div>
-        </div>
-      </div>
-      <?php
-			}
-			
-		}else{
-		?>
-      <div>No results found.....</div>
-      <?php
-		}
-		?>
+     <?php include('searchSpec.php'); ?>
     </div>
   </div>
 </div>
+<script type="text/javascript">
+	var searchSpec = $.parseJSON('<?php echo $json = json_encode($searchSpec); ?>');
+</script>
+
+<!--<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/search/search.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/search/uiFunctions.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/search/searchDialogs.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/search/searchResults.js"></script>
+
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/search/searchModel.js"></script> -->
+
+<?php
+	$filepath = Yii::app()->basePath."/views/layouts/jsLibrary.php";
+	include($filepath); 
+?>
