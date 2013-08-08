@@ -199,8 +199,7 @@ class ProgramsController extends Controller
 	}
 	
 	// This function will return all recent programs list.
-	public function actionRecentPrograms(){	
-		
+	public function actionRecentPrograms(){
 		if (isset($_GET['pageSize'])) {
 			Yii::app()->user->setState('pageSize',(int)$_GET['pageSize']);
 			unset($_GET['pageSize']);  // would interfere with pager and repetitive page size change
@@ -212,7 +211,7 @@ class ProgramsController extends Controller
 		if(isset($_GET['leveltype'])){
 			$model->fkLevelCode=$_GET['leveltype'];
 		}
-		
+
 		if(isset($_GET['Programs']))
 			$model->attributes=$_GET['Programs'];	
 		$model->Status = 1;		
