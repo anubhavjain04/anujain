@@ -1,0 +1,257 @@
+<div class="row-fluid">
+  <div class="padt30">
+    <div class="fleft wdth280 row-fluid">
+      <div class="pad10 padt20 bdr1">
+        <div>
+          <h3>Refine your search</h3>
+          <div>
+            <p> You can refine your search results by simply modify/change search criteria as given below:- </p>
+          </div>
+        </div>
+        <div class="accordion" id="accordion1"> 
+          <!-- Age -->
+          <div class="accordion-group">
+            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse1"> Age </a> </div>
+            <div id="collapse1" class="accordion-body collapse in">
+              <div class="accordion-inner">
+                <div><span class="arrow_icon"></span><span data-bind="text: ageFrom"></span> yrs To <span data-bind="text: ageTo"></span> yrs </div>
+                <div class="tlright"> <a data-toggle="modal" href='#ageModal' class="btn btn-primary btn-lg" title="click here to change criteria">change</a> </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Height -->
+          <div class="accordion-group">
+            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse2"> Height </a> </div>
+            <div id="collapse2" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <div> <span class="arrow_icon"></span> <span data-bind="text: heightInWords(heightFrom())"></span> To <span data-bind="text: heightInWords(heightTo())"></span> </div>
+                <div class="tlright"> <a data-toggle="modal" href='#heightModal' class="btn btn-primary btn-lg" title="click here to change criteria">change</a> </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Marital Status -->
+          <div class="accordion-group">
+            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse3"> Marital Status </a> </div>
+            <div id="collapse3" class="accordion-body collapse">
+              <div class="accordion-inner"> 
+                <!-- ko foreach: selectedMaritalStatus() --> 
+                <!-- ko foreach: $parent.maritalStatusList() --> 
+                <!-- ko if: $parent && $data.key==$parent -->
+                <div><span class="arrow_icon"></span><span data-bind="text: $data.text"></span></div>
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- ko if: selectedMaritalStatus().length==0 || (selectedMaritalStatus().length==1 && !selectedMaritalStatus()[0]) -->
+                <div><span class="arrow_icon"></span><span>Any</span></div>
+                <!-- /ko -->
+                <div class="tlright"> <a data-toggle="modal" href='#maritalStatusModal' class="btn btn-primary btn-lg" title="click here to change criteria">change</a> </div>
+              </div>
+            </div>
+          </div>
+          <!-- Mother Toungue -->
+          <div class="accordion-group">
+            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse4"> Mother Toungue </a> </div>
+            <div id="collapse4" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <!-- ko foreach: selectedMotherTongue() --> 
+                <!-- ko foreach: $parent.motherTongueList() --> 
+                <!-- ko if: $parent && $data.pkTongueId==$parent -->
+                <div><span class="arrow_icon"></span><span data-bind="text: $data.TongueName"></span></div>
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- ko if: selectedMotherTongue().length==0 || (selectedMotherTongue().length==1 && !selectedMotherTongue()[0]) -->
+                <div><span class="arrow_icon"></span><span>Any</span></div>
+                <!-- /ko -->
+                
+                <div class="tlright"> <a data-toggle="modal" href='#motherToungueModal' class="btn btn-primary btn-lg" title="click here to change criteria">change</a> </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Sect -->
+          <div class="accordion-group">
+            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse5"> Sect </a> </div>
+            <div id="collapse5" class="accordion-body collapse">
+              <div class="accordion-inner"> 
+                <!-- ko foreach: selectedSect() --> 
+                <!-- ko foreach: $parent.sectList() --> 
+                <!-- ko if: $parent && $data.pkSectId==$parent -->
+                <div><span class="arrow_icon"></span><span data-bind="text: $data.SectName"></span></div>
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- ko if: selectedSect().length==0 || (selectedSect().length==1 && !selectedSect()[0]) -->
+                <div><span class="arrow_icon"></span><span>Any</span></div>
+                <!-- /ko -->
+                <div class="tlright"> <a data-toggle="modal" href='#sectModal' class="btn btn-primary btn-lg" title="click here to change criteria">change</a> </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Sub Sect -->
+          <div class="accordion-group">
+            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse6"> Sub Sect </a> </div>
+            <div id="collapse6" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <!-- ko foreach: selectedSubSect() --> 
+                <!-- ko foreach: $parent.subSectList() --> 
+                <!-- ko if: $parent && $data.pkSubSectId==$parent -->
+                <div><span class="arrow_icon"></span><span data-bind="text: $data.SubSectName"></span></div>
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- ko if: selectedSubSect().length==0 || (selectedSubSect().length==1 && !selectedSubSect()[0]) -->
+                <div><span class="arrow_icon"></span><span>Any</span></div>
+                <!-- /ko -->
+                <div class="tlright"> <a data-toggle="modal" href='#subSectModal' class="btn btn-primary btn-lg" title="click here to change criteria">change</a> </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Caste -->
+          <div class="accordion-group">
+            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse7"> Caste </a> </div>
+            <div id="collapse7" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <!-- ko foreach: selectedCaste() --> 
+                <!-- ko foreach: $parent.casteList() --> 
+                <!-- ko if: $parent && $data.pkCasteId==$parent -->
+                <div><span class="arrow_icon"></span><span data-bind="text: $data.CasteName"></span></div>
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- ko if: selectedCaste().length==0 || (selectedCaste().length==1 && !selectedCaste()[0]) -->
+                <div><span class="arrow_icon"></span><span>Any</span></div>
+                <!-- /ko -->
+                <div class="tlright"> <a data-toggle="modal" href='#casteModal' class="btn btn-primary btn-lg" title="click here to change criteria">change</a> </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Education -->
+          <div class="accordion-group">
+            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse8"> Education </a> </div>
+            <div id="collapse8" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <!-- ko foreach: selectedCourseGroup() --> 
+                <!-- ko foreach: $parent.courseGroupList() --> 
+                <!-- ko if: $parent && $data.pkCourseGroupId==$parent -->
+                <div><span class="arrow_icon"></span><span data-bind="text: $data.GroupName"></span></div>
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- ko if: selectedCourseGroup().length==0 || (selectedCourseGroup().length==1 && !selectedCourseGroup()[0]) -->
+                <div><span class="arrow_icon"></span><span>Any</span></div>
+                <!-- /ko -->
+                <div class="tlright"> <a data-toggle="modal" href='#educationModal' class="btn btn-primary btn-lg" title="click here to change criteria">change</a> </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Occupation -->
+          <div class="accordion-group">
+            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse9"> Occupation </a> </div>
+            <div id="collapse9" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <!-- ko foreach: selectedOccupationGroup() --> 
+                <!-- ko foreach: $parent.occupationGroupList() --> 
+                <!-- ko if: $parent && $data.pkOccGroupId==$parent -->
+                <div><span class="arrow_icon"></span><span data-bind="text: $data.GroupName"></span></div>
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- ko if: selectedOccupationGroup().length==0 || (selectedOccupationGroup().length==1 && !selectedOccupationGroup()[0]) -->
+                <div><span class="arrow_icon"></span><span>Any</span></div>
+                <!-- /ko -->
+                <div class="tlright"> <a data-toggle="modal" href='#occupationModal' class="btn btn-primary btn-lg" title="click here to change criteria">change</a> </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Annual Income -->
+          <div class="accordion-group">
+            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse10"> Annual Income </a> </div>
+            <div id="collapse10" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <!-- ko if: selectedAnnualIncome() -->
+                <div><span class="arrow_icon"></span><span data-bind="text: selectedAnnualIncome().text"></span></div>
+                <!-- /ko --> 
+                <!-- ko if: !selectedAnnualIncome() -->
+                <div><span class="arrow_icon"></span><span>Any</span></div>
+                <!-- /ko -->
+                <div class="tlright"> <a data-toggle="modal" href='#annualIncomeModal' class="btn btn-primary btn-lg" title="click here to change criteria">change</a> </div>
+                
+              </div>
+            </div>
+          </div>
+          
+          <!-- Country -->
+          <div class="accordion-group">
+            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse11"> Country </a> </div>
+            <div id="collapse11" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <!-- ko foreach: selectedCountry() --> 
+                <!-- ko foreach: $parent.countryList() --> 
+                <!-- ko if: $parent && $data.pkCountryId==$parent -->
+                <div><span class="arrow_icon"></span><span data-bind="text: $data.CountryName"></span></div>
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- ko if: selectedCountry().length==0 || (selectedCountry().length==1 && !selectedCountry()[0]) -->
+                <div><span class="arrow_icon"></span><span>Any</span></div>
+                <!-- /ko -->
+                <div class="tlright"> <a data-toggle="modal" href='#countryModal' class="btn btn-primary btn-lg" title="click here to change criteria">change</a> </div>
+              </div>
+            </div>
+          </div>
+          <!-- Physical Status -->
+          <div class="accordion-group">
+            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse12"> Physical Status </a> </div>
+            <div id="collapse12" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <!-- ko foreach: selectedPhysicalStatus() --> 
+                <!-- ko foreach: $parent.physicalStatusList() --> 
+                <!-- ko if: $parent && $data.key==$parent -->
+                <div><span class="arrow_icon"></span><span data-bind="text: $data.text"></span></div>
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- ko if: selectedPhysicalStatus().length==0 || (selectedPhysicalStatus().length==1 && !selectedPhysicalStatus()[0]) -->
+                <div><span class="arrow_icon"></span><span>Any</span></div>
+                <!-- /ko -->
+                <div class="tlright"> <a data-toggle="modal" href='#physicalStatusModal' class="btn btn-primary btn-lg" title="click here to change criteria">change</a> </div>
+              </div>
+            </div>
+          </div>
+          <!-- Employed in -->
+          <div class="accordion-group">
+            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse13"> Employed in </a> </div>
+            <div id="collapse13" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <!-- ko foreach: selectedEmployedIn() --> 
+                <!-- ko foreach: $parent.employedInList() --> 
+                <!-- ko if: $parent && $data.key==$parent -->
+                <div><span class="arrow_icon"></span><span data-bind="text: $data.text"></span></div>
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- /ko --> 
+                <!-- ko if: selectedEmployedIn().length==0 || (selectedEmployedIn().length==1 && !selectedEmployedIn()[0]) -->
+                <div><span class="arrow_icon"></span><span>Any</span></div>
+                <!-- /ko -->
+                <div class="tlright"> <a data-toggle="modal" href='#employedInModal' class="btn btn-primary btn-lg" title="click here to change criteria">change</a> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- include models -->
+        <div data-bind="template: { name: 'search/views/models'}"></div>
+      </div>
+    </div>
+    <div class="fright wdth700" data-bind="with: searchResultsVM">
+      <div data-bind="template: { name: 'search/views/renderResults'}"></div>
+    </div>
+  </div>
+</div>

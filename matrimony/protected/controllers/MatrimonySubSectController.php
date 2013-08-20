@@ -202,7 +202,7 @@ class MatrimonySubSectController extends Controller
 			$criteria->order = 'SubSectName ASC';
 			$criteria->params=array(":fkSectId"=>$sectId);			
 			$subSectModel = $subSect->findAll($criteria);
-			echo CJavaScript::jsonEncode($subSectModel);
+			echo CJSON::encode($subSectModel);
 		}
 		else{
 			echo '';

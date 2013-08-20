@@ -50,27 +50,42 @@ class SearchController extends Controller
 	
 	public function actionSearch(){
 		//$model = $this->loadModel();
-		$this->render('regularSearch');
+		$this->render('search');
 	}
 	
 	public function actionResults(){
-		//$model = $this->loadModel();
 		//Code to display the selected no of result from dropdown in Manage Static Pages
-		if (isset($_GET['pageSize'])) {
-			Yii::app()->user->setState('pageSize',(int)$_GET['pageSize']);
+		if (isset($_POST['pageSize'])) {
+			Yii::app()->user->setState('pageSize',(int)$_POST['pageSize']);
 			unset($_GET['pageSize']);  // would interfere with pager and repetitive page size change
 		}
-		
-		$model=new MatrimonyMembers('search');		
-		if(isset($_POST['Search'])){
-			$search = $_POST['Search'];
-			$search['status'] = 1;
+		if (isset($_POST['page'])) {
+			$_GET['MatrimonyMembers_page']=(int)$_POST['page'];	
+			unset($_POST['page']);
+		}
+		$model=new MatrimonyMembers('search');
+		if(isset($_POST['Search'])){			
+			$search = CJSON::decode($_POST['Search']);
+			$search['status'] = 1;			
 			$dataProvider = $model->search($search);
+			$pager = $this->getPager($dataProvider);
 			
-			$this->render('searchResult',array(
-				'dataProvider'=>$dataProvider,
-				'searchSpec'=>$search,
-			));
+			$dataList = $pager['dataList'];
+			$plainDataList = array();
+			for($i=0; $i<count($dataList); $i++){
+				$plainData = CJSON::decode(CJSON::encode($dataList[$i]));
+				$plainData['age'] = date('Y',time()) - date('Y',strtotime($dataList[$i]['DOB']));
+				$plainData['sectName'] = $dataList[$i]->fkSect0->SectName;
+				$plainData['subSectName'] = $dataList[$i]->fkSubSect0->SubSectName;
+				$plainData['country'] = $dataList[$i]->fkCountryLivingIn0->CountryName;
+				$plainData['state'] = $dataList[$i]->fkResidingState0->StateName;
+				$plainData['education'] = $dataList[$i]->fkEducation0->CourseName;
+				$plainData['occupation'] = $dataList[$i]->occupation->OccupationName;
+				array_push($plainDataList, $plainData);
+			}
+			$pager['dataList'] = $plainDataList;
+			echo CJSON::encode($pager);
+	
 		}else{
 			throw new CHttpException(400,'The requested search criteria is invalid.');
 		}

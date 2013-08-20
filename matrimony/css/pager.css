@@ -3,12 +3,11 @@
 ul.yiiPager {
     border: 0 none;
     display: inline;
-    font-size: 11px;
     line-height: 100%;
     margin: 0;
     padding: 0;
 }
-ul.yiiPager li {
+/*ul.yiiPager li {
     display: inline;
 }
 ul.yiiPager a:link, ul.yiiPager a:visited {
@@ -21,7 +20,7 @@ ul.yiiPager a:link, ul.yiiPager a:visited {
 ul.yiiPager .page a {
     font-weight: normal;
 }
-ul.yiiPager a:hover {
+*/ul.yiiPager a:hover {
     border: 1px solid #0E509E;
 }
 ul.yiiPager .selected a {
@@ -29,7 +28,7 @@ ul.yiiPager .selected a {
     color: #FFFFFF;
     font-weight: bold;
 }
-ul.yiiPager .hidden a {
+ul.yiiPager .disabled a {
     border: 1px solid #DEDEDE;
     color: #888888;
 }

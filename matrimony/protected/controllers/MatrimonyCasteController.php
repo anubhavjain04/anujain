@@ -27,7 +27,7 @@ class MatrimonyCasteController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('findAll'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -42,6 +42,16 @@ class MatrimonyCasteController extends Controller
 				'users'=>array('*'),
 			),
 		);
+	}
+	
+	public function actionFindAll()
+	{
+		$sql = "(SELECT pkCasteId as pkCasteId,CasteName as CasteName FROM matrimony_caste where pkCasteId not in(0,1,2) order by CasteName)
+				union
+				(SELECT pkCasteId as pkCasteId,CasteName as CasteName FROM matrimony_caste where pkCasteId in(0,1,2) order by pkCasteId)";
+		$command=Yii::app()->db->createCommand($sql);
+		$results=$command->queryAll();
+		echo CJSON::encode($results);
 	}
 
 	/**

@@ -52,6 +52,61 @@ h3{
 	color: #00429D;
 }
 
+ul.listView {
+	list-style: none;
+	padding-left: 0px;
+}
+
+ul.listView li{
+	padding-left: 10px;
+}
+
+ul.listView li label{
+	padding-left: 5px;
+	padding-top: 4px;
+}
+
+span.arrow_icon{
+	background: url("jquery-ui/images/ui-icons_004276_256x240.png") no-repeat scroll 0 4px transparent;
+	overflow: hidden;
+	height: 16px;
+	width: 16px;
+	background-position: -32px -13px;
+	display: inline-block;
+}
+
+.block-layer{
+	width: 100%;
+	height: 100%;
+	background-color:#FFFFFF;
+	z-index:1000;
+	position:fixed;
+	opacity:0.9;
+	filter:alpha(opacity=90);
+	display: table;
+	top: 0px;
+	left: 0px;
+	text-align: center;
+	vertical-align: middle; 	
+}
+
+.mid-layer{
+	width: 500px;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.block-layer-for-ajax{
+	/*float:left;
+	width:2562px;
+	height:2050px;
+	background-color:#000;
+	z-index:110;
+	position:relative;
+	margin-top:-2050px;
+	opacity:0.2;
+	filter:alpha(opacity=20);  For IE8 and earlier 	
+*/}
 
 /**** header layout ****/
 .topstrip {
@@ -201,19 +256,19 @@ ul#topmenu li a.current, ul#topmenu li a.current:hover {
 }
 
 /************ form ***************/
-.row {
+.form_row {
     clear: both;
 }
-.row dl {
+.form_row dl {
     clear: both;
 }
-.row dt {
+.form_row dt {
     clear: both;
     float: left;
     padding: 10px 0 7px;
     width: 140px;
 }
-.row dd {
+.form_row dd {
     display: block;
     float: left;
     padding: 7px 0;
@@ -291,6 +346,11 @@ ul#topmenu li a.current, ul#topmenu li a.current:hover {
 }
 .disnon {
     display: none;
+}
+
+.disinblk {
+    display: inline-block;
+    margin-top: 4px;
 }
 .padt1 {
     padding-top: 1px !important;

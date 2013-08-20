@@ -3,21 +3,18 @@ requirejs.config({
     baseUrl : siteBaseUrl +'/js/lib',
     //except
     paths : {
-		search           : siteBaseUrl + '/js/search'
-     
+		search : siteBaseUrl + '/js/search'
     },
     config : {
         isBuild : false
     }
 });
 
-require(['jquery', 'jquery-ui', 'knockout', 'knockout-sortable', 'infuser-amd', 'koExternalTemplateEngine-amd', 'knockout.validation.min', 'knockout-postbox.min', 'bootstrap.min', 'underscore-min', 'search/search', 'domReady!'], 
-function( $,        jqueryui,    knockout,   kosortable,          infuser,       koExtTemplate,                  koValidation,              koPostbox,               bootstrap,       underscoremin,    Search) {
-
+require(['jquery', 'knockout', 'knockout-sortable', 'infuser-amd', 'koExternalTemplateEngine-amd', 'knockout.validation.min', 'bootstrap.min', 'jhash-2.0.min', 'search/search', 'domReady!'], 
+function( $,        knockout,   kosortable,          infuser,       koExtTemplate,                  koValidation,              bootstrap,       route,      	  Search) {
     // Set up some defaults for templates loaded using koExternalTemplateEngine
     infuser.defaults.templateSuffix = ".tmpl.html"
-    infuser.defaults.templateUrl = "../../";
-
+    infuser.defaults.templateUrl = "../../js";
     //initialize validation using knockout.validation
     knockout.validation.configure({
         registerExtenders: true,
@@ -25,22 +22,8 @@ function( $,        jqueryui,    knockout,   kosortable,          infuser,      
         messageTemplate: null,
     });
     knockout.validation.init();
-
-	// Get the spaceId
-    //var spaceId = $('div.currentLearningSpace').attr('id');
-
-    // Init the viewmodel for the dashboard
+    // Init the viewmodel
     var search = new Search();
-	//var mainViewModel = main.mainViewModel();
- 
-    // Init pager with the viewModel
-    //pager.extendWithPage(viewModel);
-              
-    // Apply Knockout.js bindings for dashboard viewmodel
+    // Apply Knockout.js bindings for search viewmodel
     knockout.applyBindings(new search.searchViewModel());
-
-    // start pager
-    //pager.start();
-    //console.log("DONE initializing pager... hash value is " + pager.Href.hash);
-    //console.log("Pager details" + window.define);
 });

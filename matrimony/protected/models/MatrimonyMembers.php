@@ -50,7 +50,7 @@
  * @property MatrimonySubSect $fkSubSect0
  */
 class MatrimonyMembers extends CActiveRecord
-{
+{	
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -68,7 +68,9 @@ class MatrimonyMembers extends CActiveRecord
 	{
 		return 'matrimony_members';
 	}
-
+	
+	
+	
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -152,20 +154,27 @@ class MatrimonyMembers extends CActiveRecord
 			'MemberCode' => 'Member Code',
 		);
 	}
+	
+	
+	
+ 	/*public function getAge(){
+         return $this->MemberName. " ". $this->Height;
+    }
+	public function setAge($age){
+         return $this->age = $age;
+    }*/
+     
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
 	public function search($search)
-	{
+	{	
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
-
 		$criteria=new CDbCriteria;
-		
-		if($search){	
-			$criteria=new CDbCriteria;
+		if($search){
 			$criteria->with = array('fkCaste0','fkCountryLivingIn0','fkEducation0','fkMotherTongue0','occupation','fkSect0','fkResidingState0','fkSubSect0');
 			$criteria->together = true;
 			
@@ -209,6 +218,12 @@ class MatrimonyMembers extends CActiveRecord
 			if(isset($search['occupationGroup']) && $search['occupationGroup'] && $search['occupationGroup'][0]){
 				$criteria->addInCondition('occupation.fkOccGroupId',$search['occupationGroup']);
 			}
+			if((isset($search['annualIncomeFrom']) && $search['annualIncomeFrom']) && (isset($search['annualIncomeTo']) && $search['annualIncomeTo'])){
+				$criteria->addBetweenCondition('IncomeAnnual', $search['annualIncomeFrom'], $search['annualIncomeTo']);
+			}
+			if(isset($search['physicalStatus']) && $search['physicalStatus'] && $search['physicalStatus'][0]){
+				$criteria->addInCondition('PhysicalStatus',$search['physicalStatus']);
+			}
 			if(isset($search['country']) && $search['country'] && $search['country'][0]){
 				$criteria->addInCondition('fkCountryLivingIn',$search['country']);
 			}
@@ -221,11 +236,9 @@ class MatrimonyMembers extends CActiveRecord
 			if(isset($search['memberCode']) && $search['memberCode']){
 				$criteria->compare('MemberCode',$search['memberCode']);	
 			}
-			
 		}
+		$criteria->order = ' MemberName ASC ';
 		
-		$criteria->order = ' MemberName ASC ';		
-
 		return new CActiveDataProvider(get_class($this), array(
 			'pagination'=>array(
 				'pageSize'=> Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize']),

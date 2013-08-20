@@ -46,12 +46,8 @@ class MatrimonySectController extends Controller
 	
 	public function actionFindAll()
 	{
-		$modelData = MatrimonySect::model()->findAll(array('order'=>' SectName ASC '));
-		/*$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));*/
-		
-		echo CJavaScript::jsonEncode($modelData);
+		$results = MatrimonySect::model()->findAll(array('order'=>' SectName ASC '));
+		echo CJSON::encode($results);
 	}
 
 	/**

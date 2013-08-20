@@ -1,0 +1,153 @@
+<div class="row-fluid">
+  <h1>Search</h1>
+  
+    <ul id="search_tab" class="nav nav-tabs">
+      <li class="" data-bind="css: {'active': activeSearchTab()=='regular'}"><a href="#tabs-1" data-toggle="pill">Regular</a></li>
+      <li class="" data-bind="css: {'active': activeSearchTab()=='matrimonyId'}"><a href="#tabs-2" data-toggle="pill">By Matrimony Id</a></li>
+    </ul>
+    <div class="tab-content">
+    <div id="tabs-1" class="tab-pane" data-bind="css: {'active': activeSearchTab()=='regular'}">
+      <h2>Basic Search Criteria</h2>
+     
+        <div class="padt20"> 
+        	<div class="row-fluid">
+            	<div class="dot-line padt10 row-fluid"></div>
+            	<div class="padt20">
+                	<div class="span2"><label class="bld">Looking for</label></div>
+                    <div class="span10">
+                    	<input type="radio" id="bride" name="sex"  value="0" data-bind="checked: sex"  />
+                        <span class="padl0"></span>
+                        <label class="disinblk" for="bride">Bride </label>
+                        <span class="padl5 padr25"></span>
+                        <input type="radio" id="groom" name="sex" value="1" data-bind="checked: sex" />
+                      	<span class="padl0"></span>
+                      	<label class="disinblk" for="groom">Groom </label>
+                    </div>
+                </div>
+            </div>
+        	<div class="row-fluid">
+            	<div class="dot-line padt10 row-fluid"></div>
+            	<div class="padt20">
+                	<div class="span2"><label class="bld">Age</label></div>
+                    <div class="span10">
+           				<select data-bind="options: ageList, value: ageFrom"></select>
+                        <label class="disinblk" class="padl5 padr5">To</label>
+                        <select data-bind="options: ageList, value: ageTo"></select>
+                        <label class="disinblk" class="padl5 padr5">Years</label>
+                    </div>
+                </div>
+            </div>
+        	<div class="row-fluid">
+            	<div class="dot-line padt10 row-fluid"></div>
+            	<div class="padt20">
+                	<div class="span2"><label class="bld">Height</label></div>
+                    <div class="span10">
+                    	<select data-bind="options: heightList, optionsText: 'text', optionsValue: 'key', value: heightFrom"></select>
+						<label class="disinblk" class="padl5 padr5">To</label>
+                    	<select data-bind="options: heightList, optionsText: 'text', optionsValue: 'key', value: heightTo"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+            	<div class="dot-line padt10 row-fluid"></div>
+            	<div class="padt20">
+                	<div class="span2"><label class="bld">Marital Status</label></div>
+                    <div class="span10">
+                    	<select data-bind="options: maritalStatusList, optionsText: 'text', optionsValue: 'key', selectedOptions: selectedMaritalStatus" size="5" multiple="true"></select>                    	
+                    </div>
+                </div>
+            </div>
+        	<div class="row-fluid">
+            	<div class="dot-line padt10 row-fluid"></div>
+            	<div class="padt20">
+                	<div class="span2"><label class="bld">Sect</label></div>
+                    <div class="span10">
+                    	<select data-bind="options: sectList, optionsText: 'SectName', optionsValue: 'pkSectId', optionsCaption: 'Any', value: selectedSect()[0], event: {change: afterSectChange}"></select>                    	
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+            	<div class="dot-line padt10 row-fluid"></div>
+            	<div class="padt20">
+                	<div class="span2"><label class="bld">Sub Sect</label></div>
+                    <div class="span10">
+                    	<select data-bind="options: subSectList, optionsText: 'SubSectName', optionsValue: 'pkSubSectId', optionsCaption: 'Any', value: selectedSubSect()[0]"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+            	<div class="dot-line padt10 row-fluid"></div>
+            	<div class="padt20">
+                	<div class="span2"><label class="bld">Caste</label></div>
+                    <div class="span10">
+                    	<select data-bind="options: casteList, optionsText: 'CasteName', optionsValue: 'pkCasteId', optionsCaption: 'Any', value: selectedCaste()[0]"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+            	<div class="dot-line padt10 row-fluid"></div>
+            	<div class="padt20">
+                	<div class="span2"><label class="bld">Mother Tongue</label></div>
+                    <div class="span10">
+                    	<select data-bind="options: motherTongueList, optionsText: 'TongueName', optionsValue: 'pkTongueId', optionsCaption: 'Any', value: selectedMotherTongue()[0]"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+            	<div class="dot-line padt10 row-fluid"></div>
+            	<div class="padt20">
+                	<div class="span2"><label class="bld">Education</label></div>
+                    <div class="span10">
+                    	<select data-bind="options: courseGroupList, optionsText: 'GroupName', optionsValue: 'pkCourseGroupId', optionsCaption: 'Any', value: selectedCourseGroup()[0]"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+            	<div class="dot-line padt10 row-fluid"></div>
+            	<div class="padt20">
+                	<div class="span2"><label class="bld">Country</label></div>
+                    <div class="span10">
+                    	<select data-bind="options: countryList, optionsText: 'CountryName', optionsValue: 'pkCountryId', optionsCaption: 'Any', value: selectedCountry()[0]"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+            	<div class="dot-line padt10 row-fluid"></div>
+            	<div class="padt20">
+                	<div class="span2"></div>
+                    <div class="span10">
+                    	<input type="button" data-bind="click: searchByCriteria, value: 'Search'" class="big-btn" />
+                    </div>
+                </div>
+            </div>
+            <div class="padb35"></div>
+        </div>
+      
+    </div>
+    <div id="tabs-2" class="tab-pane" data-bind="css: {'active': activeSearchTab()=='matrimonyId'}">
+    	<h2>BY MATRIMONY ID</h2>
+        	<div class="padt20"> 
+            	 <div class="row-fluid">
+                    <div class="dot-line padt10 row-fluid"></div>
+                    <div class="padt20">
+                        <div class="span2"><label class="bld">BJM Matrimony ID</label></div>
+                        <div class="span10">
+                            <input type="text" id="memberCode" name="memberCode" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="dot-line padt10 row-fluid"></div>
+                    <div class="padt20">
+                        <div class="span2"></div>
+                        <div class="span10">
+                            <input type="button" data-bind="click: searchMember, value: 'Search'" class="big-btn" />
+                        </div>
+                    </div>
+                </div>
+                <div class="padb35"></div>
+            </div>
+        
+    </div>
+  </div>
+</div>

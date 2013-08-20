@@ -7,6 +7,7 @@
 	};
 	
 	$.fn.grid.update = function(id, options) {
+		console.log(options);
 		options = $.extend({
 			type: 'GET',
 			url: $("#"+id+"_pageURL").val(),

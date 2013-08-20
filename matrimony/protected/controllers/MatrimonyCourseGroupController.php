@@ -27,7 +27,7 @@ class MatrimonyCourseGroupController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('findAll'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -44,6 +44,11 @@ class MatrimonyCourseGroupController extends Controller
 		);
 	}
 
+	public function actionFindAll()
+	{
+		$results = MatrimonyCourseGroup::model()->findAll(array('order'=>'GroupName'));
+		echo CJSON::encode($results);
+	}
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed

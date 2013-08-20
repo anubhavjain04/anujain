@@ -1,0 +1,345 @@
+<!-- Age Modal -->
+<div class="modal fade" id="ageModal" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Age</h4>
+      </div>
+      <div class="modal-body">
+        <select data-bind="options: ageList, value: ageFrom">
+        </select>
+        To
+        <select data-bind="options: ageList, value: ageTo">
+        </select>
+        Years
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: function(){searchByCriteria();}">Search</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal --> 
+
+<!-- Height Modal -->
+<div class="modal fade" id="heightModal" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Height</h4>
+      </div>
+      <div class="modal-body">
+        <select data-bind="options: heightList, optionsText: 'text', optionsValue: 'key', value: heightFrom" class="search-input wdth130">
+        </select>
+        To
+        <select data-bind="options: heightList, optionsText: 'text', optionsValue: 'key', value: heightTo" class="search-input wdth130">
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: function(){searchByCriteria();}">Search</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal --> 
+
+<!-- Marital Status Modal -->
+<div class="modal fade" id="maritalStatusModal" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Marital Status</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="listView" data-bind="foreach: maritalStatusList()">
+          <li>
+            <input type="checkbox" data-bind="attr: { value: key }, checked: $parent.selectedMaritalStatus" />
+            <label data-bind="text: text" class="disinblk"></label>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: function(){searchByCriteria();}">Search</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal --> 
+
+<!-- Mother Toungue Modal -->
+<div class="modal fade" id="motherToungueModal" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Mother Toungue</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="listView" data-bind="foreach: motherTongueList()">
+          <li>
+            <input type="checkbox" data-bind="attr: { value: pkTongueId }, checked: $parent.selectedMotherTongue" />
+            <label data-bind="text: TongueName" class="disinblk"></label>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: function(){searchByCriteria();}">Search</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal --> 
+
+<!-- Sect Modal -->
+<div class="modal fade" id="sectModal" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Sect</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="listView" data-bind="foreach: sectList()">
+          <li>
+            <input type="checkbox" data-bind="attr: { value: pkSectId }, checked: $parent.selectedSect, event: {click: function(){$parent.afterSectChange(); return true;}}" />
+            <label data-bind="text: SectName" class="disinblk"></label>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: function(){searchByCriteria();}">Search</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal --> 
+
+<!-- Sub Sect Modal -->
+<div class="modal fade" id="subSectModal" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Sub Sect</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="listView" data-bind="foreach: subSectList()">
+          <li>
+            <input type="checkbox" data-bind="attr: { value: pkSubSectId }, checked: $parent.selectedSubSect" />
+            <label data-bind="text: SubSectName" class="disinblk"></label>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: function(){searchByCriteria();}">Search</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal --> 
+
+<!-- Caste Modal -->
+<div class="modal fade" id="casteModal" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Caste</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="listView" data-bind="foreach: casteList()">
+          <li>
+            <input type="checkbox" data-bind="attr: { value: pkCasteId }, checked: $parent.selectedCaste" />
+            <label data-bind="text: CasteName" class="disinblk"></label>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: function(){searchByCriteria();}">Search</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal --> 
+
+<!-- education -->
+<div class="modal fade" id="educationModal" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Education</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="listView" data-bind="foreach: courseGroupList()">
+          <li>
+            <input type="checkbox" data-bind="attr: { value: pkCourseGroupId }, checked: $parent.selectedCourseGroup" />
+            <label data-bind="text: GroupName" class="disinblk"></label>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: function(){searchByCriteria();}">Search</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal --> 
+
+<!-- Occupation -->
+<div class="modal fade" id="occupationModal" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Occupation</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="listView" data-bind="foreach: occupationGroupList()">
+          <li>
+            <input type="checkbox" data-bind="attr: { value: pkOccGroupId }, checked: $parent.selectedOccupationGroup" />
+            <label data-bind="text: GroupName" class="disinblk"></label>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: function(){searchByCriteria();}">Search</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal -->
+
+<!-- Annual Income -->
+<div class="modal fade" id="annualIncomeModal" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Annual Income</h4>
+      </div>
+      <div class="modal-body">
+      	<select data-bind="options: annualIncomeList, optionsText: 'text', optionsCaption: 'Any', value: selectedAnnualIncome"></select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: function(){searchByCriteria();}">Search</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal -->
+
+<!-- Country -->
+<div class="modal fade" id="countryModal" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Country</h4>
+      </div>
+      <div class="modal-body">
+      	<ul class="listView" data-bind="foreach: countryList()">
+          <li>
+            <input type="checkbox" data-bind="attr: { value: pkCountryId }, checked: $parent.selectedCountry" />
+            <label data-bind="text: CountryName" class="disinblk"></label>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: function(){searchByCriteria();}">Search</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal -->
+
+<!-- Physical Status -->
+<div class="modal fade" id="physicalStatusModal" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Physical Status</h4>
+      </div>
+      <div class="modal-body">
+      	<ul class="listView" data-bind="foreach: physicalStatusList()">
+          <li>
+            <input type="checkbox" data-bind="attr: { value: key }, checked: $parent.selectedPhysicalStatus" />
+            <label data-bind="text: text" class="disinblk"></label>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: function(){searchByCriteria();}">Search</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal -->
+
+<!-- Employed In -->
+<div class="modal fade" id="employedInModal" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Employed In</h4>
+      </div>
+      <div class="modal-body">
+      	<ul class="listView" data-bind="foreach: employedInList()">
+          <li>
+            <input type="checkbox" data-bind="attr: { value: key }, checked: $parent.selectedEmployedIn" />
+            <label data-bind="text: text" class="disinblk"></label>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: function(){searchByCriteria();}">Search</button>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- /.modal -->
+

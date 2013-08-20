@@ -39,15 +39,38 @@ class Controller extends CController
 		}*/
 		
 	}
+	
+	public function getPager($dataProvider){
+		if(isset($dataProvider)){
+			$pager['dataList'] = $dataProvider->getData();
+			$pager['count'] = $dataProvider->getItemCount();
+			$pager['total'] = $dataProvider->getTotalItemCount();
+			//$pager['pid'] = $dataProvider->getId();
+			$pagination = $dataProvider->getPagination();
+			$pager['start'] = $pagination->currentPage*$pagination->pageSize+1;
+			$pager['end'] = $pager['start']+$pager['count']-1;
+			if($pager['end']>$pager['total'])
+			{
+				$pager['end']=$pager['total'];
+				$pager['start']=$pager['end']-$pager['count']+1;
+			}
+			$pager['pageSize']=$pagination->pageSize;
+			$pager['currentPage'] = $pagination->currentPage+1;
+			$pager['pageCount'] = ceil($pager['total']/$pager['pageSize']);
+			return $pager; 
+		}else{
+			throw new CHttpException(400,'The requested search criteria is invalid.');
+		}
+	}
 	 
 	public function AdminName($id)
 	{
-		$connection=Yii::app()->db;
+		/*$connection=Yii::app()->db;
 		$query = "select * from login_master where pkLoginId='$id'";
 		$command=$connection->createCommand($query);
 		$command->execute();
 		$rows=$command->queryRow();
-		return $rows;
+		return $rows;*/
 	}
 
 }

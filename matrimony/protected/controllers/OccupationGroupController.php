@@ -27,7 +27,7 @@ class OccupationGroupController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view', 'findAll'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -42,6 +42,12 @@ class OccupationGroupController extends Controller
 				'users'=>array('*'),
 			),
 		);
+	}
+	
+	public function actionFindAll()
+	{
+		$results = OccupationGroup::model()->findAll(array('order'=>' GroupName ASC '));
+		echo CJSON::encode($results);
 	}
 
 	/**
