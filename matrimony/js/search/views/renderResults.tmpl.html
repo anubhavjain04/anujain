@@ -1,89 +1,83 @@
 <div class="row-fluid">
-<h1>Your Search Results (<span data-bind="text: totalItems"></span>)</h1>
-<div class="dot-line mrgb20"></div>
-
-<!-- ko if: dataList && dataList().length>0 -->
-<div class="pager"> Go to page:
-  <ul class="yiiPager" >
-    <li class="previous" data-bind="css:{'disabled': disablePrevious()}"><a href="javascript:void(0)" data-bind="click: previousPage">&lt; Previous</a></li>
-    <!-- ko foreach: pageList() -->
-    <li class="page" data-bind="css: {'selected': selected}"><a href="javascript:void(0)" data-bind="text: pageNo, click: function(){$parent.goToPage(pageNo);}"></a></li>
-    <!-- /ko -->
-    <li class="next" data-bind="css:{'disabled': disableNext()}"><a href="javascript:void(0)" data-bind="click: nextPage">Next &gt;</a></li>
+  <h1>Your Search Results (<span data-bind="text: totalItems"></span>)</h1>
+  <div class="dot-line mrgb20"></div>
+  
+  <!-- ko if: dataList && dataList().length>0 -->
+  <div class="pager"> Go to page:
+    <ul class="yiiPager" >
+      <li class="previous" data-bind="css:{'disabled': disablePrevious()}"><a href="javascript:void(0)" data-bind="click: previousPage">&lt; Previous</a></li>
+      <!-- ko foreach: pageList() -->
+      <li class="page" data-bind="css: {'selected': selected}"><a href="javascript:void(0)" data-bind="text: pageNo, click: function(){$parent.goToPage(pageNo);}"></a></li>
+      <!-- /ko -->
+      <li class="next" data-bind="css:{'disabled': disableNext()}"><a href="javascript:void(0)" data-bind="click: nextPage">Next &gt;</a></li>
     </ul>
-</div>
-<div data-bind="foreach: dataList">
-  <div class="bdr1 mrgb20 curve10">
-    <div class="bgclr5 pad15"><span class="bigtxt-s clrw" data-bind="text: 'BJM'+MemberCode"></span></div>
-    <div class="pad15"> <a href="#">
-      <div class="fleft bdr1 women" data-bind="if: MemberPhoto"> <img data-bind="attr:{'src': siteBaseUrl+'/../resources/matrimony/'+MemberPhoto, 'title': MemberName}" /> </div>
-      </a>
-      <div class="fleft pad5 wdth500">
-        <div class="padt3 padb10">
-          <div class="fleft bigtxt-s"><a href="#" class="clr5" data-bind="text: MemberName"></a></div>
-          <div class="fright">
-          	<button class="medimum-btn wdth45">View Full Profile</button>
-            
-          </div>
-          <div class="clear"></div>
+  </div>
+  <div data-bind="foreach: dataList">
+    <div class="bdr1 mrgb20 curve10">
+      <div class="bgclr5 pad15">
+        <div class="pull-left"> <span class="bigtxt-s clrw" data-bind="text: MemberCode"></span> </div>
+        <div class="pull-right">
+          <button type="button" class="btn btn-primary" data-bind="click: function(){$parent.viewMember(MemberCode);}">View Full Profile</button>
         </div>
-        <div class="padt5">
-          <div class="fleft wdth90 clr3">Age, Height</div>
-          <div class="fleft padl5 padr10">:</div>
-          <div class="fleft clrblack"><span data-bind="text: age+' yrs,'"></span> <span data-bind="text: $parents[1].heightInWords(Height)"></span></div>
-          <div class="cleard"></div>
-        </div>
-        <div class="padt5">
-          <div class="fleft wdth90 clr3">Sect</div>
-          <div class="fleft padl5 padr10">:</div>
-          <div class="fleft clrblack" data-bind="text: sectName"></div>
-          <div class="cleard"></div>
-        </div>
-        <div class="padt5">
-          <div class="fleft wdth90 clr3">Sub Sect</div>
-          <div class="fleft padl5 padr10">:</div>
-          <div class="fleft clrblack" data-bind="text: subSectName"></div>
-          <div class="cleard"></div>
-        </div>
-        <div class="padt5">
-          <div class="fleft wdth90 clr3">Location</div>
-          <div class="fleft padl5 padr10">:</div>
-          <div class="fleft clrblack" data-bind="text: ResidingCity+', '+state+', '+country"></div>
-          <div class="cleard"></div>
-        </div>
-        <div class="padt5">
-          <div class="fleft wdth90 clr3">Education</div>
-          <div class="fleft padl5 padr10">:</div>
-          <div class="fleft clrblack" data-bind="text: education"></div>
-          <div class="cleard"></div>
-        </div>
-        <div class="padt5">
-          <div class="fleft wdth90 clr3">Occupation</div>
-          <div class="fleft padl5 padr10">:</div>
-          <div class="fleft clrblack" data-bind="text: occupation"></div>
-          <div class="cleard"></div>
-        </div>
+        <div class="clearfix"></div>
       </div>
-      <div class="cleard"></div>
-      <div class="padt10">
-        <div class="pad5 bgclr4"> </div>
+      <div class="pad15 col-sm-12">
+        <div class="bdr1 women col-sm-3 pad-reset" data-bind="if: MemberPhoto"><a href="#"> <img data-bind="attr:{'src': siteBaseUrl+'/../resources/matrimony/'+MemberPhoto, 'title': MemberName}" /></a> </div>
+        <div class="pad5 col-sm-9">
+          <div class="padt3 padb10 col-sm-12 row">
+            <div class="bigtxt-s"><a href="#" class="clr5" data-bind="text: MemberName"></a></div>
+          </div>
+          <div class="padt5 col-sm-12 row">
+            <div class="clr3 col-sm-3">Age, Height</div>
+            <div class="clrblack col-sm-9"> : <span data-bind="text: age+' yrs,'"></span> <span data-bind="text: $parents[1].heightInWords(Height)"></span> </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="padt5 col-sm-12 row">
+            <div class="clr3 col-sm-3">Sect</div>
+            <div class="clrblack col-sm-9"> : <span data-bind="text: sectName"></span> </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="padt5 col-sm-12 row">
+            <div class="clr3 col-sm-3">Sub Sect</div>
+            <div class="clrblack col-sm-9"> : <span data-bind="text: subSectName"></span> </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="padt5 col-sm-12 row">
+            <div class="clr3 col-sm-3">Location</div>
+            <div class="clrblack col-sm-9"> : <span data-bind="text: ResidingCity+', '+state+', '+country"></span> </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="padt5 col-sm-12 row">
+            <div class="clr3 col-sm-3">Education</div>
+            <div class="clrblack col-sm-9"> : <span data-bind="text: education"></span> </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="padt5 col-sm-12 row">
+            <div class="clr3 col-sm-3">Occupation</div>
+            <div class="clrblack col-sm-9"> : <span data-bind="text: occupation"></span> </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="padt10">
+          <div class="pad5 bgclr4" data-bind="text: AboutMe"> </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="pager"> Go to page:
-  <ul class="yiiPager" >
-    <li class="previous" data-bind="css:{'disabled': disablePrevious()}"><a href="javascript:void(0)" data-bind="click: previousPage">&lt; Previous</a></li>
-    <!-- ko foreach: pageList() -->
-    <li class="page" data-bind="css: {'selected': selected}"><a href="javascript:void(0)" data-bind="text: pageNo, click: function(){$parent.goToPage(pageNo);}"></a></li>
-    <!-- /ko -->
-    <li class="next" data-bind="css:{'disabled': disableNext()}"><a href="javascript:void(0)" data-bind="click: nextPage">Next &gt;</a></li>
+  <div class="pager"> Go to page:
+    <ul class="yiiPager" >
+      <li class="previous" data-bind="css:{'disabled': disablePrevious()}"><a href="javascript:void(0)" data-bind="click: previousPage">&lt; Previous</a></li>
+      <!-- ko foreach: pageList() -->
+      <li class="page" data-bind="css: {'selected': selected}"><a href="javascript:void(0)" data-bind="text: pageNo, click: function(){$parent.goToPage(pageNo);}"></a></li>
+      <!-- /ko -->
+      <li class="next" data-bind="css:{'disabled': disableNext()}"><a href="javascript:void(0)" data-bind="click: nextPage">Next &gt;</a></li>
     </ul>
-</div>
-<!-- /ko --> 
-
-<!-- ko if: dataList && dataList().length===0 -->
-<div>No results found.....</div>
-<!-- /ko --> 
-<div class="block-layer-for-ajax"></div>
+  </div>
+  <!-- /ko --> 
+  
+  <!-- ko if: dataList && dataList().length===0 -->
+  <div>No results found.....</div>
+  <!-- /ko -->
+  <div class="block-layer-for-ajax"></div>
 </div>

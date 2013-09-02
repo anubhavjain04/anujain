@@ -2,8 +2,7 @@ define(function (require) {
 	var ko               = require('knockout');
 	var $                = require('jquery');
 	var ajaxutil		 = require('ajaxutil');
-	var SearchResults	 = require('search/searchResults');
-	var Route	 		 = require('search/route');	
+	var SearchResults	 = require('search/searchResults');		
 
 	return function(){ 
 		var self = this;
@@ -17,8 +16,10 @@ define(function (require) {
 			this.from = from;
 			this.to = to;
 		};
-		self.searchViewModel = function() {
+		self.searchViewModel = function(mainVM) {
 			var vm = this;
+			vm.mainVM = mainVM;
+			
 			vm.searchResults = new SearchResults();
 			
 			vm.activeSearchTab = ko.observable('regular');
@@ -26,6 +27,7 @@ define(function (require) {
 			vm.progress = 0;
 			
 			vm.sex = ko.observable(0);
+			vm.memberCode = ko.observable();
 			vm.ageList = [];
 			vm.ageFrom = ko.observable();
 			vm.ageTo = ko.observable();	
@@ -75,8 +77,9 @@ define(function (require) {
 			vm.showSearchResults = ko.observable(false);
 			
 			vm.searchMember = function(){
-				
-				
+				if(vm.memberCode()){
+					vm.mainVM.route.searchMember(vm.memberCode());
+				}
 			};
 			
 			vm.generateSpecs = function(){
@@ -104,7 +107,7 @@ define(function (require) {
 			};
 			
 			vm.searchByCriteria = function(){
-				vm.route.searchRecords(vm.generateSpecs());
+				vm.mainVM.route.searchRecords(vm.generateSpecs());
 			};
 			
 			vm.fillCasteList = function(){
@@ -177,6 +180,17 @@ define(function (require) {
 				if(heightValue){
 					var matchObject = ko.utils.arrayFirst(vm.heightList, function(height) {
 						return height.key === heightValue;
+					});
+					
+					if (matchObject) {
+						return matchObject.text;
+					}
+				}
+			};
+			vm.getSelectedObjectText = function(list, key){				
+				if(list){
+					var matchObject = ko.utils.arrayFirst(list, function(item) {
+						return item.key == key;
 					});
 					
 					if (matchObject) {
@@ -296,8 +310,7 @@ define(function (require) {
 				}
 			};
 			vm.init();
-			vm.searchResultsVM = new vm.searchResults.searchResultsViewModel(vm);
-			vm.route = new Route(vm);
+			vm.searchResultsVM = new vm.searchResults.searchResultsViewModel(vm);			
 		};
 	};
 });

@@ -11,28 +11,23 @@
 <link href="<?php echo Yii::app()->request->baseUrl."/..". Yii::app()->params['favicon']; ?>" rel="shortcut icon" type="image/x-icon" />
 <?php include('head.php'); ?>
 <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+<script type="text/javascript" data-main="<?php echo Yii::app()->request->baseUrl; ?>/js/main/init.js" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/require-jquery.js"></script>
 </head>
 <body>
-<div class="row-fluid"> 
 <?php include('topbar.php'); ?>
-<div id="container" class="padt15">
-  <?php echo $content; ?>
-  <div class="clear"></div>
+<?php echo $content; ?>
+<div class="clearfix"></div>
+<div class="container">
   <?php include('footer.php'); ?>
-  
-  
 </div>
-<div class="clear"></div>
+<div class="clearfix"></div>
 <div id="pageLoader" style="display: none;" class="row-fluid">
-	<div class="mid-layer">
-		<h2>Loading......</h2>
-		<div class="progress progress-striped active">
-		  <div class="bar" style="width: 0%;"></div>
-		</div>
-	</div>
-</div>
-
-	
+  <div class="mid-layer">
+    <h2>Loading......</h2>
+    <div class="progress progress-striped active">
+      <div class="bar" style="width: 0%;"></div>
+    </div>
+  </div>
 </div>
 </body>
 </html>

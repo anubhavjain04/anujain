@@ -10,9 +10,9 @@ define(function (require) {
 			this.pageNo = pageNo;
 			this.selected = selected;
 		};
-		self.searchResultsViewModel = function(parent) {
+		self.searchResultsViewModel = function(searchVM) {
 			var vm = this;
-			vm.parent = parent;			
+			vm.searchVM = searchVM;			
 			vm.totalItems = ko.observable(0);
 			vm.start = ko.observable(0);
 			vm.end = ko.observable(0);
@@ -53,7 +53,7 @@ define(function (require) {
 				}
 				ajaxutil.get("search/results", dataObject, function(data){
 					if(data){
-						vm.parent.showSearchResults(true);
+						vm.searchVM.mainVM.showPage('search-results-page');
 						vm.totalItems(data.total);
 						vm.start(data.start);
 						vm.end(data.end);
@@ -131,6 +131,10 @@ define(function (require) {
 					}
 					vm.pageList.push(new self.Page(i, isSelected));	
 				}
+			};
+			
+			vm.viewMember = function(memberId){
+				vm.searchVM.mainVM.route.searchMember(memberId);
 			};
 			
 			vm.showSearchResults = function(specs){

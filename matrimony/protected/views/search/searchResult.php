@@ -1,6 +1,6 @@
 <div>
   <div class="padt30">
-    <div class="fleft wdth280">
+    <div class="pull-left wdth280">
       <div class="clrw search-header bld mediumhdrtxt">REFINE SEARCH</div>
       <div class="pad10 padt20 bdr1">
       	<div>
@@ -132,7 +132,7 @@
         </form>
       </div>
     </div>
-    <div class="fright wdth700">
+    <div class="pull-right wdth700">
      <?php include('searchSpec.php'); ?>
     </div>
   </div>

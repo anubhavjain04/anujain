@@ -1,8 +1,11 @@
 <!-- bhartiya jain milan matrimony CSS framework -->
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/css/bootstrap-theme-modified.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/css/offcanvas.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/pager.css" />
+
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/json3.min.js" ></script>
 <!-- javascript -->
 <?php
     Yii::app()->clientScript->registerScript('search', "

@@ -40,7 +40,7 @@ define(function(require) {
 	        }
 	        var jsonData = $.ajax({
 	                type : 'GET',
-	                url : url + uuid,
+	                url : this.sitePath + url + "id/"+uuid,
 	                dataType : "json",
 	                async : false
 	        }).responseText;

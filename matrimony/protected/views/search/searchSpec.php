@@ -29,7 +29,7 @@
 <div class="bdr1 mrgb20 curve10">
   <div class="bgclr5 pad15"><span class="bigtxt-s clrw"><?php echo 'BJM'.$result->MemberCode ?></span></div>
   <div class="pad15"> <a href="#">
-    <div class="fleft bdr1 women">
+    <div class="pull-left bdr1 women">
       <?php
 					$imgPath = '';										
 					if($result->MemberPhoto && trim($result->MemberPhoto)!=""){
@@ -43,48 +43,48 @@
 				?>
     </div>
     </a>
-    <div class="fleft pad5 wdth500">
+    <div class="pull-left pad5 wdth500">
       <div class="padt3 padb10">
-        <div class="fleft bigtxt-s"><a href="#" class="clr5"><?php echo $result->MemberName ?></a></div>
-        <div class="fright">
+        <div class="pull-left bigtxt-s"><a href="#" class="clr5"><?php echo $result->MemberName ?></a></div>
+        <div class="pull-right">
           <input type="button" value="View Full Profile" class="medimum-btn wdth45" />
         </div>
         <div class="clear"></div>
       </div>
       <div class="padt5">
-        <div class="fleft wdth90 clr3">Age, Height</div>
-        <div class="fleft padl5 padr10">:</div>
-        <div class="fleft clrblack">24 yrs,  5ft 2in - 157cm </div>
+        <div class="pull-left wdth90 clr3">Age, Height</div>
+        <div class="pull-left padl5 padr10">:</div>
+        <div class="pull-left clrblack">24 yrs,  5ft 2in - 157cm </div>
         <div class="cleard"></div>
       </div>
       <div class="padt5">
-        <div class="fleft wdth90 clr3">Sect</div>
-        <div class="fleft padl5 padr10">:</div>
-        <div class="fleft clrblack">Digambar</div>
+        <div class="pull-left wdth90 clr3">Sect</div>
+        <div class="pull-left padl5 padr10">:</div>
+        <div class="pull-left clrblack">Digambar</div>
         <div class="cleard"></div>
       </div>
       <div class="padt5">
-        <div class="fleft wdth90 clr3">Sub Sect</div>
-        <div class="fleft padl5 padr10">:</div>
-        <div class="fleft clrblack">Digambar-Bisapanthi</div>
+        <div class="pull-left wdth90 clr3">Sub Sect</div>
+        <div class="pull-left padl5 padr10">:</div>
+        <div class="pull-left clrblack">Digambar-Bisapanthi</div>
         <div class="cleard"></div>
       </div>
       <div class="padt5">
-        <div class="fleft wdth90 clr3">Location</div>
-        <div class="fleft padl5 padr10">:</div>
-        <div class="fleft clrblack">Bhubaneshwar, Odisha, India</div>
+        <div class="pull-left wdth90 clr3">Location</div>
+        <div class="pull-left padl5 padr10">:</div>
+        <div class="pull-left clrblack">Bhubaneshwar, Odisha, India</div>
         <div class="cleard"></div>
       </div>
       <div class="padt5">
-        <div class="fleft wdth90 clr3">Education</div>
-        <div class="fleft padl5 padr10">:</div>
-        <div class="fleft clrblack">BFA</div>
+        <div class="pull-left wdth90 clr3">Education</div>
+        <div class="pull-left padl5 padr10">:</div>
+        <div class="pull-left clrblack">BFA</div>
         <div class="cleard"></div>
       </div>
       <div class="padt5">
-        <div class="fleft wdth90 clr3">Occupation</div>
-        <div class="fleft padl5 padr10">:</div>
-        <div class="fleft clrblack">BFA</div>
+        <div class="pull-left wdth90 clr3">Occupation</div>
+        <div class="pull-left padl5 padr10">:</div>
+        <div class="pull-left clrblack">BFA</div>
         <div class="cleard"></div>
       </div>
     </div>

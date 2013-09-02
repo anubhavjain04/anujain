@@ -1,13 +1,13 @@
-<div class="fright">
+<div class="pull-right">
   <nav>
-    <ul class="fright" id="topmenu">
-      <li><a class="current" href='<?php echo Yii::app()->createUrl("/");?>' rel="site">Home</a></li>
-      <li><a href='<?php echo Yii::app()->createUrl("/search/search");?>' rel="search">Search</a></li>
-      <li><a href="#nogo" rel="register">Register</a></li>
-      <li><a href="#nogo" rel="package">Package</a></li>
-      <li><a href="#nogo" rel="groups">GROUPS</a></li>
-      <li><a href="#nogo" rel="tour">Take a tour</a></li>
-      <li><a href="#nogo" rel="contact">Contact Us</a></li>
+    <ul class="pull-right" id="topmenu">
+      <li><a href="javascript: void(0)" rel="site" data-bind="css: {'current': $root.categorySwitch()==$root.label.HOME_PAGE}, click: function(){jHash.set($root.label.HOME_PAGE);}">Home</a></li>
+      <li><a href="javascript: void(0)" rel="search" data-bind="css: {'current': $root.categorySwitch()==$root.label.SEARCH_PAGE}, click: function(){jHash.set('search/criteria',{type:'regular'});}">Search</a></li>
+      <li><a href="javascript: void(0)" rel="register">Register</a></li>
+      <li><a href="javascript: void(0)" rel="package">Package</a></li>
+      <li><a href="javascript: void(0)" rel="groups">GROUPS</a></li>
+      <li><a href="javascript: void(0)" rel="tour">Take a tour</a></li>
+      <li><a href="javascript: void(0)" rel="contact">Contact Us</a></li>
     </ul>
   </nav>
 </div>

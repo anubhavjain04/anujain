@@ -1,69 +1,75 @@
 define(function (require) {
     
-	var ko               = require('knockout');
-	var $                = require('jquery');
+	var ko      = require('knockout');
+	var $       = require('jquery');
+	var Label   = require('label');
 
-	return function(parent){ 
+	return function(mainVM){ 
 		var self = this;
-		self.parent = parent;
+		self.mainVM = mainVM;		
+		self.searchVM = self.mainVM.searchVM;
+		self.label = new Label();
 		
 		self.searchRecords = function(specs){
-			jHash.set('searchResults', specs);
+			jHash.set(self.label.SEARCH_PAGE+'/results', specs);
+		};
+		
+		self.searchMember = function(memberId){
+			jHash.set(self.label.SEARCH_PAGE+'/member/'+memberId, {});
 		};
 		
 		self.setSpecs = function(queryJSON){
 			try{
 				if(queryJSON.sex)
-					self.parent.sex(parseInt(queryJSON.sex));
+					self.searchVM.sex(parseInt(queryJSON.sex));
 				if(queryJSON.agefrom)
-					self.parent.ageFrom(parseInt(queryJSON.agefrom));
+					self.searchVM.ageFrom(parseInt(queryJSON.agefrom));
 				if(queryJSON.ageto)
-					self.parent.ageTo(parseInt(queryJSON.ageto));
+					self.searchVM.ageTo(parseInt(queryJSON.ageto));
 				if(queryJSON.heightfrom)
-					self.parent.heightFrom(parseFloat(queryJSON.heightfrom));
+					self.searchVM.heightFrom(parseFloat(queryJSON.heightfrom));
 				if(queryJSON.heightto)
-					self.parent.heightTo(parseFloat(queryJSON.heightto));
+					self.searchVM.heightTo(parseFloat(queryJSON.heightto));
 				if(queryJSON.maritalstatus){
-					self.resetSelectedItems(self.parent.selectedMaritalStatus, queryJSON.maritalstatus);
+					self.resetSelectedItems(self.searchVM.selectedMaritalStatus, queryJSON.maritalstatus);
 				}
 				if(queryJSON.sect){
-					self.resetSelectedItems(self.parent.selectedSect, queryJSON.sect);
-					self.parent.afterSectChange();
+					self.resetSelectedItems(self.searchVM.selectedSect, queryJSON.sect);
+					self.searchVM.afterSectChange();
 				}
 				if(queryJSON.subsect){
-					self.resetSelectedItems(self.parent.selectedSubSect, queryJSON.subsect);
+					self.resetSelectedItems(self.searchVM.selectedSubSect, queryJSON.subsect);
 				}
 				if(queryJSON.caste){
-					self.resetSelectedItems(self.parent.selectedCaste, queryJSON.caste);
+					self.resetSelectedItems(self.searchVM.selectedCaste, queryJSON.caste);
 				}
 				if(queryJSON.mothertongue){
-					self.resetSelectedItems(self.parent.selectedMotherTongue, queryJSON.mothertongue);
+					self.resetSelectedItems(self.searchVM.selectedMotherTongue, queryJSON.mothertongue);
 				}
 				if(queryJSON.educationgroup){
-					self.resetSelectedItems(self.parent.selectedCourseGroup, queryJSON.educationgroup);
+					self.resetSelectedItems(self.searchVM.selectedCourseGroup, queryJSON.educationgroup);
 				}
 				if(queryJSON.occupationgroup){
-					self.resetSelectedItems(self.parent.selectedOccupationGroup, queryJSON.occupationgroup);
+					self.resetSelectedItems(self.searchVM.selectedOccupationGroup, queryJSON.occupationgroup);
 				}
 				if(queryJSON.annualincomefrom && queryJSON.annualincometo){
-					self.parent.selectedAnnualIncome(self.parent.findAnnualIncome(queryJSON.annualincomefrom, queryJSON.annualincometo));
+					self.searchVM.selectedAnnualIncome(self.searchVM.findAnnualIncome(queryJSON.annualincomefrom, queryJSON.annualincometo));
 				}
 				if(queryJSON.physicalstatus){
-					self.resetSelectedItems(self.parent.selectedPhysicalStatus, queryJSON.physicalstatus);
+					self.resetSelectedItems(self.searchVM.selectedPhysicalStatus, queryJSON.physicalstatus);
 				}
 				if(queryJSON.employedin){
-					self.resetSelectedItems(self.parent.selectedEmployedIn, queryJSON.employedin);
+					self.resetSelectedItems(self.searchVM.selectedEmployedIn, queryJSON.employedin);
 				}				
 				if(queryJSON.country){
-					self.resetSelectedItems(self.parent.selectedCountry, queryJSON.country);
+					self.resetSelectedItems(self.searchVM.selectedCountry, queryJSON.country);
 				}
 				// get results
-				self.parent.searchResultsVM.showSearchResults(self.parent.generateSpecs());
+				self.searchVM.searchResultsVM.showSearchResults(self.searchVM.generateSpecs());
 			}
 			catch(error){
 			}
 		};
-		
 		self.resetSelectedItems = function(itemObject, newItems){
 			itemObject.removeAll();
 			var itemArray = newItems.split(",");
@@ -74,28 +80,5 @@ define(function (require) {
 				});
 			}
 		};
-		
-		jHash.route("searchAs/{type}", function () {
-			self.parent.showSearchResults(false);
-			if(this.type=='matrimonyId'){
-				self.parent.activeSearchTab('matrimonyId');
-			}else{
-				self.parent.activeSearchTab('regular');
-			}
-		});
-		jHash.route("searchResults", function () {
-			var queryJSON = jHash.val();
-			self.setSpecs(queryJSON);
-		});
-		jHash.route("member/{memberId}", function () {
-			if(this.memberId){
-				
-			}
-			
-			
-		});
-		
-		jHash.defaultRoute("searchAs/regular");
-		jHash.processRoute();
 	};
 });

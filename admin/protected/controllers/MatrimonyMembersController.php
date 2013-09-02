@@ -73,7 +73,7 @@ class MatrimonyMembersController extends Controller
 			$model->MemberPhoto = null;
 			
 			$connection=Yii::app()->db;
-		    $query = "select max(MemberCode*1) maxCode from matrimony_members";
+		    $query = "select MAX(CAST(SUBSTRING(MemberCode, 4) as UNSIGNED)) maxCode from matrimony_members";
 		    $command=$connection->createCommand($query);
 		    $lastMember = $command->queryRow();
 		    $maxCode = 0; 
@@ -89,6 +89,8 @@ class MatrimonyMembersController extends Controller
 			   }
 			  $model->MemberCode = $temp.$model->MemberCode;   
 		    }
+			
+			$model->MemberCode = 'BJM'.$model->MemberCode;
 			
 			if($model->DOB){
 				$model->DOB = date('Y-m-d H:i',strtotime($model->DOB));

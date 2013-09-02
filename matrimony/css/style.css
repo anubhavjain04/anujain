@@ -1,5 +1,5 @@
 /** default **/
-body {
+/*body {
     background: none repeat scroll 0 0 #FFFFFF;
     color: #000000;
     font-family: Arial,Helvetica,Tahoma;
@@ -21,17 +21,7 @@ form, fieldset, legend, label, input, textarea, checkbox, option, button, .nobox
     padding: 0;
     vertical-align: middle;
 }
-input[type="text"], input[type="password"] {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #BABABA;
-    border-radius: 3px 3px 3px 3px;
-    color: #666666;
-    font-family: arial,verdana;
-    font-size: 11px;
-    height: 18px;
-    padding: 3px;
-    width: 150px;
-}
+
 label {
     font-size: 12px;
 }
@@ -52,19 +42,40 @@ h3{
 	color: #00429D;
 }
 
-ul.listView {
-	list-style: none;
-	padding-left: 0px;
+*/
+
+/*#topbar-fixed.navbar-inverse{
+	background-color: #C4161C !important;
+	border-color: #C4161C !important;
+}
+#topbar-fixed.navbar-inverse .navbar-brand{
+	color: #FFFF00;
 }
 
-ul.listView li{
-	padding-left: 10px;
+#topbar-fixed.navbar-inverse .navbar-nav>li>a{
+	color: #59FF59;
 }
 
-ul.listView li label{
-	padding-left: 5px;
-	padding-top: 4px;
+#topbar-fixed.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
+	color: #fff;
+	background-color: #5CB85C;
 }
+
+#topbar-fixed.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
+	color: #fff;
+	background-color: #5CB85C;
+}
+
+*/.small input[type="text"], .small input[type="password"]{
+	font-size: 80%;
+}
+
+#page-body{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+
 
 span.arrow_icon{
 	background: url("jquery-ui/images/ui-icons_004276_256x240.png") no-repeat scroll 0 4px transparent;
@@ -90,6 +101,7 @@ span.arrow_icon{
 	vertical-align: middle; 	
 }
 
+/** for loader**/
 .mid-layer{
 	width: 500px;
 	display: table-cell;
@@ -112,11 +124,7 @@ span.arrow_icon{
 .topstrip {
     background:#FFFFFF url("../img/topstrip_bg.gif") repeat-x scroll center top;
 }
-.topbar {
-    float: none;
-    margin: 0 auto;
-    width: 990px;
-}
+
 .divider{
 	color: #d6d6d6;
 	margin-left: 2px;
@@ -128,6 +136,8 @@ span.arrow_icon{
 	height: 45px;
 }
 
+
+
 /***** body layout *****/
 #container {
     border: 0 solid #CCCCCC;
@@ -137,11 +147,7 @@ span.arrow_icon{
 }
 
 
-.topadd{
-	width: 500px; 
-	height:26px;
-	overflow: hidden;
-}
+
 
 
 .search-header {
@@ -161,7 +167,7 @@ span.arrow{
 }
 
 /***********accordion****************/
-#accordion ul{
+/*#accordion ul{
 	list-style: none;
 	margin: 0px;
 	padding: 0px;	
@@ -178,11 +184,11 @@ span.arrow{
 #accordion a:hover {
 	color: #E36C14;
 }
-/***************************/
+*************************
 
 
-/******** Menu **********/
-ul#topmenu {
+******* Menu *********
+*/ul#topmenu {
     display: block;
     font-family: Helvetica,Arial,Verdana,sans-serif;
     font-size: 12px;
@@ -233,6 +239,10 @@ ul#topmenu li a.current, ul#topmenu li a.current:hover {
     color: #FFFFFF;
 }
 
+#topnav {
+    background: none repeat scroll 0 0 #AA0C25;
+    height: 36px;
+}
 
 .knotposn {
     margin-left: 0;
@@ -246,34 +256,6 @@ ul#topmenu li a.current, ul#topmenu li a.current:hover {
 	height: 44px;
 	background: #FFFFFF url('../img/knot.jpg') no-repeat;
 }
-#topnav {
-    background: none repeat scroll 0 0 #AA0C25;
-    height: 36px;
-}
-#topnav h1 {
-    display: inline;
-    font: 12px arial,verdana;
-}
-
-/************ form ***************/
-.form_row {
-    clear: both;
-}
-.form_row dl {
-    clear: both;
-}
-.form_row dt {
-    clear: both;
-    float: left;
-    padding: 10px 0 7px;
-    width: 140px;
-}
-.form_row dd {
-    display: block;
-    float: left;
-    padding: 7px 0;
-}
-
 
 /************* common *************/
 .dot-line {
@@ -287,7 +269,7 @@ ul#topmenu li a.current, ul#topmenu li a.current:hover {
     width: 982px;
 }
 
-.rdclr {
+/*.rdclr {
     color: #FF0000;
 }
 .textfield {
@@ -324,23 +306,22 @@ ul#topmenu li a.current, ul#topmenu li a.current:hover {
     margin: 0 2px 0 3px;
     vertical-align: middle;
 }
+
+*/
+
+.clearfloat{
+	float: none !important;
+}
+
+.clearwidth{
+	width: auto !important;
+}
+
 .clr9{
 	color: #555555;
 }
-.fleft {
-    float: left;
-}
-.fright {
-    float: right;
-}
-.clear {
-    clear: both;
-}
-.cleard {
-    clear: both;
-    height: 1px;
-    width: 1px;
-}
+
+
 .disblk {
     display: block;
 }
@@ -351,6 +332,9 @@ ul#topmenu li a.current, ul#topmenu li a.current:hover {
 .disinblk {
     display: inline-block;
     margin-top: 4px;
+}
+.pad-reset {
+    padding: 0px;
 }
 .padt1 {
     padding-top: 1px !important;
@@ -541,6 +525,9 @@ ul#topmenu li a.current, ul#topmenu li a.current:hover {
 .mrgl5 {
     margin-left: 5px;
 }
+.mrgb10 {
+    margin-bottom: 10px;
+}
 .mrgl23 {
     margin-left: 33px;
 }
@@ -567,13 +554,6 @@ ul#topmenu li a.current, ul#topmenu li a.current:hover {
 .bld {
     font-weight: bold;
 }
-a {
-    outline: medium none;
-    text-decoration: none;
-}
-a {
-    cursor: pointer;
-}
 img {
     border: 0 none;
     vertical-align: middle;
@@ -594,192 +574,6 @@ img {
     text-align: justify;
 }
 
-.big-btn {
-	border: 1px solid #7d061a;
-	font-size: 16px !important;
-	font-weight: bold;
-	color: #FFFFFF;
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-	cursor: pointer;	
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	margin-top: 1px;
-	background-color: #ad0c26;
-	background: -webkit-gradient(linear, left top, left bottom, from(#ad0c26), to(#8b071c));
-	background: -moz-linear-gradient(top, #ae0c26, #8b071c);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ad0c26', endColorstr='#ad0c26');
-	padding: 4px 8px;
-	line-height: normal;
-
-
-}
-.medimum-btn {
-    background-color: #ad0c26;
-	background: -webkit-gradient(linear, left top, left bottom, from(#ad0c26), to(#8b071c));
-	background: -moz-linear-gradient(top, #ae0c26, #8b071c);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ad0c26', endColorstr='#ad0c26');
-    border: 1px solid #7D061A;	
-    border-radius: 3px 3px 3px 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-family: arial;
-    font-size: 12px;
-    font-weight: bold;
-    margin: 0;
-    outline: medium none;
-    padding: 3px 5px;
-    text-decoration: none;
-}
-.small-btn {
-    background-color: #E98100;
-    border: 0 none;
-    border-radius: 2px 2px 2px 2px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: block;
-    font: bold 11px arial;
-    padding: 5px 10px;
-    text-decoration: none;
-}
-.grey-btn {
-    background-color: #B4B4B4;
-    border: 1px solid #B4B4B4;
-    border-radius: 3px 3px 3px 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-family: arial;
-    font-size: 12px;
-    font-weight: bold;
-    outline: medium none;
-    padding: 4px 10px;
-    text-decoration: none;
-}
-.btn {
-	background-color: #AE0C26;
-	background: -webkit-gradient(linear, left top, left bottom, from(#AE0C26), to(#AE0C26));
-	background: -moz-linear-gradient(top, #AE0C26, #AE0C26);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#AE0C26', endColorstr='#AE0C26');
-    border: 1px solid #7D061A;
-    border-radius: 4px 4px 4px 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-    color: #FFFFFF;
-    cursor: pointer;
-    font-family: Arial,Helvetica,sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: normal;
-    margin-top: 1px;
-    padding: 4px 8px;
-    text-align: center;
-    text-transform: uppercase;
-}
-#hpreg dd {
-    float: left;
-    font: 12px arial,verdana;
-    margin: 0;
-}
-#hpreg {
-    margin: 5px 0 0;
-}
-#hpreg dl {
-    clear: both;
-    color: #000000;
-    display: block;
-    font: 11px arial,verdana;
-    height: 25px;
-    margin: 0;
-    padding: 3px 0 2px;
-}
-#hpreg dt {
-    float: left;
-    padding-right: 11px;
-    padding-top: 3px;
-    text-align: right;
-    width: 112px;
-}
-#hpreg dd {
-    float: left;
-    font: 11px arial,verdana;
-    margin-bottom: 1px !important;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-}
-#hpreg select {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #BABABA;
-    border-radius: 3px 3px 3px 3px;
-	-webkit-border-radius: 3px; 
-  	-moz-border-radius: 3px;
-    color: #797979;
-    font-family: Arial,Helvetica,Sans-Serif;
-    font-size: 11px;
-    height: 25px;
-    margin: 0;
-    padding: 3px 2px 2px;
-    vertical-align: top;
-    width: 150px;
-}
-.register-bg {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/register-bg.jpg") no-repeat scroll 0 0 transparent;*/
-    color: #CB3300;
-    font: 20px arial;
-    height: 40px;
-    width: 325px;
-}
-.hp-banner {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner.jpg") no-repeat scroll right bottom transparent;*/
-    float: left;
-    height: 510px;
-    width: 635px;
-}
-.hp-banner-txt {
-    padding-right: 5px;
-    padding-top: 160px;
-    width: 210px;
-}
-.hp-banner-txt1 {
-    padding-top: 130px;
-    width: 210px;
-}
-.hp-reg {
-    float: right;
-    height: 490px !important;
-    padding-left: 0;
-    width: 335px;
-}
-.celebrate-banner {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-celebrate-banner.jpg") no-repeat scroll 0 0 transparent;*/
-    height: 60px;
-    width: 989px;
-}
-.tollbg {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-tollbg.gif") no-repeat scroll right top transparent;
-    width: 990px;*/
-}
-.selectfield {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #BABABA;
-    border-radius: 3px 3px 3px 3px;
-	-webkit-border-radius: 3px; 
-  	-moz-border-radius: 3px;
-    color: #666666;
-    font-family: arial,verdana;
-    font-size: 11px;
-    height: 22px;
-    padding: 3px 2px 2px 0;
-}
 .link {
     color: #3399CC;
 }
@@ -921,72 +715,6 @@ img {
 .bdr6 {
     border: 3px solid #7F7F7F;
 }
-.artimgborder {
-    border: 1px solid #F3EFEF;
-}
-.tab-active {
-    background: -moz-linear-gradient(center top , #E5E5E5 0%, #FFFFFF 61%) repeat scroll 0 0 transparent;
-    border-color: #E9E9E9 #E9E9E9 #FFFFFF;
-    border-left: 1px solid #E9E9E9;
-    border-right: 1px solid #E9E9E9;
-    border-style: solid;
-    border-width: 1px;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: block;
-    font: bold 11px arial;
-    padding: 8px 5px;
-    text-align: center;
-    text-decoration: none;
-}
-.tab-inactive {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border-color: #E1E1E1 #E1E1E1 #FFFFFF #E9E9E9;
-    border-left: 1px solid #E9E9E9;
-    border-right: 1px solid #E1E1E1;
-    border-style: solid;
-    border-width: 1px;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: block;
-    font: bold 11px arial;
-    padding: 8px 5px;
-    text-align: center;
-    text-decoration: none;
-}
-.tab-posn {
-    margin-top: -31px;
-    position: relative;
-    width: 160px;
-}
-.grey-tab-on a {
-    background-color: #575757;
-    border: 1px solid #575757;
-    border-radius: 12px 12px 12px 12px;
-    color: #E9E9E9;
-    cursor: pointer;
-    display: inline-block;
-    font-family: arial;
-    font-size: 12px;
-    font-weight: bold;
-    outline: medium none;
-    padding: 4px 15px;
-    text-decoration: none;
-}
-.grey-tab-off a {
-    background-color: #D1D1D1;
-    border: 1px solid #D1D1D1;
-    border-radius: 12px 12px 12px 12px;
-    color: #FCFCFC;
-    cursor: pointer;
-    display: inline-block;
-    font-family: arial;
-    font-size: 12px;
-    font-weight: bold;
-    outline: medium none;
-    padding: 4px 15px;
-    text-decoration: none;
-}
 .height18 {
     height: 18px !important;
 }
@@ -1119,18 +847,7 @@ img {
 .wdth998 {
     width: 998px;
 }
-.festival-bg {
-    background: none repeat scroll 0 0 #FAEBD7;
-    border: 1px solid #FBDCB3;
-    border-radius: 3px 3px 3px 3px;
-    width: 275px;
-}
-.festival-bigbg {
-    background: none repeat scroll 0 0 #FAEBD7;
-    border: 1px solid #FBDCB3;
-    border-radius: 3px 3px 3px 3px;
-    width: 445px;
-}
+
 .opacity {
     opacity: 0.9;
 }
@@ -1141,7 +858,6 @@ img {
     font-family: arial;
     line-height: 16px;
     padding-top: 20px;
-    width: 989px;
 }
 .foot-strip {
     border-right: 1px solid #E7E7E7;
@@ -1167,25 +883,7 @@ img {
 .button-action-bg4 {
     background-color: #EDA034;
 }
-.mm-banner {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/mm-leftbanner-bg.jpg") no-repeat scroll right bottom transparent;*/
-    float: left;
-    height: 350px;
-    width: 505px;
-}
-.banner-title {
-    color: #666666;
-    font: 25px times;
-}
-.mm-reg {
-    float: right;
-    width: 335px;
-}
-.celebrate-banner {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-celebrate-banner.jpg") no-repeat scroll 0 0 transparent;*/
-    height: 60px;
-    width: 989px;
-}
+
 .disin {
     display: inline;
 }
@@ -1196,195 +894,8 @@ img {
 .hdot {
     border-bottom: 1px dotted #CCCCCC;
 }
-.errortxt {
-    color: red;
-    font: 11px Arial;
-}
-.black_overlay {
-    background-color: #FFFFFF;
-    display: none;
-    left: 0;
-    opacity: 0.7;
-    position: absolute;
-    top: -1%;
-    width: 100%;
-    z-index: 1000;
-}
-.hp-banner-agr {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-agarwal.jpg") no-repeat scroll right bottom transparent;*/
-    float: left;
-    height: 490px !important;
-    width: 635px;
-}
-.hp-banner-divorcee {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-divorcee.jpg") no-repeat scroll right bottom transparent;*/
-    float: left;
-    height: 490px !important;
-    width: 635px;
-}
-.hp-banner-kayastha {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-kayastha.jpg") no-repeat scroll right bottom transparent;*/
-    height: 490px !important;
-}
-.hp-banner-nair {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-nair.jpg") no-repeat scroll right bottom transparent;*/
-    height: 490px !important;
-}
-.hp-banner-sikh {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-sikh.jpg") no-repeat scroll right bottom transparent;*/
-    height: 490px !important;
-}
-.hp-banner-brahmin {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-bg.gif") no-repeat scroll right bottom transparent;*/
-    float: left;
-    height: 350px;
-    width: 505px;
-}
-.hp-banner-brahmin-txt {
-    color: #666666;
-    font: 25px times;
-    padding: 10px 0;
-    width: auto;
-}
-.hp-banner-jain {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-bg.jpg") no-repeat scroll right bottom transparent;*/
-    float: left;
-    height: 350px;
-    width: 505px;
-}
-.hp-banner-jain-txt {
-    color: #666666;
-    font: 25px times;
-    padding: 10px 0;
-    width: auto;
-}
-.hp-banner-bg {
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: transparent;
-    /*background-image: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-leftbanner-bg.gif");*/
-    background-origin: padding-box;
-    background-position: right bottom !important;
-    background-repeat: no-repeat;
-    background-size: auto auto;
-    float: left;
-    height: 350px !important;
-    width: 505px;
-}
-.hp-banner-bg-txt {
-    color: #666666;
-    font: 25px times;
-    padding: 10px 0;
-    width: auto;
-}
-.pm {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #000000;
-    color: #000000;
-    font: 11px Tahoma;
-    height: 18px;
-    width: 64px;
-}
-.forgotpwddiv {
-    position: absolute;
-    top: 10%;
-    z-index: 2000;
-}
-.quicktourdiv {
-    position: absolute;
-    top: 10%;
-    z-index: 2000;
-}
-.slide5 {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-slide5.gif") no-repeat scroll 0 0 transparent;*/
-    border: 1px solid #F8B107;
-    height: 407px;
-    width: 801px;
-}
-.slide4 {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-slide4.gif") no-repeat scroll 0 0 transparent;*/
-    border: 1px solid #F8B107;
-    height: 407px;
-    width: 801px;
-}
-.slide3 {
-    /*background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-slide3.gif") no-repeat scroll 0 0 transparent;*/
-    border: 1px solid #F8B107;
-    height: 407px;
-    width: 801px;
-}
-.slide2 {
-    background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-slide2.gif") no-repeat scroll 0 0 transparent;
-    border: 1px solid #F8B107;
-    height: 407px;
-    width: 801px;
-}
-.slide1 {
-    background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/hp-slide1.gif") no-repeat scroll 0 0 transparent;
-    border: 1px solid #F8B107;
-    height: 407px;
-    width: 801px;
-}
-.left-stip {
-    background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/left-curve.gif") no-repeat scroll 0 0 transparent;
-    height: 20px;
-    width: 21px;
-}
-.right-stip {
-    background: url("http://imgs.communitymatrimony.com/cbsimages/homepage/right-curve.gif") no-repeat scroll 0 0 transparent;
-    height: 20px;
-    width: 21px;
-}
-.conainerdiv {
-    background-color: #FFFFFF;
-    border: 3px solid #7F7F7F;
-    font-size: 12px;
-    line-height: 18px;
-    width: 480px;
-}
-.close-pwd {
-    color: #333333;
-}
-.black_overlay {
-    background-color: #FFFFFF;
-    display: none;
-    left: 0;
-    opacity: 0.7;
-    position: absolute;
-    top: -1%;
-    width: 100%;
-    z-index: 1000;
-}
-.forgotpwddiv {
-    position: absolute;
-    top: 10%;
-    z-index: 2000;
-}
-.quicktourdiv {
-    position: absolute;
-    top: 10%;
-    z-index: 2000;
-}
 .tlright {
     text-align: right;
-}
-.forgot-txt {
-    color: #E34614;
-    font-size: 140%;
-    font-weight: bold;
-    padding-bottom: 10px;
-}
-.matriid-txt {
-    color: #E34614;
-    font-size: 100%;
-    font-weight: bold;
-    padding-bottom: 5px;
-    padding-top: 5px;
-}
-.container-txt {
-    color: #333333;
-    font-size: 11px;
-    padding-top: 5px;
 }
 
 .men{
@@ -1397,12 +908,3 @@ img {
 	height: 200px;
 	width: 150px;
 }
-
-/*************modify jquery-ui************************/
-
-.ui-accordion-content{
-	padding: 1em 1em !important;
-}
-
-
-

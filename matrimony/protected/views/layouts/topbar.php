@@ -1,37 +1,35 @@
-<header class="topstrip">
-  <div class="topbar">
-    <div>
-      <div class="fleft ">
-        <div id="hp-banner"> 
-          <!-- for addvetisement -->
-          <div class="topadd">
-            <div class="padt5"> <a class="clr9" href="http://www.bhartiyajainmilan.com/index.php">BJM Home</a> <span class="divider">|</span> <a class="clr9" href="#">Search Member</a> <span class="divider">|</span> <a class="clr9" href="http://localhost/bjm-svn/index.php/staticPages/contactUs.html">Contact Us</a> </div>
-          </div>
+<div id="topbar-fixed" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="#">Jain Milan Matrimonial</a> </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.HOME_PAGE}, click: function(){jHash.set($root.label.HOME_PAGE);}"><a href="#">Home</a></li>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.SEARCH_PAGE}, click: function(){jHash.set('search/criteria',{type:'regular'});}"><a href="#about">Search</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Package</a></li>
+            <li><a href="#">Groups</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><a href="#">Take a Tour</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input type="text" placeholder="Email" class="form-control" />
         </div>
-        <div class="padt15"> <a href='<?php echo Yii::app()->createUrl("/");?>' title="Bhartiya Jain Milan Matrimony">
-          <div class="bjm-matrimony-logo"></div>
-          </a> </div>
-      </div>
-      <div class="padt20 fright mediumhdrtxt-m padb15">
-        <div class="padt20">
-          <?php include('login.php'); ?>
+        <div class="form-group">
+          <input type="password" placeholder="Password" class="form-control" />
         </div>
-      </div>
+        <button type="submit" class="btn btn-success">Sign in</button>
+      </form>
     </div>
-    <div class="clear"></div>
-    <div>
-      <?php include('mainmenu.php'); ?>
-    </div>
-    <div class="clear"></div>
+    <!--/.navbar-collapse --> 
   </div>
-</header>
-<nav>
-  <div id="topnav">
-    <div class="wrapper pos-relative">
-      <div class="knotposn">
-        <div class="knot"></div>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>
-</nav>
+</div>

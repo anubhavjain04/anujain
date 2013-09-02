@@ -91,6 +91,29 @@ class SearchController extends Controller
 		}
 		
 	}
+	
+	public function actionMember($id){
+		if($id){
+			$criteria=new CDbCriteria;
+			$criteria->condition='MemberCode=:MemberCode';
+			$criteria->params=array(':MemberCode'=>$id);
+			$member = MatrimonyMembers::model()->find($criteria);
+			$jsonMember = CJSON::decode(CJSON::encode($member));
+			$jsonMember['age'] = date('Y',time()) - date('Y',strtotime($member['DOB']));
+			$jsonMember['sectName'] = $member->fkSect0->SectName;
+			$jsonMember['subSectName'] = $member->fkSubSect0->SubSectName;
+			$jsonMember['country'] = $member->fkCountryLivingIn0->CountryName;
+			$jsonMember['state'] = $member->fkResidingState0->StateName;
+			$jsonMember['education'] = $member->fkEducation0->CourseName;
+			$jsonMember['occupation'] = $member->occupation->OccupationName;
+			$jsonMember['motherTongue'] = $member->fkMotherTongue0->TongueName;
+			$jsonMember['caste'] = $member->fkCaste0->CasteName;
+			
+			echo CJSON::encode($jsonMember);;
+		}else{
+			throw new CHttpException(404,'The requested member does not found.');
+		}
+	}
 
 	
 	/*public function loadModel(){

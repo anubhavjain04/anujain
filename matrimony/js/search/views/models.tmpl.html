@@ -1,4 +1,5 @@
 <!-- Age Modal -->
+
 <div class="modal fade" id="ageModal" style="display: none;">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -12,8 +13,7 @@
         To
         <select data-bind="options: ageList, value: ageTo">
         </select>
-        Years
-      </div>
+        Years </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: function(){searchByCriteria();}">Search</button>
@@ -238,7 +238,7 @@
   </div>
   <!-- /.modal-dialog --> 
 </div>
-<!-- /.modal -->
+<!-- /.modal --> 
 
 <!-- Annual Income -->
 <div class="modal fade" id="annualIncomeModal" style="display: none;">
@@ -249,7 +249,8 @@
         <h4 class="modal-title">Annual Income</h4>
       </div>
       <div class="modal-body">
-      	<select data-bind="options: annualIncomeList, optionsText: 'text', optionsCaption: 'Any', value: selectedAnnualIncome"></select>
+        <select data-bind="options: annualIncomeList, optionsText: 'text', optionsCaption: 'Any', value: selectedAnnualIncome">
+        </select>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -260,7 +261,7 @@
   </div>
   <!-- /.modal-dialog --> 
 </div>
-<!-- /.modal -->
+<!-- /.modal --> 
 
 <!-- Country -->
 <div class="modal fade" id="countryModal" style="display: none;">
@@ -271,7 +272,7 @@
         <h4 class="modal-title">Country</h4>
       </div>
       <div class="modal-body">
-      	<ul class="listView" data-bind="foreach: countryList()">
+        <ul class="listView" data-bind="foreach: countryList()">
           <li>
             <input type="checkbox" data-bind="attr: { value: pkCountryId }, checked: $parent.selectedCountry" />
             <label data-bind="text: CountryName" class="disinblk"></label>
@@ -287,7 +288,7 @@
   </div>
   <!-- /.modal-dialog --> 
 </div>
-<!-- /.modal -->
+<!-- /.modal --> 
 
 <!-- Physical Status -->
 <div class="modal fade" id="physicalStatusModal" style="display: none;">
@@ -298,7 +299,7 @@
         <h4 class="modal-title">Physical Status</h4>
       </div>
       <div class="modal-body">
-      	<ul class="listView" data-bind="foreach: physicalStatusList()">
+        <ul class="listView" data-bind="foreach: physicalStatusList()">
           <li>
             <input type="checkbox" data-bind="attr: { value: key }, checked: $parent.selectedPhysicalStatus" />
             <label data-bind="text: text" class="disinblk"></label>
@@ -314,7 +315,7 @@
   </div>
   <!-- /.modal-dialog --> 
 </div>
-<!-- /.modal -->
+<!-- /.modal --> 
 
 <!-- Employed In -->
 <div class="modal fade" id="employedInModal" style="display: none;">
@@ -325,7 +326,7 @@
         <h4 class="modal-title">Employed In</h4>
       </div>
       <div class="modal-body">
-      	<ul class="listView" data-bind="foreach: employedInList()">
+        <ul class="listView" data-bind="foreach: employedInList()">
           <li>
             <input type="checkbox" data-bind="attr: { value: key }, checked: $parent.selectedEmployedIn" />
             <label data-bind="text: text" class="disinblk"></label>
@@ -341,5 +342,5 @@
   </div>
   <!-- /.modal-dialog --> 
 </div>
-<!-- /.modal -->
+<!-- /.modal --> 
 

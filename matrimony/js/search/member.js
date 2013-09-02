@@ -6,22 +6,32 @@ define(function (require) {
 
 	return function(){ 
 		var self = this;
-		self.memberViewModel = function(parent) {
+		self.memberViewModel = function(mainVM) {
 			var vm = this;
-			vm.parent = parent;
-			vm.memberId = ko.observable();
+			vm.mainVM = mainVM;
 			vm.memberData = ko.observable();
+			
 			vm.resetModel = function(){
-				vm.memberId('undefined');
 				vm.memberData('undefined');
 			};
 			
-			vm.findOne = function(){
-				var memberData = ajaxutil.findOne("search/member", vm.memberId());
-					
+			vm.findOne = function(memberId){
+				var memberData = ajaxutil.findOne("search/member", memberId);
+				if(memberData){
+					vm.memberData(memberData);
+				}else{
+					alert("no member found.");
+				}
 			};
-			vm.showMemberPage = function(){
-				
+			vm.showMemberPage = function(memberId){
+				vm.findOne(memberId);
+			};
+			
+			vm.getObjectText = function(list, key){
+				return vm.mainVM.searchVM.getSelectedObjectText(list, key);
+			};
+			vm.back = function(){
+				vm.mainVM.searchVM.searchByCriteria();
 			};
 		};
 	};
