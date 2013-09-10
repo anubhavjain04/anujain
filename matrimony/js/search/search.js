@@ -284,7 +284,7 @@ define(function (require) {
 			};
 			vm.incrementPrgressBar = function(){
 				vm.progress = vm.progress+12.5;
-				$("#pageLoader").find(".bar").css("width",vm.progress+"%");
+				$("#pageLoader").find(".progress-bar").css("width",vm.progress+"%");
 			};
 			// init here
 			vm.init = function(){

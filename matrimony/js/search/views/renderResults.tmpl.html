@@ -14,14 +14,14 @@
   </div>
   <div data-bind="foreach: dataList">
     <div class="bdr1 mrgb20 curve10">
-      <div class="bgclr5 pad15">
-        <div class="pull-left"> <span class="bigtxt-s clrw" data-bind="text: MemberCode"></span> </div>
+      <div class="pad15">
+        <div class="pull-left"> <span class="h3" data-bind="text: MemberCode"></span> </div>
         <div class="pull-right">
           <button type="button" class="btn btn-primary" data-bind="click: function(){$parent.viewMember(MemberCode);}">View Full Profile</button>
         </div>
         <div class="clearfix"></div>
       </div>
-      <div class="pad15 col-sm-12">
+      <div class="pad15 padt0 col-sm-12">
         <div class="bdr1 women col-sm-3 pad-reset" data-bind="if: MemberPhoto"><a href="#"> <img data-bind="attr:{'src': siteBaseUrl+'/../resources/matrimony/'+MemberPhoto, 'title': MemberName}" /></a> </div>
         <div class="pad5 col-sm-9">
           <div class="padt3 padb10 col-sm-12 row">

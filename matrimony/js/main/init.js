@@ -11,8 +11,8 @@ requirejs.config({
         isBuild : false
     }
 });
-require(['jquery', 'knockout', 'knockout-sortable', 'infuser-amd', 'koExternalTemplateEngine-amd', 'knockout.validation.min', 'knockout-postbox.min', 'bootstrap.min', 'jhash-2.1.min', 'main/main', 'domReady!'], 
-function( $,        knockout,   kosortable,          infuser,       koExtTemplate,                  koValidation,              koPostbox,              bootstrap,       route,      	  Main) {
+require(['jquery', 'knockout', 'infuser-amd', 'koExternalTemplateEngine-amd', 'knockout.validation.min', 'bootstrap.min', 'jhash-2.1.min', 'main/main', 'domReady!'], 
+function( $,        knockout,   infuser,       koExtTemplate,                  koValidation,              bootstrap,       route,      	  Main) {
     // Set up some defaults for templates loaded using koExternalTemplateEngine
     infuser.defaults.templateSuffix = ".tmpl.html"
     infuser.defaults.templateUrl = "js";

@@ -1,14 +1,15 @@
 /** default **/
-/*body {
-    background: none repeat scroll 0 0 #FFFFFF;
-    color: #000000;
-    font-family: Arial,Helvetica,Tahoma;
+body {
+	font-family: Arial, Verdana, Geneva, Helvetica, sans-serif;   
     font-size: 12px;
-    line-height: 15px;
     margin: 0;
+    padding: 0;
     text-align: left;
-    text-decoration: none;
+    border: 0 none;
+    background: none repeat scroll 0 0 transparent;
 }
+
+/*
 form {
     margin: 0;
     padding: 0;
@@ -44,29 +45,13 @@ h3{
 
 */
 
-/*#topbar-fixed.navbar-inverse{
-	background-color: #C4161C !important;
-	border-color: #C4161C !important;
-}
 #topbar-fixed.navbar-inverse .navbar-brand{
-	color: #FFFF00;
+	background: #ED1C24 url("../images/matrimony-logo.gif") no-repeat center left;
+	height: 50px;
+	width: 224px;
 }
 
-#topbar-fixed.navbar-inverse .navbar-nav>li>a{
-	color: #59FF59;
-}
-
-#topbar-fixed.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
-	color: #fff;
-	background-color: #5CB85C;
-}
-
-#topbar-fixed.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
-	color: #fff;
-	background-color: #5CB85C;
-}
-
-*/.small input[type="text"], .small input[type="password"]{
+.small input[type="text"], .small input[type="password"]{
 	font-size: 80%;
 }
 
@@ -136,7 +121,11 @@ span.arrow_icon{
 	height: 45px;
 }
 
-
+.jmm_banner{
+	background-image: url('../img/banner.jpg'); 
+	background-position: left top; 
+	background-repeat: no-repeat no-repeat;
+}
 
 /***** body layout *****/
 #container {
@@ -188,7 +177,8 @@ span.arrow{
 
 
 ******* Menu *********
-*/ul#topmenu {
+*/
+ul#topmenu {
     display: block;
     font-family: Helvetica,Arial,Verdana,sans-serif;
     font-size: 12px;
@@ -335,6 +325,9 @@ ul#topmenu li a.current, ul#topmenu li a.current:hover {
 }
 .pad-reset {
     padding: 0px;
+}
+.padt0{
+	padding-top: 0px !important;
 }
 .padt1 {
     padding-top: 1px !important;
@@ -519,6 +512,9 @@ ul#topmenu li a.current, ul#topmenu li a.current:hover {
 .padt40 {
     padding-top: 40px;
 }
+.padt65{
+	padding-top: 65px;
+}
 .mrgl3 {
     margin-left: 3px;
 }
@@ -527,6 +523,9 @@ ul#topmenu li a.current, ul#topmenu li a.current:hover {
 }
 .mrgb10 {
     margin-bottom: 10px;
+}
+.mrgl20 {
+    margin-left: 20px;
 }
 .mrgl23 {
     margin-left: 33px;
@@ -715,6 +714,7 @@ img {
 .bdr6 {
     border: 3px solid #7F7F7F;
 }
+.bot-shadow {box-shadow: 0px 6px 9px -3px #d7d7d7; -moz-box-shadow: 0px 6px 9px -3px #d7d7d7; -webkit-box-shadow: 0px 6px 9px -3px #d7d7d7; -khtml-box-shadow: 0px 6px 9px -3px #d7d7d7;}
 .height18 {
     height: 18px !important;
 }
@@ -907,4 +907,54 @@ img {
 	background: transparent url('../images/women.png') no-repeat left bottom;
 	height: 200px;
 	width: 150px;
+}
+
+.flow-layout {
+	opacity: 0.9;
+	top: 20px;
+	right: 20px;
+	padding-top: 15px;
+	position: relative;
+}
+
+.bgsize100{
+	background-size: 100% 100%; 
+	background-repeat: no-repeat;
+}
+#register-home.form-horizontal{
+	margin-top: 12px;
+	margin-bottom: 12px;
+}
+#register-home.form-horizontal .form-group{
+	margin-bottom: 9px;
+}
+#register-home.form-horizontal .form-group [class*="col-"]{
+	padding-right: 12px;
+	padding-left: 12px;
+}
+
+#register-home.form-horizontal .form-group .input-group-addon {
+	padding: 3px 2px;
+	font-size: 12px;
+}
+
+#register-home.form-horizontal .form-group .checkbox input[type="checkbox"] {
+	margin-left: 0px;
+    margin-right: 10px;
+}
+
+
+#register-home.form-horizontal .form-control{
+	font-size: 12px;
+	height: 25px;
+	padding: 2px 6px;
+	font-size: 12px;
+}
+
+#footer p a {
+	padding: 0px 7px;
+}
+#footer a {
+	color: #0274CB;
+	line-height: 18px;
 }

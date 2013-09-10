@@ -1,30 +1,31 @@
 <!-- footer starts -->
-<div class="padt10 padb20">
-  <div class="foot-top-shadow">
+<div class="panel-footer">
+<div id="footer" class="container">  
     <div class="padb10 col-xs-12 col-sm-12">
-      <h4>Quick Links: </h4>
-      <div class="col-xs-12 col-sm-4">
-        <ul class="nav">
-          <li><small><a class="" href="javascript:void(0)">About Us</a></small></li>
-          <li><small><a class="" href="javascript:void(0)">Contact Us</a></small></li>
-          <li><small><a class="" href="javascript:void(0)">Feedback</a></small></li>
-          <li><small><a class="" href="javascript:void(0)">FAQs</a></small></li>
-        </ul>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <ul class="nav">
-          <li><small><a class="" href="javascript:void(0)">Post Success Story of BJM Matrimonial</a></small></li>
-          <li><small><a class="" href="javascript:void(0)">Popular Matrimony Searches</a></small></li>
-          <li><small><a class="" href="javascript:void(0)">Terms and Conditions</a></small></li>
-          <li><small><a class="" href="javascript:void(0)">Privacy Policy</a></small></li>
-        </ul>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="padt10"><small>Copyright &copy; 2013. All rights reserved.</small></div>
-        <div class="clr1 padr5"><small>Matrimonial is part of www.bhartiyajainmilan.com</small></div>
-      </div>
-    </div>
-    <div class="clearfix"></div>
-  </div>
+    	<p>
+    		<span>Reach Out:</span>
+    		<a href="javascript:void(0)">Contact Us</a>
+    		|<a href="javascript:void(0)">Report Abuse</a>
+    		|<a href="javascript:void(0)">Feedback</a>
+    	</p>
+    	<p>
+    		<span>Information:</span>
+    		<a href="javascript:void(0)">About Us</a>
+    		|<a href="javascript:void(0)">Privacy Policy</a>
+    		|<a href="javascript:void(0)">Terms &amp; Conditions</a>
+    	</p>
+	<p>
+    		<span>Quick Links:</span>
+    		<a href="javascript:void(0)">Post Success Story of BJM Matrimonial</a>
+    		|<a href="javascript:void(0)">Popular Matrimony Searches</a>
+    	</p>
+     </div>
+     <div class="wrapper paddt15 copyright">
+		<div class="text-center text-muted">Copyright &copy; 2013. All rights reserved.</div>
+		<div class="text-center text-muted"><small>Jain Milan Matrimonial is a part of <a href="http://www.bhartiyajainmilan.com" target="_blank">www.bhartiyajainmilan.com</a></small></div>
+								
+	</div>
+    <div class="clearfix"></div>  
+</div>
 </div>
 <!-- footer ends --> 

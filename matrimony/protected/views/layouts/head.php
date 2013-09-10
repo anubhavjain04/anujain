@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/pager.css" />
 
-<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/json3.min.js" ></script>
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/json2.js" ></script>
 <!-- javascript -->
 <?php
     Yii::app()->clientScript->registerScript('search', "
