@@ -114,6 +114,22 @@ class SearchController extends Controller
 			throw new CHttpException(404,'The requested member does not found.');
 		}
 	}
+	
+	public function actionDataList(){
+		$results["sectList"] = MatrimonySect::model()->findAll(array('order'=>' SectName ASC '));
+		
+		$sql = "(SELECT pkCasteId as pkCasteId,CasteName as CasteName FROM matrimony_caste where pkCasteId not in(0,1,2) order by CasteName)
+				union
+				(SELECT pkCasteId as pkCasteId,CasteName as CasteName FROM matrimony_caste where pkCasteId in(0,1,2) order by pkCasteId)";
+		$command=Yii::app()->db->createCommand($sql);
+		$results["casteList"]=$command->queryAll();
+		
+		$results["motherTongueList"] = MatrimonyMotherTongue::model()->findAll(array('order'=>' TongueName ASC '));
+		$results["courseGroupList"] = MatrimonyCourseGroup::model()->findAll(array('order'=>'GroupName'));
+		$results["countryList"] = Country::model()->findAll(array('order'=>' CountryName ASC '));
+		$results["occupationGroupList"] = OccupationGroup::model()->findAll(array('order'=>' GroupName ASC '));
+		echo CJSON::encode($results);
+	}
 
 	
 	/*public function loadModel(){

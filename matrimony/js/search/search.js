@@ -110,55 +110,6 @@ define(function (require) {
 				vm.mainVM.route.searchRecords(vm.generateSpecs());
 			};
 			
-			vm.fillCasteList = function(){
-				ajaxutil.findAll("matrimonyCaste/findAll", function(data){
-					if(data && data instanceof Array){
-						vm.casteList.removeAll();
-						ko.utils.arrayForEach(data, function(item){
-							vm.casteList.push(item);
-						});
-					}
-				},function(error){
-					console.log(error);
-				});
-			};
-			vm.fillMotherTongueList = function(){
-				ajaxutil.findAll("matrimonyMotherTongue/findAll", function(data){
-					if(data && data instanceof Array){
-						vm.motherTongueList.removeAll();
-						ko.utils.arrayForEach(data, function(item){
-							vm.motherTongueList.push(item);
-						});
-					}
-				},function(error){
-					console.log(error);
-				});
-			};
-			vm.fillCourseGroupList = function(){
-				ajaxutil.findAll("matrimonyCourseGroup/findAll", function(data){
-					if(data && data instanceof Array){
-						vm.courseGroupList.removeAll();
-						ko.utils.arrayForEach(data, function(item){
-							vm.courseGroupList.push(item);
-						});
-					}
-				},function(error){
-					console.log(error);
-				});
-			};
-			
-			vm.fillCountryList = function(){
-				ajaxutil.findAll("country/findAll", function(data){
-					if(data && data instanceof Array){
-						vm.countryList.removeAll();
-						ko.utils.arrayForEach(data, function(item){
-							vm.countryList.push(item);
-						});
-					}
-				},function(error){
-					console.log(error);
-				});
-			};
 			vm.fillAgeList = function(){
 				var start = (vm.sex()==0)?18:21;
 				for(var i=start; i<=70; i++){
@@ -214,26 +165,47 @@ define(function (require) {
 				vm.maritalStatusList.push(new self.SelectObject('3','Divorced'));
 				vm.maritalStatusList.push(new self.SelectObject('4','Separated'));		
 			};
-			vm.fillSectList = function(){
-				ajaxutil.findAll("matrimonySect/findAll", function(data){
-					if(data && data instanceof Array){
-						vm.subSectList.removeAll();
-						ko.utils.arrayForEach(data, function(item){
-							vm.sectList.push(item);
-						});
-					}
-				},function(error){
-					console.log(error);
-				});
-			};
-			vm.fillOccupationList = function(){
-				ajaxutil.findAll("occupationGroup/findAll", function(data){
-					if(data && data instanceof Array){
-						vm.occupationGroupList.removeAll();
-						ko.utils.arrayForEach(data, function(item){
-							vm.occupationGroupList.push(item);
-						});
-					}
+			
+			vm.fillDataList = function(){
+				ajaxutil.findAll("search/dataList", function(data){
+					if(data){
+						if(data.sectList){
+							vm.subSectList.removeAll();
+							ko.utils.arrayForEach(data.sectList, function(item){
+								vm.sectList.push(item);
+							});
+						}
+						if(data.casteList){
+							vm.casteList.removeAll();
+							ko.utils.arrayForEach(data.casteList, function(item){
+								vm.casteList.push(item);
+							});
+						}
+						if(data.motherTongueList){
+							vm.motherTongueList.removeAll();
+							ko.utils.arrayForEach(data.motherTongueList, function(item){
+								vm.motherTongueList.push(item);
+							});
+						}
+						if(data.courseGroupList){
+							vm.courseGroupList.removeAll();
+							ko.utils.arrayForEach(data.courseGroupList, function(item){
+								vm.courseGroupList.push(item);
+							});
+						}
+						if(data.countryList){
+							vm.countryList.removeAll();
+							ko.utils.arrayForEach(data.countryList, function(item){
+								vm.countryList.push(item);
+							});
+						}
+						if(data.occupationGroupList){
+							vm.occupationGroupList.removeAll();
+							ko.utils.arrayForEach(data.occupationGroupList, function(item){
+								vm.occupationGroupList.push(item);
+							});
+						}
+					}					
 				},function(error){
 					console.log(error);
 				});
@@ -282,8 +254,8 @@ define(function (require) {
 					});
 				}
 			};
-			vm.incrementPrgressBar = function(){
-				vm.progress = vm.progress+12.5;
+			vm.incrementPrgressBar = function(value){
+				vm.progress = vm.progress+value;
 				$("#pageLoader").find(".progress-bar").css("width",vm.progress+"%");
 			};
 			// init here
@@ -295,17 +267,12 @@ define(function (require) {
 					vm.fillHeightList();
 					vm.fillMaritalStatusList();
 					vm.fillAnnualIncomeList();
-					vm.fillEmployedInList(); 
-					vm.incrementPrgressBar();
+					vm.fillEmployedInList();
+					vm.fillAgeList();
+					vm.incrementPrgressBar(50);
 					
-					vm.fillAgeList(); vm.incrementPrgressBar();
-					vm.fillSectList(); vm.incrementPrgressBar();
-					vm.fillCasteList(); vm.incrementPrgressBar();
-					vm.fillMotherTongueList(); vm.incrementPrgressBar();
-					vm.fillCourseGroupList(); vm.incrementPrgressBar();
-					vm.fillCountryList(); vm.incrementPrgressBar();
-					vm.fillOccupationList(); vm.incrementPrgressBar();
-					 
+					vm.fillDataList();
+					vm.incrementPrgressBar(50);
 					$("#pageLoader").removeClass('block-layer').hide();
 				}
 			};
