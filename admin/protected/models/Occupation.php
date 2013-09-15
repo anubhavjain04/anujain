@@ -69,7 +69,7 @@ class Occupation extends CActiveRecord
 	{
 		return array(
 			'pkOccupationId' => 'Pk Occupation',
-			'fkOccGroupId' => 'Fk Occ Group',
+			'fkOccGroupId' => 'Occupation Group',
 			'OccupationName' => 'Occupation Name',
 		);
 	}
@@ -84,12 +84,18 @@ class Occupation extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
-
+		$criteria->with = array('fkOccGroup');
+		$criteria->together = true;
 		$criteria->compare('pkOccupationId',$this->pkOccupationId,true);
-		$criteria->compare('fkOccGroupId',$this->fkOccGroupId,true);
+		$criteria->compare('fkOccGroup.GroupName',$this->fkOccGroupId,true);
 		$criteria->compare('OccupationName',$this->OccupationName,true);
+		
+		$criteria->order = 'fkOccGroup.GroupName, OccupationName ASC';
 
 		return new CActiveDataProvider($this, array(
+			'pagination'=>array(
+				'pageSize'=> Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize']),
+			),
 			'criteria'=>$criteria,
 		));
 	}

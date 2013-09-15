@@ -71,7 +71,7 @@ $pageSize=Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageS
 						'header'=>CHtml::dropDownList('pageSize',$pageSize,array(5=>5,10=>10,15=>15,20=>20,30=>30,50=>50,100=>100,200=>200),array(
 						// change 'user-grid' to the actual id of your grid!!
 								'onchange'=>"$.fn.yiiGridView.update('magazine-grid',{ data:{pageSize: $(this).val() }})",
-						)),
+					)),
 					'buttons'=>array(
 						  'up'=>array(
 							  'label'=>'Publish',

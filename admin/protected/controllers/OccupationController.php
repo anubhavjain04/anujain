@@ -31,7 +31,7 @@ class OccupationController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				//'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -70,7 +70,7 @@ class OccupationController extends Controller
 		{
 			$model->attributes=$_POST['Occupation'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->pkOccupationId));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('create',array(
@@ -94,7 +94,7 @@ class OccupationController extends Controller
 		{
 			$model->attributes=$_POST['Occupation'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->pkOccupationId));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('update',array(
@@ -138,6 +138,12 @@ class OccupationController extends Controller
 	 */
 	public function actionAdmin()
 	{
+		//Code to display the selected no of result from dropdown in Manage Static Pages
+		if (isset($_GET['pageSize'])) {
+			Yii::app()->user->setState('pageSize',(int)$_GET['pageSize']);
+			unset($_GET['pageSize']);  // would interfere with pager and repetitive page size change
+		}
+		
 		$model=new Occupation('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Occupation']))
@@ -171,6 +177,19 @@ class OccupationController extends Controller
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
+		}
+	}
+	
+	//This function is used to delete multiple at time
+	public function multipleDelete($data)
+	{
+		$connection=Yii::app()->db;
+		$arr=implode(',',$data['occupation-grid_c0']);
+		$query = "delete from occupation where pkOccupationId in(".$arr.")";
+		$command=$connection->createCommand($query);
+		if($command->execute())
+		{
+	  		$this->redirect(array('admin'));
 		}
 	}
 }

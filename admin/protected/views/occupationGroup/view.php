@@ -1,24 +1,8 @@
-<?php
-$this->breadcrumbs=array(
-	'Occupation Groups'=>array('index'),
-	$model->pkOccGroupId,
-);
-
-$this->menu=array(
-	array('label'=>'List OccupationGroup', 'url'=>array('index')),
-	array('label'=>'Create OccupationGroup', 'url'=>array('create')),
-	array('label'=>'Update OccupationGroup', 'url'=>array('update', 'id'=>$model->pkOccGroupId)),
-	array('label'=>'Delete OccupationGroup', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->pkOccGroupId),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage OccupationGroup', 'url'=>array('admin')),
-);
-?>
-
-<h1>View OccupationGroup #<?php echo $model->pkOccGroupId; ?></h1>
-
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'pkOccGroupId',
-		'GroupName',
-	),
-)); ?>
+<div class="headings">
+	<h2 class="left">View Occupation Group # <?php echo CHtml::encode($model->pkOccGroupId); ?></h2>
+</div>
+<div class="contentbox nopad" id="tabs-2">
+    <div class="content">
+        <?php $this->renderPartial('_view', array('data'=>$model,));?>
+    </div>
+</div>

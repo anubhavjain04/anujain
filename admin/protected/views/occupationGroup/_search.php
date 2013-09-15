@@ -7,7 +7,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'pkOccGroupId'); ?>
-		<?php echo $form->textField($model,'pkOccGroupId',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->textField($model,'pkOccGroupId'); ?>
 	</div>
 
 	<div class="row">

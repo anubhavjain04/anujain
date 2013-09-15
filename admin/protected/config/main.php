@@ -40,7 +40,6 @@ return array(
 			'class'=>'application.extensions.image.CImageComponent',
 			'driver'=>'GD',
 		),
-		
 		'session' => array (
 	        'autoStart' => true,
 		),

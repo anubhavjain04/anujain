@@ -1,51 +1,51 @@
 <?php
-$this->breadcrumbs=array(
-	'Occupation Groups'=>array('index'),
-	'Manage',
-);
-
-$this->menu=array(
-	array('label'=>'List OccupationGroup', 'url'=>array('index')),
-	array('label'=>'Create OccupationGroup', 'url'=>array('create')),
-);
-
-Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
-	$('.search-form').toggle();
-	return false;
-});
-$('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('occupation-group-grid', {
-		data: $(this).serialize()
-	});
-	return false;
-});
-");
+$pageSize=Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize']);
 ?>
+<div class="headings">
+	<h2>Manage Occupation Group</h2>
+</div>
+<?php if(isset($_POST['action_type']) && $_POST['action_type']=="multiple_delete") { $this->multipleDelete($_POST); } ?>
 
-<h1>Manage Occupation Groups</h1>
-
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
-
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
-
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'occupation-group-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		'pkOccGroupId',
-		'GroupName',
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
-)); ?>
+<form name="actionForm" id="actionForm" action="" method="post">
+	<div class="contentbox nopad" id="tabs-2">
+		<div style="color: #FF0000;"><?php if(isset($_GET['msg']) && !empty($_GET['msg'])) { echo $_GET['msg']; } ?>
+		</div>
+        <div align="right">
+            <a href="javascript:void(0);" id="multiple_delete"> <img src="<?php echo Yii::app()->request->baseUrl;?>/img/icons/mu_delete.png" title="Delete" /> </a>  
+            <a href="<?php echo Yii::app()->createUrl("/occupationGroup/create");?>" id="mul_add"> <img src="<?php echo Yii::app()->request->baseUrl;?>/img/icons/add.png" title="Add" alt="Add" /> </a>
+        </div>
+		<?php $this->widget('zii.widgets.grid.CGridView', array(
+        	'cssFile'=>Yii::app()->request->baseUrl.'/css/gridview/styles.css',
+            'id'=>'occupation-group-grid',
+            'dataProvider'=>$model->search(),
+            'selectableRows'=>10,
+            'filter'=>$model,
+            'columns'=>array(				
+						array(
+							'class'=>'CCheckBoxColumn',
+						),					
+						array(
+							'name'=>'GroupName',
+							'value'=>'$data->GroupName',
+						),						        
+						array(
+							'class'=>'CButtonColumn',
+							'htmlOptions' => array('style'=>'width:120px'),				
+							'header'=>CHtml::dropDownList(
+										'pageSize',
+										$pageSize,
+										array(5=>5,10=>10,15=>15,20=>20,30=>30,50=>50,100=>100,200=>200),
+										array(
+											'onchange'=>"$.fn.yiiGridView.update('occupation-group-grid',{ data:{pageSize: $(this).val() }})",
+										)
+									),                                
+							'viewButtonLabel'=>yii::t('core','View'),
+							'updateButtonLabel'=>yii::t('core','Update'),
+							'deleteButtonLabel'=>yii::t('core','Delete'),
+							'template'=> '{view} {update} {delete}',
+        				),
+        			),
+        )); ?>
+	</div>
+	<input type="hidden" name="action_type" id="action_type" value="" />
+</form>

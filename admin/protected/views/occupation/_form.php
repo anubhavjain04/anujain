@@ -11,7 +11,12 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'fkOccGroupId'); ?>
-		<?php echo $form->textField($model,'fkOccGroupId',array('size'=>10,'maxlength'=>10)); ?>
+		<?php 
+			  $criteria=new CDbCriteria;
+			  $criteria->order = 'GroupName ASC';	
+			  $data = CHtml::listData(OccupationGroup::model()->findAll($criteria),'pkOccGroupId','GroupName');
+			  echo $form->dropDownList($model,'fkOccGroupId',$data,array('empty'=>'Select Occupation Group','id'=>'pkOccGroupId'));
+		?>
 		<?php echo $form->error($model,'fkOccGroupId'); ?>
 	</div>
 

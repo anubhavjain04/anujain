@@ -56,6 +56,7 @@ class CKFinder
 		$id = $this->Id ;
 		if ( !empty( $id ) )
 			$id = ' id="' . $id . '"' ;
+
 		return '<iframe src="' . $this->_BuildUrl() . '" width="' . $this->Width . '" ' .
 			'height="' . $this->Height . '"' . $className . $id . ' frameborder="0" scrolling="no"></iframe>' ;
 	}

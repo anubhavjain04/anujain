@@ -45,8 +45,7 @@ class MemberDetails extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
 	 * @return MemberDetails the static model class
-	 */	
-	
+	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -77,9 +76,6 @@ class MemberDetails extends CActiveRecord
 		array('fkLoginId', 'length', 'max'=>10),
 		array('EmailId', 'length', 'max'=>50),
 		array('DOB, MarriageDate', 'safe'),
-		
-		//array('PhotoPath', 'file', 'types'=>'jpg, jpeg, gif, png','allowEmpty'=>true),
-		
 		// The following rule is used by search().
 		// Please remove those attributes that should not be searched.
 		array('pkMemberId, MemberName, DOB, Sex, MaritalStatus, SpouseName, MarriageDate, HAddress1, HAddress2, HAddress3, HContactNo, OccType, Occupation, OAddress1, OAddress2, OAddress3, FatherName, MotherName, City, District, State, Country, OccContactNo, PersonalNo, MemberCode, fkLoginId, EmailId, PhotoPath', 'safe', 'on'=>'search'),
@@ -133,8 +129,7 @@ class MemberDetails extends CActiveRecord
 			'MemberCode' => 'Member Code',
 			'fkLoginId' => 'Fk Login',
 			'EmailId' => 'Email',
-			'PhotoPath' => 'Photo',
-			'cropID'=>'CropID'
+			'PhotoPath' => 'PhotoPath',
 		);
 	}
 

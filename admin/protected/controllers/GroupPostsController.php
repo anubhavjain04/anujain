@@ -164,12 +164,6 @@ class GroupPostsController extends Controller
 			unset($_GET['pageSize']);  // would interfere with pager and repetitive page size change
 		}
 		
-		/*if(isset($_GET['GroupPosts'])){
-			echo "found::".$_GET['GroupPosts']['fkGroup'];
-		}else{
-			echo "found";
-		}*/
-		
 		$model=new GroupPosts('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['GroupPosts']))

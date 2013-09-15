@@ -82,8 +82,13 @@ class OccupationGroup extends CActiveRecord
 
 		$criteria->compare('pkOccGroupId',$this->pkOccGroupId,true);
 		$criteria->compare('GroupName',$this->GroupName,true);
+		
+		$criteria->order = 'GroupName ASC';
 
 		return new CActiveDataProvider($this, array(
+			'pagination'=>array(
+				'pageSize'=> Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize']),
+			),
 			'criteria'=>$criteria,
 		));
 	}

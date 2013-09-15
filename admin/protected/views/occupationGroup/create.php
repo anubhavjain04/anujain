@@ -1,15 +1,5 @@
-<?php
-$this->breadcrumbs=array(
-	'Occupation Groups'=>array('index'),
-	'Create',
-);
-
-$this->menu=array(
-	array('label'=>'List OccupationGroup', 'url'=>array('index')),
-	array('label'=>'Manage OccupationGroup', 'url'=>array('admin')),
-);
-?>
-
-<h1>Create OccupationGroup</h1>
-
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<div class="headings">
+<h2 class="left">Add Occupation Group</h2>
+</div>
+<div class="contentbox nopad" id="tabs-2"><?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+</div>

@@ -291,6 +291,20 @@
         <li><a
 			href="<?php echo Yii::app()->homeUrl.'/matrimonyCourseGroup/create';?>"
 			title="Add Matrimony Course Group">Add Course Group</a></li> 
+			
+			
+		<li><a href="<?php echo Yii::app()->homeUrl.'/occupation/admin';?>"
+			title="Manage Occupation">Manage Occupation</a></li>
+        <li><a
+			href="<?php echo Yii::app()->homeUrl.'/occupation/create';?>"
+			title="Add Occupation">Add Occupation</a></li> 
+        <li><a href="<?php echo Yii::app()->homeUrl.'/occupationGroup/admin';?>"
+			title="Manage Occupation Group">Manage Occupation Group</a></li>
+        <li><a
+			href="<?php echo Yii::app()->homeUrl.'/occupationGroup/create';?>"
+			title="Add Occupation Group">Add Occupation Group</a></li>
+			
+				
         <li><a href="<?php echo Yii::app()->homeUrl.'/matrimonyMotherTongue/admin';?>"
 			title="Manage Matrimony Mother Tongue">Manage Mother Tongue</a></li>
         <li><a
