@@ -915,6 +915,15 @@ img {
     text-align: right;
 }
 
+.highlight{
+	font-size: 30px;
+	text-align: center;
+	margin-top: 50px;
+	color: #ffffff;
+	background-color: #ff0000;
+	padding: 10px;
+}
+
 .men{
 	background: transparent url('../images/men.png') no-repeat left bottom;
 	height: 200px;

@@ -9,6 +9,7 @@
         <li data-bind="css: {'active': $root.categorySwitch()==$root.label.SEARCH_PAGE}"><a href="#search/criteria?type=regular">Search</a></li>
         <li data-bind="css: {'active': $root.categorySwitch()==$root.label.REGISTER_PAGE}"><a href="#register">Register</a></li>
         <li data-bind="css: {'active': $root.categorySwitch()==$root.label.UPGRADE_PAGE}"><a href="#upgrade">Upgrade</a></li>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.CONTACT_US}"><a href="#contact-us">Contact Us</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       	<li id="login-popup" class="dropdown"> <a href="#" class="dropdown-toggle btn btn-success" data-toggle="dropdown">Login <b class="caret"></b></a>
