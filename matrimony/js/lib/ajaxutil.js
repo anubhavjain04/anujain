@@ -2,14 +2,22 @@ define(function(require) {
 	return {
 		symbolsArray : ["/", "="],
 		sitePath : sitePath,
+		showLoader : function(){
+			$("#ajaxLoader").show();
+		},
+		hideLoader : function(){
+			$("#ajaxLoader").hide();
+		},
 		get : function(url, data, successCallback, errorCallback) {
 			$.ajax({
 				type : 'POST',
 				url : this.sitePath + url,
 				dataType : "json",
 				data : data,
+				beforeSend : this.showLoader,
 				success : successCallback,
 				error : errorCallback,
+				complete : this.hideLoader,
 				async : true
 			});
 		},		
@@ -19,9 +27,11 @@ define(function(require) {
 				url : this.sitePath + url,
 				dataType : "json",
 				data : data,
+				beforeSend : this.showLoader,
 				success : successCallback,
 				error : errorCallback,
-				async : false
+				complete : this.hideLoader,
+				async : true
 			});
 		},
 		findAll : function(url, successCallback, errorCallback) {
@@ -29,8 +39,10 @@ define(function(require) {
 				type : 'POST',
 				url : this.sitePath + url,
 				dataType : "json",
+				beforeSend : this.showLoader,
 				success : successCallback,
 				error : errorCallback,
+				complete : this.hideLoader,
 				async : false
 			});
 		},

@@ -80,10 +80,10 @@ span.arrow_icon{
 	width: 100%;
 	height: 100%;
 	background-color:#FFFFFF;
-	z-index:1000;
+	z-index:1031;
 	position:fixed;
-	opacity:0.9;
-	filter:alpha(opacity=90);
+	opacity:0.8;
+	filter:alpha(opacity=80);
 	display: table;
 	top: 0px;
 	left: 0px;

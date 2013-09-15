@@ -10,7 +10,11 @@
           <div data-bind="text: ResidingCity+', '+state+', '+country"></div>
         </div>
         <div class="pad15 col-xs-12 col-sm-12">
-          <div class="bdr1 women col-xs-3 col-sm-3 pad-reset" data-bind="if: MemberPhoto"> <img data-bind="attr:{'src': siteBaseUrl+'/../resources/matrimony/'+MemberPhoto, 'title': MemberName}" /> </div>
+          <div class="bdr1 col-xs-3 col-sm-3 pad-reset" data-bind="css: {'women': Sex=='0', 'men': Sex=='1'}">
+          	<!-- ko if: MemberPhoto --> 
+          	<img data-bind="attr:{'src': siteBaseUrl+'/../resources/matrimony/'+MemberPhoto, 'title': MemberName}" />
+          	<!-- /ko -->  
+          </div>
           <div class="pad5 col-xs-9 col-sm-9">
             <div class="padt5 col-xs-12 col-sm-12 row">
               <div class="clr3 col-xs-3 col-sm-3">Age, Height</div>

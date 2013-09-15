@@ -8,6 +8,7 @@ define(function (require) {
 	return function mainViewModel(){ 
 		var self = this;
 		self.label = new Label();
+		self.showAjaxLayer = ko.observable(false);
 		self.categorySwitch = ko.observable(self.label.SEARCH_PAGE);
 		self.toggleClass = function(element, className){
 			$(element).toggleClass(className);

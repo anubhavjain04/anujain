@@ -22,7 +22,11 @@
         <div class="clearfix"></div>
       </div>
       <div class="pad15 padt0 col-sm-12">
-        <div class="bdr1 women col-sm-3 pad-reset" data-bind="if: MemberPhoto"><a href="#"> <img data-bind="attr:{'src': siteBaseUrl+'/../resources/matrimony/'+MemberPhoto, 'title': MemberName}" /></a> </div>
+        <div class="bdr1 col-sm-3 pad-reset" data-bind="css: {'women': Sex=='0', 'men': Sex=='1'}">
+        	<!-- ko if: MemberPhoto -->
+        	<a href="#"><img data-bind="attr:{'src': siteBaseUrl+'/../resources/matrimony/'+MemberPhoto, 'title': MemberName}" /></a>
+        	<!-- /ko --> 
+        </div>
         <div class="pad5 col-sm-9">
           <div class="padt3 padb10 col-sm-12 row">
             <div class="bigtxt-s"><a href="#" class="clr5" data-bind="text: MemberName"></a></div>

@@ -8,7 +8,7 @@
 <meta name="author" content="rajkamal" />
 <meta content="" name="keywords" />
 <meta content="" name="description" />
-<link href="<?php echo Yii::app()->request->baseUrl."/..". Yii::app()->params['favicon']; ?>" rel="shortcut icon" type="image/x-icon" />
+<link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 <?php include('head.php'); ?>
 <script type="text/javascript" data-main="<?php echo Yii::app()->request->baseUrl; ?>/js/main/init.js" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/require-jquery.js"></script>
@@ -30,5 +30,6 @@
 	</div>
   </div>
 </div>
+<div id="ajaxLoader" class="block-layer" style="display:none;"></div>
 </body>
 </html>
