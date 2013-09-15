@@ -1,15 +1,33 @@
 <!-- Home Page -->
 
-<div data-bind="if: $root.categorySwitch() == $root.label.HOME_PAGE">
-  <div data-bind="template: { name: 'home/views/home'}"></div>
-</div>
-<div id="page-body" class="container">
+<div class="container">
+  <div data-bind="if: $root.categorySwitch() == $root.label.HOME_PAGE">
+	 <div data-bind="template: { name: 'home/views/home'}"></div>
+  </div>
+
   <div data-bind="if: $root.categorySwitch() == $root.label.SEARCH_PAGE">
     <div data-bind="with: $root.searchMainVM">
       <div data-bind="template: { name: 'search/views/search'}"></div>
     </div>
   </div>
+  
   <div data-bind="if: $root.categorySwitch() == $root.label.REGISTER_PAGE">
-    <div> Register page </div>
+     <div data-bind="template: { name: 'main/views/commingsoon'}"></div>
+  </div>
+  <div data-bind="if: $root.categorySwitch() == $root.label.UPGRADE_PAGE">
+     <div data-bind="template: { name: 'main/views/commingsoon'}"></div>
+  </div>
+  
+  <div data-bind="if: $root.categorySwitch() == $root.label.ABOUTUS_PAGE">
+    <div data-bind="template: { name: 'home/views/aboutus'}"></div>
+  </div>
+  <div data-bind="if: $root.categorySwitch() == $root.label.PRIVACY_POLICY">
+    <div data-bind="template: { name: 'home/views/privacypolicy'}"></div>
+  </div>
+  <div data-bind="if: $root.categorySwitch() == $root.label.TERMS_N_CONDITIONS">
+    <div data-bind="template: { name: 'home/views/termsnconditions'}"></div>
+  </div>
+  <div data-bind="if: $root.categorySwitch() == $root.label.CONTACT_US">
+    <div data-bind="template: { name: 'home/views/contactus'}"></div>
   </div>
 </div>

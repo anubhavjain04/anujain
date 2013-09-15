@@ -94,8 +94,7 @@
 			</div>
 			<div class="rightData ">
 				<div class="matrimony">
-                <?php /*	<?php echo Yii::app()->request->baseUrl; ?>/resources/matrimonial.pdf  <a href="#" target="_blank">click here</a> */?>
-                	<div class="padding"><a href="http://matrimony.bhartiyajainmilan.com">click here</a></div>
+                	<div class="padding"><a href="http://matrimony.bhartiyajainmilan.com" target="_blank" title="Jain Milan Matrimonial">click here</a></div>
                 </div>
 			</div>
 			

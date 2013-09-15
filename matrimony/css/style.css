@@ -56,8 +56,13 @@ h3{
 }
 
 #page-body{
-	padding-top: 50px;
+	padding-top: 65px;
 	padding-bottom: 50px;
+	min-height: 485px;
+}
+
+.hidden-overflow{
+	overflow: hidden;
 }
 
 
@@ -93,8 +98,8 @@ span.arrow_icon{
 	vertical-align: middle;
 }
 
-.block-layer-for-ajax{
-	/*float:left;
+.disabled-block-layer{
+	float:left;
 	width:2562px;
 	height:2050px;
 	background-color:#000;
@@ -103,7 +108,19 @@ span.arrow_icon{
 	margin-top:-2050px;
 	opacity:0.2;
 	filter:alpha(opacity=20);  For IE8 and earlier 	
-*/}
+}
+
+.block-layer-for-ajax{
+	float:left;
+	width:2562px;
+	height:2050px;
+	background-color:#000;
+	z-index:110;
+	position:relative;
+	margin-top:-2050px;
+	opacity:0.2;
+	filter:alpha(opacity=20);  For IE8 and earlier 	
+}
 
 /**** header layout ****/
 .topstrip {

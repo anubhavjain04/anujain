@@ -5,30 +5,39 @@
       <a class="navbar-brand" href="#"></a> </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.HOME_PAGE}, click: function(){jHash.set($root.label.HOME_PAGE);}"><a href="#">Home</a></li>
-        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.SEARCH_PAGE}, click: function(){jHash.set('search/criteria',{type:'regular'});}"><a href="#about">Search</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Register</a></li>
-            <li><a href="#">Package</a></li>
-            <li><a href="#">Groups</a></li>
-            <li class="divider"></li>
-            <li class="dropdown-header">Nav header</li>
-            <li><a href="#">Take a Tour</a></li>
-          </ul>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.HOME_PAGE}"><a href="#home">Home</a></li>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.SEARCH_PAGE}"><a href="#search/criteria?type=regular">Search</a></li>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.REGISTER_PAGE}"><a href="#register">Register</a></li>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.UPGRADE_PAGE}"><a href="#upgrade">Upgrade</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      	<li id="login-popup" class="dropdown"> <a href="#" class="dropdown-toggle btn btn-success" data-toggle="dropdown">Login <b class="caret"></b></a>
+      		<div class="dropdown-menu">
+              <form class="form-horizontal">
+		        <div class="form-group input-group-sm">
+		          <label class="control-label">Email Id</label>	
+		          <input type="email" placeholder="Email" class="form-control" />
+		        </div>
+		        <div class="form-group input-group-sm">
+		          <label class="control-label">Password</label>
+		          <input type="password" placeholder="Password" class="form-control" />
+		        </div>
+		        <div class="form-group checkbox">
+			        <label>
+			          <input type="checkbox" value="remember-me"> Remember me
+			        </label>
+		        </div>
+		        <div class="form-group">
+		        	<button type="submit" class="btn btn-sm btn-success">Sign in</button>
+		        	<button type="button" class="btn btn-sm btn-link">Forgot password?</button>
+		        </div>
+		        
+		      </form>
+            </div>
+          
         </li>
       </ul>
-      <form class="navbar-form navbar-right">
-        <div class="form-group">
-          <input type="text" placeholder="Email" class="form-control" />
-        </div>
-        <div class="form-group">
-          <input type="password" placeholder="Password" class="form-control" />
-        </div>
-        <button type="submit" class="btn btn-success">Sign in</button>
-      </form>
+      
     </div>
     <!--/.navbar-collapse --> 
   </div>

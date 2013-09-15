@@ -15,7 +15,9 @@
 </head>
 <body>
 <?php include('topbar.php'); ?>
+<div id="page-body">
 <?php echo $content; ?>
+</div>
 <div class="clearfix"></div>
 <?php include('footer.php'); ?>
 <div class="clearfix"></div>
