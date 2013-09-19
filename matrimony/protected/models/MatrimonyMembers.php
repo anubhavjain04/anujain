@@ -6,7 +6,7 @@
  * The followings are the available columns in table 'matrimony_members':
  * @property string $pkMemberId
  * @property string $MemberName
- * @property string $Sex
+ * @property integer $Sex
  * @property string $DOB
  * @property string $MaritalStatus
  * @property string $Childrens
@@ -37,6 +37,10 @@
  * @property string $ActivationCode
  * @property string $fkLoginId
  * @property string $MemberCode
+ * @property string $Manglik
+ * @property string $BodyType
+ * @property string $Weight
+ * @property string $Complexion
  *
  * The followings are the available model relations:
  * @property MatrimonyMemberPayment[] $matrimonyMemberPayments
@@ -83,10 +87,11 @@ class MatrimonyMembers extends CActiveRecord
 			array('PhysicalStatus, MarryInSameSubSect, Status, Sex', 'numerical', 'integerOnly'=>true),
 			array('MemberName, OtherCaste, ContactNo, MemberPhoto, ResidingCity, Address1, Address2, Address3, ActivationCode, MemberCode', 'length', 'max'=>45),
 
-			array('MaritalStatus, Childrens, EmployedIn', 'length', 'max'=>1),
+			array('MaritalStatus, Childrens, EmployedIn, Manglik, BodyType, Complexion', 'length', 'max'=>1),
 			array('Height, fkSect, fkSubSect, fkCaste, fkMotherTongue, fkCountryLivingIn, fkResidingState, fkEducation, Occupation, IncomeAnnual, fkLoginId', 'length', 'max'=>10),
 			array('AboutMe, AboutMyPartner', 'length', 'max'=>200),
 			array('Email', 'length', 'max'=>100),
+			array('Weight', 'length', 'max'=>3),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('pkMemberId, MemberName, Sex, DOB, MaritalStatus, Childrens, Height, fkSect, fkSubSect, fkCaste, OtherCaste, fkMotherTongue, fkCountryLivingIn, ContactNo, MemberPhoto, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, fkEducation, EmployedIn, Occupation, IncomeAnnual, AboutMe, AboutMyPartner, Address1, Address2, Address3, Email, Status, ActivationCode, fkLoginId, MemberCode', 'safe', 'on'=>'search'),
@@ -152,17 +157,12 @@ class MatrimonyMembers extends CActiveRecord
 			'ActivationCode' => 'Activation Code',
 			'fkLoginId' => 'Fk Login',
 			'MemberCode' => 'Member Code',
+			'Manglik' => 'Manglik',
+			'BodyType' => 'Body Type',
+			'Weight' => 'Weight',
+			'Complexion' => 'Complexion',
 		);
 	}
-	
-	
-	
- 	/*public function getAge(){
-         return $this->MemberName. " ". $this->Height;
-    }
-	public function setAge($age){
-         return $this->age = $age;
-    }*/
      
 
 	/**
@@ -230,6 +230,18 @@ class MatrimonyMembers extends CActiveRecord
 			if(isset($search['state']) && $search['state'] && $search['state'][0]){
 				$criteria->addInCondition('fkResidingState',$search['state']);
 			}
+			if(isset($search['manglik']) && $search['manglik'] && $search['manglik'][0]){
+				$criteria->addInCondition('Manglik',$search['manglik']);
+			}
+			if(isset($search['bodyType']) && $search['bodyType'] && $search['bodyType'][0]){
+				$criteria->addInCondition('BodyType',$search['bodyType']);
+			}
+			if((isset($search['weightFrom']) && $search['weightFrom']) && (isset($search['weightTo']) && $search['weightTo'])){
+				$criteria->addBetweenCondition('Weight', $search['weightFrom'], $search['weightTo']);
+			}
+			if(isset($search['complexion']) && $search['complexion'] && $search['complexion'][0]){
+				$criteria->addInCondition('Complexion',$search['complexion']);
+			}		
 			if(isset($search['status'])){
 				$criteria->compare('Status',$search['status']);	
 			}

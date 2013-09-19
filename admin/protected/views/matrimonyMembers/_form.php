@@ -133,6 +133,64 @@
             </dd>
         </dl>
 	</div>
+	
+	<div class="row">
+    	<dl>
+			<dt><?php echo $form->labelEx($model,'Weight'); ?></dt>
+            <dd>
+            <?php
+				$weight = array();
+				$weight[0] = '--- Weight ---';
+				for($i=30; $i<=150; $i++){
+					$weight[$i]= $i.' kg';
+				}
+				
+			?>
+            <?php echo $form->dropDownList($model,'Weight',$weight); ?>			
+            <?php echo $form->error($model,'Weight'); ?>
+            </dd>
+        </dl>
+	</div>
+	
+	<div class="row">
+    	<dl>
+			<dt><?php echo $form->labelEx($model,'Manglik'); ?></dt>
+            <dd> 
+			<?php
+			if(!$model->Manglik){
+				$model->Manglik = '0';
+			}
+        	$manglik = array('0'=>'None', '1'=>'Aanshik Manglik', '2'=>'Manglik');
+            echo $form->radioButtonList($model,'Manglik',$manglik,array('separator'=>' ', 'labelOptions'=>array('style'=>'display:inline')));
+			?>
+			<?php echo $form->error($model,'Manglik'); ?>
+            </dd>
+        </dl>
+	</div>
+	<div class="row">
+    	<dl>
+			<dt><?php echo $form->labelEx($model,'BodyType'); ?></dt>
+            <dd> 
+			<?php
+        	$bodyType = array('1'=>'Slim', '2'=>'Athletic', '3'=>'Average', '4'=>'Heavy');
+            echo $form->radioButtonList($model,'BodyType',$bodyType,array('separator'=>' ', 'labelOptions'=>array('style'=>'display:inline')));
+			?>
+			<?php echo $form->error($model,'BodyType'); ?>
+            </dd>
+        </dl>
+	</div>
+	<div class="row">
+    	<dl>
+			<dt><?php echo $form->labelEx($model,'Complexion'); ?></dt>
+            <dd> 
+			<?php
+        	$complexion = array('1'=>'Very Fair', '2'=>'Fair', '3'=>'Wheatish', '4'=>'Wheatish Brown', '5'=>'Dark');
+            echo $form->radioButtonList($model,'Complexion',$complexion,array('separator'=>' ', 'labelOptions'=>array('style'=>'display:inline')));
+			?>
+			<?php echo $form->error($model,'Complexion'); ?>
+            </dd>
+        </dl>
+	</div>
 
 	<div class="row">
     	<dl>
