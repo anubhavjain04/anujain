@@ -457,6 +457,75 @@
             </dd>    
         </dl>
 	</div>
+	
+	<div style="clear: both;"></div>
+	<hr>
+	<h3>Family Details</h3>
+	<div class="row">
+    	<dl>
+			<dt><?php echo $form->labelEx($familyModel,'FatherOccupation'); ?></dt>
+			<dd>
+				<?php echo $form->textField($familyModel,'FatherOccupation',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($familyModel,'FatherOccupation'); ?>
+            </dd>    
+        </dl>
+	</div>
+	<div class="row">
+    	<dl>
+			<dt><?php echo $form->labelEx($familyModel,'MotherOccupation'); ?></dt>
+			<dd>
+				<?php echo $form->textField($familyModel,'MotherOccupation',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($familyModel,'MotherOccupation'); ?>
+            </dd>    
+        </dl>
+	</div>
+	<div class="row">
+    	<dl>
+			<dt><?php echo $form->labelEx($familyModel,'UnmarriedBrothers'); ?></dt>
+			<dd>
+				<?php echo $form->dropDownList($familyModel,'UnmarriedBrothers',array('0'=>'None', '1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6')); ?>
+				<?php echo $form->error($familyModel,'UnmarriedBrothers'); ?>
+            </dd>    
+        </dl>
+	</div>
+	<div class="row">
+    	<dl>
+			<dt><?php echo $form->labelEx($familyModel,'MarriedBrothers'); ?></dt>
+			<dd>
+				<?php echo $form->dropDownList($familyModel,'MarriedBrothers',array('0'=>'None', '1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6')); ?>
+				<?php echo $form->error($familyModel,'MarriedBrothers'); ?>
+            </dd>    
+        </dl>
+	</div>
+	<div class="row">
+    	<dl>
+			<dt><?php echo $form->labelEx($familyModel,'UnmarriedSisters'); ?></dt>
+			<dd>
+				<?php echo $form->dropDownList($familyModel,'UnmarriedSisters',array('0'=>'None', '1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6')); ?>
+				<?php echo $form->error($familyModel,'UnmarriedSisters'); ?>
+            </dd>    
+        </dl>
+	</div>
+	<div class="row">
+    	<dl>
+			<dt><?php echo $form->labelEx($familyModel,'MarriedSisters'); ?></dt>
+			<dd>
+				<?php echo $form->dropDownList($familyModel,'MarriedSisters',array('0'=>'None', '1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6')); ?>
+				<?php echo $form->error($familyModel,'MarriedSisters'); ?>
+            </dd>    
+        </dl>
+	</div>
+	<div class="row">
+    	<dl>
+			<dt><?php echo $form->labelEx($familyModel,'AboutFamily'); ?></dt>
+			<dd>
+				<?php echo $form->textArea($familyModel,'AboutFamily',array('style'=>'width:400px;height:100px','maxlength'=>200)); ?>
+                <?php echo $form->error($familyModel,'AboutFamily'); ?>
+            </dd>    
+        </dl>
+	</div>
+	<div style="clear: both;"></div>
+	<hr>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

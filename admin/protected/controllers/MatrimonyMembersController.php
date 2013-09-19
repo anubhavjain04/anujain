@@ -62,6 +62,7 @@ class MatrimonyMembersController extends Controller
 	public function actionCreate()
 	{
 		$model=new MatrimonyMembers;
+		$familyModel=new MatrimonyFamilyDetails;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -98,11 +99,24 @@ class MatrimonyMembersController extends Controller
 				$model->DOB = null;
 			}
 			
+			if(!$model->BodyType){
+				$model->BodyType = null;
+			}
+			if(!$model->Complexion){
+				$model->Complexion = null;
+			}
+			
 			if(!$model->fkLoginId || $model->fkLoginId==""){
 				$model->fkLoginId = null;
 			}
 			
 			if($model->save()){
+				// save family details
+				if(isset($_POST['MatrimonyFamilyDetails'])){
+					$familyModel->attributes=$_POST['MatrimonyFamilyDetails'];
+					$model->save();
+				}
+				
 				if(isset($_POST['cropID']) && $_POST['cropID']==1){					
 					$targ_w = 150;
 					$targ_h = 200;
@@ -157,6 +171,7 @@ class MatrimonyMembersController extends Controller
 
 		$this->render('create',array(
 			'model'=>$model,
+			'familyModel'=>$familyModel,
 		));
 	}
 
@@ -168,6 +183,11 @@ class MatrimonyMembersController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
+		$familyModel=MatrimonyFamilyDetails::model()->find('MemberCode=:MemberCode', array(':MemberCode'=>$model->MemberCode));
+		if($familyModel === null){
+			$familyModel = new MatrimonyFamilyDetails;
+			$familyModel->MemberCode = $model->MemberCode;
+		}
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -182,11 +202,24 @@ class MatrimonyMembersController extends Controller
 				$model->DOB = null;
 			}
 			
+			if(!$model->BodyType){
+				$model->BodyType = null;
+			}
+			if(!$model->Complexion){
+				$model->Complexion = null;
+			}
+			
 			if(!$model->fkLoginId || $model->fkLoginId==""){
 				$model->fkLoginId = null;
 			}
 			
 			if($model->save()){
+				// update family details
+				if(isset($_POST['MatrimonyFamilyDetails'])){
+					$familyModel->attributes=$_POST['MatrimonyFamilyDetails'];
+					$familyModel->save();
+				}				
+				
 				if(isset($_POST['cropID']) && $_POST['cropID']==1){					
 					$targ_w = 150;
 					$targ_h = 200;
@@ -245,6 +278,7 @@ class MatrimonyMembersController extends Controller
 
 		$this->render('update',array(
 			'model'=>$model,
+			'familyModel'=>$familyModel,
 		));
 	}
 
