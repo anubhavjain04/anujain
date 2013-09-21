@@ -2,6 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="pragma" content="no-cache" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="language" content="en" />
 <meta name="copyright" content="<?php echo date('Y'); ?> bhartiya jain milan" />
@@ -21,15 +24,8 @@
 <div class="clearfix"></div>
 <?php include('footer.php'); ?>
 <div class="clearfix"></div>
-<div id="pageLoader" style="display: none;">
-  <div class="mid-layer">
-  	<h2>Loading......</h2>
-    <div class="progress progress-striped active">
-	  <div class="progress-bar"  role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-	  </div>
-	</div>
-  </div>
+<div id="ajaxLoader" class="ajax-layer" style="display:none;">
+	<span class="loading">Loading...</span>
 </div>
-<div id="ajaxLoader" class="block-layer" style="display:none;"></div>
 </body>
 </html>

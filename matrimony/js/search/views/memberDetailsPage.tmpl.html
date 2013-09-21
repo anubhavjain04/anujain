@@ -76,7 +76,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 row">
               <div class="col-xs-6 col-sm-6">Weight</div>
-              <div class="col-xs-6 col-sm-6"> : <span ></span> </div>
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: Weight+' kg'"></span> </div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6">
@@ -90,7 +90,11 @@
             </div>
             <div class="col-xs-12 col-sm-12 row">
               <div class="col-xs-6 col-sm-6">Body Type</div>
-              <div class="col-xs-6 col-sm-6"> : <span ></span> </div>
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: $parent.getObjectText($parent.mainVM.searchVM.bodyTypeList(), BodyType)"></span> </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 row">
+              <div class="col-xs-6 col-sm-6">Complexion</div>
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: $parent.getObjectText($parent.mainVM.searchVM.complexionList(), Complexion)"></span> </div>
             </div>
             <div class="col-xs-12 col-sm-12 row">
               <div class="col-xs-6 col-sm-6">Physical Status</div>
@@ -118,6 +122,46 @@
             </div>
           </div>
         </div>
+        <!-- ko if: familyDetails -->
+        <div class="dot-line padt10 padb10 col-xs-12 col-sm-12"></div>
+        <div class="col-xs-12 col-sm-12 row" data-bind="with: familyDetails">
+          <h4>Family Details</h4>
+          <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-sm-12 row">
+              <div class="col-xs-6 col-sm-6">Father Occupation</div>
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: FatherOccupation"></span> </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 row">
+              <div class="col-xs-6 col-sm-6">Mother Occupation</div>
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: MotherOccupation"></span> </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+          	<div class="col-xs-12 col-sm-12 row">
+              <div class="col-xs-6 col-sm-6">Married Brothers</div>
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: MarriedBrothers"></span> </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 row">
+              <div class="col-xs-6 col-sm-6">Unmarried Brothers</div>
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: UnmarriedBrothers"></span> </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 row">
+              <div class="col-xs-6 col-sm-6">Married Sisters</div>
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: MarriedSisters"></span> </div>
+            </div>
+             <div class="col-xs-12 col-sm-12 row">
+              <div class="col-xs-6 col-sm-6">Unmarried Sisters</div>
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: UnmarriedSisters"></span> </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12">
+          	<div class="col-xs-12 col-sm-12 row">
+              <div class="col-xs-3 col-sm-3">About Family</div>
+              <div class="col-xs-9 col-sm-9"> : <span data-bind="text: AboutFamily"></span> </div>
+            </div>
+          </div>
+        </div>
+        <!-- /ko -->
         <div class="dot-line padt10 padb10 col-xs-12 col-sm-12"></div>
          <div class="col-xs-12 col-sm-12 row">
           <h4>Professional Information</h4>
@@ -167,8 +211,8 @@
           <h4>Contact Details</h4>
           <div class="col-xs-12 col-sm-6">
             <div class="col-xs-12 col-sm-12 row">
-              <div class="col-xs-6 col-sm-6">Mobile</div>
-              <div class="col-xs-6 col-sm-6"> : <span ></span> </div>
+              <div class="col-xs-6 col-sm-6">Contact No.</div>
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: ContactNo"></span> </div>
             </div>            
           </div>
         </div>
@@ -179,5 +223,8 @@
       <p data-bind="text: AboutMyPartner"></p>
       
       </div>
+  </div>
+  <div data-bind="ifnot: memberData">
+  	<div>No member found.</div>
   </div>
 </div>

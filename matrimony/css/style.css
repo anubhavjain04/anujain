@@ -91,6 +91,27 @@ span.arrow_icon{
 	vertical-align: middle; 	
 }
 
+.ajax-layer{
+	width: 100%;
+	z-index:1031;
+	position:fixed;
+	top: 0px;
+	height: 1%;
+	text-align: center;
+}
+.ajax-layer .loading{
+	width: 100px;
+	padding: 10px;
+	background-color: #FFFF9D;
+	color: #000000;
+	font-weight: bold;
+	font-size: 13px;
+	-webkit-border-radius: 0px 0px 3px 3px;
+	-moz-border-radius: 0px 0px 3px 3px;
+	border-radius: 0px 0px 3px 3px;
+	box-shadow: #424242 0px 2px 8px;
+}
+
 /** for loader**/
 .mid-layer{
 	width: 500px;

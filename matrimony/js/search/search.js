@@ -68,6 +68,10 @@ define(function (require) {
 			vm.employedInList = ko.observableArray();
 			vm.selectedEmployedIn = ko.observableArray();
 			
+			vm.manglikList =  ko.observableArray([new self.SelectObject(0, 'None'), new self.SelectObject(1, 'Aanshik Manglik'), new self.SelectObject(2, 'Manglik')]);
+			vm.bodyTypeList =  ko.observableArray([new self.SelectObject(1, 'Slim'), new self.SelectObject(2, 'Athletic'), new self.SelectObject(3, 'Average'), new self.SelectObject(4, 'Heavy')]);
+			vm.complexionList =  ko.observableArray([new self.SelectObject(1, 'Very Fair'), new self.SelectObject(2, 'Fair'), new self.SelectObject(3, 'Wheatish'), new self.SelectObject(4, 'Wheatish Brown'), new self.SelectObject(5, 'Dark')]);
+			
 			vm.changeAgeCriteria = ko.computed(function(){
 				var ageStart = (vm.sex()==0)?18:21;
 				vm.ageFrom(ageStart);
@@ -159,15 +163,17 @@ define(function (require) {
 			};
 			
 			vm.fillMaritalStatusList = function(){
-				vm.maritalStatusList.push(new self.SelectObject('','Any'));
-				vm.maritalStatusList.push(new self.SelectObject('1','Unmarried'));
-				vm.maritalStatusList.push(new self.SelectObject('2','Widow / Widower'));
-				vm.maritalStatusList.push(new self.SelectObject('3','Divorced'));
-				vm.maritalStatusList.push(new self.SelectObject('4','Separated'));		
+				var dataArray = [];
+				dataArray.push(new self.SelectObject('','Any'));
+				dataArray.push(new self.SelectObject('1','Unmarried'));
+				dataArray.push(new self.SelectObject('2','Widow / Widower'));
+				dataArray.push(new self.SelectObject('3','Divorced'));
+				dataArray.push(new self.SelectObject('4','Separated'));
+				vm.maritalStatusList(dataArray);
 			};
 			
 			vm.fillDataList = function(){
-				ajaxutil.findAll("search/dataList", function(data){
+				ajaxutil.syncFindAll("search/dataList", function(data){
 					if(data){
 						if(data.sectList){
 							vm.subSectList.removeAll();
@@ -212,26 +218,30 @@ define(function (require) {
 			};
 			
 			vm.fillAnnualIncomeList = function(){
-				vm.annualIncomeList.push(new self.AnnualIncome('Less than Rs.1 lakh',0, 100000));
-				vm.annualIncomeList.push(new self.AnnualIncome('Rs.1 lakh to Rs.3 lakh',100000, 300000));
-				vm.annualIncomeList.push(new self.AnnualIncome('Rs.3 lakh to Rs.5 lakh',300000, 500000));
-				vm.annualIncomeList.push(new self.AnnualIncome('Rs.5 lakh to Rs.7 lakh',500000, 700000));
-				vm.annualIncomeList.push(new self.AnnualIncome('Rs.7 lakh to Rs.10 lakh',700000, 1000000));
-				vm.annualIncomeList.push(new self.AnnualIncome('Rs.10 lakh to Rs.15 lakh',1000000, 1500000));
-				vm.annualIncomeList.push(new self.AnnualIncome('Rs.15 lakh to Rs.20 lakh',1500000, 2000000));
-				vm.annualIncomeList.push(new self.AnnualIncome('Rs.20 lakh to Rs.30 lakh',2000000, 3000000));
-				vm.annualIncomeList.push(new self.AnnualIncome('Rs.30 lakh to Rs.50 lakh',3000000, 5000000));
-				vm.annualIncomeList.push(new self.AnnualIncome('Rs.50 lakh to Rs.1 crore',5000000, 10000000));
-				vm.annualIncomeList.push(new self.AnnualIncome('Rs.1 crore & above',10000000, 9999999999));
+				var dataArray = [];
+				dataArray.push(new self.AnnualIncome('Less than Rs.1 lakh',0, 100000));
+				dataArray.push(new self.AnnualIncome('Rs.1 lakh to Rs.3 lakh',100000, 300000));
+				dataArray.push(new self.AnnualIncome('Rs.3 lakh to Rs.5 lakh',300000, 500000));
+				dataArray.push(new self.AnnualIncome('Rs.5 lakh to Rs.7 lakh',500000, 700000));
+				dataArray.push(new self.AnnualIncome('Rs.7 lakh to Rs.10 lakh',700000, 1000000));
+				dataArray.push(new self.AnnualIncome('Rs.10 lakh to Rs.15 lakh',1000000, 1500000));
+				dataArray.push(new self.AnnualIncome('Rs.15 lakh to Rs.20 lakh',1500000, 2000000));
+				dataArray.push(new self.AnnualIncome('Rs.20 lakh to Rs.30 lakh',2000000, 3000000));
+				dataArray.push(new self.AnnualIncome('Rs.30 lakh to Rs.50 lakh',3000000, 5000000));
+				dataArray.push(new self.AnnualIncome('Rs.50 lakh to Rs.1 crore',5000000, 10000000));
+				dataArray.push(new self.AnnualIncome('Rs.1 crore & above',10000000, 9999999999));
+				vm.annualIncomeList(dataArray);
 			};
 			
 			vm.fillEmployedInList = function(){
-				vm.employedInList.push(new self.SelectObject('1','Government'));
-				vm.employedInList.push(new self.SelectObject('2','Defence'));
-				vm.employedInList.push(new self.SelectObject('3','Private'));
-				vm.employedInList.push(new self.SelectObject('4','Business'));
-				vm.employedInList.push(new self.SelectObject('5','Self Employed'));
-				vm.employedInList.push(new self.SelectObject('6','Not Working'));
+				var dataArray = [];
+				dataArray.push(new self.SelectObject('1','Government'));
+				dataArray.push(new self.SelectObject('2','Defence'));
+				dataArray.push(new self.SelectObject('3','Private'));
+				dataArray.push(new self.SelectObject('4','Business'));
+				dataArray.push(new self.SelectObject('5','Self Employed'));
+				dataArray.push(new self.SelectObject('6','Not Working'));
+				vm.employedInList(dataArray);
 			};
 			
 			// fill sub sect after sect change
@@ -241,7 +251,7 @@ define(function (require) {
 				if(selectedSect){
 					ko.utils.arrayForEach(selectedSect, function(sect){
 						if(sect){
-							ajaxutil.post("matrimonySubSect/getSubSects", {'sectId': sect}, function(data){
+							ajaxutil.find("matrimonySubSect/getSubSects", {'sectId': sect}, function(data){
 								if(data && data instanceof Array){							
 									ko.utils.arrayForEach(data, function(item){
 										vm.subSectList.push(item);
@@ -254,26 +264,16 @@ define(function (require) {
 					});
 				}
 			};
-			vm.incrementPrgressBar = function(value){
-				vm.progress = vm.progress+value;
-				$("#pageLoader").find(".progress-bar").css("width",vm.progress+"%");
-			};
 			// init here
 			vm.init = function(){
 				if(!vm.isInitComplete){
-					$("#pageLoader").addClass('block-layer').show();
-					vm.progress = 0;
 					vm.isInitComplete = true;
 					vm.fillHeightList();
 					vm.fillMaritalStatusList();
 					vm.fillAnnualIncomeList();
 					vm.fillEmployedInList();
 					vm.fillAgeList();
-					vm.incrementPrgressBar(50);
-					
 					vm.fillDataList();
-					vm.incrementPrgressBar(50);
-					$("#pageLoader").removeClass('block-layer').hide();
 				}
 			};
 			vm.init();

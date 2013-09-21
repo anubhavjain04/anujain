@@ -51,7 +51,7 @@ define(function (require) {
 				if(vm.currentPage()){
 					dataObject.page = vm.currentPage();
 				}
-				ajaxutil.post("search/results", dataObject, function(data){
+				ajaxutil.find("search/results", dataObject, function(data){
 					if(data){
 						vm.searchVM.mainVM.showPage('search-results-page');
 						vm.totalItems(data.total);
