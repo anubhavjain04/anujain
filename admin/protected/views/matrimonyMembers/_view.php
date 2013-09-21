@@ -101,17 +101,13 @@
 	<?php echo CHtml::encode($data->AboutMyPartner); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Address1')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('HomeAddress')); ?>:</b>
 	<?php echo CHtml::encode($data->Address1); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Address2')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('WorkingAddress')); ?>:</b>
 	<?php echo CHtml::encode($data->Address2); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Address3')); ?>:</b>
-	<?php echo CHtml::encode($data->Address3); ?>
-	<br />
+	<br />	
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Email')); ?>:</b>
 	<?php echo CHtml::encode($data->Email); ?>

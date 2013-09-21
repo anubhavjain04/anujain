@@ -131,19 +131,14 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'Address1'); ?>
-		<?php echo $form->textField($model,'Address1',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->label($model,'HomeAddress'); ?>
+		<?php echo $form->textField($model,'HomeAddress',array('size'=>150,'maxlength'=>150)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'Address2'); ?>
-		<?php echo $form->textField($model,'Address2',array('size'=>45,'maxlength'=>45)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'Address3'); ?>
-		<?php echo $form->textField($model,'Address3',array('size'=>45,'maxlength'=>45)); ?>
-	</div>
+		<?php echo $form->label($model,'WorkingAddress'); ?>
+		<?php echo $form->textField($model,'WorkingAddress',array('size'=>150,'maxlength'=>150)); ?>
+	</div>	
 
 	<div class="row">
 		<?php echo $form->label($model,'Email'); ?>

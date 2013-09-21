@@ -38,7 +38,7 @@
 		            <div id="collapse3" class="accordion-body collapse">
 		              <div class="accordion-inner"> 
 		                <!-- ko foreach: selectedMaritalStatus() --> 
-		                <!-- ko foreach: $parent.maritalStatusList() --> 
+		                <!-- ko foreach: $parent.maritalStatusList --> 
 		                <!-- ko if: $parent && $data.key==$parent -->
 		                <div><span class="arrow_icon"></span><span data-bind="text: $data.text"></span></div>
 		                <!-- /ko --> 
@@ -213,7 +213,7 @@
 		            <div id="collapse12" class="accordion-body collapse">
 		              <div class="accordion-inner"> 
 		                <!-- ko foreach: selectedPhysicalStatus() --> 
-		                <!-- ko foreach: $parent.physicalStatusList() --> 
+		                <!-- ko foreach: $parent.physicalStatusList --> 
 		                <!-- ko if: $parent && $data.key==$parent -->
 		                <div><span class="arrow_icon"></span><span data-bind="text: $data.text"></span></div>
 		                <!-- /ko --> 
@@ -232,7 +232,7 @@
 		            <div id="collapse13" class="accordion-body collapse">
 		              <div class="accordion-inner"> 
 		                <!-- ko foreach: selectedEmployedIn() --> 
-		                <!-- ko foreach: $parent.employedInList() --> 
+		                <!-- ko foreach: $parent.employedInList --> 
 		                <!-- ko if: $parent && $data.key==$parent -->
 		                <div><span class="arrow_icon"></span><span data-bind="text: $data.text"></span></div>
 		                <!-- /ko --> 

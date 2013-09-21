@@ -2,7 +2,7 @@
 $pageSize=Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize']);
 ?>
 <div class="headings">
-	<h2>Manage Matrimonial Packages</h2>
+	<h2>Manage Matrimony Members</h2>
 </div>
 <?php if(isset($_POST['action_type']) && $_POST['action_type']=="multiple_delete") { $this->multipleDelete($_POST); } ?>
 <?php if(isset($_POST['action_type']) && $_POST['action_type']=="multiple_publish") { $this->multiplePublish($_POST); } ?>

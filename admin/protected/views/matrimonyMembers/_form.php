@@ -396,7 +396,7 @@
     	<dl>
 			<dt><?php echo $form->labelEx($model,'AboutMe'); ?></dt>
 			<dd>
-				<?php echo $form->textArea($model,'AboutMe',array('style'=>'width:400px;height:100px','maxlength'=>200)); ?>
+				<?php echo $form->textArea($model,'AboutMe',array('style'=>'width:400px;height:60px','maxlength'=>200)); ?>
                 <?php echo $form->error($model,'AboutMe'); ?>
             </dd>    
         </dl>
@@ -406,7 +406,7 @@
     	<dl>
 			<dt><?php echo $form->labelEx($model,'AboutMyPartner'); ?></dt>
 			<dd>
-				<?php echo $form->textArea($model,'AboutMyPartner',array('style'=>'width:400px;height:100px','maxlength'=>200)); ?>
+				<?php echo $form->textArea($model,'AboutMyPartner',array('style'=>'width:400px;height:60px','maxlength'=>200)); ?>
                 <?php echo $form->error($model,'AboutMyPartner'); ?>
             </dd>    
         </dl>
@@ -414,30 +414,20 @@
 
 	<div class="row">
 		<dl>
-			<dt><?php echo $form->labelEx($model,'Address1'); ?></dt>
+			<dt><?php echo $form->labelEx($model,'HomeAddress'); ?></dt>
 			<dd>
-				<?php echo $form->textField($model,'Address1',array('size'=>45,'maxlength'=>45)); ?>
-				<?php echo $form->error($model,'Address1'); ?>
+				<?php echo $form->textArea($model,'HomeAddress',array('style'=>'width:400px;height:50px','maxlength'=>150)); ?>
+				<?php echo $form->error($model,'HomeAddress'); ?>
             </dd>    
         </dl>
 	</div>
 
 	<div class="row">
     	<dl>
-			<dt><?php echo $form->labelEx($model,'Address2'); ?></dt>
+			<dt><?php echo $form->labelEx($model,'WorkingAddress'); ?></dt>
 			<dd>
-				<?php echo $form->textField($model,'Address2',array('size'=>45,'maxlength'=>45)); ?>
-				<?php echo $form->error($model,'Address2'); ?>
-            </dd>    
-        </dl>
-	</div>
-
-	<div class="row">
-    	<dl>
-			<dt><?php echo $form->labelEx($model,'Address3'); ?></dt>
-			<dd>
-				<?php echo $form->textField($model,'Address3',array('size'=>45,'maxlength'=>45)); ?>
-				<?php echo $form->error($model,'Address3'); ?>
+				<?php echo $form->textArea($model,'WorkingAddress',array('style'=>'width:400px;height:50px','maxlength'=>150)); ?>
+				<?php echo $form->error($model,'WorkingAddress'); ?>
             </dd>    
         </dl>
 	</div>

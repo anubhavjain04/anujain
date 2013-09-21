@@ -35,7 +35,7 @@ define(function (require) {
 			vm.heightTo = ko.observable(167.64);
 			vm.heightList = [];
 			
-			vm.maritalStatusList = ko.observableArray();
+			vm.maritalStatusList = [new self.SelectObject('','Any'), new self.SelectObject('1','Unmarried'), new self.SelectObject('2','Widow / Widower'), new self.SelectObject('3','Divorced'), new self.SelectObject('4','Separated')];
 			vm.selectedMaritalStatus = ko.observableArray();
 			
 			vm.sectList = ko.observableArray();
@@ -59,18 +59,19 @@ define(function (require) {
 			vm.occupationGroupList = ko.observableArray();
 			vm.selectedOccupationGroup = ko.observableArray();
 			
-			vm.annualIncomeList = ko.observableArray();
+			vm.annualIncomeList = [];
 			vm.selectedAnnualIncome = ko.observable();
 			
-			vm.physicalStatusList = ko.observableArray([new self.SelectObject(0, 'Normal'), new self.SelectObject(1, 'Physically Challenged')]);
+			vm.physicalStatusList = [new self.SelectObject(0, 'Normal'), new self.SelectObject(1, 'Physically Challenged')];
 			vm.selectedPhysicalStatus = ko.observableArray();
 			
-			vm.employedInList = ko.observableArray();
+			vm.employedInList = [];
 			vm.selectedEmployedIn = ko.observableArray();
 			
-			vm.manglikList =  ko.observableArray([new self.SelectObject(0, 'None'), new self.SelectObject(1, 'Aanshik Manglik'), new self.SelectObject(2, 'Manglik')]);
-			vm.bodyTypeList =  ko.observableArray([new self.SelectObject(1, 'Slim'), new self.SelectObject(2, 'Athletic'), new self.SelectObject(3, 'Average'), new self.SelectObject(4, 'Heavy')]);
-			vm.complexionList =  ko.observableArray([new self.SelectObject(1, 'Very Fair'), new self.SelectObject(2, 'Fair'), new self.SelectObject(3, 'Wheatish'), new self.SelectObject(4, 'Wheatish Brown'), new self.SelectObject(5, 'Dark')]);
+			vm.manglikList =  [new self.SelectObject(0, 'None'), new self.SelectObject(1, 'Aanshik Manglik'), new self.SelectObject(2, 'Manglik')];
+			vm.bodyTypeList =  [new self.SelectObject(1, 'Slim'), new self.SelectObject(2, 'Athletic'), new self.SelectObject(3, 'Average'), new self.SelectObject(4, 'Heavy')];
+			vm.complexionList =  [new self.SelectObject(1, 'Very Fair'), new self.SelectObject(2, 'Fair'), new self.SelectObject(3, 'Wheatish'), new self.SelectObject(4, 'Wheatish Brown'), new self.SelectObject(5, 'Dark')];
+			vm.registeredByList = [new self.SelectObject(1, 'Myself'), new self.SelectObject(2, 'Parents'), new self.SelectObject(3, 'Sibling'), new self.SelectObject(4, 'Relative'), new self.SelectObject(5, 'Other')];
 			
 			vm.changeAgeCriteria = ko.computed(function(){
 				var ageStart = (vm.sex()==0)?18:21;
@@ -155,22 +156,14 @@ define(function (require) {
 			};
 			vm.findAnnualIncome = function(from, to){
 				if(from && to){
-					var matchObject = ko.utils.arrayFirst(vm.annualIncomeList(), function(item) {
+					var matchObject = ko.utils.arrayFirst(vm.annualIncomeList, function(item) {
 						return (item.from == from && item.to == to);
 					});
 					return matchObject;
 				}
 			};
 			
-			vm.fillMaritalStatusList = function(){
-				var dataArray = [];
-				dataArray.push(new self.SelectObject('','Any'));
-				dataArray.push(new self.SelectObject('1','Unmarried'));
-				dataArray.push(new self.SelectObject('2','Widow / Widower'));
-				dataArray.push(new self.SelectObject('3','Divorced'));
-				dataArray.push(new self.SelectObject('4','Separated'));
-				vm.maritalStatusList(dataArray);
-			};
+			
 			
 			vm.fillDataList = function(){
 				ajaxutil.syncFindAll("search/dataList", function(data){
@@ -230,7 +223,7 @@ define(function (require) {
 				dataArray.push(new self.AnnualIncome('Rs.30 lakh to Rs.50 lakh',3000000, 5000000));
 				dataArray.push(new self.AnnualIncome('Rs.50 lakh to Rs.1 crore',5000000, 10000000));
 				dataArray.push(new self.AnnualIncome('Rs.1 crore & above',10000000, 9999999999));
-				vm.annualIncomeList(dataArray);
+				vm.annualIncomeList = dataArray;
 			};
 			
 			vm.fillEmployedInList = function(){
@@ -241,7 +234,7 @@ define(function (require) {
 				dataArray.push(new self.SelectObject('4','Business'));
 				dataArray.push(new self.SelectObject('5','Self Employed'));
 				dataArray.push(new self.SelectObject('6','Not Working'));
-				vm.employedInList(dataArray);
+				vm.employedInList = dataArray;
 			};
 			
 			// fill sub sect after sect change
@@ -269,7 +262,6 @@ define(function (require) {
 				if(!vm.isInitComplete){
 					vm.isInitComplete = true;
 					vm.fillHeightList();
-					vm.fillMaritalStatusList();
 					vm.fillAnnualIncomeList();
 					vm.fillEmployedInList();
 					vm.fillAgeList();

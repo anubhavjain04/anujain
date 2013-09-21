@@ -60,7 +60,7 @@
         <h4 class="modal-title">Marital Status</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: maritalStatusList()">
+        <ul class="listView" data-bind="foreach: maritalStatusList">
           <li>
             <input type="checkbox" data-bind="attr: { value: key }, checked: $parent.selectedMaritalStatus" />
             <label data-bind="text: text" class="disinblk"></label>
@@ -299,7 +299,7 @@
         <h4 class="modal-title">Physical Status</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: physicalStatusList()">
+        <ul class="listView" data-bind="foreach: physicalStatusList">
           <li>
             <input type="checkbox" data-bind="attr: { value: key }, checked: $parent.selectedPhysicalStatus" />
             <label data-bind="text: text" class="disinblk"></label>
@@ -326,7 +326,7 @@
         <h4 class="modal-title">Employed In</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: employedInList()">
+        <ul class="listView" data-bind="foreach: employedInList">
           <li>
             <input type="checkbox" data-bind="attr: { value: key }, checked: $parent.selectedEmployedIn" />
             <label data-bind="text: text" class="disinblk"></label>

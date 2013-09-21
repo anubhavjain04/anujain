@@ -29,9 +29,8 @@
  * @property string $IncomeAnnual
  * @property string $AboutMe
  * @property string $AboutMyPartner
- * @property string $Address1
- * @property string $Address2
- * @property string $Address3
+ * @property string $HomeAddress
+ * @property string $WorkingAddress
  * @property string $Email
  * @property integer $Status
  * @property string $ActivationCode
@@ -86,8 +85,8 @@ class MatrimonyMembers extends CActiveRecord
 		return array(
 			array('MemberName, Sex, DOB, MaritalStatus, Height, fkSect, fkSubSect, fkCaste, fkMotherTongue, fkCountryLivingIn, ContactNo, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, fkEducation, EmployedIn, Occupation, MemberCode, Status', 'required'),
 			array('PhysicalStatus, MarryInSameSubSect, Status, Sex', 'numerical', 'integerOnly'=>true),
-			array('MemberName, OtherCaste, ContactNo, MemberPhoto, ResidingCity, Address1, Address2, Address3, ActivationCode, MemberCode', 'length', 'max'=>45),
-
+			array('MemberName, OtherCaste, ContactNo, MemberPhoto, ResidingCity, ActivationCode, MemberCode', 'length', 'max'=>45),
+			array('HomeAddress, WorkingAddress', 'length', 'max'=>150),
 			array('MaritalStatus, Childrens, EmployedIn, Manglik, BodyType, Complexion, RegisteredBy', 'length', 'max'=>1),
 			array('Height, fkSect, fkSubSect, fkCaste, fkMotherTongue, fkCountryLivingIn, fkResidingState, fkEducation, Occupation, IncomeAnnual, fkLoginId', 'length', 'max'=>10),
 			array('AboutMe, AboutMyPartner', 'length', 'max'=>200),
@@ -95,7 +94,7 @@ class MatrimonyMembers extends CActiveRecord
 			array('Weight', 'length', 'max'=>3),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('pkMemberId, MemberName, Sex, DOB, MaritalStatus, Childrens, Height, fkSect, fkSubSect, fkCaste, OtherCaste, fkMotherTongue, fkCountryLivingIn, ContactNo, MemberPhoto, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, fkEducation, EmployedIn, Occupation, IncomeAnnual, AboutMe, AboutMyPartner, Address1, Address2, Address3, Email, Status, ActivationCode, fkLoginId, MemberCode', 'safe', 'on'=>'search'),
+			array('pkMemberId, MemberName, Sex, DOB, MaritalStatus, Childrens, Height, fkSect, fkSubSect, fkCaste, OtherCaste, fkMotherTongue, fkCountryLivingIn, ContactNo, MemberPhoto, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, fkEducation, EmployedIn, Occupation, IncomeAnnual, AboutMe, AboutMyPartner, HomeAddress, WorkingAddress, Email, Status, ActivationCode, fkLoginId, MemberCode', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -150,9 +149,8 @@ class MatrimonyMembers extends CActiveRecord
 			'IncomeAnnual' => 'Income Annual',
 			'AboutMe' => 'About Me',
 			'AboutMyPartner' => 'About My Partner',
-			'Address1' => 'Address1',
-			'Address2' => 'Address2',
-			'Address3' => 'Address3',
+			'HomeAddress' => 'Home Address',
+			'WorkingAddress' => 'Working Address',
 			'Email' => 'Email',
 			'Status' => 'Status',
 			'ActivationCode' => 'Activation Code',
