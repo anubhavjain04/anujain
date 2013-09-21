@@ -16,6 +16,21 @@
 	<?php echo $form->errorSummary($model); ?>
 <div style="float:left;">
 	<div class="row">
+        <dl>
+        	<dt><?php echo $form->labelEx($model,'RegisteredBy'); ?></dt>
+            <dd> 
+			<?php
+			if(!$model->RegisteredBy){
+				$model->RegisteredBy = '2';
+			}
+        	$registeredBy = array('1'=>'Myself', '2'=>'Parents', '3'=>'Sibling (Brother/Sister)', '4'=>'Relative', '5'=>'Other');
+            echo $form->radioButtonList($model,'RegisteredBy',$registeredBy,array('separator'=>' ', 'labelOptions'=>array('style'=>'display:inline')));
+			?>
+			<?php echo $form->error($model,'RegisteredBy'); ?>
+            </dd>
+        </dl>
+	</div>
+	<div class="row">
     	<dl>
 			<dt><?php echo $form->labelEx($model,'MemberName'); ?></dt>
             <dd><?php echo $form->textField($model,'MemberName',array('size'=>45,'maxlength'=>45)); ?>
@@ -70,18 +85,6 @@
             </dd>
     	</dl>        
 	</div>
-</div>
-<div style="float: right;">
-	<?php
-		$imgPath = Yii::app()->request->baseUrl."/../images/blank_user.png";										
-		if($model->MemberPhoto && trim($model->MemberPhoto)!=""){
-			$imgPath = Yii::app()->request->baseUrl."/..". Yii::app()->params['matrimonyPath']."/".$model->MemberPhoto;
-		}
-	?>
-	<div style="background: url(<?php echo $imgPath; ?>) no-repeat center; width: 150px; height: 200px; border: solid 1px #CCCCCC;" ></div>
-</div>
-<div style="clear:both;"></div>
-
 	<div class="row">
         <dl>
         	<dt><?php echo $form->labelEx($model,'MaritalStatus'); ?></dt>
@@ -97,6 +100,19 @@
             </dd>
         </dl>
 	</div>
+</div>
+<div style="float: right;">
+	<?php
+		$imgPath = Yii::app()->request->baseUrl."/../images/blank_user.png";										
+		if($model->MemberPhoto && trim($model->MemberPhoto)!=""){
+			$imgPath = Yii::app()->request->baseUrl."/..". Yii::app()->params['matrimonyPath']."/".$model->MemberPhoto;
+		}
+	?>
+	<div style="background: url(<?php echo $imgPath; ?>) no-repeat center; width: 150px; height: 200px; border: solid 1px #CCCCCC;" ></div>
+</div>
+<div style="clear:both;"></div>
+
+	
 
 	<div id="childs" class="row" style="display:none;">
     	<dl>

@@ -41,6 +41,7 @@
  * @property string $BodyType
  * @property string $Weight
  * @property string $Complexion
+ * @property string $RegisteredBy
  *
  * The followings are the available model relations:
  * @property MatrimonyMemberPayment[] $matrimonyMemberPayments
@@ -87,7 +88,7 @@ class MatrimonyMembers extends CActiveRecord
 			array('PhysicalStatus, MarryInSameSubSect, Status, Sex', 'numerical', 'integerOnly'=>true),
 			array('MemberName, OtherCaste, ContactNo, MemberPhoto, ResidingCity, Address1, Address2, Address3, ActivationCode, MemberCode', 'length', 'max'=>45),
 
-			array('MaritalStatus, Childrens, EmployedIn, Manglik, BodyType, Complexion', 'length', 'max'=>1),
+			array('MaritalStatus, Childrens, EmployedIn, Manglik, BodyType, Complexion, RegisteredBy', 'length', 'max'=>1),
 			array('Height, fkSect, fkSubSect, fkCaste, fkMotherTongue, fkCountryLivingIn, fkResidingState, fkEducation, Occupation, IncomeAnnual, fkLoginId', 'length', 'max'=>10),
 			array('AboutMe, AboutMyPartner', 'length', 'max'=>200),
 			array('Email', 'length', 'max'=>100),
@@ -161,6 +162,7 @@ class MatrimonyMembers extends CActiveRecord
 			'BodyType' => 'Body Type',
 			'Weight' => 'Weight',
 			'Complexion' => 'Complexion',
+			'RegisteredBy'=>'Registered By',
 		);
 	}
      
@@ -242,6 +244,9 @@ class MatrimonyMembers extends CActiveRecord
 			if(isset($search['complexion']) && $search['complexion'] && $search['complexion'][0]){
 				$criteria->addInCondition('Complexion',$search['complexion']);
 			}		
+			if(isset($search['registeredBy']) && $search['registeredBy'] && $search['registeredBy'][0]){
+				$criteria->addInCondition('RegisteredBy',$search['registeredBy']);
+			}
 			if(isset($search['status'])){
 				$criteria->compare('Status',$search['status']);	
 			}
