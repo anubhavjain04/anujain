@@ -14,10 +14,20 @@
 		<?php echo $form->label($model,'MemberCode'); ?>
 		<?php echo $form->textField($model,'MemberCode',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
-
+	
+	<div class="row">
+		<?php echo $form->label($model,'FatherName'); ?>
+		<?php echo $form->textField($model,'FatherName',array('size'=>45,'maxlength'=>45)); ?>
+	</div>
+	
 	<div class="row">
 		<?php echo $form->label($model,'FatherOccupation'); ?>
 		<?php echo $form->textField($model,'FatherOccupation',array('size'=>45,'maxlength'=>45)); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->label($model,'MotherName'); ?>
+		<?php echo $form->textField($model,'MotherName',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
 
 	<div class="row">

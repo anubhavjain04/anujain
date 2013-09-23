@@ -8,8 +8,16 @@
 	<?php echo CHtml::encode($data->MemberCode); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('FatherName')); ?>:</b>
+	<?php echo CHtml::encode($data->FatherName); ?>
+	<br />
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('FatherOccupation')); ?>:</b>
 	<?php echo CHtml::encode($data->FatherOccupation); ?>
+	<br />
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('MotherName')); ?>:</b>
+	<?php echo CHtml::encode($data->MotherName); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('MotherOccupation')); ?>:</b>

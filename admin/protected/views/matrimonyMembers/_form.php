@@ -469,10 +469,28 @@
 	<h3>Family Details</h3>
 	<div class="row">
     	<dl>
+			<dt><?php echo $form->labelEx($familyModel,'FatherName'); ?></dt>
+			<dd>
+				<?php echo $form->textField($familyModel,'FatherName',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($familyModel,'FatherName'); ?>
+            </dd>    
+        </dl>
+	</div>	
+	<div class="row">
+    	<dl>
 			<dt><?php echo $form->labelEx($familyModel,'FatherOccupation'); ?></dt>
 			<dd>
 				<?php echo $form->textField($familyModel,'FatherOccupation',array('size'=>45,'maxlength'=>45)); ?>
 				<?php echo $form->error($familyModel,'FatherOccupation'); ?>
+            </dd>    
+        </dl>
+	</div>
+	<div class="row">
+    	<dl>
+			<dt><?php echo $form->labelEx($familyModel,'MotherName'); ?></dt>
+			<dd>
+				<?php echo $form->textField($familyModel,'MotherName',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($familyModel,'MotherName'); ?>
             </dd>    
         </dl>
 	</div>
