@@ -10,6 +10,7 @@ define(function (require) {
 		self.searchMainViewModel = function(root) {
 			var vm = this;
 			vm.root = root;
+			vm.facetVM = vm.root.facetVM;
 			vm.showPage = ko.observable("search-page");
 			
 			vm.searchPage = function(searchCriteria){

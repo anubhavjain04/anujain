@@ -4,15 +4,17 @@ requirejs.config({
     //except
     paths : {
 		main  	: siteBaseUrl + '/js/main',
+		facet	: siteBaseUrl + '/js/facet',
 		search 	: siteBaseUrl + '/js/search',
+		register: siteBaseUrl + '/js/register',
 		route	: siteBaseUrl + '/js/route'
-    },
+    },    
     config : {
         isBuild : false
     }
 });
-require(['jquery', 'knockout', 'infuser-amd', 'koExternalTemplateEngine-amd', 'knockout.validation.min', 'bootstrap.min', 'jhash-2.1.min', 'main/main', 'domReady!'], 
-function( $,        knockout,   infuser,       koExtTemplate,                  koValidation,              bootstrap,       route,      	  Main) {
+require(['jquery', 'knockout', 'infuser-amd', 'koExternalTemplateEngine-amd', 'knockout.validation.min', 'bootstrap.min', 'kendo', 'knockout-kendo.min', 'jhash-2.1.min', 'main/main', 'domReady!'], 
+function( $,        knockout,   infuser,       koExtTemplate,                  koValidation,              bootstrap,       kendo,           koKendo,				route,      	  Main) {
     // Set up some defaults for templates loaded using koExternalTemplateEngine
     infuser.defaults.templateSuffix = ".tmpl.html"
     infuser.defaults.templateUrl = "js";

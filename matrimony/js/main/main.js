@@ -2,7 +2,9 @@ define(function (require) {
 	var ko 			= require('knockout');
 	var $ 			= require('jquery');
 	var Label       = require('label');
+	var Facet		= require('facet/facet');
 	var SearchMain	= require('search/searchMain');
+	var RegisterMain= require('register/registerMain');
 	var Route	    = require('route/route');
 
 	return function mainViewModel(){ 
@@ -14,8 +16,15 @@ define(function (require) {
 			$(element).toggleClass(className);
 		};
 		
+		self.facet = new Facet();
+		self.facetVM = new self.facet.facetViewModel(self);
+		self.facetVM.init();
+		
 		self.searchMain = new SearchMain();
 		self.searchMainVM = new self.searchMain.searchMainViewModel(self);
+		
+		self.registerMain = new RegisterMain();
+		self.registerMainVM = new self.registerMain.registerMainViewModel(self);
 		
 		self.route = new Route(self);
 	};

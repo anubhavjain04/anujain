@@ -30,10 +30,6 @@ define(function (require) {
 			vm.showMemberPage = function(memberId){
 				vm.findOne(memberId);
 			};
-			
-			vm.getObjectText = function(list, key){
-				return vm.mainVM.searchVM.getSelectedObjectText(list, key);
-			};
 			vm.back = function(){
 				vm.mainVM.searchVM.searchByCriteria();
 			};

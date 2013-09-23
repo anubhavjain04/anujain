@@ -74,7 +74,7 @@
               <label class="control-label">Sect</label>
             </div>
             <div class="col-xs-12 col-sm-10">
-              <select class="form-control clearwidth" data-bind="options: sectList, optionsText: 'SectName', optionsValue: 'pkSectId', optionsCaption: 'Any', value: selectedSect()[0], event: {change: afterSectChange}"></select>
+              <select class="form-control clearwidth" data-bind="options: sectList, optionsText: 'SectName', optionsValue: 'pkSectId', optionsCaption: 'Any', value: selectedSect()[0], event: {change: function(){afterSectChange(selectedSect())}}"></select>
             </div>
           </div>
         </div>

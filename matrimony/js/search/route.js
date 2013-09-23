@@ -35,7 +35,7 @@ define(function (require) {
 				}
 				if(queryJSON.sect){
 					self.resetSelectedItems(self.searchVM.selectedSect, queryJSON.sect);
-					self.searchVM.afterSectChange();
+					self.searchVM.afterSectChange(self.searchVM.selectedSect);
 				}
 				if(queryJSON.subsect){
 					self.resetSelectedItems(self.searchVM.selectedSubSect, queryJSON.subsect);
@@ -53,7 +53,7 @@ define(function (require) {
 					self.resetSelectedItems(self.searchVM.selectedOccupationGroup, queryJSON.occupationgroup);
 				}
 				if(queryJSON.annualincomefrom && queryJSON.annualincometo){
-					self.searchVM.selectedAnnualIncome(self.searchVM.findAnnualIncome(queryJSON.annualincomefrom, queryJSON.annualincometo));
+					self.searchVM.selectedAnnualIncome(self.searchVM.mainVM.facetVM.findAnnualIncome(queryJSON.annualincomefrom, queryJSON.annualincometo));
 				}
 				if(queryJSON.physicalstatus){
 					self.resetSelectedItems(self.searchVM.selectedPhysicalStatus, queryJSON.physicalstatus);
