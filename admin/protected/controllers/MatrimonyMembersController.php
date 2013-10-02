@@ -114,6 +114,10 @@ class MatrimonyMembersController extends Controller
 				$model->fkLoginId = null;
 			}
 			
+			if($model->fkCaste!=0){
+				$model->OtherCaste = "";
+			}
+			
 			if($model->save()){
 				// save family details
 				if(isset($_POST['MatrimonyFamilyDetails'])){
@@ -220,6 +224,10 @@ class MatrimonyMembersController extends Controller
 			
 			if(!$model->fkLoginId || $model->fkLoginId==""){
 				$model->fkLoginId = null;
+			}
+			
+			if($model->fkCaste!=0){
+				$model->OtherCaste = "";
 			}
 			
 			if($model->save()){

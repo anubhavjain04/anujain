@@ -121,7 +121,12 @@
           <div class="col-xs-12 col-sm-6">
             <div class="col-xs-12 col-sm-12 row">
               <div class="col-xs-6 col-sm-6"><label>Caste</label></div>
+              <!-- ko if: fkCaste !=0 -->
               <div class="col-xs-6 col-sm-6"> : <span data-bind="text: caste"></span> </div>
+              <!-- /ko -->
+              <!-- ko if: fkCaste ==0 -->
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: OtherCaste"></span> </div>
+              <!-- /ko -->
             </div>
             <div class="col-xs-12 col-sm-12 row">
               <div class="col-xs-6 col-sm-6"><label>Gotra</label></div>
