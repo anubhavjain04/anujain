@@ -6,6 +6,7 @@ define(function (require) {
 	return function(root){ 
 		var self = this;
 		self.root = root;
+		self.categorySwitch = ko.observable().publishOn("requestCategorySwitch", true);
 		
 		self.action = {
 			// search page
@@ -15,25 +16,25 @@ define(function (require) {
 		};
 		
 		jHash.route(self.root.label.HOME_PAGE, function () {
-			self.root.categorySwitch(self.root.label.HOME_PAGE);
+			self.categorySwitch(self.root.label.HOME_PAGE);
 		});
 		jHash.route(self.root.label.REGISTER_PAGE, function () {
-			self.root.categorySwitch(self.root.label.REGISTER_PAGE);
+			self.categorySwitch(self.root.label.REGISTER_PAGE);
 		});
 		jHash.route(self.root.label.UPGRADE_PAGE, function () {
-			self.root.categorySwitch(self.root.label.UPGRADE_PAGE);
+			self.categorySwitch(self.root.label.UPGRADE_PAGE);
 		});
 		jHash.route(self.root.label.ABOUTUS_PAGE, function () {
-			self.root.categorySwitch(self.root.label.ABOUTUS_PAGE);
+			self.categorySwitch(self.root.label.ABOUTUS_PAGE);
 		});
 		jHash.route(self.root.label.PRIVACY_POLICY, function () {
-			self.root.categorySwitch(self.root.label.PRIVACY_POLICY);
+			self.categorySwitch(self.root.label.PRIVACY_POLICY);
 		});
 		jHash.route(self.root.label.TERMS_N_CONDITIONS, function () {
-			self.root.categorySwitch(self.root.label.TERMS_N_CONDITIONS);
+			self.categorySwitch(self.root.label.TERMS_N_CONDITIONS);
 		});
 		jHash.route(self.root.label.CONTACT_US, function () {
-			self.root.categorySwitch(self.root.label.CONTACT_US);
+			self.categorySwitch(self.root.label.CONTACT_US);
 		});
 		
 		jHash.route(self.root.label.SEARCH_PAGE+"/{action}", function () {
@@ -44,14 +45,14 @@ define(function (require) {
 					self.action[this.action] = jHash.val();
 				}
 			}
-			self.root.categorySwitch(self.root.label.SEARCH_PAGE);
+			self.categorySwitch(self.root.label.SEARCH_PAGE);
 		});
 		
 		jHash.route(self.root.label.SEARCH_PAGE+"/member/{memberId}", function () {
 			if(this.memberId){
 				self.action.memberId(this.memberId);
 			}
-			self.root.categorySwitch(self.root.label.SEARCH_PAGE);
+			//self.categorySwitch(self.root.label.SEARCH_PAGE);
 		});
 		
 		jHash.change(function() {

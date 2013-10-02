@@ -41,6 +41,7 @@
  * @property string $Weight
  * @property string $Complexion
  * @property string $RegisteredBy
+ * @property string $Gotra
  *
  * The followings are the available model relations:
  * @property MatrimonyMemberPayment[] $matrimonyMemberPayments
@@ -85,7 +86,7 @@ class MatrimonyMembers extends CActiveRecord
 		return array(
 			array('MemberName, Sex, DOB, MaritalStatus, Height, fkSect, fkSubSect, fkCaste, fkMotherTongue, fkCountryLivingIn, ContactNo, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, fkEducation, EmployedIn, Occupation, MemberCode, Status', 'required'),
 			array('PhysicalStatus, MarryInSameSubSect, Status, Sex', 'numerical', 'integerOnly'=>true),
-			array('MemberName, OtherCaste, ContactNo, MemberPhoto, ResidingCity, ActivationCode, MemberCode', 'length', 'max'=>45),
+			array('MemberName, OtherCaste, ContactNo, MemberPhoto, ResidingCity, ActivationCode, MemberCode, Gotra', 'length', 'max'=>45),
 			array('HomeAddress, WorkingAddress', 'length', 'max'=>150),
 			array('MaritalStatus, Childrens, EmployedIn, Manglik, BodyType, Complexion, RegisteredBy', 'length', 'max'=>1),
 			array('Height, fkSect, fkSubSect, fkCaste, fkMotherTongue, fkCountryLivingIn, fkResidingState, fkEducation, Occupation, IncomeAnnual, fkLoginId', 'length', 'max'=>10),
@@ -94,7 +95,7 @@ class MatrimonyMembers extends CActiveRecord
 			array('Weight', 'length', 'max'=>3),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('pkMemberId, MemberName, Sex, DOB, MaritalStatus, Childrens, Height, fkSect, fkSubSect, fkCaste, OtherCaste, fkMotherTongue, fkCountryLivingIn, ContactNo, MemberPhoto, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, fkEducation, EmployedIn, Occupation, IncomeAnnual, AboutMe, AboutMyPartner, HomeAddress, WorkingAddress, Email, Status, ActivationCode, fkLoginId, MemberCode', 'safe', 'on'=>'search'),
+			array('pkMemberId, MemberName, Sex, DOB, MaritalStatus, Childrens, Height, fkSect, fkSubSect, fkCaste, OtherCaste, fkMotherTongue, fkCountryLivingIn, ContactNo, MemberPhoto, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, fkEducation, EmployedIn, Occupation, IncomeAnnual, AboutMe, AboutMyPartner, HomeAddress, WorkingAddress, Email, Status, ActivationCode, fkLoginId, MemberCode, Gotra', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -161,6 +162,7 @@ class MatrimonyMembers extends CActiveRecord
 			'Weight' => 'Weight',
 			'Complexion' => 'Complexion',
 			'RegisteredBy'=>'Registered By',
+			'Gotra'=>'Gotra',
 		);
 	}
      
@@ -203,6 +205,9 @@ class MatrimonyMembers extends CActiveRecord
 			if(isset($search['caste']) && $search['caste'] && $search['caste'][0]){
 				$criteria->addInCondition('fkCaste',$search['caste']);
 			}
+			if(isset($search['gotra']) && $search['gotra'] && $search['gotra'][0]){
+				$criteria->addInCondition('Gotra',$search['gotra']);
+			}			
 			if(isset($search['mothertongue']) && $search['mothertongue'] && $search['mothertongue'][0]){
 				$criteria->addInCondition('fkMotherTongue',$search['mothertongue']);
 			}

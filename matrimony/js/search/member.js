@@ -21,9 +21,11 @@ define(function (require) {
 						vm.memberData(memberData);
 					}else{
 						vm.memberData(undefined);
-					}	
-				}, function(){
+					}
+					vm.mainVM.switchToMemberPage();
+				}, function(){					
 					vm.memberData(undefined);
+					vm.mainVM.switchToMemberPage();
 				});
 				
 			};

@@ -12,6 +12,7 @@ define(function (require) {
 			vm.root = root;
 			vm.facetVM = vm.root.facetVM;
 			vm.showPage = ko.observable("search-page");
+			vm.categorySwitch = ko.observable().publishOn("requestCategorySwitch", true);
 			
 			vm.searchPage = function(searchCriteria){
 				if(searchCriteria && searchCriteria.type){
@@ -25,8 +26,12 @@ define(function (require) {
 			vm.showMember = function(memberId){
 				if(memberId){
 					vm.memberVM.showMemberPage(memberId);
-					vm.showPage('search-member-page');
 				}
+			};
+			
+			vm.switchToMemberPage = function(){
+				vm.showPage('search-member-page');
+				vm.categorySwitch(vm.root.label.SEARCH_PAGE);
 			};
 			
 			//Object creation

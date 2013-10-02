@@ -250,6 +250,14 @@
 	</div>
 	<div class="row">
     	<dl>
+			<dt><?php echo $form->labelEx($model,'Gotra'); ?></dt>
+            <dd><?php echo $form->textField($model,'Gotra',array('size'=>45,'maxlength'=>45)); ?>
+            	<?php echo $form->error($model,'Gotra'); ?>
+            </dd>   
+        </dl>
+	</div>
+	<div class="row">
+    	<dl>
 			<dt><?php echo $form->labelEx($model,'fkMotherTongue'); ?></dt>
             <dd>
 			<?php

@@ -59,6 +59,11 @@
 		<?php echo $form->label($model,'OtherCaste'); ?>
 		<?php echo $form->textField($model,'OtherCaste',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
+	
+	<div class="row">
+		<?php echo $form->label($model,'Gotra'); ?>
+		<?php echo $form->textField($model,'Gotra',array('size'=>45,'maxlength'=>45)); ?>
+	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'fkMotherTongue'); ?>
