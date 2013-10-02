@@ -106,6 +106,10 @@ class MatrimonyMembersController extends Controller
 				$model->Complexion = null;
 			}
 			
+			if(!$model->IncomeAnnual){
+				$model->IncomeAnnual = null;
+			}
+			
 			if(!$model->fkLoginId || $model->fkLoginId==""){
 				$model->fkLoginId = null;
 			}
@@ -114,7 +118,7 @@ class MatrimonyMembersController extends Controller
 				// save family details
 				if(isset($_POST['MatrimonyFamilyDetails'])){
 					$familyModel->attributes=$_POST['MatrimonyFamilyDetails'];
-					$model->save();
+					$familyModel->save();
 				}
 				
 				if(isset($_POST['cropID']) && $_POST['cropID']==1){					
@@ -126,7 +130,8 @@ class MatrimonyMembersController extends Controller
 					$path = "..".Yii::app()->params['tempPath']."/";
 		
 					$src = $path.Yii::app()->session['tempImgName'];
-					$distSrc = "..".Yii::app()->params['matrimonyPath']."/".$model->pkMemberId.".jpg";
+					$imageName = $model->MemberCode."_".$this->generateRandomString()."_P.jpg";
+					$distSrc = "..".Yii::app()->params['matrimonyPath']."/".$imageName;
 					
 					$extArr = explode(".", $src); 
 					$ext = $extArr[count($extArr)-1];
@@ -158,7 +163,7 @@ class MatrimonyMembersController extends Controller
 					imagedestroy($img_r);
 					imagedestroy($dst_r);
 					
-					$model->MemberPhoto = $model->pkMemberId.".jpg";
+					$model->MemberPhoto = $imageName;
 					$model->save();
 					
 					$this->removeTempData();				
@@ -209,6 +214,10 @@ class MatrimonyMembersController extends Controller
 				$model->Complexion = null;
 			}
 			
+			if(!$model->IncomeAnnual){
+				$model->IncomeAnnual = null;
+			}
+			
 			if(!$model->fkLoginId || $model->fkLoginId==""){
 				$model->fkLoginId = null;
 			}
@@ -226,10 +235,15 @@ class MatrimonyMembersController extends Controller
 					$jpeg_quality = 90;
 					
 					$rootPath = pathinfo(Yii::app()->baseUrl);
-					$path = "..".Yii::app()->params['tempPath']."/";
-		
+					$path = "..".Yii::app()->params['tempPath']."/";		
 					$src = $path.Yii::app()->session['tempImgName'];
-					$distSrc = "..".Yii::app()->params['matrimonyPath']."/".$model->pkMemberId.".jpg";
+					
+					if($model->MemberPhoto){
+						$imageName = $model->MemberPhoto;
+					}else{
+						$imageName = $model->MemberCode."_".$this->generateRandomString()."_P.jpg";
+					}
+					$distSrc = "..".Yii::app()->params['matrimonyPath']."/".$imageName;
 					
 					$extArr = explode(".", $src); 
 					$ext = $extArr[count($extArr)-1];
@@ -261,7 +275,7 @@ class MatrimonyMembersController extends Controller
 					imagedestroy($img_r);
 					imagedestroy($dst_r);
 					
-					$model->MemberPhoto = $model->pkMemberId.".jpg";
+					$model->MemberPhoto = $imageName;
 					$model->save();
 					
 					$this->removeTempData();				
