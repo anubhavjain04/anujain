@@ -18,6 +18,9 @@ function( $,        knockout,   infuser,       koExtTemplate,                  k
     // Set up some defaults for templates loaded using koExternalTemplateEngine
     infuser.defaults.templateSuffix = ".tmpl.html"
     infuser.defaults.templateUrl = "js";
+    infuser.defaults.loadingTemplate.content = '<div class="template-loader"></div>';
+    //infuser.defaults.cache = false;
+    infuser.defaults.ajax = {cache: false};
     //initialize validation using knockout.validation
     knockout.validation.configure({
         registerExtenders: true,

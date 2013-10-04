@@ -112,6 +112,11 @@ span.arrow_icon{
 	box-shadow: #424242 0px 2px 8px;
 }
 
+.template-loader{
+	height: 100px;
+	background: url('../images/template-loader.gif') no-repeat center top;
+}
+
 /** for loader**/
 .mid-layer{
 	width: 500px;
