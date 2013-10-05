@@ -955,13 +955,13 @@ img {
 
 .men{
 	background: transparent url('../images/men.png') no-repeat left bottom;
-	height: 200px;
-	width: 150px;
+	height: 200px !important;
+	width: 150px !important;
 }
 .women{
 	background: transparent url('../images/women.png') no-repeat left bottom;
-	height: 200px;
-	width: 150px;
+	height: 200px !important;
+	width: 150px !important;
 }
 
 .flow-layout {
