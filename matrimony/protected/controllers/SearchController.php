@@ -109,7 +109,12 @@ class SearchController extends Controller
 				$jsonMember['education'] = $member->fkEducation0->CourseName;
 				$jsonMember['occupation'] = $member->occupation->OccupationName;
 				$jsonMember['motherTongue'] = $member->fkMotherTongue0->TongueName;
-				$jsonMember['caste'] = $member->fkCaste0->CasteName;
+				if($member->fkCaste0){
+					$jsonMember['caste'] = $member->fkCaste0->CasteName;
+				}else{
+					$jsonMember['caste'] = null;
+				}
+				
 				if($familyDetails){
 					$jsonMember['familyDetails'] = CJSON::decode(CJSON::encode($familyDetails));
 				}else{

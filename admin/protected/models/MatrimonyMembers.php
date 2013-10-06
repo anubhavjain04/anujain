@@ -82,7 +82,7 @@ class MatrimonyMembers extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('MemberName, Sex, DOB, MaritalStatus, Height, fkSect, fkSubSect, fkCaste, fkMotherTongue, fkCountryLivingIn, ContactNo, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, fkEducation, EmployedIn, Occupation, MemberCode, Status', 'required'),
+			array('MemberName, Sex, DOB, MaritalStatus, Height, fkSect, fkSubSect, fkMotherTongue, fkCountryLivingIn, ContactNo, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, fkEducation, EmployedIn, Occupation, MemberCode, Status', 'required'),
 			array('PhysicalStatus, MarryInSameSubSect, Status, Sex', 'numerical', 'integerOnly'=>true),
 			array('MemberName, OtherCaste, ContactNo, MemberPhoto, ResidingCity, ActivationCode, MemberCode, Gotra', 'length', 'max'=>45),
 			array('HomeAddress, WorkingAddress', 'length', 'max'=>150),

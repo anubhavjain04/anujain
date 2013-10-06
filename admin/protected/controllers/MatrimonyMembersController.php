@@ -98,7 +98,9 @@ class MatrimonyMembersController extends Controller
 			}else{
 				$model->DOB = null;
 			}
-			
+			if(!$model->fkCaste){
+				$model->fkCaste = null;
+			}			
 			if(!$model->BodyType){
 				$model->BodyType = null;
 			}
@@ -210,7 +212,9 @@ class MatrimonyMembersController extends Controller
 			}else{
 				$model->DOB = null;
 			}
-			
+			if(!$model->fkCaste){
+				$model->fkCaste = null;
+			}
 			if(!$model->BodyType){
 				$model->BodyType = null;
 			}
