@@ -13,7 +13,7 @@
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?php echo $form->errorSummary($model, $familyModel); ?>
 <div style="float:left;">
 	<div class="row">
         <dl>

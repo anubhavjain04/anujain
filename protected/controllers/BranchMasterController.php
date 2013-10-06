@@ -200,7 +200,7 @@ class BranchMasterController extends Controller
                 .' inner join milan_details mild on (md.pkMemberId=mild.fkMemberId)'
             	   .' inner join branch_master bm on (bm.pkBranchId=mild.fkBranchId)'
             	   .' inner join zone_master zmas on(zmas.pkZoneId=bm.fkZoneId)'
-  				   .' where gm.GroupCode=\'BEX\' and bm.BranchCode='.$branchcode.' and mp.Status=1'
+  				   .' where gm.GroupCode=\'BEX\' and bm.BranchCode=\''.$branchcode.'\' and mp.Status=1'
             	   .' and zmas.`Status`=1 and gp.`Status`=1 and pm.`Status`=1 and bm.`Status`=1'
 				   .' order by (bm.BranchCode*1),pm.PostOrder,mp.`Order`';
 		$command=$connection->createCommand($query);
@@ -245,7 +245,7 @@ class BranchMasterController extends Controller
                 .' inner join milan_details mild on (md.pkMemberId=mild.fkMemberId)'
             	   .' inner join branch_master bm on (bm.pkBranchId=mild.fkBranchId)'
             	   .' inner join zone_master zmas on(zmas.pkZoneId=bm.fkZoneId)'
-  				   .' where gm.GroupCode=\'BEXCO\' and bm.BranchCode='.$branchcode.' and mp.Status=1'
+  				   .' where gm.GroupCode=\'BEXCO\' and bm.BranchCode=\''.$branchcode.'\' and mp.Status=1'
             	   .' and zmas.`Status`=1 and gp.`Status`=1 and pm.`Status`=1 and bm.`Status`=1'
 				   .' order by (bm.BranchCode*1),pm.PostOrder,mp.`Order`';
 		$command=$connection->createCommand($query);

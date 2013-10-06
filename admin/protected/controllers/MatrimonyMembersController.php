@@ -124,9 +124,9 @@ class MatrimonyMembersController extends Controller
 				// save family details
 				if(isset($_POST['MatrimonyFamilyDetails'])){
 					$familyModel->attributes=$_POST['MatrimonyFamilyDetails'];
+					$familyModel->MemberCode = $model->MemberCode;
 					$familyModel->save();
 				}
-				
 				if(isset($_POST['cropID']) && $_POST['cropID']==1){					
 					$targ_w = 150;
 					$targ_h = 200;
@@ -197,7 +197,6 @@ class MatrimonyMembersController extends Controller
 		$familyModel=MatrimonyFamilyDetails::model()->find('MemberCode=:MemberCode', array(':MemberCode'=>$model->MemberCode));
 		if($familyModel === null){
 			$familyModel = new MatrimonyFamilyDetails;
-			$familyModel->MemberCode = $model->MemberCode;
 		}
 
 		// Uncomment the following line if AJAX validation is needed
@@ -238,6 +237,7 @@ class MatrimonyMembersController extends Controller
 				// update family details
 				if(isset($_POST['MatrimonyFamilyDetails'])){
 					$familyModel->attributes=$_POST['MatrimonyFamilyDetails'];
+					$familyModel->MemberCode = $model->MemberCode;
 					$familyModel->save();
 				}				
 				
