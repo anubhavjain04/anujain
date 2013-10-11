@@ -17,25 +17,25 @@
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'FatherName'); ?>
-		<?php echo $form->textField($model,'FatherName',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->textField($model,'FatherName',array('size'=>45,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'FatherName'); ?>
 	</div>
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'FatherOccupation'); ?>
-		<?php echo $form->textField($model,'FatherOccupation',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->textField($model,'FatherOccupation',array('size'=>45,'maxlength'=>150)); ?>
 		<?php echo $form->error($model,'FatherOccupation'); ?>
 	</div>
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'MotherName'); ?>
-		<?php echo $form->textField($model,'MotherName',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->textField($model,'MotherName',array('size'=>45,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'MotherName'); ?>
 	</div>
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'MotherOccupation'); ?>
-		<?php echo $form->textField($model,'MotherOccupation',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->textField($model,'MotherOccupation',array('size'=>45,'maxlength'=>150)); ?>
 		<?php echo $form->error($model,'MotherOccupation'); ?>
 	</div>
 

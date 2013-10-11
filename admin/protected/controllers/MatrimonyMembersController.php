@@ -60,7 +60,7 @@ class MatrimonyMembersController extends Controller
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreate()
-	{
+	{		
 		$model=new MatrimonyMembers;
 		$familyModel=new MatrimonyFamilyDetails;
 
@@ -98,6 +98,12 @@ class MatrimonyMembersController extends Controller
 			}else{
 				$model->DOB = null;
 			}
+			if(!$model->Weight){
+				$model->Weight = null;
+			}
+			if(!$model->Height){
+				$model->Height = null;
+			}
 			if(!$model->fkCaste){
 				$model->fkCaste = null;
 			}			
@@ -107,7 +113,12 @@ class MatrimonyMembersController extends Controller
 			if(!$model->Complexion){
 				$model->Complexion = null;
 			}
-			
+			if(!$model->fkEducation){
+				$model->fkEducation = null;
+			}
+			if(!$model->Occupation){
+				$model->Occupation = null;
+			}
 			if(!$model->IncomeAnnual){
 				$model->IncomeAnnual = null;
 			}
@@ -119,12 +130,17 @@ class MatrimonyMembersController extends Controller
 			if($model->fkCaste!=0){
 				$model->OtherCaste = "";
 			}
+			$currentTime = date('Y-m-d H:i',time());
+			$model->CreatedDate=$currentTime;
+			$model->ModifiedDate=$currentTime;
 			
 			if($model->save()){
 				// save family details
 				if(isset($_POST['MatrimonyFamilyDetails'])){
 					$familyModel->attributes=$_POST['MatrimonyFamilyDetails'];
 					$familyModel->MemberCode = $model->MemberCode;
+					$familyModel->CreatedDate=$currentTime;
+					$familyModel->ModifiedDate=$currentTime;
 					$familyModel->save();
 				}
 				if(isset($_POST['cropID']) && $_POST['cropID']==1){					
@@ -211,6 +227,12 @@ class MatrimonyMembersController extends Controller
 			}else{
 				$model->DOB = null;
 			}
+			if(!$model->Weight){
+				$model->Weight = null;
+			}
+			if(!$model->Height){
+				$model->Height = null;
+			}
 			if(!$model->fkCaste){
 				$model->fkCaste = null;
 			}
@@ -220,7 +242,12 @@ class MatrimonyMembersController extends Controller
 			if(!$model->Complexion){
 				$model->Complexion = null;
 			}
-			
+			if(!$model->fkEducation){
+				$model->fkEducation = null;
+			}
+			if(!$model->Occupation){
+				$model->Occupation = null;
+			}
 			if(!$model->IncomeAnnual){
 				$model->IncomeAnnual = null;
 			}
@@ -233,11 +260,18 @@ class MatrimonyMembersController extends Controller
 				$model->OtherCaste = "";
 			}
 			
+			$currentTime = date('Y-m-d H:i',time());
+			$model->ModifiedDate=$currentTime;
+			
 			if($model->save()){
 				// update family details
 				if(isset($_POST['MatrimonyFamilyDetails'])){
 					$familyModel->attributes=$_POST['MatrimonyFamilyDetails'];
 					$familyModel->MemberCode = $model->MemberCode;
+					if(!$familyModel->CreatedDate){
+						$familyModel->CreatedDate=$currentTime;
+					}
+					$familyModel->ModifiedDate=$currentTime;
 					$familyModel->save();
 				}				
 				
@@ -317,8 +351,10 @@ class MatrimonyMembersController extends Controller
 	{
 		if(Yii::app()->request->isPostRequest)
 		{
+			$model=$this->loadModel($id);
+			$familyModel=MatrimonyFamilyDetails::model()->deleteAll('MemberCode=:MemberCode', array(':MemberCode'=>$model->MemberCode));
 			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
+			$model->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
@@ -489,16 +525,23 @@ class MatrimonyMembersController extends Controller
 	}
 
 	//This function is used to delete multiple records at time
-	public function multipleDelete($data)
-	{
-		$connection=Yii::app()->db;
-		$arr=implode(',',$data['matrimony-members-grid_c0']);
-		$query = "delete from matrimony_members where pkMemberId in(".$arr.")";
-		$command=$connection->createCommand($query);
-		if($command->execute())
-		{
-	  $this->redirect(array('admin'));
-		}
+	public function multipleDelete($data){		
+		$arr= $data['matrimony-members-grid_c0'];
+		
+		$criteria = new CDbCriteria;
+		$criteria->addInCondition('pkMemberId',$arr);
+		$membersList =	MatrimonyMembers::model()->findAll($criteria);
+		$memberCodes = array();
+		foreach ($membersList as $member){
+	  		array_push($memberCodes, $member->MemberCode);
+	  	}
+	  	
+	  	$deleteCriteria = new CDbCriteria;
+		$deleteCriteria->addInCondition('MemberCode',$memberCodes);
+		MatrimonyFamilyDetails::model()->deleteAll($deleteCriteria);
+		MatrimonyMembers::model()->deleteAll($criteria);		
+	  	$this->redirect(array('admin'));
+		
 	}
 
 	//this function is used to pubhlish a single record

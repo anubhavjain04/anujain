@@ -38,7 +38,7 @@
 		            <div id="collapse3" class="accordion-body collapse">
 		              <div class="accordion-inner"> 
 		                <!-- ko foreach: selectedMaritalStatus() --> 
-		                <!-- ko foreach: $parent.maritalStatusList --> 
+		                <!-- ko foreach: $root.facetVM.maritalStatusList --> 
 		                <!-- ko if: $parent && $data.key==$parent -->
 		                <div><span class="arrow_icon"></span><span data-bind="text: $data.text"></span></div>
 		                <!-- /ko --> 
@@ -57,7 +57,7 @@
 		            <div id="collapse4" class="accordion-body collapse">
 		              <div class="accordion-inner"> 
 		                <!-- ko foreach: selectedMotherTongue() --> 
-		                <!-- ko foreach: $parent.motherTongueList --> 
+		                <!-- ko foreach: $root.facetVM.motherTongueList() --> 
 		                <!-- ko if: $parent && $data.pkTongueId==$parent -->
 		                <div><span class="arrow_icon"></span><span data-bind="text: $data.TongueName"></span></div>
 		                <!-- /ko --> 
@@ -78,7 +78,7 @@
 		            <div id="collapse5" class="accordion-body collapse">
 		              <div class="accordion-inner"> 
 		                <!-- ko foreach: selectedSect() --> 
-		                <!-- ko foreach: $parent.sectList --> 
+		                <!-- ko foreach: $root.facetVM.sectList() --> 
 		                <!-- ko if: $parent && $data.pkSectId==$parent -->
 		                <div><span class="arrow_icon"></span><span data-bind="text: $data.SectName"></span></div>
 		                <!-- /ko --> 
@@ -98,7 +98,7 @@
 		            <div id="collapse6" class="accordion-body collapse">
 		              <div class="accordion-inner"> 
 		                <!-- ko foreach: selectedSubSect() --> 
-		                <!-- ko foreach: $parent.subSectList() --> 
+		                <!-- ko foreach: $root.facetVM.subSectList() --> 
 		                <!-- ko if: $parent && $data.pkSubSectId==$parent -->
 		                <div><span class="arrow_icon"></span><span data-bind="text: $data.SubSectName"></span></div>
 		                <!-- /ko --> 
@@ -118,7 +118,7 @@
 		            <div id="collapse7" class="accordion-body collapse">
 		              <div class="accordion-inner"> 
 		                <!-- ko foreach: selectedCaste() --> 
-		                <!-- ko foreach: $parent.casteList --> 
+		                <!-- ko foreach: $root.facetVM.casteList() --> 
 		                <!-- ko if: $parent && $data.pkCasteId==$parent -->
 		                <div><span class="arrow_icon"></span><span data-bind="text: $data.CasteName"></span></div>
 		                <!-- /ko --> 
@@ -138,7 +138,7 @@
 		            <div id="collapse8" class="accordion-body collapse">
 		              <div class="accordion-inner"> 
 		                <!-- ko foreach: selectedCourseGroup() --> 
-		                <!-- ko foreach: $parent.courseGroupList --> 
+		                <!-- ko foreach: $root.facetVM.courseGroupList() --> 
 		                <!-- ko if: $parent && $data.pkCourseGroupId==$parent -->
 		                <div><span class="arrow_icon"></span><span data-bind="text: $data.GroupName"></span></div>
 		                <!-- /ko --> 
@@ -158,7 +158,7 @@
 		            <div id="collapse9" class="accordion-body collapse">
 		              <div class="accordion-inner"> 
 		                <!-- ko foreach: selectedOccupationGroup() --> 
-		                <!-- ko foreach: $parent.occupationGroupList --> 
+		                <!-- ko foreach: $root.facetVM.occupationGroupList() --> 
 		                <!-- ko if: $parent && $data.pkOccGroupId==$parent -->
 		                <div><span class="arrow_icon"></span><span data-bind="text: $data.GroupName"></span></div>
 		                <!-- /ko --> 
@@ -194,7 +194,7 @@
 		            <div id="collapse11" class="accordion-body collapse">
 		              <div class="accordion-inner"> 
 		                <!-- ko foreach: selectedCountry() --> 
-		                <!-- ko foreach: $parent.countryList --> 
+		                <!-- ko foreach: $root.facetVM.countryList() --> 
 		                <!-- ko if: $parent && $data.pkCountryId==$parent -->
 		                <div><span class="arrow_icon"></span><span data-bind="text: $data.CountryName"></span></div>
 		                <!-- /ko --> 
@@ -213,7 +213,7 @@
 		            <div id="collapse12" class="accordion-body collapse">
 		              <div class="accordion-inner"> 
 		                <!-- ko foreach: selectedPhysicalStatus() --> 
-		                <!-- ko foreach: $parent.physicalStatusList --> 
+		                <!-- ko foreach: $root.facetVM.physicalStatusList --> 
 		                <!-- ko if: $parent && $data.key==$parent -->
 		                <div><span class="arrow_icon"></span><span data-bind="text: $data.text"></span></div>
 		                <!-- /ko --> 
@@ -232,7 +232,7 @@
 		            <div id="collapse13" class="accordion-body collapse">
 		              <div class="accordion-inner"> 
 		                <!-- ko foreach: selectedEmployedIn() --> 
-		                <!-- ko foreach: $parent.employedInList --> 
+		                <!-- ko foreach: $root.facetVM.employedInList --> 
 		                <!-- ko if: $parent && $data.key==$parent -->
 		                <div><span class="arrow_icon"></span><span data-bind="text: $data.text"></span></div>
 		                <!-- /ko --> 

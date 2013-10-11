@@ -43,6 +43,9 @@
     	<dl>
 			<dt><?php echo $form->labelEx($model,'Sex'); ?></dt>
             <dd><?php
+            	if(!$model->Sex){
+					$model->Sex = '1';
+				}
                 $sex = array('1'=>'Male', '0'=>'Female');
                 echo $form->radioButtonList($model,'Sex',$sex,array('separator'=>' ', 'labelOptions'=>array('style'=>'display:inline')));
             ?>		
@@ -156,13 +159,12 @@
             <dd>
             <?php
 				$weight = array();
-				$weight[0] = '--- Weight ---';
 				for($i=30; $i<=150; $i++){
 					$weight[$i]= $i.' kg';
 				}
 				
 			?>
-            <?php echo $form->dropDownList($model,'Weight',$weight); ?>			
+            <?php echo $form->dropDownList($model,'Weight',$weight, array('prompt'=>'--- Weight ---')); ?>			
             <?php echo $form->error($model,'Weight'); ?>
             </dd>
         </dl>
@@ -367,6 +369,9 @@
 			<dt><?php echo $form->labelEx($model,'EmployedIn'); ?></dt>
 			<dd>
 				<?php
+				if(!$model->EmployedIn){
+					$model->EmployedIn = '5';
+				}
                 $employementStatus = array('1'=>'Government', '2'=>'Defence', '3'=>'Private', '4'=>'Business', '5'=>'Self Employed', '6'=>'Not Working');
                 echo $form->radioButtonList($model,'EmployedIn',$employementStatus,array('separator'=>' ', 'labelOptions'=>array('style'=>'display:inline')));
                ?>	
@@ -404,7 +409,7 @@
     	<dl>
 			<dt><?php echo $form->labelEx($model,'AboutMe'); ?></dt>
 			<dd>
-				<?php echo $form->textArea($model,'AboutMe',array('style'=>'width:400px;height:60px','maxlength'=>200)); ?>
+				<?php echo $form->textArea($model,'AboutMe',array('style'=>'width:400px;height:60px','maxlength'=>500)); ?>
                 <?php echo $form->error($model,'AboutMe'); ?>
             </dd>    
         </dl>
@@ -414,7 +419,7 @@
     	<dl>
 			<dt><?php echo $form->labelEx($model,'AboutMyPartner'); ?></dt>
 			<dd>
-				<?php echo $form->textArea($model,'AboutMyPartner',array('style'=>'width:400px;height:60px','maxlength'=>200)); ?>
+				<?php echo $form->textArea($model,'AboutMyPartner',array('style'=>'width:400px;height:60px','maxlength'=>500)); ?>
                 <?php echo $form->error($model,'AboutMyPartner'); ?>
             </dd>    
         </dl>
@@ -479,7 +484,7 @@
     	<dl>
 			<dt><?php echo $form->labelEx($familyModel,'FatherName'); ?></dt>
 			<dd>
-				<?php echo $form->textField($familyModel,'FatherName',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->textField($familyModel,'FatherName',array('size'=>45,'maxlength'=>100)); ?>
 				<?php echo $form->error($familyModel,'FatherName'); ?>
             </dd>    
         </dl>
@@ -488,7 +493,7 @@
     	<dl>
 			<dt><?php echo $form->labelEx($familyModel,'FatherOccupation'); ?></dt>
 			<dd>
-				<?php echo $form->textField($familyModel,'FatherOccupation',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->textField($familyModel,'FatherOccupation',array('size'=>45,'maxlength'=>150)); ?>
 				<?php echo $form->error($familyModel,'FatherOccupation'); ?>
             </dd>    
         </dl>
@@ -497,7 +502,7 @@
     	<dl>
 			<dt><?php echo $form->labelEx($familyModel,'MotherName'); ?></dt>
 			<dd>
-				<?php echo $form->textField($familyModel,'MotherName',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->textField($familyModel,'MotherName',array('size'=>45,'maxlength'=>100)); ?>
 				<?php echo $form->error($familyModel,'MotherName'); ?>
             </dd>    
         </dl>
@@ -506,7 +511,7 @@
     	<dl>
 			<dt><?php echo $form->labelEx($familyModel,'MotherOccupation'); ?></dt>
 			<dd>
-				<?php echo $form->textField($familyModel,'MotherOccupation',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->textField($familyModel,'MotherOccupation',array('size'=>45,'maxlength'=>150)); ?>
 				<?php echo $form->error($familyModel,'MotherOccupation'); ?>
             </dd>    
         </dl>
@@ -515,7 +520,7 @@
     	<dl>
 			<dt><?php echo $form->labelEx($familyModel,'UnmarriedBrothers'); ?></dt>
 			<dd>
-				<?php echo $form->dropDownList($familyModel,'UnmarriedBrothers',array('0'=>'None', '1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6')); ?>
+				<?php echo $form->dropDownList($familyModel,'UnmarriedBrothers',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6'), array('prompt'=>'None')); ?>
 				<?php echo $form->error($familyModel,'UnmarriedBrothers'); ?>
             </dd>    
         </dl>
@@ -524,7 +529,7 @@
     	<dl>
 			<dt><?php echo $form->labelEx($familyModel,'MarriedBrothers'); ?></dt>
 			<dd>
-				<?php echo $form->dropDownList($familyModel,'MarriedBrothers',array('0'=>'None', '1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6')); ?>
+				<?php echo $form->dropDownList($familyModel,'MarriedBrothers',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6'), array('prompt'=>'None')); ?>
 				<?php echo $form->error($familyModel,'MarriedBrothers'); ?>
             </dd>    
         </dl>
@@ -533,7 +538,7 @@
     	<dl>
 			<dt><?php echo $form->labelEx($familyModel,'UnmarriedSisters'); ?></dt>
 			<dd>
-				<?php echo $form->dropDownList($familyModel,'UnmarriedSisters',array('0'=>'None', '1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6')); ?>
+				<?php echo $form->dropDownList($familyModel,'UnmarriedSisters',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6'), array('prompt'=>'None')); ?>
 				<?php echo $form->error($familyModel,'UnmarriedSisters'); ?>
             </dd>    
         </dl>
@@ -542,7 +547,7 @@
     	<dl>
 			<dt><?php echo $form->labelEx($familyModel,'MarriedSisters'); ?></dt>
 			<dd>
-				<?php echo $form->dropDownList($familyModel,'MarriedSisters',array('0'=>'None', '1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6')); ?>
+				<?php echo $form->dropDownList($familyModel,'MarriedSisters',array('1'=>'1', '2'=>'2', '3'=>'3', '4'=>'4', '5'=>'5', '6'=>'6'), array('prompt'=>'None')); ?>
 				<?php echo $form->error($familyModel,'MarriedSisters'); ?>
             </dd>    
         </dl>
@@ -551,7 +556,7 @@
     	<dl>
 			<dt><?php echo $form->labelEx($familyModel,'AboutFamily'); ?></dt>
 			<dd>
-				<?php echo $form->textArea($familyModel,'AboutFamily',array('style'=>'width:400px;height:100px','maxlength'=>200)); ?>
+				<?php echo $form->textArea($familyModel,'AboutFamily',array('style'=>'width:400px;height:100px')); ?>
                 <?php echo $form->error($familyModel,'AboutFamily'); ?>
             </dd>    
         </dl>
@@ -684,7 +689,7 @@ $(document).ready(function(e) {
 			startDate:'01/01/1900', 
 			changeMonth: true, 
 			changeYear: true, 
-			yearRange: 'c-40:c',
+			yearRange: 'c-50:c-15',
 			timeFormat: "hh:mm tt",
 			hourGrid: 6,
 			minuteGrid: 10

@@ -141,6 +141,7 @@ class SearchController extends Controller
 		$results["motherTongueList"] = MatrimonyMotherTongue::model()->findAll(array('order'=>' TongueName ASC '));
 		$results["courseGroupList"] = MatrimonyCourseGroup::model()->findAll(array('order'=>'GroupName'));
 		$results["countryList"] = Country::model()->findAll(array('order'=>' CountryName ASC '));
+		$results["stateList"] = States::model()->findAll(array('order'=>' StateName ASC '));
 		$results["occupationGroupList"] = OccupationGroup::model()->findAll(array('order'=>' GroupName ASC '));
 		echo CJSON::encode($results);
 	}

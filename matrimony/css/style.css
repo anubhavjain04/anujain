@@ -45,6 +45,8 @@ h3{
 
 */
 
+
+
 #topbar-fixed.navbar-inverse .navbar-brand{
 	background: #ED1C24 url("../images/matrimony-logo.gif") no-repeat center left;
 	height: 50px;
@@ -991,6 +993,9 @@ img {
 	margin-right: 0px;
 	margin-left: 0px;
 }
+#register-home .form-horizontal .radio-inline{
+	padding-top: 0px;
+}
 #register-home .form-horizontal .form-group [class*="col-"]{
 	padding-right: 0px;
 	padding-left: 0px;
@@ -1020,4 +1025,34 @@ img {
 #footer a {
 	color: #0274CB;
 	line-height: 18px;
+}
+
+.validationMessage {
+	position: absolute;
+	top: -23px;
+	display: block;
+	padding-top: 3px;
+	background: #ff0000;
+	color: #ffffff;
+	margin-top: 0px;
+	padding-bottom: 3px;
+	padding-left: 5px;
+	padding-right: 5px;
+	left: 22%;
+	
+	-webkit-border-top-left-radius: 4px;
+    border-top-left-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    
+	-webkit-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+    -moz-border-radius-topright: 4px;
+}
+.requiredFields{
+	/*background-image: url(../img/icons/required-field.png);
+	background-position: top right;
+	background-repeat: no-repeat;
+	*/
+	color: #ff0000;
+	padding-right: 7px;
 }

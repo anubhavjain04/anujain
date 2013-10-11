@@ -22,15 +22,17 @@ define(function (require) {
 			vm.memberCode = ko.observable();
 			vm.ageList = [];
 			vm.heightList = [];
-			vm.maritalStatusList = [new self.SelectObject('','Any'), new self.SelectObject('1','Unmarried'), new self.SelectObject('2','Widow / Widower'), new self.SelectObject('3','Divorced'), new self.SelectObject('4','Separated')];
-			vm.sectList = [];
+			vm.maritalStatusList = [new self.SelectObject('1','Unmarried'), new self.SelectObject('2','Widow / Widower'), new self.SelectObject('3','Divorced'), new self.SelectObject('4','Separated')];
+			vm.sectList = ko.observableArray();
 			vm.subSectList = ko.observableArray();
-			vm.casteList = [];
-			vm.motherTongueList = [];
-			vm.courseGroupList = [];
-			vm.countryList = [];
-			vm.occupationGroupList = [];
+			vm.casteList = ko.observableArray();
+			vm.motherTongueList = ko.observableArray();
+			vm.courseGroupList = ko.observableArray();
+			vm.countryList = ko.observableArray();
+			vm.stateList = ko.observableArray();
+			vm.occupationGroupList = ko.observableArray();
 			vm.annualIncomeList = [];
+			vm.registeredByList = [new self.SelectObject(1, 'Myself'), new self.SelectObject(2, 'Parents'), new self.SelectObject(3, 'Sibling (Brother/Sister)'), new self.SelectObject(4, 'Relative'), new self.SelectObject(5, 'Other')];
 			vm.physicalStatusList = [new self.SelectObject(0, 'Normal'), new self.SelectObject(1, 'Physically Challenged')];
 			vm.employedInList = [new self.SelectObject('1','Government'),new self.SelectObject('2','Defence'),new self.SelectObject('3','Private'),new self.SelectObject('4','Business'),new self.SelectObject('5','Self Employed'),new self.SelectObject('6','Not Working')];
 			vm.manglikList =  [new self.SelectObject(0, 'None'), new self.SelectObject(1, 'Aanshik Manglik'), new self.SelectObject(2, 'Manglik')];
@@ -92,34 +94,25 @@ define(function (require) {
 				ajaxutil.syncFindAll("search/dataList", function(data){
 					if(data){
 						if(data.sectList){
-							ko.utils.arrayForEach(data.sectList, function(item){
-								vm.sectList.push(item);
-							});
+							vm.sectList(data.sectList);
 						}
 						if(data.casteList){
-							ko.utils.arrayForEach(data.casteList, function(item){
-								vm.casteList.push(item);
-							});
+							vm.casteList(data.casteList);
 						}
 						if(data.motherTongueList){
-							ko.utils.arrayForEach(data.motherTongueList, function(item){
-								vm.motherTongueList.push(item);
-							});
+							vm.motherTongueList(data.motherTongueList);
 						}
 						if(data.courseGroupList){
-							ko.utils.arrayForEach(data.courseGroupList, function(item){
-								vm.courseGroupList.push(item);
-							});
+							vm.courseGroupList(data.courseGroupList);
 						}
 						if(data.countryList){
-							ko.utils.arrayForEach(data.countryList, function(item){
-								vm.countryList.push(item);
-							});
+							vm.countryList(data.countryList);
+						}
+						if(data.stateList){
+							vm.stateList(data.stateList);
 						}
 						if(data.occupationGroupList){
-							ko.utils.arrayForEach(data.occupationGroupList, function(item){
-								vm.occupationGroupList.push(item);
-							});
+							vm.occupationGroupList(data.occupationGroupList);
 						}
 					}					
 				},function(error){
@@ -149,11 +142,11 @@ define(function (require) {
 					ko.utils.arrayForEach(selectedSect, function(sect){
 						if(sect){
 							ajaxutil.find("matrimonySubSect/getSubSects", {'sectId': sect}, function(data){
-								if(data && data instanceof Array){							
-									ko.utils.arrayForEach(data, function(item){
-										vm.subSectList.push(item);
-									});
+								if(data && data instanceof Array){
+									console.log(data);
+									vm.subSectList.push.apply(vm.subSectList, data);
 								}
+								
 							},function(error){
 								console.log(error);
 							});	

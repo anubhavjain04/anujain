@@ -15,6 +15,9 @@
  * @property string $AboutFamily
  * @property string $FatherName
  * @property string $MotherName
+ * @property string $CreatedDate
+ * @property string $ModifiedDate
+
  *
  * The followings are the available model relations:
  * @property MatrimonyMembers $memberCode
@@ -47,14 +50,25 @@ class MatrimonyFamilyDetails extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('MemberCode', 'required'),
-			array('MemberCode, FatherOccupation, MotherOccupation, FatherName, MotherName', 'length', 'max'=>45),
+			array('MemberCode, CreatedDate, ModifiedDate', 'required'),
+			array('MemberCode', 'length', 'max'=>45),
+			array('FatherName, MotherName', 'length', 'max'=>100),
+			array('FatherOccupation, MotherOccupation', 'length', 'max'=>150),
 			array('UnmarriedBrothers, MarriedBrothers, UnmarriedSisters, MarriedSisters', 'length', 'max'=>2),
 			array('AboutFamily', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('pkFamilyId, MemberCode, FatherOccupation, MotherOccupation, UnmarriedBrothers, MarriedBrothers, UnmarriedSisters, MarriedSisters, AboutFamily, FatherName, MotherName', 'safe', 'on'=>'search'),
+			array('pkFamilyId, MemberCode, FatherOccupation, MotherOccupation, UnmarriedBrothers, MarriedBrothers, UnmarriedSisters, MarriedSisters, AboutFamily, FatherName, MotherName, CreatedDate, ModifiedDate', 'safe', 'on'=>'search'),
+			array('UnmarriedBrothers, MarriedBrothers, UnmarriedSisters, MarriedSisters', 'filter', 'filter'=>array($this,'empty2null')),
 		);
+	}
+	
+	public function empty2null($value) {
+		if(!$value){
+			return null;
+		}else{
+			return $value;
+		}
 	}
 
 	/**
@@ -86,6 +100,8 @@ class MatrimonyFamilyDetails extends CActiveRecord
 			'AboutFamily' => 'About Family',
 			'FatherName' => 'Father Name',
 			'MotherName' => 'Mother Name',
+			'CreatedDate'=>'Created Date', 
+			'ModifiedDate'=>'Modified Date',
 		);
 	}
 
@@ -111,6 +127,8 @@ class MatrimonyFamilyDetails extends CActiveRecord
 		$criteria->compare('AboutFamily',$this->AboutFamily,true);
 		$criteria->compare('FatherName',$this->FatherName,true);
 		$criteria->compare('MotherName',$this->MotherName,true);
+		$criteria->compare('CreatedDate',$this->CreatedDate,true);
+		$criteria->compare('ModifiedDate',$this->ModifiedDate,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

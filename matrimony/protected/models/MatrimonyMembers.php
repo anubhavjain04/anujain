@@ -42,6 +42,8 @@
  * @property string $Complexion
  * @property string $RegisteredBy
  * @property string $Gotra
+ * @property string $CreatedDate
+ * @property string $ModifiedDate
  *
  * The followings are the available model relations:
  * @property MatrimonyMemberPayment[] $matrimonyMemberPayments
@@ -84,18 +86,18 @@ class MatrimonyMembers extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('MemberName, Sex, DOB, MaritalStatus, Height, fkSect, fkSubSect, fkMotherTongue, fkCountryLivingIn, ContactNo, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, fkEducation, EmployedIn, Occupation, MemberCode, Status', 'required'),
+			array('MemberName, Sex, DOB, MaritalStatus, fkSect, fkSubSect, fkMotherTongue, fkCountryLivingIn, ContactNo, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, EmployedIn, MemberCode, Status, RegisteredBy, CreatedDate, ModifiedDate', 'required'),
 			array('PhysicalStatus, MarryInSameSubSect, Status, Sex', 'numerical', 'integerOnly'=>true),
 			array('MemberName, OtherCaste, ContactNo, MemberPhoto, ResidingCity, ActivationCode, MemberCode, Gotra', 'length', 'max'=>45),
 			array('HomeAddress, WorkingAddress', 'length', 'max'=>150),
 			array('MaritalStatus, Childrens, EmployedIn, Manglik, BodyType, Complexion, RegisteredBy', 'length', 'max'=>1),
 			array('Height, fkSect, fkSubSect, fkCaste, fkMotherTongue, fkCountryLivingIn, fkResidingState, fkEducation, Occupation, IncomeAnnual, fkLoginId', 'length', 'max'=>10),
-			array('AboutMe, AboutMyPartner', 'length', 'max'=>200),
+			array('AboutMe, AboutMyPartner', 'length', 'max'=>500),
 			array('Email', 'length', 'max'=>100),
 			array('Weight', 'length', 'max'=>3),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('pkMemberId, MemberName, Sex, DOB, MaritalStatus, Childrens, Height, fkSect, fkSubSect, fkCaste, OtherCaste, fkMotherTongue, fkCountryLivingIn, ContactNo, MemberPhoto, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, fkEducation, EmployedIn, Occupation, IncomeAnnual, AboutMe, AboutMyPartner, HomeAddress, WorkingAddress, Email, Status, ActivationCode, fkLoginId, MemberCode, Gotra', 'safe', 'on'=>'search'),
+			array('pkMemberId, MemberName, Sex, DOB, MaritalStatus, Childrens, Height, fkSect, fkSubSect, fkCaste, OtherCaste, fkMotherTongue, fkCountryLivingIn, ContactNo, MemberPhoto, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, fkEducation, EmployedIn, Occupation, IncomeAnnual, AboutMe, AboutMyPartner, HomeAddress, WorkingAddress, Email, Status, ActivationCode, fkLoginId, MemberCode, Gotra,CreatedDate, ModifiedDate', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -163,6 +165,8 @@ class MatrimonyMembers extends CActiveRecord
 			'Complexion' => 'Complexion',
 			'RegisteredBy'=>'Registered By',
 			'Gotra'=>'Gotra',
+			'CreatedDate'=>'Created Date', 
+			'ModifiedDate'=>'Modified Date',
 		);
 	}
      

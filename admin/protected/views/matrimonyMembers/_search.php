@@ -127,12 +127,12 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'AboutMe'); ?>
-		<?php echo $form->textField($model,'AboutMe',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->textField($model,'AboutMe',array('size'=>60,'maxlength'=>500)); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'AboutMyPartner'); ?>
-		<?php echo $form->textField($model,'AboutMyPartner',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->textField($model,'AboutMyPartner',array('size'=>60,'maxlength'=>500)); ?>
 	</div>
 
 	<div class="row">

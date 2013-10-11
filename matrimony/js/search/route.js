@@ -35,7 +35,7 @@ define(function (require) {
 				}
 				if(queryJSON.sect){
 					self.resetSelectedItems(self.searchVM.selectedSect, queryJSON.sect);
-					self.searchVM.afterSectChange(self.searchVM.selectedSect);
+					self.searchVM.afterSectChange(self.searchVM.selectedSect());
 				}
 				if(queryJSON.subsect){
 					self.resetSelectedItems(self.searchVM.selectedSubSect, queryJSON.subsect);

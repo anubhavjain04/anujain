@@ -86,7 +86,7 @@
         <h4 class="modal-title">Mother Toungue</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: motherTongueList">
+        <ul class="listView" data-bind="foreach: motherTongueList()">
           <li>
             <input type="checkbox" data-bind="attr: { value: pkTongueId }, checked: $parent.selectedMotherTongue" />
             <label data-bind="text: TongueName" class="disinblk"></label>
@@ -113,7 +113,7 @@
         <h4 class="modal-title">Sect</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: sectList">
+        <ul class="listView" data-bind="foreach: sectList()">
           <li>
             <input type="checkbox" data-bind="attr: { value: pkSectId }, checked: $parent.selectedSect, event: {click: function(){$parent.afterSectChange($parent.selectedSect()); return true;}}" />
             <label data-bind="text: SectName" class="disinblk"></label>
@@ -167,7 +167,7 @@
         <h4 class="modal-title">Caste</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: casteList">
+        <ul class="listView" data-bind="foreach: casteList()">
           <li>
             <input type="checkbox" data-bind="attr: { value: pkCasteId }, checked: $parent.selectedCaste" />
             <label data-bind="text: CasteName" class="disinblk"></label>
@@ -194,7 +194,7 @@
         <h4 class="modal-title">Education</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: courseGroupList">
+        <ul class="listView" data-bind="foreach: courseGroupList()">
           <li>
             <input type="checkbox" data-bind="attr: { value: pkCourseGroupId }, checked: $parent.selectedCourseGroup" />
             <label data-bind="text: GroupName" class="disinblk"></label>
@@ -221,7 +221,7 @@
         <h4 class="modal-title">Occupation</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: occupationGroupList">
+        <ul class="listView" data-bind="foreach: occupationGroupList()">
           <li>
             <input type="checkbox" data-bind="attr: { value: pkOccGroupId }, checked: $parent.selectedOccupationGroup" />
             <label data-bind="text: GroupName" class="disinblk"></label>
@@ -271,7 +271,7 @@
         <h4 class="modal-title">Country</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: countryList">
+        <ul class="listView" data-bind="foreach: countryList()">
           <li>
             <input type="checkbox" data-bind="attr: { value: pkCountryId }, checked: $parent.selectedCountry" />
             <label data-bind="text: CountryName" class="disinblk"></label>
