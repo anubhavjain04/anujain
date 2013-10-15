@@ -43,7 +43,7 @@
     	<dl>
 			<dt><?php echo $form->labelEx($model,'Sex'); ?></dt>
             <dd><?php
-            	if(!$model->Sex){
+            	if(!$model->Sex && $model->Sex == ""){
 					$model->Sex = '1';
 				}
                 $sex = array('1'=>'Male', '0'=>'Female');
@@ -175,7 +175,7 @@
 			<dt><?php echo $form->labelEx($model,'Manglik'); ?></dt>
             <dd> 
 			<?php
-			if(!$model->Manglik){
+			if(!$model->Manglik && $model->Manglik == ""){
 				$model->Manglik = '0';
 			}
         	$manglik = array('0'=>'None', '1'=>'Aanshik Manglik', '2'=>'Manglik');
@@ -299,7 +299,7 @@
 			<dt><?php echo $form->labelEx($model,'PhysicalStatus'); ?></dt>
 			<dd>
 				<?php
-				if(!$model->PhysicalStatus){
+				if(!$model->PhysicalStatus && $model->PhysicalStatus == ""){
 					$model->PhysicalStatus = '0';
 				}
                 $physicalStatus = array('0'=>'Normal', '1'=>'Physically Challenged');
@@ -689,7 +689,7 @@ $(document).ready(function(e) {
 			startDate:'01/01/1900', 
 			changeMonth: true, 
 			changeYear: true, 
-			yearRange: 'c-50:c-15',
+			yearRange: '-70:-15',
 			timeFormat: "hh:mm tt",
 			hourGrid: 6,
 			minuteGrid: 10

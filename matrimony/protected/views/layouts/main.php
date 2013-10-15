@@ -14,6 +14,15 @@
 <meta content="" name="description" />
 <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44190584-1', 'bhartiyajainmilan.com');
+  ga('send', 'pageview');
+</script>
 <?php include('head.php'); ?>
 <script type="text/javascript" data-main="<?php echo Yii::app()->request->baseUrl; ?>/js/main/init.js" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/require-jquery.js"></script>
 </head>
