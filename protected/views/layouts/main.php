@@ -28,6 +28,8 @@
     <script type='text/javascript' src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui.min.js"></script>
 	<script type='text/javascript' src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-sliderAccess.js"></script>
     <script type='text/javascript' src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-timepicker-addon.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.pause.min.js" type="text/javascript"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.marquee.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/browser.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/common.js" type="text/javascript"></script>
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.easing.1.3.js" type="text/javascript"></script>
@@ -35,6 +37,7 @@
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/tms_presets.js" type="text/javascript"></script>
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/script.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/scroller.js" type="text/javascript"></script>
+    
 	<!--[if lt IE 7]>
 		<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie_style.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/ie_png.js"></script>
@@ -164,16 +167,16 @@
     </div>
   </div>
 </div>
-<div id="footer_message" class="hindi">
-	<div class="left" style=""></div>
+<div id="footer_message" class="hindi">	
     <?php 
 		$criteria = new CDbCriteria();
 		$criteria->condition = "Status=1 and LineNo=:LineNo";
 		$criteria->order = ' MessageOrder ASC ';
 	?>
     <div class="right">
+    	<div class="left" style=""></div>
         <div class="big-msg" >
-            <marquee class="message-marquee" scrolldelay="10" scrollamount="3" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">            
+        	<div class='marquee'>
             <?php
 				$criteria->params = array(':LineNo' => 1);
 				$message1 = Message::model()->findAll($criteria);
@@ -183,10 +186,10 @@
 					echo '<span>'.$item['Message'].'</span>';
 				}
 			?>
-            </marquee>
+			</div>
         </div>
         <div class="small-msg">
-            <marquee class="message-marquee" scrolldelay="10" scrollamount="3" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+            <div class='marquee'>
             <?php
 				$criteria->params = array(':LineNo' => 2);
 				$message2 = Message::model()->findAll($criteria);
@@ -196,7 +199,7 @@
 					echo '<span>'.$item['Message'].'</span>';
 				}
 			?>
-            </marquee>
+            </div>
         </div>
     </div>
 </div>

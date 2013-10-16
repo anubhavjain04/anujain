@@ -1563,6 +1563,10 @@ h5{
 	color: #9b9b9b;
 }
 
+.marquee{
+	overflow: hidden;
+}
+
 #footer_message{
 	position:fixed; 
 	bottom: 0px; 
@@ -1579,7 +1583,7 @@ h5{
 	height: 55px;
 }
 #footer_message .right{
-	float: right;
+	
 }
 #footer_message .right .big-msg{
 	width:100%; 
