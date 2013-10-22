@@ -603,7 +603,7 @@
     <input type="button" value="Cancel current crop" onclick="clearCoords();"  /> 
 </form>
 
-<script type="application/javascript">
+<script type="text/javascript">
 	function updateCoords(c){
 		$('#cropID').val('1');
 		jQuery('#cropX').val(c.x);

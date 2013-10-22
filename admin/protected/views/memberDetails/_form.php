@@ -209,7 +209,7 @@ echo $form->dropDownList($model,'fkLoginId',$loginMaster,array('id'=>'fkLoginId'
 	
 	$(document).ready(function(){
 		$('#MemberDetails_DOB, #MemberDetails_MarriageDate')
-		.datepicker({startDate:'01/01/1900', changeMonth: true, changeYear: true, yearRange: 'c-40:c'});
+		.datepicker({startDate:'01/01/1900', changeMonth: true, changeYear: true, yearRange: '-70:+0'});
 		
 		
 		$('#photoimg').live('change', function(){ 

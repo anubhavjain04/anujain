@@ -193,7 +193,7 @@
 			startDate:'01/01/1900', 
 			changeMonth: true, 
 			changeYear: true, 
-			yearRange: 'c-40:c',
+			yearRange: '-40:+10',
 			timeFormat: "hh:mm tt",
 			hourGrid: 6,
 			minuteGrid: 10

@@ -91,7 +91,7 @@ $(document).ready(function(){
 		/********* jquery.marquee implementation*********************/
 		
 		$('.marquee').marquee({
-		    speed: 15000,
+		    speed: 30000,
 		    gap: 50,
 		    delayBeforeStart: 0,
 		    direction: 'left',

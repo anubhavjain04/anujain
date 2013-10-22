@@ -116,6 +116,7 @@ class MatrimonyMembers extends CActiveRecord
 			'fkSect0' => array(self::BELONGS_TO, 'MatrimonySect', 'fkSect'),
 			'fkResidingState0' => array(self::BELONGS_TO, 'States', 'fkResidingState'),
 			'fkSubSect0' => array(self::BELONGS_TO, 'MatrimonySubSect', 'fkSubSect'),
+			'fkLoginId0' => array(self::BELONGS_TO, 'MatrimonyUser', 'fkLoginId'),
 		);
 	}
 
