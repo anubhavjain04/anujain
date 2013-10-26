@@ -13,8 +13,8 @@ requirejs.config({
         isBuild : false
     }
 });
-require(['jquery', 'knockout', 'infuser-amd', 'koExternalTemplateEngine-amd', 'knockout.validation.min', 'knockout-postbox.min', 'bootstrap.min', 'kendo', 'knockout-kendo.min', 'jhash-2.1.min', 'main/main', 'domReady!'], 
-function( $,        knockout,   infuser,       koExtTemplate,                  koValidation,              koPostbox,              bootstrap,       kendo,   koKendo,			  route,      	   Main) {
+require(['jquery', 'knockout', 'infuser-amd', 'koExternalTemplateEngine-amd', 'knockout.validation', 'knockout-postbox.min', 'bootstrap.min', 'bootstrap-datetimepicker.min', 'jhash-2.1.min', 'main/main', 'domReady!'], 
+function( $,        knockout,   infuser,       koExtTemplate,                  koValidation,              koPostbox,          bootstrap,       bootstrapDTP,            		route,      	   Main) {
     // Set up some defaults for templates loaded using koExternalTemplateEngine
     infuser.defaults.templateSuffix = ".tmpl.html"
     infuser.defaults.templateUrl = "js";
@@ -26,6 +26,7 @@ function( $,        knockout,   infuser,       koExtTemplate,                  k
         registerExtenders: true,
         parseInputAttributes: true,
         messageTemplate: null
+        //messageTemplate: 'main/views/error-message'	
     });
     knockout.validation.init();
     // Init the viewmodel

@@ -17,7 +17,6 @@ define(function (require) {
 		self.facetViewModel = function(root) {
 			var vm = this;
 			vm.root = root;
-			
 			vm.sex = ko.observable(0);
 			vm.memberCode = ko.observable();
 			vm.ageList = [];
@@ -39,8 +38,6 @@ define(function (require) {
 			vm.bodyTypeList =  [new self.SelectObject(1, 'Slim'), new self.SelectObject(2, 'Athletic'), new self.SelectObject(3, 'Average'), new self.SelectObject(4, 'Heavy')];
 			vm.complexionList =  [new self.SelectObject(1, 'Very Fair'), new self.SelectObject(2, 'Fair'), new self.SelectObject(3, 'Wheatish'), new self.SelectObject(4, 'Wheatish Brown'), new self.SelectObject(5, 'Dark')];
 			vm.registeredByList = [new self.SelectObject(1, 'Myself'), new self.SelectObject(2, 'Parents'), new self.SelectObject(3, 'Sibling'), new self.SelectObject(4, 'Relative'), new self.SelectObject(5, 'Other')];
-			
-			
 			
 			vm.fillAgeList = function(){
 				var start = (vm.sex()==0)?18:21;
@@ -143,10 +140,8 @@ define(function (require) {
 						if(sect){
 							ajaxutil.find("matrimonySubSect/getSubSects", {'sectId': sect}, function(data){
 								if(data && data instanceof Array){
-									console.log(data);
 									vm.subSectList.push.apply(vm.subSectList, data);
 								}
-								
 							},function(error){
 								console.log(error);
 							});	

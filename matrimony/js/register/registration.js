@@ -16,7 +16,7 @@ define(function (require) {
 			vm.memberName = ko.observable().extend({
 				required: true
 			});
-			vm.dob = ko.observable(new Date()).extend({
+			vm.dob = ko.observable().extend({
 				required: true
 			});
 			vm.maritalStatus = ko.observable().extend({
@@ -44,6 +44,37 @@ define(function (require) {
 			vm.contactNumber = ko.observable().extend({
 				required: true
 			});
+			vm.emailId = ko.observable().extend({
+				required: true
+			});
+			vm.password = ko.observable().extend({
+				required: true
+			});
+			vm.confirmPassword = ko.observable().extend({
+				required: true,
+				validation: {
+	                  validator: function(val, otherValue){
+	                      return val === vm.password();
+	                  },
+	                  message: "Password and confirm passsword does not match."
+	              }
+			});
+			
+			vm.registerUser = function(){				
+				alert("register");
+				alert(vm.isFormValid());
+			};
+			
+			// Checks whether the form is valid or not
+			vm.isFormValid = function(){
+				if(vm.errors().length !== 0){
+					// Show errors
+					vm.errors.showAllMessages();
+					return false;
+				}
+				return true;
+			};
+			vm.errors = ko.validation.group(vm);
 		};
 	};
 });

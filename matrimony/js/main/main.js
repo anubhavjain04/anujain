@@ -6,6 +6,23 @@ define(function (require) {
 	var SearchMain	= require('search/searchMain');
 	var RegisterMain= require('register/registerMain');
 	var Route	    = require('route/route');
+	
+	ko.bindingHandlers.datetimepicker = {
+	    init: function (element, valueAccessor, allBindingsAccessor) {
+	        $(element).datetimepicker({
+	            format: 'MM/dd/yyyy HH:mm PP',
+	            language: 'en',
+	            pick12HourFormat: true
+	        }).on("changeDate", function (ev) {
+	            var observable = valueAccessor();
+	            observable(ev.date);
+	        });
+	    },
+	    update: function (element, valueAccessor) {
+	        var value = ko.utils.unwrapObservable(valueAccessor());
+	        $(element).datetimepicker("setValue", value);
+	    }
+	};	
 
 	return function mainViewModel(){ 
 		var self = this;
@@ -14,6 +31,12 @@ define(function (require) {
 		self.categorySwitch = ko.observable(self.label.SEARCH_PAGE).syncWith("requestCategorySwitch", true, false);
 		self.toggleClass = function(element, className){
 			$(element).toggleClass(className);
+		};
+		
+		self.hideErrorMessage = function(aa, bb, cc){
+			//console.log(aa);
+			//console.log(bb);
+			//console.log(cc);
 		};
 		
 		self.facet = new Facet();

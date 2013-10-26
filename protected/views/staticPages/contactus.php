@@ -17,7 +17,7 @@
                             <h4 style="margin-bottom: 8px; margin-top: 25px;">Narendra Jain Rajkamal</h4>
                             <h5 class="p4" style="margin-bottom: 8px;"><strong>Mobile: </strong> 09837048560</h5>
                             <h4 style="font-size: 1.5em; margin-bottom: 8px;"><strong>Bhartiya Jain Milan</strong></h4>
-                            <h5 class="p4"><strong>Email: </strong><a href="mailto:rajkamal@bhartiyajainmilan.com">rajkamal@bhartiyajainmilan.com</a></h5>
+                            <h5 class="p4"><strong>Email: </strong><a href="mailto:contactus@bhartiyajainmilan.com">contactus@bhartiyajainmilan.com</a></h5>
                             
 
 							<div class="p4">
