@@ -1,6 +1,7 @@
 requirejs.config({
     //By default load modules from js/lib
     baseUrl : siteBaseUrl +'/js/lib',
+    urlArgs: "v="+version,
     //except
     paths : {
 		main  	: siteBaseUrl + '/js/main',
@@ -16,11 +17,11 @@ requirejs.config({
 require(['jquery', 'knockout', 'infuser-amd', 'koExternalTemplateEngine-amd', 'knockout.validation', 'knockout-postbox.min', 'bootstrap.min', 'bootstrap-datetimepicker.min', 'jhash-2.1.min', 'main/main', 'domReady!'], 
 function( $,        knockout,   infuser,       koExtTemplate,                  koValidation,              koPostbox,          bootstrap,       bootstrapDTP,            		route,      	   Main) {
     // Set up some defaults for templates loaded using koExternalTemplateEngine
-    infuser.defaults.templateSuffix = ".tmpl.html"
+    infuser.defaults.templateSuffix = ".tmpl.html?v="+version;
     infuser.defaults.templateUrl = "js";
     infuser.defaults.loadingTemplate.content = '<div class="template-loader"></div>';
     //infuser.defaults.cache = false;
-    infuser.defaults.ajax = {cache: false};
+    //infuser.defaults.ajax = {cache: false};
     //initialize validation using knockout.validation
     knockout.validation.configure({
         registerExtenders: true,
