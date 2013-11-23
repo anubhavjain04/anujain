@@ -12,7 +12,7 @@
                     <div class="corner-top-right">
                       <div class="corner-bot-left">
                         <div class="corner-bot-right">
-                          <div class="padding">
+                          <div class="padding reset">
                           	<?php 
 								if($model!=null){
 							?>

@@ -25,6 +25,11 @@ body {
 	line-height: 1.384em;
 }
 
+.reset {
+	line-height: normal;
+	color: #000000;
+}
+
 .loader{
 	background: url(../images/ajax-loader.gif) no-repeat center;
 	height: 19px;

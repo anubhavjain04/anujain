@@ -52,7 +52,7 @@
 		<?php echo $form->error($model,'FooterDescription'); ?>
 	</div>
 
-	<div class="row">
+	<div class="row" style="width: 650px;">
 		<?php echo $form->labelEx($model,'WebPage'); ?>
         <?php $this->widget('application.extensions.editMe.ExtEditMe', array(
     'model'=>$model,
