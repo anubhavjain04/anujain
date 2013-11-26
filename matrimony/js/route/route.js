@@ -7,15 +7,18 @@ define(function (require) {
 		var self = this;
 		self.root = root;
 		self.categorySwitch = ko.observable().publishOn("requestCategorySwitch", true);
+		self.user = ko.observable().subscribeTo("loggedInUser", true);
 		
 		self.action = {
 			// search page
 			criteria : self.root.searchMainVM.searchPage,
 			results : self.root.searchMainVM.showResults,
-			memberId : self.root.searchMainVM.showMember
+			memberId : self.root.searchMainVM.showMember,
+			clearRegistration : self.root.registerMainVM.clearRegistration
 		};
 		
 		jHash.route(self.root.label.HOME_PAGE, function () {
+			self.action.clearRegistration();
 			self.categorySwitch(self.root.label.HOME_PAGE);
 		});
 		jHash.route(self.root.label.REGISTER_PAGE, function () {
@@ -35,6 +38,14 @@ define(function (require) {
 		});
 		jHash.route(self.root.label.CONTACT_US, function () {
 			self.categorySwitch(self.root.label.CONTACT_US);
+		});
+		jHash.route(self.root.label.LOGIN, function () {
+			if(self.user()){
+				jHash.set(self.root.label.HOME_PAGE, {});
+				window.location.reload();
+			}else{
+				self.categorySwitch(self.root.label.LOGIN);
+			}
 		});
 		
 		jHash.route(self.root.label.SEARCH_PAGE+"/{action}", function () {

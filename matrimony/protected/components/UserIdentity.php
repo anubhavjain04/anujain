@@ -15,18 +15,19 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$user=User::model()->find('LOWER(UserId)=?',array(strtolower($this->username)));
+		$user=MatrimonyUser::model()->find('LOWER(EmailID)=?',array(strtolower($this->username)));
 		if($user===null)
 		$this->errorCode=self::ERROR_USERNAME_INVALID;
 		else if(!$user->validatePassword($this->password))
 		$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else if(!($user->Type==="MATUSR")){
+		else if(!($user->Type==="USR")){
 			$this->errorCode=self::ERROR_UNKNOWN_IDENTITY;
 		}
 		else
 		{
-			$this->_id=$user->pkLoginId;
-			$this->username=$user->UserId;
+			$this->_id=$user->pkUserId;
+			$this->setState('role', $user->Type);
+			$this->username=$user->EmailID;			
 			$this->errorCode=self::ERROR_NONE;
 		}
 		return $this->errorCode==self::ERROR_NONE;

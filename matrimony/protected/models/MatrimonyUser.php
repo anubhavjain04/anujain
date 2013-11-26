@@ -101,8 +101,49 @@ class MatrimonyUser extends CActiveRecord
 		$criteria->compare('CreatedDate',$this->CreatedDate,true);
 		$criteria->compare('ModifiedDate',$this->ModifiedDate,true);
 
-		return new CActiveDataProvider($this, array(
+		return new CActiveDataProvider(get_class($this), array(
+			'pagination'=>array(
+				'pageSize'=> Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize']),
+			),
 			'criteria'=>$criteria,
 		));
+	}
+	
+	/**
+	 * Checks if the given password is correct.
+	 * @param string the password to be validated
+	 * @return boolean whether the password is valid
+	 */
+	public function validatePassword($password)
+	{
+		return $this->hashPassword($password)===$this->Password;
+	}
+
+	/**
+	 * Generates the password hash.
+	 * @param string password
+	 * @param string salt
+	 * @return string hash
+	 */
+	public function hashPassword($password)
+	{
+		$salt = $this->getSalt();
+		$newpass = md5($password);
+		return md5($salt.$newpass);
+	}
+	
+	
+
+	/**
+	 * Generates a salt that can be used to generate a password hash.
+	 * @return string the salt
+	 */
+	/*protected function generateSalt()
+	 {
+		return uniqid('',true);
+		}*/
+
+	protected function getSalt(){
+		return '98b206599478ce621m204afd9cf91761';
 	}
 }

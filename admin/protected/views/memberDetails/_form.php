@@ -33,9 +33,9 @@ required.</p>
 </div>
 <div style="float: right;">
 	<?php
-		$imgPath = Yii::app()->request->baseUrl."/../images/blank_user.png";										
+		$imgPath = Yii::app()->params['bjmURL']."/images/blank_user.png";										
 		if($model->PhotoPath && trim($model->PhotoPath)!=""){
-			$imgPath = Yii::app()->request->baseUrl."/..". Yii::app()->params['memberPotoPath']."/".$model->PhotoPath;
+			$imgPath = Yii::app()->params['bjmURL'].Yii::app()->params['memberPotoPath']."/".$model->PhotoPath;
 		}
 	?>
 	<div style="background: url(<?php echo $imgPath; ?>) center; width: 100px; height: 140px; border: solid 1px #CCCCCC;" ></div>

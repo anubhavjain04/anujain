@@ -1,12 +1,28 @@
 define(function(require) {
+	var ko    = require('knockout');
 	return {
 		symbolsArray : ["/", "="],
-		sitePath : sitePath,
+		sitePath : sitePath,		
 		showLoader : function(){
 			$("#ajaxLoader").show();
 		},
-		hideLoader : function(){
+		hideLoader : function(obj){
 			$("#ajaxLoader").hide();
+			if(obj.status===200 && obj.state()==='rejected'){
+				//console.log("session expired");
+				ko.observable(undefined).publishOn("loggedInUser", false);
+				jHash.set('home', {});
+			}
+		},
+		post : function(url, inputData) {
+			var vm = this;
+			return $.ajax({
+				type : 'POST',
+				url : vm.sitePath + url,
+				data : inputData,
+				dataType : "json",
+				async : false
+			});
 		},
 		syncFind : function(url, data, successCallback, errorCallback) {
 			var vm = this;

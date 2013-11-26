@@ -116,7 +116,7 @@
 if(isset($model->Path)) {
 ?>
 <br /><br />
-<iframe style="width: 100%; height: 750px; border: 1px solid #CCC; padding:3px;" src="https://docs.google.com/viewer?url=http://<?php echo $_SERVER['SERVER_NAME'].Yii::app()->request->baseUrl.'/..'.Yii::app()->params['magzinePath'].'/'.$model->Path; ?>&embedded=true">
+<iframe style="width: 100%; height: 750px; border: 1px solid #CCC; padding:3px;" src="https://docs.google.com/viewer?url=<?php echo Yii::app()->params['bjmURL'].Yii::app()->params['magzinePath'].'/'.$model->Path; ?>&embedded=true">
 </iframe>
 <?php
 }

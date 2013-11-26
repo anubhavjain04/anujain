@@ -6,6 +6,7 @@ define(function (require) {
 	var SearchMain	= require('search/searchMain');
 	var RegisterMain= require('register/registerMain');
 	var Route	    = require('route/route');
+	var Login	    = require('login/login');
 	
 	ko.bindingHandlers.datetimepicker = {
 	    init: function (element, valueAccessor, allBindingsAccessor) {
@@ -33,10 +34,8 @@ define(function (require) {
 			$(element).toggleClass(className);
 		};
 		
-		self.hideErrorMessage = function(aa, bb, cc){
-			//console.log(aa);
-			//console.log(bb);
-			//console.log(cc);
+		self.hideErrorMessage = function(){			
+			//console.log("ssdfsf");			
 		};
 		
 		self.facet = new Facet();
@@ -48,6 +47,10 @@ define(function (require) {
 		
 		self.registerMain = new RegisterMain();
 		self.registerMainVM = new self.registerMain.registerMainViewModel(self);
+		
+		self.login = new Login();
+		self.loginVM = new self.login.loginViewModel();
+		self.loginVM.init();
 		
 		self.route = new Route(self);
 	};

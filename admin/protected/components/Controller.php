@@ -28,7 +28,7 @@ class Controller extends CController
 	 */
 	public function init(){
 		if(!isset(Yii::app()->session['tempImgName'])){
-			$path = "..".Yii::app()->params['tempPath'];
+			$path = Yii::app()->params['tempPath'];
 			$files1 = scandir($path);
 			for($i=0;$i<count($files1); $i++){
 				if($files1[$i]!="." && $files1[$i]!=".."){

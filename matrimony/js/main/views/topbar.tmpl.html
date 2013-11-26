@@ -1,0 +1,67 @@
+<div id="topbar-fixed" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="#"></a> </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.HOME_PAGE}"><a href="#home">Home</a></li>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.SEARCH_PAGE}"><a href="#search/criteria?type=regular">Search</a></li>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.REGISTER_PAGE}"><a href="#register">Register</a></li>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.UPGRADE_PAGE}"><a href="#upgrade">Upgrade</a></li>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.CONTACT_US}"><a href="#contact-us">Contact Us</a></li>
+      </ul>
+      <!-- ko if: $root.categorySwitch()!=$root.label.LOGIN -->      
+      <ul class="nav navbar-nav navbar-right" data-bind="with: $root.loginVM">
+      	<!-- ko ifnot: user() -->
+      	<li id="login-popup" class="dropdown"> <a href="#" class="dropdown-toggle btn btn-success" data-toggle="dropdown">Sign In <b class="caret"></b></a>
+      		<div class="dropdown-menu">
+              <form id="login-form" class="form-horizontal" data-bind="submit: login" method="post">
+		        <div class="form-group input-group-sm">
+		          <label class="control-label">Email Id</label>	
+		          <input type="email" placeholder="Email" class="form-control" name="LoginForm[emailid]" data-bind="value: emailid" />
+		        </div>
+		        <div class="form-group input-group-sm">
+		          <label class="control-label">Password</label>
+		          <input type="password" placeholder="Password" class="form-control" name="LoginForm[password]" data-bind="value: password" />
+		        </div>
+		        <!--<div class="form-group checkbox">
+			        <label>
+			          <input type="checkbox" value="remember-me" name="LoginForm[rememberMe]"> Remember me
+			        </label>
+		        </div>
+		        --><div class="form-group">
+		        	<button type="submit" class="btn btn-sm btn-success">Sign in</button>
+		        	<button type="button" class="btn btn-sm btn-link">Forgot password?</button>
+		        </div>
+		        
+		      </form>
+            </div>
+          
+        </li>
+        <!-- /ko -->
+        <!-- ko if: user() -->
+        <li id="logout-popup" class="dropdown"> <a href="#" class="dropdown-toggle btn btn-success" data-toggle="dropdown"><span data-bind="text: user().userName"></span> <b class="caret"></b></a>
+      		<div class="dropdown-menu">
+      			<div class="form-group">
+		        	<a href="#" data-bind="click: function(){}">My Profile</a>
+		        </div>	
+      			<div class="form-group">
+		        	<a href="#" data-bind="click: function(){}">Change Password</a>
+		        </div>	        
+		        <div class="form-group">
+		        	<a href="#" data-bind="click: function(){}">Settings</a>
+		        </div>
+		        <div class="form-group">
+		        	<a href="#" data-bind="click: logout">Sign Out</a>
+		        </div>
+		       		        
+            </div>
+      	</li>
+        <!-- /ko -->
+      </ul>
+      <!-- /ko -->
+    </div>
+    <!--/.navbar-collapse --> 
+  </div>
+</div>

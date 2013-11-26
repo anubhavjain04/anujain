@@ -106,9 +106,9 @@
 </div>
 <div style="float: right;">
 	<?php
-		$imgPath = Yii::app()->request->baseUrl."/../images/blank_user.png";										
+		$imgPath = Yii::app()->params['bjmURL']."/images/blank_user.png";										
 		if($model->MemberPhoto && trim($model->MemberPhoto)!=""){
-			$imgPath = Yii::app()->request->baseUrl."/..". Yii::app()->params['matrimonyPath']."/".$model->MemberPhoto;
+			$imgPath = Yii::app()->params['matrimonyURL'].Yii::app()->params['matrimonyPath']."/".$model->MemberPhoto;
 		}
 	?>
 	<div style="background: url(<?php echo $imgPath; ?>) no-repeat center; width: 150px; height: 200px; border: solid 1px #CCCCCC;" ></div>

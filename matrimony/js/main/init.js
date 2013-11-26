@@ -8,7 +8,8 @@ requirejs.config({
 		facet	: siteBaseUrl + '/js/facet',
 		search 	: siteBaseUrl + '/js/search',
 		register: siteBaseUrl + '/js/register',
-		route	: siteBaseUrl + '/js/route'
+		route	: siteBaseUrl + '/js/route',
+		login	: siteBaseUrl + '/js/login',
     },    
     config : {
         isBuild : false
@@ -26,8 +27,8 @@ function( $,        knockout,   infuser,       koExtTemplate,                  k
     knockout.validation.configure({
         registerExtenders: true,
         parseInputAttributes: true,
-        messageTemplate: null
-        //messageTemplate: 'main/views/error-message'	
+        //messageTemplate: null
+        messageTemplate: 'main/views/error-message'	
     });
     knockout.validation.init();
     // Init the viewmodel

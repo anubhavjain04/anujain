@@ -44,7 +44,7 @@ return array(
 	        'autoStart' => true,
 		),
 		// uncomment the following to use a MySQL database
-		'db'=>require(dirname(__FILE__).'../../../../db.php'),
+		'db'=>require(dirname(__FILE__).'../../../db.php'),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 	        'errorAction'=>'site/error',
@@ -64,5 +64,5 @@ return array(
 	),
 	
 	// external params
-	'params'=>require(dirname(__FILE__).'../../../../settings.php'),
+	'params'=>require(dirname(__FILE__).'../../../settings.php'),
 );

@@ -137,10 +137,10 @@ class MemberDetailsController extends Controller
 					$jpeg_quality = 90;
 					
 					$rootPath = pathinfo(Yii::app()->baseUrl);
-					$path = "..".Yii::app()->params['tempPath']."/";
+					$path = Yii::app()->params['tempPath']."/";
 		
 					$src = $path.Yii::app()->session['tempImgName'];
-					$distSrc = "..".Yii::app()->params['memberPotoPath']."/".$model->pkMemberId.".jpg";
+					$distSrc = Yii::app()->params['bjmDIR'].Yii::app()->params['memberPotoPath']."/".$model->pkMemberId.".jpg";
 					
 					$extArr = explode(".", $src); 
 					$ext = $extArr[count($extArr)-1];
@@ -281,10 +281,10 @@ class MemberDetailsController extends Controller
 					$jpeg_quality = 90;
 					
 					$rootPath = pathinfo(Yii::app()->baseUrl);
-					$path = "..".Yii::app()->params['tempPath']."/";
+					$path = Yii::app()->params['tempPath']."/";
 		
 					$src = $path.Yii::app()->session['tempImgName'];
-					$distSrc = "..".Yii::app()->params['memberPotoPath']."/".$model->pkMemberId.".jpg";
+					$distSrc = Yii::app()->params['bjmDIR'].Yii::app()->params['memberPotoPath']."/".$model->pkMemberId.".jpg";
 					
 					$extArr = explode(".", $src); 
 					$ext = $extArr[count($extArr)-1];
@@ -432,7 +432,7 @@ class MemberDetailsController extends Controller
 	public function actionUploadImg()
 	{	
 		$rootPath = pathinfo(Yii::app()->basePath);
-		$path = dirname($rootPath['dirname']).Yii::app()->params['tempPath']."/";
+		$path = $rootPath['dirname']."/".Yii::app()->params['tempPath']."/";
 		$valid_formats = array("jpg", "jpeg", "png", "gif", "bmp");
 		if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST")
 		{
@@ -458,7 +458,7 @@ class MemberDetailsController extends Controller
 								{
 								//mysql_query("UPDATE users SET profile_image='$actual_image_name' WHERE uid='$session_id'");
 									
-									echo "<img id='prewImg' src='".Yii::app()->baseUrl."/..".Yii::app()->params['tempPath']."/".$actual_image_name."' />";
+									echo "<img id='prewImg' src='".Yii::app()->baseUrl."/".Yii::app()->params['tempPath']."/".$actual_image_name."' />";
 								}
 							else
 								echo "failed";
@@ -482,7 +482,7 @@ class MemberDetailsController extends Controller
 	public function removeTempData(){
 		if(isset(Yii::app()->session['tempImgName'])){
 			$rootPath = pathinfo(Yii::app()->baseUrl);
-			$path = "..".Yii::app()->params['tempPath']."/";
+			$path = Yii::app()->params['tempPath']."/";
 			$src = $path.Yii::app()->session['tempImgName'];
 			if(file_exists($src)){
 				unlink($src);

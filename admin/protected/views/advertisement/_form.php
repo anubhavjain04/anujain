@@ -33,9 +33,9 @@
 </div>
 <div style="float: right;">
 	<?php
-		$imgPath = Yii::app()->request->baseUrl."/..". Yii::app()->params['addImgPath']."/no-cover.gif";									
+		$imgPath = Yii::app()->params['bjmURL'].Yii::app()->params['addImgPath']."/no-cover.gif";									
 		if($model->AddImagePath && trim($model->AddImagePath)!=""){
-			$imgPath = Yii::app()->request->baseUrl."/..". Yii::app()->params['addImgPath']."/".$model->AddImagePath;
+			$imgPath = Yii::app()->params['bjmURL'].Yii::app()->params['addImgPath']."/".$model->AddImagePath;
 		}
 	?>
 	<div style="background: url(<?php echo $imgPath; ?>) center; width: 100px; height: 70px; border: solid 1px #CCCCCC;" ></div>

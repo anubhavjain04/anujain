@@ -1,1 +1,4 @@
-<span class="validationMessage" style="display: none;" data-bind="click: $root.hideErrorMessage"></span>
+<div class="validationMessage" data-bind="visible: field.isModified() && !field.isValid()">
+<span  data-bind="validationMessage: field, click: function(){field.isModified(false)}" onclick="$(this).hide();" ></span>
+<span class="caret"></span>
+</div>

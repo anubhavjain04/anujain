@@ -11,6 +11,7 @@ define(function(require) {
 		self.PRIVACY_POLICY = "privacy-policy";
 		self.TERMS_N_CONDITIONS = "terms-n-conditions";
 		self.CONTACT_US = "contact-us";
+		self.LOGIN = "login";
 	};
 });
 

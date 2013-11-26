@@ -135,9 +135,9 @@ class MagazineController extends Controller
 			if (!$isFoundError) {
 				if($model->save()){
 					if(isset($magazineFile)){
-						$savaBasePath = pathinfo(Yii::app()->request->scriptFile);
+						$savaBasePath = pathinfo(Yii::app()->request->scriptFile);						
 						$filename = $model->pkMagazineId.".".$ext;
-						$magazineFile->saveAs(dirname($savaBasePath['dirname']).Yii::app()->params['magzinePath']."/".$filename);
+						$magazineFile->saveAs($savaBasePath['dirname']."/".Yii::app()->params['bjmDIR'].Yii::app()->params['magzinePath']."/".$filename);
 						$model->Path=$filename;
 						$model->save();
 					}					
@@ -220,9 +220,9 @@ class MagazineController extends Controller
 						$extArr = explode(".", $fileName); 
 						$ext = strtolower($extArr[count($extArr)-1]);
 						if ($ext == 'pdf') {
-							$savaBasePath = pathinfo(Yii::app()->request->scriptFile);
+							$savaBasePath = pathinfo(Yii::app()->request->scriptFile);												
 							$filename = $model->pkMagazineId.".".$ext;						
-							$magazineFile->saveAs(dirname($savaBasePath['dirname']).Yii::app()->params['magzinePath']."/".$filename);
+							$magazineFile->saveAs($savaBasePath['dirname']."/".Yii::app()->params['bjmDIR'].Yii::app()->params['magzinePath']."/".$filename);
 							$model->Path=$filename;
 							$model->save();
 						}

@@ -36,13 +36,19 @@ return array(
 
 	// application components
 	'components'=>array(
+		'user'=>array(
+			// disable cookie-based authentication
+			'allowAutoLogin'=>false,
+			// set user time out 60 minutes	
+			'authTimeout'=>3600,
+		),
 		'image'=>array(
 			'class'=>'application.extensions.image.CImageComponent',
 			'driver'=>'GD',
 		),
 		
 		'session' => array (
-	        'autoStart' => true,
+	        //'autoStart' => true,
 			'sessionName'=> 'jmmat',
 		),
 		'urlManager'=>array(
@@ -63,7 +69,7 @@ return array(
 			),
 		),
 		// uncomment the following to use a MySQL database
-		'db'=>require(dirname(__FILE__).'../../../../db.php'),
+		'db'=>require(dirname(__FILE__).'../../../db.php'),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 	        'errorAction'=>'site/error',
@@ -80,5 +86,5 @@ return array(
 	),
 	
 	// external params
-	'params'=>require(dirname(__FILE__).'../../../../settings.php'),
+	'params'=>require(dirname(__FILE__).'../../../settings.php'),
 );

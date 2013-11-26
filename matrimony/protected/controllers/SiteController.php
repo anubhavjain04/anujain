@@ -76,39 +76,53 @@ class SiteController extends Controller
 	 * Displays the login page
 	 */
 	public function actionLogin()
-	{		
+	{	
 		$model=new LoginForm;
 		if(!Yii::app()->user->isGuest) {
-			$this->redirect(Yii::app()->homeUrl.'/site/dashboard');
+			$user["id"] = Yii::app()->user->id;
+			$user["userName"] = Yii::app()->user->name;
+			$user["isGuest"] = Yii::app()->user->isGuest;
+			$user["role"] = Yii::app()->user->role;
+			echo CJSON::encode($user);
+			return;
 		}
+		
 		// if it is ajax validation request
-		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
+		/*if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
-		}
-
+		}*/
+		
 		// collect user input data
-		if(isset($_POST['LoginForm']))
-		{
+		if(isset($_POST['LoginForm'])){
 			$model->attributes=$_POST['LoginForm'];
 			
 			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
-			$this->redirect(Yii::app()->homeUrl.'/site/dashboard');
+			if($model->validate() && $model->login()){
+				$user["id"] = Yii::app()->user->id;
+				$user["userName"] = Yii::app()->user->name;
+				$user["role"] = Yii::app()->user->role;
+				echo CJSON::encode($user);
+				//$this->redirect(Yii::app()->homeUrl);
+			}else{
+				throw new CHttpException(403,'Unauthorized');
+			}
+			//echo print_r($model->_identity);
+				//die;
 		}
 		
 		// display the login form
-		$this->render('login',array('model'=>$model));
+		//$this->redirect(Yii::app()->homeUrl);
+		//$this->render('index',array('model'=>$model));
 	}
 
 	/**
 	 * Logs out the current user and redirect to homepage.
 	 */
-	public function actionLogout()
-	{
+	public function actionLogout(){
 		Yii::app()->user->logout();
-		$this->redirect(Yii::app()->homeUrl);
+		//$this->redirect(Yii::app()->homeUrl);
 	}
 
 
@@ -120,5 +134,18 @@ class SiteController extends Controller
 		// display the Dashboard
 		$this->render('dashboard');
 	}
-
+	
+	public function actionUser(){
+		if(!Yii::app()->user->isGuest){			
+			$user["id"] = Yii::app()->user->id;
+			$user["userName"] = Yii::app()->user->name;
+			$user["isGuest"] = Yii::app()->user->isGuest;
+			$user["role"] = Yii::app()->user->role;
+			echo CJSON::encode($user);	
+		}else{
+			$user["userName"] = Yii::app()->user->name;
+			$user["isGuest"] = Yii::app()->user->isGuest;
+			echo CJSON::encode($user);
+		}
+	}
 }

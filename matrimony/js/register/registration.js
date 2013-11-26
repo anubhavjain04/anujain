@@ -9,6 +9,7 @@ define(function (require) {
 			var vm = this;
 			vm.mainVM = mainVM;
 			vm.facetVM = vm.mainVM.facetVM;
+			vm.termsConditions = ko.observable(false);
 			vm.sex = ko.observable(0);
 			vm.registeredBy = ko.observable().extend({
 				required: true
@@ -32,9 +33,7 @@ define(function (require) {
 			vm.motherTongue = ko.observable().extend({
 				required: true
 			});
-			vm.country = ko.observable().extend({
-				required: true
-			});
+			vm.country = ko.observable();
 			vm.state = ko.observable().extend({
 				required: true
 			});
@@ -61,13 +60,50 @@ define(function (require) {
 			});
 			
 			vm.registerUser = function(){				
-				alert("register");
-				alert(vm.isFormValid());
+				if(vm.isFormValid() && vm.termsConditions()){
+					
+				}
+			};
+			
+			vm.clear = function(){
+				vm.registeredBy(undefined);
+				vm.memberName(undefined);
+				vm.dob(undefined);
+				vm.maritalStatus(undefined);
+				vm.sect(undefined);
+				vm.subSect(undefined);
+				vm.caste(undefined);
+				vm.motherTongue(undefined);
+				vm.country(undefined);
+				vm.state(undefined);
+				vm.city(undefined);
+				vm.contactNumber(undefined);
+				vm.emailId(undefined);
+				vm.password(undefined);
+				vm.confirmPassword(undefined);
+				vm.termsConditions(false);
+				vm.clearValidation();
+			};
+			
+			vm.clearValidation = function(){
+				vm.registeredBy.isModified(false);
+				vm.memberName.isModified(false);
+				vm.dob.isModified(false);
+				vm.maritalStatus.isModified(false);
+				vm.sect.isModified(false);
+				vm.subSect.isModified(false);
+				vm.motherTongue.isModified(false);
+				vm.state.isModified(false);
+				vm.city.isModified(false);
+				vm.contactNumber.isModified(false);
+				vm.emailId.isModified(false);
+				vm.password.isModified(false);
+				vm.confirmPassword.isModified(false);
 			};
 			
 			// Checks whether the form is valid or not
 			vm.isFormValid = function(){
-				if(vm.errors().length !== 0){
+				if(vm.errors().length > 0){
 					// Show errors
 					vm.errors.showAllMessages();
 					return false;

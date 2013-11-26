@@ -27,13 +27,7 @@
 <script type="text/javascript" data-main="<?php echo Yii::app()->request->baseUrl; ?>/js/main/init.js" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/require-jquery.js"></script>
 </head>
 <body>
-<?php include('topbar.php'); ?>
-<div id="page-body">
 <?php echo $content; ?>
-</div>
-<div class="clearfix"></div>
-<?php include('footer.php'); ?>
-<div class="clearfix"></div>
 <div id="ajaxLoader" class="ajax-layer" style="display:none;">
 	<span class="loading">Loading...</span>
 </div>

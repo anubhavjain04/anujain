@@ -205,6 +205,17 @@
   border-radius: 0;
 }
 
+#logout-popup .dropdown-menu{
+	width: 100px;
+    padding-left: 15px;
+    padding-right: 15px;
+	font-size: 12px;
+}
+
+#logout-popup .dropdown-menu .form-group{
+	text-align: right;
+}
+
 #login-popup .dropdown-menu{
 	width: 300px;
     padding-left: 30px;
@@ -213,12 +224,14 @@
 	font-size: 12px;
 }
 
-#login-popup.dropdown > a {
+
+
+#login-popup.dropdown > a, #logout-popup.dropdown > a, #login-popup.dropdown > button, #logout-popup.dropdown > button {
 	padding: 9px;
 	margin-top: 6px;
 }
 
-#login-popup.open > a {
+#login-popup.open > a, #logout-popup.open > a {
 	background-color: #FFFFFF;
 	color: #990C13;
 	border: 0px;
@@ -230,15 +243,15 @@
 	border-top: solid 1px #990C13;
 	border-left: solid 1px #990C13;
 }
-#login-popup.open>a .caret{
+#login-popup.open>a .caret, #logout-popup.open > a .caret{
 	border-top-color: #990C13;
 	border-bottom-color: #990C13;
 }
-#login-popup.open .dropdown-menu{
+#login-popup.open .dropdown-menu, #logout-popup.open .dropdown-menu{
 	margin-top: -1px;
 }
 
-#login-popup .form-horizontal .form-group{
+#login-popup .form-horizontal .form-group, #logout-popup .form-horizontal .form-group{
 	margin-bottom: 5px;
 }
 

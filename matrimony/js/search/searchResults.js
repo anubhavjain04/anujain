@@ -71,7 +71,6 @@ define(function (require) {
 				},function(error){
 					vm.clearData();
 					alert("error found in getting results.");
-					console.log(error);
 				});
 			};
 			

@@ -1039,7 +1039,7 @@ img {
 	padding-left: 5px;
 	padding-right: 5px;
 	left: 22%;
-	
+	cursor: pointer;
 	-webkit-border-top-left-radius: 4px;
     border-top-left-radius: 4px;
     -moz-border-radius-topleft: 4px;

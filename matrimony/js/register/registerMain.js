@@ -27,6 +27,10 @@ define(function (require) {
 			vm.registration = new Registration();
 			vm.registrationVM = new vm.registration.registrationViewModel(vm);
 			
+			vm.clearRegistration = function(){
+				vm.registrationVM.clear();
+			};
+			
 			
 			vm.route = new Route(vm);
 		};

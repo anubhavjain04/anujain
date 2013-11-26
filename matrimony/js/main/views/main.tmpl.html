@@ -30,4 +30,7 @@
   <div data-bind="if: $root.categorySwitch() == $root.label.CONTACT_US">
     <div data-bind="template: { name: 'home/views/contactus'}"></div>
   </div>
+  <div data-bind="if: $root.categorySwitch() == $root.label.LOGIN">
+   	<div data-bind="template: { name: 'login/views/login'}"></div>
+  </div>
 </div>

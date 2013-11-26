@@ -23,12 +23,10 @@ class Controller extends CController
 	/**
 	 * this function gives a username of cretaer either restaurent or coupon.
 	 */
-	/**
-	 * Retrieves restaurent by id.
-	 */
+	
 	public function init(){
-		/*if(!isset(Yii::app()->session['tempImgName'])){
-			$path = "..".Yii::app()->params['tempPath'];
+		if(!isset(Yii::app()->session['tempImgName'])){
+			$path = Yii::app()->params['tempPath'];
 			$files1 = scandir($path);
 			for($i=0;$i<count($files1); $i++){
 				if($files1[$i]!="." && $files1[$i]!=".."){
@@ -36,7 +34,7 @@ class Controller extends CController
 					unlink($file);
 				}
 			}
-		}*/
+		}
 		
 	}
 	
