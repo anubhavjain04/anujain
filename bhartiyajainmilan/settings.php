@@ -7,7 +7,6 @@
 			'magzinePath'=>'/resources/magazines',
 			'addImgPath'=>'/resources/advertisement-img',
 			'tempPath'=>'/resources/temp',
-			'matrimonyPath'=>'/matrimony/resources/membersphoto',
 			'favicon'=>'/images/favicon.ico',
 		);
 ?>
