@@ -4,7 +4,8 @@ $root_self_directory = dirname($_SERVER['PHP_SELF']);
 $root_name_array = explode("/",$root_self_directory);
 $root_directory = $root_name_array[1];
 
-$dir = "/".$root_directory."/admin/upload/";
+$dir = "/".$root_directory."/upload/";
+
 /*
 PDW File Browser v1.3 beta
 Date: October 19, 2010
@@ -184,8 +185,8 @@ $extension_whitelist = "asf,avi,bmp,fla,flv,gif,jpeg,jpg,mov,mpeg,mpg,png,tif,ti
  *
  * Ex. http://www.example.com/upload/file.jpg instead of /upload/file.jpg 
  */
-$absolute_url = FALSE; // When FALSE url will be returned absolute without hostname, like /upload/file.jpg.
-$absolute_url_disabled = FALSE; // When TRUE changing from absolute to relative is not possible.
+$absolute_url = TRUE; // When FALSE url will be returned absolute without hostname, like /upload/file.jpg.
+$absolute_url_disabled = TRUE; // When TRUE changing from absolute to relative is not possible.
 
 
 

@@ -30,11 +30,14 @@ return array(
 	),
 
 	// application components
-	'components'=>array(
+	'components'=>array(		
 		/*'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),*/
+		/*'request' => array(
+            'baseUrl' => '',
+        ),*/
 		// uncomment the following to enable URLs in path-format
 		'session' => array (
     		'autoStart' => true,

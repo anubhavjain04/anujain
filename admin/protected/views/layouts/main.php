@@ -11,9 +11,8 @@
 <meta content="" name="keywords" />
 <meta content="" name="description" />
 <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
-<title>Admin-Bhartiya Jain Milan</title>
-
 <script type='text/javascript' src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.6.3.min.js"></script>
+<title>Admin-Bhartiya Jain Milan</title>
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui/jquery-ui.css" /> 
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui/jquery-ui-timepicker-addon.css" /> 
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/custom-layout.css" />    
@@ -21,7 +20,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/login.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/blue/styles.css" />
-<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/kdunicode.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/enhance.js"></script>
 <script type='text/javascript' src="<?php echo Yii::app()->request->baseUrl; ?>/js/excanvas.js"></script>
@@ -74,8 +73,7 @@
 <!-- Top Breadcrumb Start -->
 <div id="breadcrumb">
   <ul>
-    <li><img
-		SRC="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/icon_breadcrumb.png"
+    <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/icons/icon_breadcrumb.png"
 		alt="Location" /></li>
     <li class="current">Control Panel</li>
   </ul>
