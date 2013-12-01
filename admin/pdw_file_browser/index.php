@@ -480,6 +480,7 @@ $(document).ready(function() {
             </ul>
         </li>
         <?php if($allowedActions['settings'] === TRUE): ?><li><a href="#" onclick="return $.MediaBrowser.showLayer('settings');" class="settings" title="<?php echo translate('Settings');?>"><span><img src="img/gear.png" alt="<?php echo translate('Settings');?>" /></span></a></li><?php endif; ?>
+		<li><a href="#" onclick="return $.MediaBrowser.showLayer('help');" class="help" title="<?php echo translate('Help');?>"><span><img src="img/help.png" alt="<?php echo translate('Help');?>" /></span></a></li>
     </ul>
 </div>
 
@@ -510,18 +511,20 @@ $(document).ready(function() {
         -->
         <div id="filelist" class="layer">
             <h2><?php echo $rootname?></h2>
-            <select name="filters" id="filters">
-              <option<?php echo (isset($_GET["filter"]) && $_GET["filter"] == "image" ? ' selected="selected"' : '');?> value=".bmp|.gif|.jpg|.jpeg|.png">Images&nbsp;</option>
-              <?php
+            <select id="filters">
+                <option value=""><?php echo translate("All files");?> (*.*)&nbsp;</option>
+                <option<?php echo (isset($_GET["filter"]) && $_GET["filter"] == "flash" ? ' selected="selected"' : '');?> value=".swf|.flv|.fla">Flash&nbsp;</option>
+                <option<?php echo (isset($_GET["filter"]) && $_GET["filter"] == "image" ? ' selected="selected"' : '');?> value=".bmp|.gif|.jpg|.jpeg|.png">Images&nbsp;</option>
+                <option<?php echo (isset($_GET["filter"]) && $_GET["filter"] == "media" ? ' selected="selected"' : '');?> value=".avi|.flv|.mov|.mp3|.mp4|.mpeg|.mpg|.ogg|.wav|.wma|.wmv">Media&nbsp;</option>
+                <?php
 				    if(isset($customFilters)):
 				    	foreach($customFilters as $key => $value){
 				    		echo '<option value="'.$value.'">'.$key.'&nbsp;</option>'."\n";				
 				    	}
 				    endif;
 				?>
-            </select>
-
-        <hr />
+			</select>
+            <hr />
             <div id="files">
                 <?php
                     // Get all folders in root upload folder but don't iterate
