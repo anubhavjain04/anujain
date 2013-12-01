@@ -4,10 +4,6 @@
 	<?php echo CHtml::link(CHtml::encode($data->pkAddId), array('view', 'id'=>$data->pkAddId)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('CustomerName')); ?>:</b>
-	<?php echo CHtml::encode($data->CustomerName); ?>
-	<br />
-    
 	<b><?php echo CHtml::encode($data->getAttributeLabel('TitleName')); ?>:</b>
 	<?php echo CHtml::encode($data->TitleName); ?>
 	<br />
@@ -51,6 +47,14 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('WebsiteLink')); ?>:</b>
 	<?php echo CHtml::encode($data->WebsiteLink); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('CustomerName')); ?>:</b>
+	<?php echo CHtml::encode($data->CustomerName); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('AddType')); ?>:</b>
+	<?php echo CHtml::encode($data->AddType); ?>
 	<br />
 
 	*/ ?>

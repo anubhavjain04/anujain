@@ -1447,6 +1447,11 @@ h5{
 	color: #000000;
 }
 
+.main_add{
+	position: fixed;
+	font-size: 12px;
+}
+
 .addvertize a{
 	text-decoration: none;
 }

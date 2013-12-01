@@ -25,6 +25,7 @@
 	</script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/kdunicode.js" type="text/javascript"></script>
 	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.6.4.min.js" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.cookie.js" type="text/javascript"></script>
     <script type='text/javascript' src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui.min.js"></script>
 	<script type='text/javascript' src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-sliderAccess.js"></script>
     <script type='text/javascript' src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-timepicker-addon.js"></script>
@@ -167,6 +168,9 @@
     </div>
   </div>
 </div>
+<div id="mainAdvertisement" title="Advertisement" style="display:none;">
+	<img src="<?php echo Yii::app()->request->baseUrl; ?>/resources/advertisement-img/default-screen-add.jpg" alt="Advertisement" height="500" />
+</div>
 <div id="footer_message" class="hindi">	
     <?php 
 		$criteria = new CDbCriteria();
@@ -203,5 +207,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>

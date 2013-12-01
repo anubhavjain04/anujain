@@ -17,6 +17,7 @@
  * @property string $AddImagePath
  * @property string $WebsiteLink
  * @property string $CustomerName
+ * @property integer $AddType
  */
 class Advertisement extends CActiveRecord
 {
@@ -47,7 +48,7 @@ class Advertisement extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('TitleName, DateFrom, DateTo, CreatedDate, ModifiedDate, CustomerName', 'required'),
-			array('Status', 'numerical', 'integerOnly'=>true),
+			array('Status, AddType', 'numerical', 'integerOnly'=>true),
 			array('TitleName, WebsiteLink', 'length', 'max'=>100),
 			array('Description', 'length', 'max'=>500),
 			array('FooterDescription', 'length', 'max'=>150),
@@ -55,7 +56,7 @@ class Advertisement extends CActiveRecord
 			array('WebPage', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('pkAddId, TitleName, Description, FooterDescription, WebPage, DateFrom, DateTo, CreatedDate, ModifiedDate, Status, AddImagePath, WebsiteLink, CustomerName', 'safe', 'on'=>'search'),
+			array('pkAddId, TitleName, Description, FooterDescription, WebPage, DateFrom, DateTo, CreatedDate, ModifiedDate, Status, AddImagePath, WebsiteLink, CustomerName, AddType', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -89,7 +90,18 @@ class Advertisement extends CActiveRecord
 			'AddImagePath' => 'Add Image Path',
 			'WebsiteLink' => 'Website Link',
 			'CustomerName' => 'Customer Name',
+			'AddType' => 'Add Type',
 		);
+	}
+	
+	public function getAddType($typeCode){
+		if($typeCode==1){
+			return "Side Panel Add";
+		}else if($typeCode==2){
+			return "On Screen Add";
+		}else{
+			return "";
+		}
 	}
 
 	/**
@@ -116,20 +128,30 @@ class Advertisement extends CActiveRecord
 		$criteria->compare('AddImagePath',$this->AddImagePath,true);
 		$criteria->compare('WebsiteLink',$this->WebsiteLink,true);
 		$criteria->compare('CustomerName',$this->CustomerName,true);
+		$criteria->compare('AddType',$this->AddType);
 
 		return new CActiveDataProvider(get_class($this), array(
 			'pagination'=>array(
 				'pageSize'=> Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize']),
-		),
+			),
 			'criteria'=>$criteria,
 		));
 	}
 	
 	public function getRandomAdvertisement(){
 		$criteria=new CDbCriteria;
-		$criteria->condition = ' CURDATE() between Datefrom and DateTo ';
+		$criteria->condition = ' Status=1 and AddType=1 and CURDATE() between Datefrom and DateTo ';
 		$criteria->order = ' RAND() ';
 		$criteria->limit = 8;
+		$advertisementData = $this->findAll($criteria);		
+		return $advertisementData;
+	}
+	
+	public function getScreenAdvertisement(){
+		$criteria=new CDbCriteria;
+		$criteria->condition = ' Status=1 and AddType=2 and CURDATE() between Datefrom and DateTo ';
+		$criteria->order = ' RAND() ';
+		$criteria->limit = 1;
 		$advertisementData = $this->findAll($criteria);		
 		return $advertisementData;
 	}

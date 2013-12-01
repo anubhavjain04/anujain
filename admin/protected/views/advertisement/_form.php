@@ -40,6 +40,11 @@
 	?>
 	<div style="background: url(<?php echo $imgPath; ?>) center; width: 100px; height: 70px; border: solid 1px #CCCCCC;" ></div>
 </div>
+<div class="row">
+    <?php echo $form->labelEx($model,'AddType'); ?> 
+	<?php echo $form->dropDownList($model,'AddType',array('1'=>$model->getAddType(1), '2'=>$model->getAddType(2))); ?> 
+	<?php echo $form->error($model,'AddType'); ?>
+</div>
 <div style="clear:both;"></div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'Description'); ?>

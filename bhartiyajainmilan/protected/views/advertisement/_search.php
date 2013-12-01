@@ -11,11 +11,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'CustomerName'); ?>
-		<?php echo $form->textField($model,'CustomerName',array('size'=>45,'maxlength'=>45)); ?>
-	</div>
-    
-	<div class="row">
 		<?php echo $form->label($model,'TitleName'); ?>
 		<?php echo $form->textField($model,'TitleName',array('size'=>60,'maxlength'=>100)); ?>
 	</div>
@@ -68,6 +63,16 @@
 	<div class="row">
 		<?php echo $form->label($model,'WebsiteLink'); ?>
 		<?php echo $form->textField($model,'WebsiteLink',array('size'=>60,'maxlength'=>100)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'CustomerName'); ?>
+		<?php echo $form->textField($model,'CustomerName',array('size'=>45,'maxlength'=>45)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'AddType'); ?>
+		<?php echo $form->textField($model,'AddType'); ?>
 	</div>
 
 	<div class="row buttons">

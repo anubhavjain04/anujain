@@ -27,7 +27,7 @@ class AdvertisementController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','getAdvertisement'),
+				'actions'=>array('index','view','getAdvertisement','screenAdvertisement'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -115,6 +115,12 @@ class AdvertisementController extends Controller
 	public function actionGetAdvertisement(){
 		$model=new Advertisement;
 		$this->renderPartial('advertisement_list',array(
+			'model'=>$model,
+		));
+	}
+	public function actionScreenAdvertisement(){
+		$model=new Advertisement;
+		$this->renderPartial('onScreenAdvertisement',array(
 			'model'=>$model,
 		));
 	}

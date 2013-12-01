@@ -58,18 +58,34 @@ $pageSize=Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageS
 					),
 					array(
 						'name'=>'DateFrom',
-						'value'=>'$data->DateFrom',
+						'value'=>'date("d M Y", strtotime($data->DateFrom))',
 					),
 					array(
 						'name'=>'DateTo',
-						'value'=>'$data->DateTo',
+						'value'=>'date("d M Y", strtotime($data->DateTo))',
+					),
+					
+					array(
+						'name'=>'DateFrom',
+						'value'=>'time()>=strtotime($data->DateFrom) && time()<=strtotime($data->DateTo) ? "Active" : "Expired"',
+						'filter'=>false,
+						'header'=> 'Active Status'
 					),
 
-
+					array(
+						'name'=>'Add Type',
+						'value'=>'$data->getAddType($data->AddType)',
+						'filter'=>CHtml::dropDownList('Advertisement[AddType]', $model->AddType,  
+									array('1'=>$model->getAddType(1),'2'=>$model->getAddType(2)),
+									array('style'=>'width: 140px;')),
+					),
+					
 					array(
 						'name'=>'Status',
 						'value'=>'$data->Status==1 ? "Published" : "Unpublished"',
-						'filter'=>false,
+						'filter'=>CHtml::dropDownList('Advertisement[Status]', $model->Status,  
+									array('1'=>'Published','0'=>'Unpublished'),
+									array('style'=>'width: 110px;')),
 					),
 
 					array(

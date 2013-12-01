@@ -33,15 +33,19 @@
 </div>
 <div style="float: right;">
 	<?php
-		$imgPath = Yii::app()->request->baseUrl."/..". Yii::app()->params['addImgPath']."/no-cover.gif";									
+		$imgPath = Yii::app()->params['bjmURL'].Yii::app()->params['addImgPath']."/no-cover.gif";									
 		if($model->AddImagePath && trim($model->AddImagePath)!=""){
-			$imgPath = Yii::app()->request->baseUrl."/..". Yii::app()->params['addImgPath']."/".$model->AddImagePath;
+			$imgPath = Yii::app()->params['bjmURL'].Yii::app()->params['addImgPath']."/".$model->AddImagePath;
 		}
 	?>
 	<div style="background: url(<?php echo $imgPath; ?>) center; width: 100px; height: 70px; border: solid 1px #CCCCCC;" ></div>
 </div>
+<div class="row">
+    <?php echo $form->labelEx($model,'AddType'); ?> 
+	<?php echo $form->dropDownList($model,'AddType',array('1'=>$model->getAddType(1), '2'=>$model->getAddType(2))); ?> 
+	<?php echo $form->error($model,'AddType'); ?>
+</div>
 <div style="clear:both;"></div>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'Description'); ?>
 		<?php echo $form->textField($model,'Description',array('size'=>60,'maxlength'=>500)); ?>
@@ -53,9 +57,60 @@
 		<?php echo $form->error($model,'FooterDescription'); ?>
 	</div>
 
-	<div class="row">
+	<div class="row" style="width: 650px;">
 		<?php echo $form->labelEx($model,'WebPage'); ?>
-		<?php echo $form->textArea($model,'WebPage',array('rows'=>6, 'cols'=>50)); ?>
+        <?php $this->widget('application.extensions.editMe.ExtEditMe', array(
+    'model'=>$model,
+    'attribute'=>'WebPage',
+    'htmlOptions'=>array('option'=>'value'),
+	'toolbar'=>array(array(
+        /*'Source', '-', 'Save', 'NewPage', 'DocProps', 'Preview', 'Print', '-', 'Templates',*/ 
+    ), 
+    
+    array(
+        /*'Find', 'Replace', '-', 'SelectAll', '-', 'SpellChecker', 'Scayt'*/
+    ),
+    array(
+        /*'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'*/
+    ), 
+    '/', 
+	array(
+        'Cut', 'Copy', 'Paste', /*'PasteText', 'PasteFromWord',*/ '-', 'Undo', 'Redo', 
+    ), 
+    array(
+        'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat', 
+    ), 
+    array(
+        'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', 'BidiLtr', 'BidiRtl', 
+    ), 
+    array(
+        'Link', 'Unlink', 'Anchor', 
+    ), 
+    array(
+        'Image', 'Flash', 'Table', 'Youtube', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe'
+    ), 
+    '/',
+    array(
+        'Styles', 'Format', 'Font', 'FontSize', 
+    ), 
+    array(
+        'TextColor', 'BGColor', 
+    ), 
+    array(
+        'Maximize', 'ShowBlocks', '-', 'About', 
+    ), 
+	array(
+
+        'Source', 
+
+    ), 
+	
+	)
+    /*'editMeOption1'=>'value',
+    'editMeOption2'=>'value',*/
+    
+)); ?>
+		<?php //echo $form->textArea($model,'WebPage',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'WebPage'); ?>
 	</div>
 
@@ -178,7 +233,7 @@
 			$('#Advertisement_DateTo').val(mm+"/"+dd+"/"+yyyy);
 		}
 		$('#Advertisement_DateFrom, #Advertisement_DateTo')
-		.datePicker({createButton:false, startDate:'01/01/1900'})
+		.datepicker({createButton:false, startDate:'01/01/1900'})
 		.bind('click',
 			function()
 			{
