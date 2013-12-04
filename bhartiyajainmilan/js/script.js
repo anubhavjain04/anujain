@@ -17,7 +17,7 @@ function getScreenAdvertisement(){
 		type:"POST",
 		url: sitePath+'advertisement/screenAdvertisement.html',
 		success: function(data){
-			$("#mainAdvertisement").html(data);
+			$("#mainAdvData").html(data);
 			if(data){
 				$("#mainAdvertisement").dialog({
 					dialogClass: "main_add",

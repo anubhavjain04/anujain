@@ -169,7 +169,9 @@
   </div>
 </div>
 <div id="mainAdvertisement" title="Advertisement" style="display:none;">
-	<img src="<?php echo Yii::app()->request->baseUrl; ?>/resources/advertisement-img/default-screen-add.jpg" alt="Advertisement" height="500" />
+	<div id="mainAdvData">	
+		<img src="<?php echo Yii::app()->request->baseUrl; ?>/resources/advertisement-img/default-screen-add.jpg" alt="Advertisement" height="500" />
+	</div>
 </div>
 <div id="footer_message" class="hindi">	
     <?php 

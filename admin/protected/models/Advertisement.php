@@ -98,7 +98,7 @@ class Advertisement extends CActiveRecord
 		if($typeCode==1){
 			return "Side Panel Add";
 		}else if($typeCode==2){
-			return "On Screen Add";
+			return "Side & Screen Add";
 		}else{
 			return "";
 		}

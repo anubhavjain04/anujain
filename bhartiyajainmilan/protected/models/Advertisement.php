@@ -140,9 +140,9 @@ class Advertisement extends CActiveRecord
 	
 	public function getRandomAdvertisement(){
 		$criteria=new CDbCriteria;
-		$criteria->condition = ' Status=1 and AddType=1 and CURDATE() between Datefrom and DateTo ';
+		$criteria->condition = ' Status=1 and CURDATE() between Datefrom and DateTo ';
 		$criteria->order = ' RAND() ';
-		$criteria->limit = 8;
+		$criteria->limit = 12;
 		$advertisementData = $this->findAll($criteria);		
 		return $advertisementData;
 	}

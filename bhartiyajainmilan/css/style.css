@@ -1452,6 +1452,11 @@ h5{
 	font-size: 12px;
 }
 
+#mainAdvData{
+	height: 500px;
+	overflow: auto;
+}
+
 .addvertize a{
 	text-decoration: none;
 }
