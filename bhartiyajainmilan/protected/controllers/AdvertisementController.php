@@ -27,7 +27,7 @@ class AdvertisementController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','getAdvertisement','screenAdvertisement'),
+				'actions'=>array('index','view','getAdvertisement','screenAdvertisement', 'allAdvertisement'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -121,6 +121,23 @@ class AdvertisementController extends Controller
 	public function actionScreenAdvertisement(){
 		$model=new Advertisement;
 		$this->renderPartial('onScreenAdvertisement',array(
+			'model'=>$model,
+		));
+	}
+	
+	public function actionAllAdvertisement(){
+		//Code to display the selected no of result from dropdown in Manage Static Pages
+		if (isset($_GET['pageSize'])) {
+			Yii::app()->user->setState('pageSize',(int)$_GET['pageSize']);
+			unset($_GET['pageSize']);  // would interfere with pager and repetitive page size change
+		}
+		
+		$model=new Advertisement('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Advertisement']))
+			$model->attributes=$_GET['Advertisement'];
+
+		$this->render('allAdvertisement',array(
 			'model'=>$model,
 		));
 	}

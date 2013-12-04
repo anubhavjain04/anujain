@@ -21,7 +21,7 @@ function getScreenAdvertisement(){
 			if(data){
 				$("#mainAdvertisement").dialog({
 					dialogClass: "main_add",
-					width: 775,
+					width: 700,
 					resizable: false,
 					draggable: false,
 				    modal: true,

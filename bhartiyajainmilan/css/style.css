@@ -248,6 +248,16 @@ table.tbllist tr td.tag{
 	float: left;
 }
 
+.right{
+	float: right;
+}
+
+.sponsorContactUs{
+	background-color: #D8D8D8;
+	padding: 10px;
+	height: 308px;
+}
+
 .wrapper {
 	width: 100%;
 	overflow: hidden;

@@ -25,7 +25,7 @@
     <div class="padding sponsar">
       <div class="head p4">
       	<span>Sponsored</span>
-        <a href="#">see all</a>
+        <a href='<?php echo Yii::app()->createUrl("/advertisement/allAdvertisement"); ?>'>see all</a>
        </div> 
       
       <div id="adds" class="margin-bot">
@@ -92,7 +92,7 @@
 		  ?>
           
       </div>
-      <a class="button png" href="#"><span class="png"><span class="png">see all</span></span> </a> </div>
+      <a class="button png" href='<?php echo Yii::app()->createUrl("/advertisement/allAdvertisement"); ?>'><span class="png"><span class="png">see all</span></span> </a> </div>
   </div>
   
   <!--<div class="row-2">
