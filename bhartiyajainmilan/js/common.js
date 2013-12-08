@@ -5,9 +5,6 @@ function disableLoader(frm){
 function enableLoader(frm){
 	frm.find(".error").addClass("loader");
 }
-function setMessageStyle(){	
-	$("#footer_message marquee").css("width",($(window).width()-75-5)+"px");
-}
 $(document).ready(function(e) {
 	$(".text-top > a").click(function(){
 		$(this).next("div").slideToggle();
@@ -21,10 +18,7 @@ $(document).ready(function(e) {
 		ele.text(convert_to_unicode(text));
 		ele.removeClass("hindifont").addClass("hindi");
     });
-	setMessageStyle();
-	$(window).resize(function(e) {
-        setMessageStyle();
-    });
+	
 	if($.browser.chrome){
 		/*var hi_unicodes = $(".hindi");
 		hi_unicodes.each(function(index, element) {

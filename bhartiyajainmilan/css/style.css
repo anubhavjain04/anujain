@@ -379,6 +379,16 @@ p {
 	color: #CA0000;
 }
 
+.color-13{
+	color: #FF0000;
+}
+
+.color-14{
+	color: #008000;
+}
+
+
+
 .bcolor-1 {
 	background-color: #F4F4F4;
 }
@@ -1588,8 +1598,29 @@ h5{
 	color: #9b9b9b;
 }
 
-.marquee{
-	overflow: hidden;
+.website-contact{
+	width: 285px;
+	margin-top: 20px;
+}
+
+.website-contact .name{
+	color: #ff0000;
+	font-size: 16px;
+}
+
+.website-contact .post{
+	color: #008000;
+	font-size: 12px;
+}
+
+.website-contact .contactNo{
+	color: #000000;
+	font-size: 12px;
+}
+
+.website-contact .email{
+	color: #000000;
+	font-size: 12px;
 }
 
 #footer_message{
@@ -1630,8 +1661,8 @@ h5{
 	font-size: 11pt; 
 	text-indent: 3px;
 }
-#footer_message .right marquee{
-	width:900px;
+#footer_message .right .marquee{
+	overflow: hidden;
 }
 
 #footer_message span.info-icon{

@@ -50,7 +50,7 @@ $this->pageTitle="Bhartiya Jain Milan"
               <div class="corner-bot-left">
                 <div class="corner-bot-right">
                   <div id="forthcomingPrograms" class="padding">
-                      <h3>Forthcoming Programs</h3>
+                      <h3 class="color-14">Forthcoming Programs</h3>
                       <div class="margin-bot scroll-container" style="height: 240px; overflow: hidden;">
                        	  <?php 
 						  foreach($programsNewData as $newProgram){
@@ -72,12 +72,12 @@ $this->pageTitle="Bhartiya Jain Milan"
 										$branch = BranchMaster::model()->findByPk($newProgram->fkLevelTableId);
 										$sublevel = "Branch-".$branch->BranchName;
 									}
-									echo "<div class=\"indent3 bcolor-1\">".$sublevel."</div>";
+									echo "<div class=\"indent3 bcolor-1 color-13\">".$sublevel."</div>";
 								}else{
-									echo "<div class=\"indent3 bcolor-1\">".$newProgram->fkLevelCode."</div>";
+									echo "<div class=\"indent3 bcolor-1 color-13\">".$newProgram->fkLevelCode."</div>";
 								}
 							  ?>
-                              	<div class="color-5 strong"><div class="fleft"><?php echo $newProgram->programName; ?></div><div class="fright"><?php echo $newProgram->venuePlace; ?></div></div><br />
+                              	<div class="color-9 strong"><div class="fleft"><?php echo $newProgram->programName; ?></div><div class="fright"><?php echo $newProgram->venuePlace; ?></div></div><br />
                                 <?php echo $newProgram->shortDesc; ?>
                                 <h5><?php echo date('h:i a',strtotime($newProgram->venueDate)); ?></h5><a class="color-4 it" href='<?php echo Yii::app()->createUrl('/programs/viewProgram?id='.$newProgram->pkProgramId); ?>'>more..</a> </div>
                             </div>
@@ -102,7 +102,7 @@ $this->pageTitle="Bhartiya Jain Milan"
           <div class="corner-bot-left">
             <div class="corner-bot-right">
               <div id="recentPrograms" class="padding">
-                <h4>Recent Programs</h4>
+                <h4 class="color-14">Recent Programs</h4>
                 <div class="scroll-container" style="height: 200px; overflow: hidden;">
                 	<?php 
 					foreach($programsOldData as $oldProgram){
@@ -120,14 +120,14 @@ $this->pageTitle="Bhartiya Jain Milan"
 									$branch = BranchMaster::model()->findByPk($oldProgram->fkLevelTableId);
 									$sublevel = "Branch-".$branch->BranchName;
 								}
-								echo "<div class=\"indent3 bcolor-1\">".$sublevel."</div>";
+								echo "<div class=\"indent3 bcolor-1 color-13\">".$sublevel."</div>";
 							}else{
-								echo "<div class=\"indent3 bcolor-1\">".$oldProgram->fkLevelCode."</div>";
+								echo "<div class=\"indent3 bcolor-1 color-13\">".$oldProgram->fkLevelCode."</div>";
 							}						  
 						  ?>
-                          <div class="strong"><?php echo $oldProgram->programName; ?></div>
+                          <div class="strong color-9"><?php echo $oldProgram->programName; ?></div>
                           <div class="clear"></div>
-                          <div><div class="date"><?php echo date('d F Y',strtotime($oldProgram->venueDate)); ?></div><div class="city strong"><?php echo $oldProgram->venuePlace; ?></div></div>
+                          <div class="color-2"><div class="date"><?php echo date('d F Y',strtotime($oldProgram->venueDate)); ?></div><div class="city strong"><?php echo $oldProgram->venuePlace; ?></div></div>
                           
                           <a class="color-4 it" href='<?php echo Yii::app()->createUrl('/programs/viewProgram?id='.$oldProgram->pkProgramId); ?>'>more..</a> </div>
                     <?php 

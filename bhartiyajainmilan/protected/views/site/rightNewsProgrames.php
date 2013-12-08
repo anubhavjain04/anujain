@@ -1,26 +1,4 @@
 <div class="col-2">
- <!-- <div class="row-1 p4">
-    <div class="padding">
-      <h3>Forthcoming Programs</h3>
-      <div class="border-bot indent-bot">
-        <div class="wrapper">
-          <div class="date-box"> apr<br />
-            <span>28</span> </div>
-          <div class="extra-box"> <strong class="color-5">Lorem ipsum eturadipcin praesent vesint</strong><br />
-            Anbun molestie nonuyhendre sit variusm <a class="color-4 it" href="#">more</a> </div>
-        </div>
-      </div>
-      <div class="border-bot margin-bot">
-        <div class="wrapper">
-          <div class="date-box"> apr<br />
-            <span>28</span> </div>
-          <div class="extra-box"> <strong class="color-5">Lorem ipsum eturadipcin praesent vesint</strong><br />
-            Anbun molestie nonuyhendre sit variusm <a class="color-4 it" href="#">more</a> </div>
-        </div>
-      </div>
-      <a class="button png" href="#"><span class="png"><span class="png">all news</span></span> </a> </div>
-  </div>-->
-  
   <div class="row-2 p4">
     <div class="padding sponsar">
       <div class="head p4">
@@ -94,32 +72,4 @@
       </div>
       <a class="button png" href='<?php echo Yii::app()->createUrl("/advertisement/allAdvertisement"); ?>'><span class="png"><span class="png">see all</span></span> </a> </div>
   </div>
-  
-  <!--<div class="row-2">
-    <div class="box1">
-      <div class="corner-top-left">
-        <div class="corner-top-right">
-          <div class="corner-bot-left">
-            <div class="corner-bot-right">
-              <div class="padding">
-                <h4>Recent Programs</h4>
-                <div style="height: 200px; overflow: hidden;">
-                	<marquee behavior="scroll" direction="up" height="200px" onmouseover="stop();" onmouseout="start();" scrolldelay="150">
-                        <div class="recent border-bot indent-bot"> <strong><div class="date">22 april 2012 </div><div class="city">Agra</div></strong>
-                          <a href="#">1st Meeting of Bhartiya Jain Milan Foundation</a> </div>
-                        <div class="recent border-bot indent-bot"> <strong><div class="date">22 april 2012 </div><div class="city">Agra</div></strong>
-                          <a href="#">Zone - 9 <br /> Zonal Adhivation</a> </div>
-                        <div class="recent border-bot indent-bot"> <strong><div class="date">07 july 2012 </div><div class="city">Kishangarh(Raj.)</div></strong>
-                          <a href="#">1st Meeting of National Executive Committee</a> </div>
-                       <div class="recent border-bot indent-bot"> <strong><div class="date">03 june 2012 </div><div class="city">Baraut</div></strong>
-                        <a href="#">Zone - 5 <br />1st Meeting of Zonal Executive Committee </a> </div>
-                    </marquee>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>-->
 </div>

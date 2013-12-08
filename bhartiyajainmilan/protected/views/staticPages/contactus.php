@@ -13,12 +13,40 @@
                       <div class="corner-bot-left">
                         <div class="corner-bot-right">
                           <div class="padding">
-                            <h2 class="title-1"><strong>Contact Us</strong></h2>                            
-                            <h4 style="margin-bottom: 8px; margin-top: 25px;">Narendra Jain Rajkamal</h4>
-                            <h5 class="p4" style="margin-bottom: 8px;"><strong>Mobile: </strong> 09837048560</h5>
-                            <h4 style="font-size: 1.5em; margin-bottom: 8px;"><strong>Bhartiya Jain Milan</strong></h4>
-                            <h5 class="p4"><strong>Email: </strong><a href="mailto:contactus@bhartiyajainmilan.com">contactus@bhartiyajainmilan.com</a></h5>
+                          	<div>
+	                          	<div style="float: left;">
+		                            <h2 class="title-1"><strong>Contact Us</strong></h2>                            
+		                            <h4 style="margin-bottom: 8px; margin-top: 25px; color: #ff0000;">Narendra Jain Rajkamal</h4>
+		                            <h5 class="p4" style="margin-bottom: 8px; color: #008000;"><strong>Prabhari Website / National Vice President</strong> </h5>                            
+		                            <h4 style="font-size: 1.5em; margin-bottom: 8px;"><strong>Bhartiya Jain Milan</strong></h4>
+		                            <h5 class="p4" style="margin-bottom: 8px;"><strong>Mobile: </strong> 09837048560</h5>
+		                            <h5 class="p4"><strong>Email: </strong><a href="mailto:contactus@bhartiyajainmilan.com">contactus@bhartiyajainmilan.com</a></h5>
+	                           	</div>
+	                           	<div style="float: right;">
+	                            	<div class="website-contact">
+	                            		<div class="post"><strong>National President</strong></div>
+	                            		<div class="name">Veer Jai Chand Jain</div>
+	                            		<div class="contactNo"><strong>Mobile: </strong> 09259107200</div>
+	                            		<div class="email"><strong>Email: </strong><a href="mailto:national.president@bhartiyajainmilan.com">national.president@bhartiyajainmilan.com</a></div>
+	                            		
+	                            	</div>
+	                            	<div class="website-contact">
+			                            <div class="post"><strong>General Secretary (Administration)</strong></div>
+			                            <div class="name">Veer Naresh Chand Jain</div>
+	                            		<div class="contactNo"><strong>Mobile: </strong> 09897227228</div>
+	                            		<div class="email"><strong>Email: </strong><a href="mailto:gen.secretary.admin@bhartiyajainmilan.com">gen.secretary.admin@bhartiyajainmilan.com</a></div>
+	                            	</div>
+	                            	<div class="website-contact">
+			                            <div class="post"><strong>General Secretary (Organization)</strong></div>
+			                            <div class="name">Veer Vipin Jain</div>
+	                            		<div class="contactNo"><strong>Mobile: </strong> 09412207908</div>
+	                            		<div class="email"><strong>Email: </strong><a href="mailto:gen.secretary.org@bhartiyajainmilan.com">gen.secretary.org@bhartiyajainmilan.com</a></div>
+	                            	</div>
+	                            </div>
+                           	</div> 
                             
+                            
+                            <div class="clear"></div>
 
 							<div class="p4">
                             	<?php 

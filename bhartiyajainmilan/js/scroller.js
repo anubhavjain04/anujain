@@ -68,6 +68,10 @@ function stopTimer2(){
 		clearInterval(timer2);
 }
 
+function setMessageStyle(){	
+	$("#footer_message .bottom-message").css("width",($(window).width())+"px");
+}
+
 
 $(document).ready(function(){
 		startTimer1();
@@ -89,7 +93,11 @@ $(document).ready(function(){
 		);
 			
 		/********* jquery.marquee implementation*********************/
-		
+		setMessageStyle();
+		$(window).resize(function(e) {
+			setMessageStyle();
+		});
+	
 		$('.marquee').marquee({
 		    speed: 30000,
 		    gap: 50,

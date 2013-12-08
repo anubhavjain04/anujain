@@ -181,7 +181,7 @@
 	?>
     <div class="right">
     	<div class="left" style=""></div>
-        <div class="big-msg" >
+        <div class="big-msg bottom-message" >
         	<div class='marquee'>
             <?php
 				$criteria->params = array(':LineNo' => 1);
@@ -194,7 +194,7 @@
 			?>
 			</div>
         </div>
-        <div class="small-msg">
+        <div class="small-msg bottom-message">
             <div class='marquee'>
             <?php
 				$criteria->params = array(':LineNo' => 2);
