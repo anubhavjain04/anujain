@@ -22,6 +22,7 @@ define(function (require) {
 			self.categorySwitch(self.root.label.HOME_PAGE);
 		});
 		jHash.route(self.root.label.REGISTER_PAGE, function () {
+			self.action.clearRegistration();
 			self.categorySwitch(self.root.label.REGISTER_PAGE);
 		});
 		jHash.route(self.root.label.UPGRADE_PAGE, function () {
@@ -66,7 +67,7 @@ define(function (require) {
 			//self.categorySwitch(self.root.label.SEARCH_PAGE);
 		});
 		
-		jHash.change(function() {
+		jHash.change(function(handler) {
 		    // called when "hashchange" event is fired
 		    // perform some action
 			$(window).scrollTop(0);

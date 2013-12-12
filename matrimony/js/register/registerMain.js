@@ -11,7 +11,7 @@ define(function (require) {
 			vm.root = root;
 			vm.facetVM = vm.root.facetVM;
 			
-			vm.showPage = ko.observable("register-page");
+			vm.showPage = ko.observable("register-member");
 			
 			/*vm.searchPage = function(searchCriteria){
 				if(searchCriteria && searchCriteria.type){

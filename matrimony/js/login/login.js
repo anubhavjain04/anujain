@@ -26,12 +26,15 @@ define(function (require) {
 			vm.login = function(form){
 				var data = ajaxutil.post("site/login", $(form).serialize());
 				if(data.status === 200){
+					vm.emailid(undefined);
+					vm.password(undefined);
 					var user = $.parseJSON(data.responseText);
 					vm.user(user);
 					if(vm.categorySwitch()==vm.label.LOGIN){
 						jHash.set(vm.label.HOME_PAGE, {});
 					}
 				}else{
+					vm.user(undefined);
 					vm.message("Wrong email-id and password.")
 					jHash.set(vm.label.LOGIN, {});
 					vm.hideMessage();

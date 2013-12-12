@@ -5,11 +5,11 @@
       <a class="navbar-brand" href="#"></a> </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.HOME_PAGE}"><a href="#home">Home</a></li>
-        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.SEARCH_PAGE}"><a href="#search/criteria?type=regular">Search</a></li>
-        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.REGISTER_PAGE}"><a href="#register">Register</a></li>
-        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.UPGRADE_PAGE}"><a href="#upgrade">Upgrade</a></li>
-        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.CONTACT_US}"><a href="#contact-us">Contact Us</a></li>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.HOME_PAGE}"><a href="#!home">Home</a></li>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.SEARCH_PAGE}"><a href="#!search/criteria?type=regular">Search</a></li>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.REGISTER_PAGE}"><a href="#!register">Register</a></li>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.UPGRADE_PAGE}"><a href="#!upgrade">Upgrade</a></li>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.CONTACT_US}"><a href="#!contact-us">Contact Us</a></li>
       </ul>
       <!-- ko if: $root.categorySwitch()!=$root.label.LOGIN -->      
       <ul class="nav navbar-nav navbar-right" data-bind="with: $root.loginVM">

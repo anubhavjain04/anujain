@@ -1,0 +1,223 @@
+<div data-bind="with: registrationVM">
+  <h1>Register</h1>  
+  <div class="col-xs-12 col-sm-12 tab-content">
+    <div id="register-member">      
+      <div class="padt20 form-horizontal">
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label class="control-label">Registered by<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <select class="form-control def-element-width" data-bind="options: facetVM.registeredByList, optionsText: 'text', optionsValue: 'key', optionsCaption: '--Select--', value: registeredBy"></select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label class="control-label">Name<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <input type="text" class="form-control def-element-width" placeholder="Name" data-bind="value: memberName, valueUpdate: 'afterkeydown'" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label class="control-label">Gender<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <label for="gendermale" class="radio-inline">
+		          <input type="radio" id="gendermale" name="gender" data-bind="value: 1, checked: sex" />
+		          Male </label>
+		        &nbsp;
+		      <label for="genderfemale" class="radio-inline">
+		          <input type="radio" id="genderfemale" name="gender" data-bind="value: 0, checked: sex" />
+		          Female </label>	
+              
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label class="control-label">Date of birth<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+            	<div id="datetimepicker2" class="input-group datetimepicker" data-date-format="MM/dd/yyyy HH:mm PP" data-bind="datetimepicker: dob">
+			    	<input type="text"  placeholder="MM/dd/yyyy HH:mm PP" class="form-control def-element-width"  data-bind="disable: true" />
+			    	<span class="input-group-addon">
+				      <i data-time-icon="glyphicon-time" data-date-icon="glyphicon-calendar" class="glyphicon glyphicon-calendar"></i>
+				    </span>
+			    </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label class="control-label">Marital Status<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+            	<select class="form-control def-element-width" data-bind="options: facetVM.maritalStatusList, optionsText: 'text', optionsValue: 'key', optionsCaption: '--Select--', value: maritalStatus"></select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label class="control-label">Sect<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <select class="form-control def-element-width" data-bind="options: facetVM.sectList, optionsText: 'SectName', optionsValue: 'pkSectId', optionsCaption: '--Select--', value: sect, event: {change: function(){facetVM.afterSectChange(sect())}}"></select>	
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label class="control-label">Sub Sect<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <select class="form-control def-element-width" data-bind="options: facetVM.subSectList, optionsText: 'SubSectName', optionsValue: 'pkSubSectId', optionsCaption: '--Select--', value: subSect"></select>
+            </div>
+          </div>
+        </div>        
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label class="control-label">Mother Tongue<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <select class="form-control def-element-width" data-bind="options: facetVM.motherTongueList, optionsText: 'TongueName', optionsValue: 'pkTongueId', optionsCaption: '--Select--', value: motherTongue"></select>	
+            </div>
+          </div>
+        </div>        
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label class="control-label">Country living in<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <select class="form-control def-element-width" data-bind="options: facetVM.countryList, optionsText: 'CountryName', optionsValue: 'pkCountryId', value: country, disable: true"></select>	
+            </div>
+          </div>
+        </div>
+         <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label class="control-label">State<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <select class="form-control def-element-width" data-bind="options: facetVM.stateList, optionsText: 'StateName', optionsValue: 'pkStateId', optionsCaption: '--Select--', value: state"></select>
+            </div>
+          </div>
+        </div>
+         <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label class="control-label">City<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <input type="text" class="form-control def-element-width" placeholder="City" data-bind="value: city, valueUpdate: 'afterkeydown'" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label class="control-label">Contact Number<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <input type="text" class="form-control def-element-width" placeholder="Contact Number" data-bind="value: contactNumber, valueUpdate: 'afterkeydown'" />
+              <span class="text-muted">(ex: 1234567890, 9876543210)</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label class="control-label">E-mail<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <input type="email" class="form-control def-element-width" data-bind="value: emailId, hasFocus: isFocusEmail" />	
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label class="control-label">Password<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <input type="password" class="form-control def-element-width" data-bind="value: password, valueUpdate: 'afterkeydown'">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label class="control-label">Confirm Password<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <input type="password" class="form-control def-element-width" data-bind="value: confirmPassword, valueUpdate: 'afterkeydown'">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <div class="checkbox">
+			      <label>
+			        <input type="checkbox" data-bind="checked: termsConditions" />
+			        I agree to the <a href="#nogo" class="link" data-toggle="modal" data-target="#privacyPolicy">Privacy Policy</a> 
+			        and 
+			        <a href="#nogo" class="link" data-toggle="modal" data-target="#termsConditions">Terms &amp; Conditions</a>
+			      </label>
+			  </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2"></div>
+            <div class="col-xs-12 col-sm-10">
+              	<button class="btn btn-success" data-bind="click: registerUser, enable: termsConditions()">Register</button>
+            </div>
+          </div>
+        </div>
+        <div class="padb35"></div>
+        
+        <div data-bind="if: message">
+	        <div class="alert alert-danger alert-dismissable">
+			  	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  	<span data-bind="text: message"></span>
+			</div>
+		</div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div data-bind="template: { name: 'register/views/register-modal'}"></div>

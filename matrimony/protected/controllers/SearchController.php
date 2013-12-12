@@ -87,7 +87,7 @@ class SearchController extends Controller
 		$this->render('search');
 	}
 	
-	public function actionResults(){
+public function actionResults(){
 		//Code to display the selected no of result from dropdown in Manage Static Pages
 		if (isset($_POST['pageSize'])) {
 			Yii::app()->user->setState('pageSize',(int)$_POST['pageSize']);
@@ -96,15 +96,14 @@ class SearchController extends Controller
 		if (isset($_POST['page'])) {
 			$_GET['MatrimonyMembers_page']=(int)$_POST['page'];	
 			unset($_POST['page']);
-		}
-		$model=new MatrimonyMembers('search');
-		if(isset($_POST['Search'])){			
-			$search = CJSON::decode($_POST['Search']);
+		}		
+		$model=new MatrimonyMembers('search');		
+		if(isset($_POST['Search'])){					        
+			$search = CJSON::decode($_POST['Search']);			
 			$search['status'] = 1;			
 			$dataProvider = $model->search($search);
-			$pager = $this->getPager($dataProvider);
-			
-			$dataList = $pager['dataList'];
+			$pager = $this->getPager($dataProvider);			
+			$dataList = $pager['dataList'];			
 			$plainDataList = array();
 			for($i=0; $i<count($dataList); $i++){
 				$plainData = CJSON::decode(CJSON::encode($dataList[$i]));
@@ -113,11 +112,11 @@ class SearchController extends Controller
 				$plainData['subSectName'] = $dataList[$i]->fkSubSect0->SubSectName;
 				$plainData['country'] = $dataList[$i]->fkCountryLivingIn0->CountryName;
 				$plainData['state'] = $dataList[$i]->fkResidingState0->StateName;
-				$plainData['education'] = $dataList[$i]->fkEducation0->CourseName;
-				$plainData['occupation'] = $dataList[$i]->occupation->OccupationName;
+				$plainData['education'] = ($dataList[$i]->fkEducation0)? $dataList[$i]->fkEducation0->CourseName : '';
+				$plainData['occupation'] = ($dataList[$i]->occupation)? $dataList[$i]->occupation->OccupationName : '';
 				array_push($plainDataList, $plainData);
-			}
-			$pager['dataList'] = $plainDataList;
+			}			
+			$pager['dataList'] = $plainDataList;		        
 			echo CJSON::encode($pager);
 	
 		}else{
@@ -139,9 +138,9 @@ class SearchController extends Controller
 				$jsonMember['sectName'] = $member->fkSect0->SectName;
 				$jsonMember['subSectName'] = $member->fkSubSect0->SubSectName;
 				$jsonMember['country'] = $member->fkCountryLivingIn0->CountryName;
-				$jsonMember['state'] = $member->fkResidingState0->StateName;
-				$jsonMember['education'] = $member->fkEducation0->CourseName;
-				$jsonMember['occupation'] = $member->occupation->OccupationName;
+				$jsonMember['state'] = $member->fkResidingState0->StateName;				
+				$jsonMember['education'] = ($member->fkEducation0)? $member->fkEducation0->CourseName : '';
+				$jsonMember['occupation'] = ($member->occupation)? $member->occupation->OccupationName : '';
 				$jsonMember['motherTongue'] = $member->fkMotherTongue0->TongueName;
 				if($member->fkCaste0){
 					$jsonMember['caste'] = $member->fkCaste0->CasteName;
@@ -154,7 +153,7 @@ class SearchController extends Controller
 				}else{
 					$jsonMember['familyDetails'] = null;
 				}
-				echo CJSON::encode($jsonMember);
+				$this->echoObjectAsJSON($jsonMember);
 			}else{
 				throw new CHttpException(404,'The requested member does not found.');	
 			}
@@ -177,7 +176,8 @@ class SearchController extends Controller
 		$results["countryList"] = Country::model()->findAll(array('order'=>' CountryName ASC '));
 		$results["stateList"] = States::model()->findAll(array('order'=>' StateName ASC '));
 		$results["occupationGroupList"] = OccupationGroup::model()->findAll(array('order'=>' GroupName ASC '));
-		echo CJSON::encode($results);
+		
+		$this->echoObjectAsJSON($results);
 	}
 
 	

@@ -44,11 +44,11 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-		Yii::app()->clientScript->registerMetaTag('Bhartiya Jain Milan Matrimonial,matrimony.bhartiyajainmilan.com,jain matrimony, matrimony, matrimonial, shaadi, vivah, match making', 'keywords');
+		Yii::app()->clientScript->registerMetaTag('Bhartiya Jain Milan Matrimonial,matrimony.bhartiyajainmilan.com,jain matrimony, matrimony, matrimonial, shaadi, vivah, match making, jain samaj', 'keywords');
 		Yii::app()->clientScript->registerMetaTag('Bhartiya Jain Milan Matrimonal - To find someone who will love you for no reason. Specially, this site is made for jains matrimony. We match better.', 'description');
-		Yii::app()->clientScript->registerMetaTag('all,index,follow,Bhartiya Jain Milan Matrimonial, Matrimony','robots');
-		Yii::app()->clientScript->registerMetaTag('index,follow,noodp,Bhartiya Jain Milan Matrimonial, Matrimony','googlebot');
-		Yii::app()->clientScript->registerMetaTag('all,index,follow,Bhartiya Jain Milan Matrimonial, Matrimony','msnbot');
+		Yii::app()->clientScript->registerMetaTag('all,index,follow,Bhartiya Jain Milan Matrimonial, Matrimony, matrimonial, shaadi, vivah, match making, jain samaj','robots');
+		Yii::app()->clientScript->registerMetaTag('index,follow,noodp,Bhartiya Jain Milan Matrimonial, Matrimony, matrimonial, shaadi, vivah, match making, jain samaj','googlebot');
+		Yii::app()->clientScript->registerMetaTag('all,index,follow,Bhartiya Jain Milan Matrimonial, Matrimony, matrimonial, shaadi, vivah, match making, jain samaj','msnbot');
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		/*$todayDate = date('Y-m-d', time());
@@ -83,7 +83,7 @@ class SiteController extends Controller
 			$user["userName"] = Yii::app()->user->name;
 			$user["isGuest"] = Yii::app()->user->isGuest;
 			$user["role"] = Yii::app()->user->role;
-			echo CJSON::encode($user);
+			$this->echoObjectAsJSON($user);
 			return;
 		}
 		
@@ -103,7 +103,7 @@ class SiteController extends Controller
 				$user["id"] = Yii::app()->user->id;
 				$user["userName"] = Yii::app()->user->name;
 				$user["role"] = Yii::app()->user->role;
-				echo CJSON::encode($user);
+				$this->echoObjectAsJSON($user);
 				//$this->redirect(Yii::app()->homeUrl);
 			}else{
 				throw new CHttpException(403,'Unauthorized');
@@ -141,11 +141,10 @@ class SiteController extends Controller
 			$user["userName"] = Yii::app()->user->name;
 			$user["isGuest"] = Yii::app()->user->isGuest;
 			$user["role"] = Yii::app()->user->role;
-			echo CJSON::encode($user);	
 		}else{
 			$user["userName"] = Yii::app()->user->name;
 			$user["isGuest"] = Yii::app()->user->isGuest;
-			echo CJSON::encode($user);
 		}
+		$this->echoObjectAsJSON($user);
 	}
 }

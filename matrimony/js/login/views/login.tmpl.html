@@ -25,8 +25,10 @@
   <div>
   	
   </div>
-  <div class="alert alert-danger alert-dismissable" data-bind="visible: message">
-  	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-  	<span data-bind="text: message"></span>
+  <div data-bind="if: message">
+	  <div class="alert alert-danger alert-dismissable">
+	  	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	  	<span data-bind="text: message"></span>
+	  </div>
   </div>
 </div>

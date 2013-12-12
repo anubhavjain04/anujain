@@ -60,6 +60,12 @@ class Controller extends CController
 			throw new CHttpException(400,'The requested search criteria is invalid.');
 		}
 	}
+	
+	public function echoObjectAsJSON($data){
+		header('Content-type: application/json');
+		echo CJSON::encode($data);
+		Yii::app()->end();
+	}
 	 
 	public function AdminName($id)
 	{

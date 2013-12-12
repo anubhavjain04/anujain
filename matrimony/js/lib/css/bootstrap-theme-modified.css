@@ -504,3 +504,12 @@ h3, .h3{
   padding: 9px 15px;
   border-top: 1px solid #e5e5e5;
 }
+
+/*********** override default css*******************/
+.def-element-width{
+	width: 250px !important;
+}
+
+.datetimepicker .def-element-width{
+	width: 210px !important;
+}

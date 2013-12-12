@@ -15,7 +15,7 @@ requirejs.config({
         isBuild : false
     }
 });
-require(['jquery', 'knockout', 'infuser-amd', 'koExternalTemplateEngine-amd', 'knockout.validation', 'knockout-postbox.min', 'bootstrap.min', 'bootstrap-datetimepicker.min', 'jhash-2.1.min', 'main/main', 'domReady!'], 
+require(['jquery', 'knockout', 'infuser-amd', 'koExternalTemplateEngine-amd', 'knockout.validation', 'knockout-postbox.min', 'bootstrap.min', 'bootstrap-datetimepicker.min', 'jhash-custom-2.1.min', 'main/main', 'domReady!'], 
 function( $,        knockout,   infuser,       koExtTemplate,                  koValidation,              koPostbox,          bootstrap,       bootstrapDTP,            		route,      	   Main) {
     // Set up some defaults for templates loaded using koExternalTemplateEngine
     infuser.defaults.templateSuffix = ".tmpl.html?v="+version;

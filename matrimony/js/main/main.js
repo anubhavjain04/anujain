@@ -13,7 +13,8 @@ define(function (require) {
 	        $(element).datetimepicker({
 	            format: 'MM/dd/yyyy HH:mm PP',
 	            language: 'en',
-	            pick12HourFormat: true
+	            pick12HourFormat: true,
+	            pickSeconds: false
 	        }).on("changeDate", function (ev) {
 	            var observable = valueAccessor();
 	            observable(ev.date);

@@ -70,6 +70,9 @@ define(function(require) {
 				complete : this.hideLoader,
 				async : true
 			});
+		},
+		put : function(url, data, successCallback, errorCallback) {
+			this.find(url, data, successCallback, errorCallback);
 		}
 		/*,
 		uploadFile : function(resourceUrl, fileFormFieldId, formId, success, error) {

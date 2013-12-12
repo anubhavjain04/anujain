@@ -1,6 +1,7 @@
 define(function (require) {    
 	var ko               = require('knockout');
 	var $                = require('jquery');
+	var ajaxutil		 = require('ajaxutil');
 	var Route	 		 = require('register/route');	
 
 	return function(){ 
@@ -9,6 +10,8 @@ define(function (require) {
 			var vm = this;
 			vm.mainVM = mainVM;
 			vm.facetVM = vm.mainVM.facetVM;
+			vm.user = ko.observable().publishOn("loggedInUser", true);
+			vm.message = ko.observable();
 			vm.termsConditions = ko.observable(false);
 			vm.sex = ko.observable(0);
 			vm.registeredBy = ko.observable().extend({
@@ -41,7 +44,11 @@ define(function (require) {
 				required: true
 			});
 			vm.contactNumber = ko.observable().extend({
-				required: true
+				required: true,
+                pattern: {
+                     message: 'This field required a number',
+                     params: /^(\d{10}(,([\s]*)?\d{10})*)?$/
+                }
 			});
 			vm.emailId = ko.observable().extend({
 				required: true
@@ -59,13 +66,51 @@ define(function (require) {
 	              }
 			});
 			
+			vm.isFocusEmail = ko.observable(false);
+			
 			vm.registerUser = function(){				
 				if(vm.isFormValid() && vm.termsConditions()){
+					var dob = '';
+					if(vm.dob()){
+						dob = (vm.dob().getUTCMonth()+1) + '/'+vm.dob().getUTCDate()+'/'+vm.dob().getUTCFullYear()+' '+vm.dob().getUTCHours()+':'+vm.dob().getUTCMinutes();
+					}
+					var formData = {
+						registerBy 	: vm.registeredBy(),
+						memberName 	: vm.memberName(),
+						sex 		: vm.sex(),
+						dob 		: dob,
+						maritalStatus:vm.maritalStatus(),
+						sect		: vm.sect(),
+						subSect		: vm.subSect(),
+						motherTongue: vm.motherTongue(),
+						contactNumber: vm.contactNumber(),
+						country		: vm.country(),
+						state		: vm.state(),
+						city		: vm.city(),
+						emailId		: vm.emailId(),
+						password	: vm.password()
+					};					
+					var path = "register/registerMember";
+					ajaxutil.put(path, formData, function(data){
+						if(data){
+							vm.user(data);
+							console.log(data);
+						}
+					},function(error){
+						if(error && error.status === 302){
+							vm.isFocusEmail(true);
+							vm.message(error.responseText);
+							vm.hideMessage();							
+						}else{
+							console.log(error);
+						}
+					});
 					
 				}
 			};
 			
 			vm.clear = function(){
+				vm.sex(0);
 				vm.registeredBy(undefined);
 				vm.memberName(undefined);
 				vm.dob(undefined);
@@ -82,6 +127,7 @@ define(function (require) {
 				vm.password(undefined);
 				vm.confirmPassword(undefined);
 				vm.termsConditions(false);
+				vm.message(undefined);
 				vm.clearValidation();
 			};
 			
@@ -99,6 +145,12 @@ define(function (require) {
 				vm.emailId.isModified(false);
 				vm.password.isModified(false);
 				vm.confirmPassword.isModified(false);
+			};
+			
+			vm.hideMessage = function(){
+				setTimeout(function(){
+					vm.message(undefined);
+				}, 3000);				
 			};
 			
 			// Checks whether the form is valid or not
