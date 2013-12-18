@@ -24,7 +24,9 @@ function getScreenAdvertisement(){
 					width: 700,
 					resizable: false,
 					draggable: false,
-				    modal: false,
+				    modal: true,
+				    buttons: [ { text: "Close", click: function() { $(this).dialog("close"); } } ]
+				    /*,
 				    show: {
 				       effect: "puff",
 				       duration: 1000
@@ -32,7 +34,7 @@ function getScreenAdvertisement(){
 				    hide: {
 				       effect: "puff",
 				       duration: 1000
-				    }
+				    }*/
 				});
 			}
 		},
