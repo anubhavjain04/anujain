@@ -24,7 +24,7 @@ function getScreenAdvertisement(){
 					width: 700,
 					resizable: false,
 					draggable: false,
-				    modal: true,
+				    modal: false,
 				    show: {
 				       effect: "puff",
 				       duration: 1000
