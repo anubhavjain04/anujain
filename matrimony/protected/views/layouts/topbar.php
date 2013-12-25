@@ -21,8 +21,8 @@
       		<div class="dropdown-menu">
               <form id="login-form" class="form-horizontal" action="/anujain/matrimony/index.php/site/login" method="post">
 		        <div class="form-group input-group-sm">
-		          <label class="control-label">Email Id</label>	
-		          <input type="email" placeholder="Email" class="form-control" name="LoginForm[emailid]" />
+		          <label class="control-label">Matrimony ID / Email ID</label>	
+		          <input type="text" placeholder="Matrimony ID / Email ID" class="form-control" name="LoginForm[emailid]" />
 		        </div>
 		        <div class="form-group input-group-sm">
 		          <label class="control-label">Password</label>

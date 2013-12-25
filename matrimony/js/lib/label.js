@@ -1,17 +1,16 @@
 define(function(require) {
 	var ko = require('knockout');
-	return function label() {
-		var self = this;
+	return {
 		/******Pages*********/
-		self.HOME_PAGE = "home";
-		self.SEARCH_PAGE = "search";
-		self.REGISTER_PAGE = "register";
-		self.UPGRADE_PAGE = "upgrade";
-		self.ABOUTUS_PAGE = "about-us";
-		self.PRIVACY_POLICY = "privacy-policy";
-		self.TERMS_N_CONDITIONS = "terms-n-conditions";
-		self.CONTACT_US = "contact-us";
-		self.LOGIN = "login";
+		HOME_PAGE : "home",
+		SEARCH_PAGE : "search",
+		REGISTER_PAGE : "register",
+		UPGRADE_PAGE : "upgrade",
+		ABOUTUS_PAGE : "about-us",
+		PRIVACY_POLICY : "privacy-policy",
+		TERMS_N_CONDITIONS : "terms-n-conditions",
+		CONTACT_US : "contact-us",
+		LOGIN : "login"
 	};
 });
 

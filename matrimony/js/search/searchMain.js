@@ -2,15 +2,13 @@ define(function (require) {
 	var ko               = require('knockout');
 	var $                = require('jquery');
 	var Search	 		 = require('search/search');
-	var Member			 = require('search/member');
-	var Route	 		 = require('search/route');	
+	var SearchMember	 = require('search/searchMember');
 
 	return function(){ 
 		var self = this;
-		self.searchMainViewModel = function(root) {
+		self.searchMainViewModel = function() {
 			var vm = this;
-			vm.root = root;
-			vm.facetVM = vm.root.facetVM;
+			vm.root = ko.observable().subscribeTo("requestRootObject", true);
 			vm.showPage = ko.observable("search-page");
 			vm.categorySwitch = ko.observable().publishOn("requestCategorySwitch", true);
 			
@@ -21,27 +19,25 @@ define(function (require) {
 				vm.showPage('search-page');
 			};
 			vm.showResults = function(searchCriteria){
-				vm.route.setSpecs(searchCriteria);
+				vm.searchVM.setSpecs(searchCriteria);
 			};
 			vm.showMember = function(memberId){
 				if(memberId){
-					vm.memberVM.showMemberPage(memberId);
+					vm.searchMemberVM.showMemberPage(memberId);
 				}
 			};
 			
 			vm.switchToMemberPage = function(){
 				vm.showPage('search-member-page');
-				vm.categorySwitch(vm.root.label.SEARCH_PAGE);
+				vm.categorySwitch(vm.root().label.SEARCH_PAGE);
 			};
 			
 			//Object creation
 			vm.search = new Search();
 			vm.searchVM = new vm.search.searchViewModel(vm);
 			
-			vm.member = new Member();
-			vm.memberVM = new vm.member.memberViewModel(vm);
-			
-			vm.route = new Route(vm);
+			vm.searchMember = new SearchMember();
+			vm.searchMemberVM = new vm.searchMember.searchMemberViewModel(vm);
 		};
 	};
 });

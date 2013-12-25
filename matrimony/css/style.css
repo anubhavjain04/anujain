@@ -958,6 +958,30 @@ img {
 	padding: 10px;
 }
 
+/**Registration***/
+.step-line {
+	position: absolute;
+	left: 0px;
+	border-top: solid 1px #C9C9C9;
+	margin-top: 30px;
+	width: 100%;
+}
+.selected-step {
+	color: #F8B107;
+}
+.selected-step-text{
+	color: #0274CB;
+}
+
+.arw-active{
+	background: url('../images/arw-active.gif') no-repeat;
+}
+
+.arw-inactive{
+	background: url('../images/arw-inactive.gif') no-repeat;
+}
+
+
 .men{
 	background: transparent url('../images/men.png') no-repeat left bottom;
 	height: 200px !important;

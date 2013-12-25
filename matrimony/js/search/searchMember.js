@@ -1,14 +1,13 @@
 define(function (require) {
     
 	var ko               = require('knockout');
-	var $                = require('jquery');
 	var ajaxutil		 = require('ajaxutil');
 
 	return function(){ 
 		var self = this;
-		self.memberViewModel = function(mainVM) {
+		self.searchMemberViewModel = function(searchMainVM) {
 			var vm = this;
-			vm.mainVM = mainVM;
+			vm.searchMainVM = searchMainVM;
 			vm.memberData = ko.observable();
 			
 			vm.resetModel = function(){
@@ -22,10 +21,10 @@ define(function (require) {
 					}else{
 						vm.memberData(undefined);
 					}
-					vm.mainVM.switchToMemberPage();
+					vm.searchMainVM.switchToMemberPage();
 				}, function(){					
 					vm.memberData(undefined);
-					vm.mainVM.switchToMemberPage();
+					vm.searchMainVM.switchToMemberPage();
 				});
 				
 			};
@@ -33,7 +32,7 @@ define(function (require) {
 				vm.findOne(memberId);
 			};
 			vm.back = function(){
-				vm.mainVM.searchVM.searchByCriteria();
+				vm.searchMainVM.searchVM.searchByCriteria();
 			};
 		};
 	};

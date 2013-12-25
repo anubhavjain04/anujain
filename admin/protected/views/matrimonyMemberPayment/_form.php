@@ -46,15 +46,15 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'Discount'); ?>
-		<?php echo $form->textField($model,'Discount',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'Discount'); ?>
+		<?php echo $form->labelEx($model,'PaymentMode'); ?>
+		<?php echo $form->textField($model,'PaymentMode'); ?>
+		<?php echo $form->error($model,'PaymentMode'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'ReasonOfDiscount'); ?>
-		<?php echo $form->textField($model,'ReasonOfDiscount',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'ReasonOfDiscount'); ?>
+		<?php echo $form->labelEx($model,'Comments'); ?>
+		<?php echo $form->textField($model,'Comments',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->error($model,'Comments'); ?>
 	</div>
 
 	<div class="row buttons">

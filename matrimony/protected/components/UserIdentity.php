@@ -16,10 +16,18 @@ class UserIdentity extends CUserIdentity
 	public function authenticate()
 	{
 		$user=MatrimonyUser::model()->find('LOWER(EmailID)=?',array(strtolower($this->username)));
-		if($user===null)
-		$this->errorCode=self::ERROR_USERNAME_INVALID;
-		else if(!$user->validatePassword($this->password))
-		$this->errorCode=self::ERROR_PASSWORD_INVALID;
+		if($user===null){
+			$member=MatrimonyMembers::model()->find('LOWER(MemberCode)=?',array(strtolower($this->username)));
+			if($member!==null){
+				$user=MatrimonyUser::model()->find('pkUserId=?',array($member->fkLoginId));
+			}
+		}
+		if($user===null){
+			$this->errorCode=self::ERROR_USERNAME_INVALID;
+		}
+		else if(!$user->validatePassword($this->password)){
+			$this->errorCode=self::ERROR_PASSWORD_INVALID;
+		}
 		else if(!($user->Type==="USR")){
 			$this->errorCode=self::ERROR_UNKNOWN_IDENTITY;
 		}

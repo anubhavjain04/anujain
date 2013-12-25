@@ -1,0 +1,435 @@
+<div data-bind="with: registrationVM.memberProfile">
+	<h3>Add your personal details</h3>
+	<p>We recommend you add more details about you, your life style and family to get exactly matching profiles.</p>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+        	<label class="panel-title">Appearance</label>
+      	</div>
+		<div class="panel-body">
+			<div class="row">
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Height</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <select class="form-control def-element-width" data-bind="options: $root.facetVM.heightList, optionsText: 'text', optionsValue: 'key', optionsCaption: '--select--', value: height"></select>
+	            </div>
+	          </div>
+	        </div>
+			<div class="row">
+			  <div class="dot-line padt10"></div>	
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Weight</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <select class="form-control def-element-width" data-bind="options: $root.facetVM.weightList, optionsText: 'text', optionsValue: 'key', optionsCaption: '--select--', value: weight"></select>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Body Type</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <label for="b_Slim" class="radio-inline">
+			          <input type="radio" id="b_Slim" name="bodytype" data-bind="value: 1, checked: bodyType" />
+			          Slim </label>
+			        &nbsp;
+			      <label for="b_Athletic" class="radio-inline">
+			          <input type="radio" id="b_Athletic" name="bodytype" data-bind="value: 2, checked: bodyType" />
+			          Athletic </label>
+			      <label for="b_Average" class="radio-inline">
+			          <input type="radio" id="b_Average" name="bodytype" data-bind="value: 3, checked: bodyType" />
+			          Average </label>
+			      <label for="b_Heavy" class="radio-inline">
+			          <input type="radio" id="b_Heavy" name="bodytype" data-bind="value: 4, checked: bodyType" />
+			          Heavy </label>        
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Complexion</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <label for="c_VeryFair" class="radio-inline">
+			          <input type="radio" id="c_VeryFair" name="complexion" data-bind="value: 1, checked: complexion" />
+			          Very Fair </label>
+			        &nbsp;
+			      <label for="c_Fair" class="radio-inline">
+			          <input type="radio" id="c_Fair" name="complexion" data-bind="value: 2, checked: complexion" />
+			          Fair </label>
+			      <label for="c_Wheatish" class="radio-inline">
+			          <input type="radio" id="c_Wheatish" name="complexion" data-bind="value: 3, checked: complexion" />
+			          Wheatish </label>
+			      <label for="c_WheatishBrown" class="radio-inline">
+			          <input type="radio" id="c_WheatishBrown" name="complexion" data-bind="value: 4, checked: complexion" />
+			          Wheatish Brown </label>
+			      <label for="c_Dark" class="radio-inline">
+			          <input type="radio" id="c_Dark" name="complexion" data-bind="value: 5, checked: complexion" />
+			          Dark </label>    
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Physical Status</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <label for="ps_Normal" class="radio-inline">
+			          <input type="radio" id="ps_Normal" name="physicalStatus" data-bind="value: 0, checked: physicalStatus" />
+			          Normal </label>
+			      <label for="ps_Challenged" class="radio-inline">
+			          <input type="radio" id="ps_Challenged" name="physicalStatus" data-bind="value: 1, checked: physicalStatus" />
+			          Physically Challenged </label>			         
+	            </div>
+	          </div>
+	        </div>			
+		</div>
+	</div> 
+	<div class="panel panel-default">
+		<div class="panel-heading">
+        	<label class="panel-title">Personal Details</label>
+      	</div>
+		<div class="panel-body">
+			<div class="row">
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">About Me</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <textarea class="form-control" placeholder="write something about yourself" data-bind="value: aboutMe" ></textarea>
+	            </div>
+	          </div>
+	        </div>	        
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Home Address</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <textarea class="form-control" placeholder="home address" data-bind="value: homeAddress" ></textarea>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Working Address</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <textarea class="form-control" placeholder="working address" data-bind="value: workingAddress" ></textarea>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Annual Income</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <input type="text" class="form-control def-element-width" placeholder="annual Income" data-bind="value: annualIncome" />
+	            </div>
+	          </div>
+	        </div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+        	<label class="panel-title">Marry Preferances</label>
+      	</div>
+		<div class="panel-body">
+			<div class="row">
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Marry In Same Sub Sect</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <label for="marrySame_Yes" class="radio-inline">
+			          <input type="radio" id="marrySame_Yes" name="marryInSameSect" data-bind="value: 1, checked: marryInSameSect" />
+			          Willing to marry from the same sub sect </label>
+			      <label for="marrySame_No" class="radio-inline">
+			          <input type="radio" id="marrySame_No" name="marryInSameSect" data-bind="value: 2, checked: marryInSameSect" />
+			          Willing to marry from other sub sect also </label>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">About My Partner</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <textarea class="form-control" placeholder="write something about your partner preferance" data-bind="value: aboutMyPartner" ></textarea>
+	            </div>
+	          </div>
+	        </div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+        	<label class="panel-title">Horoscope</label>
+      	</div>
+		<div class="panel-body">
+			<div class="row">
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Birth Time</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              	<select id="birthHour" class="form-control clearwidth pull-left" data-bind="options: $root.facetVM.hourList, optionsText: 'text', optionsValue: 'key', optionsCaption: '--hour--', value: birthHour"></select>
+	              	<select class="form-control clearwidth pull-left" data-bind="options: $root.facetVM.minuteList, optionsText: 'text', optionsValue: 'key', optionsCaption: '--minute--', value: birthMinute"></select>
+	              	<select class="form-control clearwidth pull-left" data-bind="options: $root.facetVM.ampmList, optionsCaption: '--am/pm--', value: birthAmPm"></select>	      
+	            </div>
+	          </div>
+	        </div>
+			<div class="row">
+			  <div class="dot-line padt10"></div>	
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Caste</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              	<select class="form-control def-element-width" data-bind="options: $root.facetVM.casteList, optionsText: 'CasteName', optionsValue: 'pkCasteId', optionsCaption: '--select--', value: caste"></select>	      
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>	
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Gotra</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <input type="text" class="form-control def-element-width" placeholder="gotra" data-bind="value: gotra" />
+	            </div>
+	          </div>
+	        </div>
+			<div class="row">
+			  <div class="dot-line padt10"></div>	
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Manglik</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <label for="m_None" class="radio-inline">
+			          <input type="radio" id="m_None" name="manglik" data-bind="value: 0, checked: manglikStatus" />
+			          None </label>
+			        &nbsp;
+			      <label for="m_AanshikManglik" class="radio-inline">
+			          <input type="radio" id="m_AanshikManglik" name="manglik" data-bind="value: 1, checked: manglikStatus" />
+			          Aanshik Manglik </label>
+			      <label for="m_Manglik" class="radio-inline">
+			          <input type="radio" id="m_Manglik" name="manglik" data-bind="value: 2, checked: manglikStatus" />
+			          Manglik </label>			      
+	            </div>
+	          </div>
+	        </div>	        			
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+        	<label class="panel-title">Professional Details</label>
+      	</div>
+		<div class="panel-body">
+			<div class="row">
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Education</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">	            	
+	              	<select class="form-control def-element-width" data-bind="value:education">
+	              		<option>--select--</option>
+	              		<!-- ko foreach: $root.facetVM.educationList -->
+					    <optgroup data-bind="attr: {label: entity.GroupName}, foreach: children">
+					        <option data-bind="value: pkCourseId,text: CourseName"></option>
+					    </optgroup>
+					    <!-- /ko -->
+					</select>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Employed In</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <label for="emp_Government" class="radio-inline">
+			          <input type="radio" id="emp_Government" name="employedIn" data-bind="value: 1, checked: employedIn" />
+			          Government </label>
+			      <label for="emp_Defence" class="radio-inline">
+			          <input type="radio" id="emp_Defence" name="employedIn" data-bind="value: 2, checked: employedIn" />
+			          Defence </label>
+			      <label for="emp_Private" class="radio-inline">
+			          <input type="radio" id="emp_Private" name="employedIn" data-bind="value: 3, checked: employedIn" />
+			          Private </label>
+			      <label for="emp_Business" class="radio-inline">
+			          <input type="radio" id="emp_Business" name="employedIn" data-bind="value: 4, checked: employedIn" />
+			          Business </label>
+			      <label for="emp_Employed" class="radio-inline">
+			          <input type="radio" id="emp_Employed" name="employedIn" data-bind="value: 5, checked: employedIn" />
+			          Self Employed </label>
+			      <label for="emp_Working" class="radio-inline">
+			          <input type="radio" id="emp_Working" name="employedIn" data-bind="value: 6, checked: employedIn" />
+			          Not Working </label>    
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Occupation</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              	<select class="form-control def-element-width" data-bind="value:occupation">
+	              		<option>--select--</option>
+	              		<!-- ko foreach: $root.facetVM.occupationList -->
+					    <optgroup data-bind="attr: {label: entity.GroupName}, foreach: children">
+					        <option data-bind="value: pkOccupationId, text: OccupationName"></option>
+					    </optgroup>
+					    <!-- /ko -->
+					</select>
+	              
+	            </div>
+	          </div>
+	        </div>
+	        
+		</div>
+	</div> 
+	<div class="panel panel-default">
+		<div class="panel-heading">
+        	<label class="panel-title">Family Details</label>
+      	</div>
+		<div class="panel-body">
+			<div class="row">
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Father Name</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <input type="text" class="form-control def-element-width" placeholder="father name" data-bind="value: fatherName" />
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Father's Occupation</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <input type="text" class="form-control def-element-width" placeholder="father's occupation" data-bind="value: fatherOccupation" />
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Mother Name</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <input type="text" class="form-control def-element-width" placeholder="mother name" data-bind="value: motherName" />
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Mother's Occupation</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <input type="text" class="form-control def-element-width" placeholder="mother's occupation" data-bind="value: motherOccupation" />
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Unmarried Brothers</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <select class="form-control def-element-width" data-bind="options: $root.facetVM.getNumberList(1, 6), optionsText: 'text', optionsValue: 'key', optionsCaption: 'None', value: unmarriedBrothers"></select>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Married Brothers</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <select class="form-control def-element-width" data-bind="options: $root.facetVM.getNumberList(1, 6), optionsText: 'text', optionsValue: 'key', optionsCaption: 'None', value: marriedBrothers"></select>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Unmarried Sisters</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <select class="form-control def-element-width" data-bind="options: $root.facetVM.getNumberList(1, 6), optionsText: 'text', optionsValue: 'key', optionsCaption: 'None', value: unmarriedSisters"></select>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">Married Sisters</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <select class="form-control def-element-width" data-bind="options: $root.facetVM.getNumberList(1, 6), optionsText: 'text', optionsValue: 'key', optionsCaption: 'None', value: marriedSisters"></select>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="dot-line padt10"></div>
+	          <div class="padt10">
+	            <div class="col-xs-12 col-sm-2">
+	              <label class="control-label">About Family</label>
+	            </div>
+	            <div class="col-xs-12 col-sm-10">
+	              <textarea class="form-control" placeholder="about family" data-bind="value: aboutFamily" ></textarea>
+	            </div>
+	          </div>
+	        </div>
+		</div>
+	</div>    
+	<div>
+		<div class="row">
+          <div class="padt10">
+            <div class="col-xs-12 col-sm-2"></div>
+            <div class="col-xs-12 col-sm-10">
+              	<button class="btn btn-success" data-bind="click: saveProfile, disable: disableButton">Save</button>
+            </div>
+          </div>
+        </div>
+	</div>
+	<div class="padb35"></div>
+	<div data-bind="if: message">
+        <div class="alert alert-danger alert-dismissable">
+		  	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		  	<span data-bind="text: message"></span>
+		</div>
+	</div>
+</div>

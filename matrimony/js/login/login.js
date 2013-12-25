@@ -8,9 +8,12 @@ define(function (require) {
 		var self = this;
 		self.loginViewModel = function() {
 			var vm = this;
-			vm.label = new Label();
 			vm.user = ko.observable().syncWith("loggedInUser", true);
+			
 			vm.categorySwitch = ko.observable().subscribeTo("requestCategorySwitch", true);
+			
+			
+			
 			
 			vm.emailid = ko.observable();
 			vm.password = ko.observable();
@@ -30,13 +33,15 @@ define(function (require) {
 					vm.password(undefined);
 					var user = $.parseJSON(data.responseText);
 					vm.user(user);
-					if(vm.categorySwitch()==vm.label.LOGIN){
-						jHash.set(vm.label.HOME_PAGE, {});
+					if(vm.categorySwitch()==Label.LOGIN){
+						jHash.set(Label.HOME_PAGE, {});
+					}else if(vm.categorySwitch()==Label.HOME_PAGE){
+						
 					}
 				}else{
 					vm.user(undefined);
-					vm.message("Wrong email-id and password.")
-					jHash.set(vm.label.LOGIN, {});
+					vm.message("Your BJM-ID/email-ID and password did not match.")
+					jHash.set(Label.LOGIN, {});
 					vm.hideMessage();
 				}				
 			};
@@ -45,7 +50,7 @@ define(function (require) {
 				var data = ajaxutil.post("site/logout");
 				if(data.status === 200){
 					vm.clear();	
-					jHash.set(vm.label.HOME_PAGE, {});
+					jHash.set(Label.HOME_PAGE, {});
 				}
 				
 			};

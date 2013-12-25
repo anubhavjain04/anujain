@@ -7,10 +7,10 @@
         <h4 class="modal-title">Age</h4>
       </div>
       <div class="modal-body">
-        <select data-bind="options: ageList, value: ageFrom">
+        <select data-bind="options: $root.facetVM.ageList, value: ageFrom">
         </select>
         To
-        <select data-bind="options: ageList, value: ageTo">
+        <select data-bind="options: $root.facetVM.ageList, value: ageTo">
         </select>
         Years </div>
       <div class="modal-footer">
@@ -33,10 +33,10 @@
         <h4 class="modal-title">Height</h4>
       </div>
       <div class="modal-body">
-        <select data-bind="options: heightList, optionsText: 'text', optionsValue: 'key', value: heightFrom" class="search-input wdth130">
+        <select data-bind="options: $root.facetVM.heightList, optionsText: 'text', optionsValue: 'key', value: heightFrom" class="search-input wdth130">
         </select>
         To
-        <select data-bind="options: heightList, optionsText: 'text', optionsValue: 'key', value: heightTo" class="search-input wdth130">
+        <select data-bind="options: $root.facetVM.heightList, optionsText: 'text', optionsValue: 'key', value: heightTo" class="search-input wdth130">
         </select>
       </div>
       <div class="modal-footer">
@@ -59,7 +59,7 @@
         <h4 class="modal-title">Marital Status</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: maritalStatusList">
+        <ul class="listView" data-bind="foreach: $root.facetVM.maritalStatusList">
           <li>
             <input type="checkbox" data-bind="attr: { value: key }, checked: $parent.selectedMaritalStatus" />
             <label data-bind="text: text" class="disinblk"></label>
@@ -86,7 +86,7 @@
         <h4 class="modal-title">Mother Toungue</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: motherTongueList()">
+        <ul class="listView" data-bind="foreach: $root.facetVM.motherTongueList()">
           <li>
             <input type="checkbox" data-bind="attr: { value: pkTongueId }, checked: $parent.selectedMotherTongue" />
             <label data-bind="text: TongueName" class="disinblk"></label>
@@ -113,9 +113,9 @@
         <h4 class="modal-title">Sect</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: sectList()">
+        <ul class="listView" data-bind="foreach: $root.facetVM.sectList()">
           <li>
-            <input type="checkbox" data-bind="attr: { value: pkSectId }, checked: $parent.selectedSect, event: {click: function(){$parent.afterSectChange($parent.selectedSect()); return true;}}" />
+            <input type="checkbox" data-bind="attr: { value: pkSectId }, checked: $parent.selectedSect, event: {click: function(){$root.facetVM.afterSectChange($parent.selectedSect()); return true;}}" />
             <label data-bind="text: SectName" class="disinblk"></label>
           </li>
         </ul>
@@ -140,7 +140,7 @@
         <h4 class="modal-title">Sub Sect</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: subSectList()">
+        <ul class="listView" data-bind="foreach: $root.facetVM.subSectList()">
           <li>
             <input type="checkbox" data-bind="attr: { value: pkSubSectId }, checked: $parent.selectedSubSect" />
             <label data-bind="text: SubSectName" class="disinblk"></label>
@@ -167,7 +167,7 @@
         <h4 class="modal-title">Caste</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: casteList()">
+        <ul class="listView" data-bind="foreach: $root.facetVM.casteList()">
           <li>
             <input type="checkbox" data-bind="attr: { value: pkCasteId }, checked: $parent.selectedCaste" />
             <label data-bind="text: CasteName" class="disinblk"></label>
@@ -194,7 +194,7 @@
         <h4 class="modal-title">Education</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: courseGroupList()">
+        <ul class="listView" data-bind="foreach: $root.facetVM.courseGroupList()">
           <li>
             <input type="checkbox" data-bind="attr: { value: pkCourseGroupId }, checked: $parent.selectedCourseGroup" />
             <label data-bind="text: GroupName" class="disinblk"></label>
@@ -221,7 +221,7 @@
         <h4 class="modal-title">Occupation</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: occupationGroupList()">
+        <ul class="listView" data-bind="foreach: $root.facetVM.occupationGroupList()">
           <li>
             <input type="checkbox" data-bind="attr: { value: pkOccGroupId }, checked: $parent.selectedOccupationGroup" />
             <label data-bind="text: GroupName" class="disinblk"></label>
@@ -248,7 +248,7 @@
         <h4 class="modal-title">Annual Income</h4>
       </div>
       <div class="modal-body">
-        <select data-bind="options: annualIncomeList, optionsText: 'text', optionsCaption: 'Any', value: selectedAnnualIncome">
+        <select data-bind="options: $root.facetVM.annualIncomeList, optionsText: 'text', optionsCaption: 'Any', value: selectedAnnualIncome">
         </select>
       </div>
       <div class="modal-footer">
@@ -271,7 +271,7 @@
         <h4 class="modal-title">Country</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: countryList()">
+        <ul class="listView" data-bind="foreach: $root.facetVM.countryList()">
           <li>
             <input type="checkbox" data-bind="attr: { value: pkCountryId }, checked: $parent.selectedCountry" />
             <label data-bind="text: CountryName" class="disinblk"></label>
@@ -298,7 +298,7 @@
         <h4 class="modal-title">Physical Status</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: physicalStatusList">
+        <ul class="listView" data-bind="foreach: $root.facetVM.physicalStatusList">
           <li>
             <input type="checkbox" data-bind="attr: { value: key }, checked: $parent.selectedPhysicalStatus" />
             <label data-bind="text: text" class="disinblk"></label>
@@ -325,7 +325,7 @@
         <h4 class="modal-title">Employed In</h4>
       </div>
       <div class="modal-body">
-        <ul class="listView" data-bind="foreach: employedInList">
+        <ul class="listView" data-bind="foreach: $root.facetVM.employedInList">
           <li>
             <input type="checkbox" data-bind="attr: { value: key }, checked: $parent.selectedEmployedIn" />
             <label data-bind="text: text" class="disinblk"></label>

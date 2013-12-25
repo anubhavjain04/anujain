@@ -5,7 +5,9 @@
       <a class="navbar-brand" href="#"></a> </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.HOME_PAGE}"><a href="#!home">Home</a></li>
+        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.HOME_PAGE}">
+        	<a href="#!home" data-bind="text: $root.publishMember()? 'My Matrimony' : 'Home' "></a>
+        </li>        
         <li data-bind="css: {'active': $root.categorySwitch()==$root.label.SEARCH_PAGE}"><a href="#!search/criteria?type=regular">Search</a></li>
         <li data-bind="css: {'active': $root.categorySwitch()==$root.label.REGISTER_PAGE}"><a href="#!register">Register</a></li>
         <li data-bind="css: {'active': $root.categorySwitch()==$root.label.UPGRADE_PAGE}"><a href="#!upgrade">Upgrade</a></li>
@@ -18,8 +20,8 @@
       		<div class="dropdown-menu">
               <form id="login-form" class="form-horizontal" data-bind="submit: login" method="post">
 		        <div class="form-group input-group-sm">
-		          <label class="control-label">Email Id</label>	
-		          <input type="email" placeholder="Email" class="form-control" name="LoginForm[emailid]" data-bind="value: emailid" />
+		          <label class="control-label">Matrimony ID / Email ID</label>	
+		          <input type="text" placeholder="Matrimony ID / Email ID" class="form-control" name="LoginForm[emailid]" data-bind="value: emailid" />
 		        </div>
 		        <div class="form-group input-group-sm">
 		          <label class="control-label">Password</label>

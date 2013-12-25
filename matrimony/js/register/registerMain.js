@@ -1,38 +1,27 @@
 define(function (require) {    
 	var ko               = require('knockout');
-	var $                = require('jquery');
 	var Registration	 = require('register/registration');
-	var Route	 		 = require('register/route');	
-
+	var Label       = require('label');
 	return function(){ 
 		var self = this;
-		self.registerMainViewModel = function(root) {
-			var vm = this;
-			vm.root = root;
-			vm.facetVM = vm.root.facetVM;
-			
+		self.registerMainViewModel = function() {
+			var vm = this;			
+			vm.user = ko.observable().syncWith("loggedInUser", true);
 			vm.showPage = ko.observable("register-member");
-			
-			/*vm.searchPage = function(searchCriteria){
-				if(searchCriteria && searchCriteria.type){
-					vm.searchVM.activeSearchTab(searchCriteria.type);
-				}
-				vm.showPage('search-page');
+			vm.showRegisterationPage = function(){
+				vm.registrationVM.clear();
+				vm.showPage('register-member');
 			};
-			//Object creation
-			vm.search = new Search();
-			vm.searchVM = new vm.search.searchViewModel(vm);*/
-			
+			vm.showRegisterProfilePage = function(){
+				if(vm.user()){
+					vm.showPage('member-profile');
+				}else{
+					jHash.set(Label.REGISTER_PAGE, {});
+				}
+			};
 			//Object creation
 			vm.registration = new Registration();
 			vm.registrationVM = new vm.registration.registrationViewModel(vm);
-			
-			vm.clearRegistration = function(){
-				vm.registrationVM.clear();
-			};
-			
-			
-			vm.route = new Route(vm);
 		};
 	};
 });

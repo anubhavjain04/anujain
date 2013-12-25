@@ -1,8 +1,6 @@
 define(function (require) {
-    
-	var ko               = require('knockout');
-	var $                = require('jquery');
-
+	var ko = require('knockout');
+	var Label = require('label');
 	return function(root){ 
 		var self = this;
 		self.root = root;
@@ -14,42 +12,51 @@ define(function (require) {
 			criteria : self.root.searchMainVM.searchPage,
 			results : self.root.searchMainVM.showResults,
 			memberId : self.root.searchMainVM.showMember,
-			clearRegistration : self.root.registerMainVM.clearRegistration
+			showRegisterationPage : self.root.registerMainVM.showRegisterationPage,
+			showRegisterProfilePage : self.root.registerMainVM.showRegisterProfilePage,
+			initMemberData : self.root.memberMainVM.loadMember
 		};
 		
-		jHash.route(self.root.label.HOME_PAGE, function () {
-			self.action.clearRegistration();
-			self.categorySwitch(self.root.label.HOME_PAGE);
-		});
-		jHash.route(self.root.label.REGISTER_PAGE, function () {
-			self.action.clearRegistration();
-			self.categorySwitch(self.root.label.REGISTER_PAGE);
-		});
-		jHash.route(self.root.label.UPGRADE_PAGE, function () {
-			self.categorySwitch(self.root.label.UPGRADE_PAGE);
-		});
-		jHash.route(self.root.label.ABOUTUS_PAGE, function () {
-			self.categorySwitch(self.root.label.ABOUTUS_PAGE);
-		});
-		jHash.route(self.root.label.PRIVACY_POLICY, function () {
-			self.categorySwitch(self.root.label.PRIVACY_POLICY);
-		});
-		jHash.route(self.root.label.TERMS_N_CONDITIONS, function () {
-			self.categorySwitch(self.root.label.TERMS_N_CONDITIONS);
-		});
-		jHash.route(self.root.label.CONTACT_US, function () {
-			self.categorySwitch(self.root.label.CONTACT_US);
-		});
-		jHash.route(self.root.label.LOGIN, function () {
+		jHash.route(Label.HOME_PAGE, function () {
+			self.action.showRegisterationPage();
 			if(self.user()){
-				jHash.set(self.root.label.HOME_PAGE, {});
+				self.action.initMemberData();
+			}
+			self.categorySwitch(Label.HOME_PAGE);
+		});
+		jHash.route(Label.REGISTER_PAGE, function () {
+			self.action.showRegisterationPage();
+			self.categorySwitch(Label.REGISTER_PAGE);
+		});
+		jHash.route(Label.REGISTER_PAGE+"/fill-profile", function () {
+			self.action.showRegisterProfilePage();
+			self.categorySwitch(Label.REGISTER_PAGE);
+		});
+		jHash.route(Label.UPGRADE_PAGE, function () {
+			self.categorySwitch(Label.UPGRADE_PAGE);
+		});
+		jHash.route(Label.ABOUTUS_PAGE, function () {
+			self.categorySwitch(Label.ABOUTUS_PAGE);
+		});
+		jHash.route(Label.PRIVACY_POLICY, function () {
+			self.categorySwitch(Label.PRIVACY_POLICY);
+		});
+		jHash.route(Label.TERMS_N_CONDITIONS, function () {
+			self.categorySwitch(Label.TERMS_N_CONDITIONS);
+		});
+		jHash.route(Label.CONTACT_US, function () {
+			self.categorySwitch(Label.CONTACT_US);
+		});
+		jHash.route(Label.LOGIN, function () {
+			if(self.user()){
+				jHash.set(Label.HOME_PAGE, {});
 				window.location.reload();
 			}else{
-				self.categorySwitch(self.root.label.LOGIN);
+				self.categorySwitch(Label.LOGIN);
 			}
 		});
 		
-		jHash.route(self.root.label.SEARCH_PAGE+"/{action}", function () {
+		jHash.route(Label.SEARCH_PAGE+"/{action}", function () {
 			if(this.action && self.action[this.action]){
 				if(typeof self.action[this.action] == 'function'){
 					self.action[this.action](jHash.val());
@@ -57,14 +64,14 @@ define(function (require) {
 					self.action[this.action] = jHash.val();
 				}
 			}
-			self.categorySwitch(self.root.label.SEARCH_PAGE);
+			self.categorySwitch(Label.SEARCH_PAGE);
 		});
 		
-		jHash.route(self.root.label.SEARCH_PAGE+"/member/{memberId}", function () {
+		jHash.route(Label.SEARCH_PAGE+"/member/{memberId}", function () {
 			if(this.memberId){
 				self.action.memberId(this.memberId);
 			}
-			//self.categorySwitch(self.root.label.SEARCH_PAGE);
+			//self.categorySwitch(Label.SEARCH_PAGE);
 		});
 		
 		jHash.change(function(handler) {

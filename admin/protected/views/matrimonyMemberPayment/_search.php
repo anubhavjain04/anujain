@@ -41,13 +41,13 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'Discount'); ?>
-		<?php echo $form->textField($model,'Discount',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->label($model,'PaymentMode'); ?>
+		<?php echo $form->textField($model,'PaymentMode'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'ReasonOfDiscount'); ?>
-		<?php echo $form->textField($model,'ReasonOfDiscount',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->label($model,'Comments'); ?>
+		<?php echo $form->textField($model,'Comments',array('size'=>60,'maxlength'=>100)); ?>
 	</div>
 
 	<div class="row buttons">

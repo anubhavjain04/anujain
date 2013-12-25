@@ -173,9 +173,11 @@ public function actionResults(){
 		
 		$results["motherTongueList"] = MatrimonyMotherTongue::model()->findAll(array('order'=>' TongueName ASC '));
 		$results["courseGroupList"] = MatrimonyCourseGroup::model()->findAll(array('order'=>'GroupName'));
+		$results["courseList"] = MatrimonyCourse::model()->findAll(array('order'=>'CourseName'));
 		$results["countryList"] = Country::model()->findAll(array('order'=>' CountryName ASC '));
 		$results["stateList"] = States::model()->findAll(array('order'=>' StateName ASC '));
 		$results["occupationGroupList"] = OccupationGroup::model()->findAll(array('order'=>' GroupName ASC '));
+		$results["occupationList"] = Occupation::model()->findAll(array('order'=>' OccupationName ASC '));
 		
 		$this->echoObjectAsJSON($results);
 	}

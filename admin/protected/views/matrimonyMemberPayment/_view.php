@@ -29,12 +29,12 @@
 	<br />
 
 	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Discount')); ?>:</b>
-	<?php echo CHtml::encode($data->Discount); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('PaymentMode')); ?>:</b>
+	<?php echo CHtml::encode($data->PaymentMode); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('ReasonOfDiscount')); ?>:</b>
-	<?php echo CHtml::encode($data->ReasonOfDiscount); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Comments')); ?>:</b>
+	<?php echo CHtml::encode($data->Comments); ?>
 	<br />
 
 	*/ ?>

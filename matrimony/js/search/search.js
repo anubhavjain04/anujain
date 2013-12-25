@@ -1,63 +1,33 @@
 define(function (require) {    
 	var ko               = require('knockout');
-	var $                = require('jquery');
 	var ajaxutil		 = require('ajaxutil');
-	var SearchResults	 = require('search/searchResults');		
+	var SearchResults	 = require('search/searchResults');	
+	var Label   		 = require('label');
 
 	return function(){ 
 		var self = this;
-		self.searchViewModel = function(mainVM) {
+		self.searchViewModel = function(searchMainVM) {
 			var vm = this;
-			vm.mainVM = mainVM;
-			vm.searchResults = new SearchResults();
+			vm.searchMainVM = searchMainVM;
 			vm.activeSearchTab = ko.observable('regular');
 			
-			vm.sex = vm.mainVM.facetVM.sex;
-			vm.memberCode = vm.mainVM.facetVM.memberCode;
-			vm.ageList = vm.mainVM.facetVM.ageList;
+			vm.sex = ko.observable(0);
+			vm.memberCode = ko.observable();
 			vm.ageFrom = ko.observable();
 			vm.ageTo = ko.observable();	
 			vm.heightFrom = ko.observable(121.92);
 			vm.heightTo = ko.observable(167.64);
-			vm.heightList = vm.mainVM.facetVM.heightList;
-			
-			vm.maritalStatusList = vm.mainVM.facetVM.maritalStatusList;
 			vm.selectedMaritalStatus = ko.observableArray();
-			
-			vm.sectList = vm.mainVM.facetVM.sectList;
 			vm.selectedSect = ko.observableArray();
-			
-			vm.subSectList = vm.mainVM.facetVM.subSectList;
 			vm.selectedSubSect = ko.observableArray();
-			
-			vm.casteList = vm.mainVM.facetVM.casteList;
 			vm.selectedCaste = ko.observableArray();
-			
-			vm.motherTongueList = vm.mainVM.facetVM.motherTongueList;
 			vm.selectedMotherTongue = ko.observableArray();
-			
-			vm.courseGroupList = vm.mainVM.facetVM.courseGroupList;
 			vm.selectedCourseGroup = ko.observableArray();
-			
-			vm.countryList = vm.mainVM.facetVM.countryList;
 			vm.selectedCountry = ko.observableArray();
-			
-			vm.occupationGroupList = vm.mainVM.facetVM.occupationGroupList;
 			vm.selectedOccupationGroup = ko.observableArray();
-			
-			vm.annualIncomeList = vm.mainVM.facetVM.annualIncomeList;
 			vm.selectedAnnualIncome = ko.observable();
-			
-			vm.physicalStatusList =  vm.mainVM.facetVM.physicalStatusList;
 			vm.selectedPhysicalStatus = ko.observableArray();
-			
-			vm.employedInList = vm.mainVM.facetVM.employedInList;
 			vm.selectedEmployedIn = ko.observableArray();
-			
-			vm.manglikList =  vm.mainVM.facetVM.manglikList;
-			vm.bodyTypeList =  vm.mainVM.facetVM.bodyTypeList;
-			vm.complexionList =  vm.mainVM.facetVM.complexionList;
-			vm.registeredByList = vm.mainVM.facetVM.registeredByList;
 			
 			vm.changeAgeCriteria = ko.computed(function(){
 				var ageStart = (vm.sex()==0)?18:21;
@@ -69,7 +39,7 @@ define(function (require) {
 			
 			vm.searchMember = function(){
 				if(vm.memberCode()){
-					vm.mainVM.route.searchMember(vm.memberCode());
+					jHash.set(Label.SEARCH_PAGE+'/member/'+vm.memberCode(), {});
 				}
 			};
 			
@@ -97,14 +67,74 @@ define(function (require) {
 				return specs;
 			};
 			
+			vm.setSpecs = function(queryJSON){
+				if(queryJSON){
+					if(queryJSON.sex)
+						vm.sex(parseInt(queryJSON.sex));
+					if(queryJSON.agefrom)
+						vm.ageFrom(parseInt(queryJSON.agefrom));
+					if(queryJSON.ageto)
+						vm.ageTo(parseInt(queryJSON.ageto));
+					if(queryJSON.heightfrom)
+						vm.heightFrom(parseFloat(queryJSON.heightfrom));
+					if(queryJSON.heightto)
+						vm.heightTo(parseFloat(queryJSON.heightto));
+					if(queryJSON.maritalstatus){
+						vm.resetSelectedItems(vm.selectedMaritalStatus, queryJSON.maritalstatus);
+					}
+					if(queryJSON.sect){
+						vm.resetSelectedItems(vm.selectedSect, queryJSON.sect);
+						vm.searchMainVM.root().facetVM.afterSectChange(vm.selectedSect());
+					}
+					if(queryJSON.subsect){
+						vm.resetSelectedItems(vm.selectedSubSect, queryJSON.subsect);
+					}
+					if(queryJSON.caste){
+						vm.resetSelectedItems(vm.selectedCaste, queryJSON.caste);
+					}
+					if(queryJSON.mothertongue){
+						vm.resetSelectedItems(vm.selectedMotherTongue, queryJSON.mothertongue);
+					}
+					if(queryJSON.educationgroup){
+						vm.resetSelectedItems(vm.selectedCourseGroup, queryJSON.educationgroup);
+					}
+					if(queryJSON.occupationgroup){
+						vm.resetSelectedItems(vm.selectedOccupationGroup, queryJSON.occupationgroup);
+					}
+					if(queryJSON.annualincomefrom && queryJSON.annualincometo){
+						vm.selectedAnnualIncome(vm.searchMainVM.root().facetVM.findAnnualIncome(queryJSON.annualincomefrom, queryJSON.annualincometo));
+					}
+					if(queryJSON.physicalstatus){
+						vm.resetSelectedItems(vm.selectedPhysicalStatus, queryJSON.physicalstatus);
+					}
+					if(queryJSON.employedin){
+						vm.resetSelectedItems(vm.selectedEmployedIn, queryJSON.employedin);
+					}				
+					if(queryJSON.country){
+						vm.resetSelectedItems(vm.selectedCountry, queryJSON.country);
+					}
+				}
+				// get results
+				vm.searchResultsVM.showSearchResults(vm.generateSpecs());
+			};
+			
+			vm.resetSelectedItems = function(itemObject, newItems){
+				itemObject.removeAll();
+				var itemArray = newItems.split(",");
+				if(itemArray){
+					ko.utils.arrayForEach(itemArray, function(item){
+						if(item)
+							itemObject.push(item);
+					});
+				}
+			};
+			
 			vm.searchByCriteria = function(){
-				vm.mainVM.route.searchRecords(vm.generateSpecs());
+				jHash.set(Label.SEARCH_PAGE+'/results', vm.generateSpecs());
 			};				
 			
-			// fill sub sect after sect change
-			vm.afterSectChange = vm.mainVM.facetVM.afterSectChange;
-			
-			vm.searchResultsVM = new vm.searchResults.searchResultsViewModel(vm);			
+			vm.searchResults = new SearchResults();
+			vm.searchResultsVM = new vm.searchResults.searchResultsViewModel(vm.searchMainVM);			
 		};
 	};
 });

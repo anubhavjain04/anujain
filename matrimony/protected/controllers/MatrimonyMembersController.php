@@ -26,12 +26,12 @@ class MatrimonyMembersController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+			array('allow',  // allow all users to perform 'index' actions
+				'actions'=>array('index'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				//'actions'=>array('create','update'),
+				'actions'=>array('view'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -48,11 +48,38 @@ class MatrimonyMembersController extends Controller
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView($id)
-	{
-		$this->render('view',array(
+	public function actionView($id){
+		if($id){
+			$model=MatrimonyMembers::model()->find('fkLoginId=:fkLoginId',array('fkLoginId'=>$id));
+			if($model){
+				$familyModel=MatrimonyFamilyDetails::model()->find('MemberCode=:MemberCode', array(':MemberCode'=>$model->MemberCode));
+				$plainModel = CJSON::decode(CJSON::encode($model));
+				$plainModel['age'] = date('Y',time()) - date('Y',strtotime($model['DOB']));
+				$plainModel['sectName'] = $model->fkSect0->SectName;
+				$plainModel['subSectName'] = $model->fkSubSect0->SubSectName;
+				$plainModel['country'] = $model->fkCountryLivingIn0->CountryName;
+				$plainModel['state'] = $model->fkResidingState0->StateName;				
+				$plainModel['education'] = ($model->fkEducation0)? $model->fkEducation0->CourseName : '';
+				$plainModel['occupation'] = ($model->occupation)? $model->occupation->OccupationName : '';
+				$plainModel['motherTongue'] = $model->fkMotherTongue0->TongueName;
+				if($model->fkCaste0){
+					$plainModel['caste'] = $model->fkCaste0->CasteName;
+				}else{
+					$plainModel['caste'] = null;
+				}
+				
+				$data['member'] = $plainModel;
+				$data['family'] = $familyModel;
+				$this->echoObjectAsJSON($data);
+			}else{
+				throw new CHttpException(404, $id.' member not found');
+			}
+		}else{
+			throw new CHttpException(400,'Invalid request. You have to give member uid');
+		}
+		/*$this->render('view',array(
 			'model'=>$this->loadModel($id),
-		));
+		));*/
 	}
 
 	/**

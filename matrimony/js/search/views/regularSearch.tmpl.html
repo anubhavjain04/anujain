@@ -32,9 +32,9 @@
             </div>
             <div class="col-xs-12 col-sm-10">
               <div class="form-inline">
-              	<select class="form-control clearwidth" data-bind="options: ageList, value: ageFrom"></select>
+              	<select class="form-control clearwidth" data-bind="options: $root.facetVM.ageList, value: ageFrom"></select>
               	<span class="padl5 padr5">To</span>
-              	<select class="form-control clearwidth" data-bind="options: ageList, value: ageTo"></select>
+              	<select class="form-control clearwidth" data-bind="options: $root.facetVM.ageList, value: ageTo"></select>
               	<span class="padl5 padr5">Years</span>
               </div>	
               
@@ -49,9 +49,9 @@
             </div>
             <div class="col-xs-12 col-sm-10">
             	<div class="form-inline">
-            		<select class="form-control clearwidth" data-bind="options: heightList, optionsText: 'text', optionsValue: 'key', value: heightFrom"></select>
+            		<select class="form-control clearwidth" data-bind="options: $root.facetVM.heightList, optionsText: 'text', optionsValue: 'key', value: heightFrom"></select>
             		<span class="padl5 padr5">To</span>
-            		<select class="form-control clearwidth" data-bind="options: heightList, optionsText: 'text', optionsValue: 'key', value: heightTo"></select>	
+            		<select class="form-control clearwidth" data-bind="options: $root.facetVM.heightList, optionsText: 'text', optionsValue: 'key', value: heightTo"></select>	
             	</div>
             </div>
           </div>
@@ -63,7 +63,7 @@
               <label class="control-label">Marital Status</label>
             </div>
             <div class="col-xs-12 col-sm-10">
-              	<select class="form-control clearwidth" data-bind="options: maritalStatusList, optionsText: 'text', optionsValue: 'key', optionsCaption: 'Any', selectedOptions: selectedMaritalStatus" size="5" multiple="true"></select>
+              	<select class="form-control clearwidth" data-bind="options: $root.facetVM.maritalStatusList, optionsText: 'text', optionsValue: 'key', optionsCaption: 'Any', selectedOptions: selectedMaritalStatus" size="5" multiple="true"></select>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@
               <label class="control-label">Sect</label>
             </div>
             <div class="col-xs-12 col-sm-10">
-              <select class="form-control clearwidth" data-bind="options: sectList, optionsText: 'SectName', optionsValue: 'pkSectId', optionsCaption: 'Any', value: selectedSect()[0], event: {change: function(){afterSectChange(selectedSect())}}"></select>
+              <select class="form-control clearwidth" data-bind="options: $root.facetVM.sectList, optionsText: 'SectName', optionsValue: 'pkSectId', optionsCaption: 'Any', value: selectedSect()[0], event: {change: function(){$root.facetVM.afterSectChange(selectedSect())}}"></select>
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@
               <label class="control-label">Sub Sect</label>
             </div>
             <div class="col-xs-12 col-sm-10">
-              <select class="form-control clearwidth" data-bind="options: subSectList, optionsText: 'SubSectName', optionsValue: 'pkSubSectId', optionsCaption: 'Any', value: selectedSubSect()[0]">
+              <select class="form-control clearwidth" data-bind="options: $root.facetVM.subSectList, optionsText: 'SubSectName', optionsValue: 'pkSubSectId', optionsCaption: 'Any', value: selectedSubSect()[0]">
               </select>
             </div>
           </div>
@@ -97,7 +97,7 @@
               <label class="control-label">Caste</label>
             </div>
             <div class="col-xs-12 col-sm-10">
-              <select class="form-control clearwidth" data-bind="options: casteList, optionsText: 'CasteName', optionsValue: 'pkCasteId', optionsCaption: 'Any', value: selectedCaste()[0]">
+              <select class="form-control clearwidth" data-bind="options: $root.facetVM.casteList, optionsText: 'CasteName', optionsValue: 'pkCasteId', optionsCaption: 'Any', value: selectedCaste()[0]">
               </select>
             </div>
           </div>
@@ -109,7 +109,7 @@
               <label class="control-label">Mother Tongue</label>
             </div>
             <div class="col-xs-12 col-sm-10">
-              <select class="form-control clearwidth" data-bind="options: motherTongueList, optionsText: 'TongueName', optionsValue: 'pkTongueId', optionsCaption: 'Any', value: selectedMotherTongue()[0]">
+              <select class="form-control clearwidth" data-bind="options: $root.facetVM.motherTongueList, optionsText: 'TongueName', optionsValue: 'pkTongueId', optionsCaption: 'Any', value: selectedMotherTongue()[0]">
               </select>
             </div>
           </div>
@@ -121,7 +121,7 @@
               <label class="control-label">Education</label>
             </div>
             <div class="col-xs-12 col-sm-10">
-              <select class="form-control clearwidth" data-bind="options: courseGroupList, optionsText: 'GroupName', optionsValue: 'pkCourseGroupId', optionsCaption: 'Any', value: selectedCourseGroup()[0]">
+              <select class="form-control clearwidth" data-bind="options: $root.facetVM.courseGroupList, optionsText: 'GroupName', optionsValue: 'pkCourseGroupId', optionsCaption: 'Any', value: selectedCourseGroup()[0]">
               </select>
             </div>
           </div>
@@ -133,7 +133,7 @@
               <label class="control-label">Country</label>
             </div>
             <div class="col-xs-12 col-sm-10">
-              <select class="form-control clearwidth" data-bind="options: countryList, optionsText: 'CountryName', optionsValue: 'pkCountryId', optionsCaption: 'Any', value: selectedCountry()[0]">
+              <select class="form-control clearwidth" data-bind="options: $root.facetVM.countryList, optionsText: 'CountryName', optionsValue: 'pkCountryId', optionsCaption: 'Any', value: selectedCountry()[0]">
               </select>
             </div>
           </div>

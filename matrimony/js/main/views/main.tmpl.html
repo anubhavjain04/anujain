@@ -2,7 +2,12 @@
 
 <div class="container">
   <div data-bind="if: $root.categorySwitch() == $root.label.HOME_PAGE">
+  	 <!-- ko ifnot: user() -->
 	 <div data-bind="template: { name: 'home/views/home'}"></div>
+	 <!-- /ko -->
+	 <!-- ko if: user() -->
+	 <div data-bind="template: { name: 'member/views/member'}"></div>	
+	 <!-- /ko -->
   </div>
 
   <div data-bind="if: $root.categorySwitch() == $root.label.SEARCH_PAGE">
@@ -12,7 +17,7 @@
   </div>
   
   <div data-bind="if: $root.categorySwitch() == $root.label.REGISTER_PAGE">
-     <div data-bind="template: { name: 'main/views/commingsoon'}"></div>
+     <div data-bind="template: { name: 'register/views/register'}"></div>
   </div>
   <div data-bind="if: $root.categorySwitch() == $root.label.UPGRADE_PAGE">
      <div data-bind="template: { name: 'main/views/commingsoon'}"></div>

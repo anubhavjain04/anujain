@@ -25,7 +25,7 @@ $this->menu=array(
 		'EndDate',
 		'AmountPaid',
 		'Status',
-		'Discount',
-		'ReasonOfDiscount',
+		'PaymentMode',
+		'Comments',
 	),
 )); ?>

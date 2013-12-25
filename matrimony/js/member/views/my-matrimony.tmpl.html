@@ -1,0 +1,106 @@
+<div class="clearfix" data-bind="with: memberVM">
+	<h1>My Matrimony Profile</h1>
+	<p class="text-muted">Below is your short profile view when sombody search for profile:-</p>
+	<div class="jumbotron" data-bind="if: publishMember()">		
+		<div class="col-xs-12 col-sm-4 sidebar-offcanvas" id="sidebar" role="navigation" >
+			<div class="panel panel-default">
+				<div class="panel-heading">
+			      <h3 class="panel-title" data-bind="text: memberCode"></h3>
+			    </div>
+			    <div class="panel-body">
+					<div class="bdr1 pad-reset text-center" data-bind="css: {'women': sex()=='0', 'men': sex()=='1'}"> 
+		            	<!-- ko if: memberPhoto() --> 
+		            	<img data-bind="attr:{'src': siteBaseUrl+'/resources/membersphoto/'+memberPhoto(), 'title': memberName()}" /> 
+		            	<!-- /ko --> 
+		          	</div>
+		          	<div class="padt20">
+		          		<p class="text-muted">We are working on below links:</p>
+		          		<ul class="list-unstyled">
+		          			<li><span>Add Photo</span></li>
+		          			<li><span>Edit Profile</span></li>
+		          			<li><span>View Profile</span></li>
+		          			<li><span>Edit Partner Preference</span></li>
+		          		</ul>
+		          	</div>
+	          	</div>
+          	</div>
+		</div>
+		<div class="col-xs-12 col-sm-8 ">
+			<div >
+				<h1>Hi <span data-bind="text: memberName"></span></h1>
+				<p class="text-muted">Your basic profile details are:</p>					
+	            <div class="padt5 col-xs-12 col-sm-12 row">
+	              <div class="clr3 col-xs-3 col-sm-3">Age, Height</div>
+	              <div class="clrblack col-xs-9 col-sm-9"> : <span data-bind="text: age()+' yrs,'"></span> <span data-bind="text: $root.facetVM.heightInWords(height())"></span> </div>
+	              <div class="clearfix"></div>
+	            </div>
+	            <div class="padt5 col-xs-12 col-sm-12 row">
+	              <div class="clr3 col-xs-3 col-sm-3">Sect</div>
+	              <div class="clrblack col-xs-9 col-sm-9"> : <span data-bind="text: sectName"></span> </div>
+	              <div class="clearfix"></div>
+	            </div>
+	            <div class="padt5 col-xs-12 col-sm-12 row">
+	              <div class="clr3 col-xs-3 col-sm-3">Sub Sect</div>
+	              <div class="clrblack col-xs-9 col-sm-9"> : <span data-bind="text: subSectName"></span> </div>
+	              <div class="clearfix"></div>
+	            </div>
+	            <div class="padt5 col-xs-12 col-sm-12 row">
+	              <div class="clr3 col-xs-3 col-sm-3">Location</div>
+	              <div class="clrblack col-xs-9 col-sm-9"> : <span data-bind="text: city()+', '+stateName()+', '+countryName()"></span> </div>
+	              <div class="clearfix"></div>
+	            </div>
+	            <div class="padt5 col-xs-12 col-sm-12 row">
+	              <div class="clr3 col-xs-3 col-sm-3">Education</div>
+	              <div class="clrblack col-xs-9 col-sm-9"> : <span data-bind="text: educationName"></span> </div>
+	              <div class="clearfix"></div>
+	            </div>
+	            <div class="padt5 col-xs-12 col-sm-12 row">
+	              <div class="clr3 col-xs-3 col-sm-3">Occupation</div>
+	              <div class="clrblack col-xs-9 col-sm-9"> : <span data-bind="text: occupationName"></span> </div>
+	              <div class="clearfix"></div>
+	            </div>
+          </div>          
+		</div>
+		<div class="clearfix"></div>
+		<div class="col-xs-12 col-sm-12">
+          	<h3>About Me</h3>
+          	<p data-bind="text: aboutMe"></p>	              	
+       	</div>  
+	</div>
+	<div data-bind="ifnot: publishMember()">
+    	<div>Error found in getting data.</div>
+    </div>
+	<div class="clearfix"></div>
+</div>
+
+<div class="well" data-bind="with: $root.searchMainVM.searchVM">
+	<h3>Quick Search:</h3>
+	<div>
+		<div class="pull-left">
+			<label class="radio-inline" for="bride">
+	            	<input type="radio" id="bride" name="sex"  value="0" data-bind="checked: sex"  />Bride 
+	        </label>
+	        <label class="radio-inline" for="groom">
+	        	<input type="radio" id="groom" name="sex" value="1" data-bind="checked: sex" />Groom
+	        </label>
+        </div>
+        <div class="pull-left mrgl20">
+        	<select class="form-control clearwidth disinblk" style="margin-top: -4px;" data-bind="options: $root.facetVM.ageList, value: ageFrom"></select>
+        	<span class="padl5 padr5">To</span>
+        	<select class="form-control clearwidth disinblk" style="margin-top: -4px;" data-bind="options: $root.facetVM.ageList, value: ageTo"></select>
+        	<span class="padl5 padr5">Years</span>
+        </div>
+        <div class="pull-left mrgl20">
+        	<select class="form-control clearwidth" data-bind="options: $root.facetVM.casteList, optionsText: 'CasteName', optionsValue: 'pkCasteId', optionsCaption: 'Any', value: selectedCaste()[0]">
+              </select>
+        </div>
+        <div class="pull-left mrgl20">
+        	<select class="form-control clearwidth" data-bind="options: $root.facetVM.motherTongueList, optionsText: 'TongueName', optionsValue: 'pkTongueId', optionsCaption: 'Any', value: selectedMotherTongue()[0]">
+              </select>
+        </div>
+        <div class="pull-left mrgl20"> 
+        	<button type="button" class="btn btn-success" data-bind="click: searchByCriteria, text: 'Search'" ></button>
+        </div>   
+	</div>
+	<div class="clearfix"></div>
+</div>

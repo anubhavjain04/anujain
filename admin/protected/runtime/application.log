@@ -320,3 +320,186 @@ Stack trace:
 #11 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
 #12 E:\wamp\www\anujain\admin\index.php(11): CWebApplication->run()
 REQUEST_URI=/admin/index.php/magazine/create
+2013/12/13 18:13:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in E:\wamp\www\anujain\framework\web\CController.php:484
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('favicon.ico')
+#2 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('site/favicon.ic...')
+#3 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 E:\wamp\www\anujain\admin\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/index.php/site/favicon.ico
+---
+2013/12/13 18:13:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in E:\wamp\www\anujain\framework\web\CController.php:484
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('favicon.ico')
+#2 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('matrimonyMember...')
+#3 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 E:\wamp\www\anujain\admin\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/index.php/matrimonyMembers/favicon.ico
+---
+2013/12/14 10:43:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in E:\wamp\www\anujain\framework\web\CController.php:484
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('favicon.ico')
+#2 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('site/favicon.ic...')
+#3 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 E:\wamp\www\anujain\admin\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/index.php/site/favicon.ico
+---
+2013/12/14 10:43:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in E:\wamp\www\anujain\framework\web\CController.php:484
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('favicon.ico')
+#2 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('matrimonyMember...')
+#3 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 E:\wamp\www\anujain\admin\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/index.php/matrimonyMembers/favicon.ico
+---
+2013/12/18 15:14:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in E:\wamp\www\anujain\framework\web\CController.php:484
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('favicon.ico')
+#2 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('site/favicon.ic...')
+#3 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 E:\wamp\www\anujain\admin\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/index.php/site/favicon.ico
+---
+2013/12/18 15:14:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in E:\wamp\www\anujain\framework\web\CController.php:484
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('favicon.ico')
+#2 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('advertisement/f...')
+#3 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 E:\wamp\www\anujain\admin\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/index.php/advertisement/favicon.ico
+---
+2013/12/18 15:14:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in E:\wamp\www\anujain\admin\protected\controllers\AdvertisementController.php:371
+Stack trace:
+#0 E:\wamp\www\anujain\admin\protected\controllers\AdvertisementController.php(157): AdvertisementController->loadModel('favicon.ico')
+#1 [internal function]: AdvertisementController->actionUpdate('favicon.ico')
+#2 E:\wamp\www\anujain\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(AdvertisementController), Array)
+#3 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(AdvertisementController), Object(ReflectionMethod), Array)
+#4 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 E:\wamp\www\anujain\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 E:\wamp\www\anujain\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 E:\wamp\www\anujain\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 E:\wamp\www\anujain\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 E:\wamp\www\anujain\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 E:\wamp\www\anujain\framework\web\CController.php(292): CFilterChain->run()
+#11 E:\wamp\www\anujain\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('update')
+#13 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('advertisement/u...')
+#14 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 E:\wamp\www\anujain\admin\index.php(11): CApplication->run()
+#16 {main}
+REQUEST_URI=/admin/index.php/advertisement/update/id/favicon.ico
+---
+2013/12/18 17:43:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in E:\wamp\www\anujain\framework\web\CController.php:484
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('favicon.ico')
+#2 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('matrimonyMember...')
+#3 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 E:\wamp\www\anujain\admin\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/index.php/matrimonyMembers/favicon.ico
+---
+2013/12/21 06:35:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in E:\wamp\www\anujain\framework\web\CController.php:484
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('favicon.ico')
+#2 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('site/favicon.ic...')
+#3 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 E:\wamp\www\anujain\admin\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/index.php/site/favicon.ico
+---
+2013/12/21 06:35:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in E:\wamp\www\anujain\framework\web\CController.php:484
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('favicon.ico')
+#2 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('programs/favico...')
+#3 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 E:\wamp\www\anujain\admin\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/index.php/programs/favicon.ico
+---
+2013/12/21 06:40:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in E:\wamp\www\anujain\admin\protected\controllers\ProgramsController.php:202
+Stack trace:
+#0 E:\wamp\www\anujain\admin\protected\controllers\ProgramsController.php(104): ProgramsController->loadModel('favicon.ico')
+#1 [internal function]: ProgramsController->actionUpdate('favicon.ico')
+#2 E:\wamp\www\anujain\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(ProgramsController), Array)
+#3 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(ProgramsController), Object(ReflectionMethod), Array)
+#4 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 E:\wamp\www\anujain\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 E:\wamp\www\anujain\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 E:\wamp\www\anujain\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 E:\wamp\www\anujain\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 E:\wamp\www\anujain\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 E:\wamp\www\anujain\framework\web\CController.php(292): CFilterChain->run()
+#11 E:\wamp\www\anujain\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('update')
+#13 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('programs/update...')
+#14 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 E:\wamp\www\anujain\admin\index.php(11): CApplication->run()
+#16 {main}
+REQUEST_URI=/admin/index.php/programs/update/id/favicon.ico
+---
+2013/12/21 06:40:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in E:\wamp\www\anujain\admin\protected\controllers\ProgramsController.php:202
+Stack trace:
+#0 E:\wamp\www\anujain\admin\protected\controllers\ProgramsController.php(104): ProgramsController->loadModel('favicon.ico')
+#1 [internal function]: ProgramsController->actionUpdate('favicon.ico')
+#2 E:\wamp\www\anujain\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(ProgramsController), Array)
+#3 E:\wamp\www\anujain\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(ProgramsController), Object(ReflectionMethod), Array)
+#4 E:\wamp\www\anujain\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 E:\wamp\www\anujain\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 E:\wamp\www\anujain\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 E:\wamp\www\anujain\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 E:\wamp\www\anujain\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 E:\wamp\www\anujain\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 E:\wamp\www\anujain\framework\web\CController.php(292): CFilterChain->run()
+#11 E:\wamp\www\anujain\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('update')
+#13 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('programs/update...')
+#14 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 E:\wamp\www\anujain\admin\index.php(11): CApplication->run()
+#16 {main}
+REQUEST_URI=/admin/index.php/programs/update/id/favicon.ico
+---
+2013/12/25 12:45:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in E:\wamp\www\anujain\framework\web\CController.php:484
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('favicon.ico')
+#2 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('site/favicon.ic...')
+#3 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 E:\wamp\www\anujain\admin\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/index.php/site/favicon.ico
+---
+2013/12/25 12:45:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in E:\wamp\www\anujain\framework\web\CController.php:484
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('favicon.ico')
+#2 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('matrimonialPack...')
+#3 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 E:\wamp\www\anujain\admin\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/index.php/matrimonialPackage/favicon.ico
+---
+2013/12/25 12:46:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "favicon.ico".' in E:\wamp\www\anujain\framework\web\CController.php:484
+Stack trace:
+#0 E:\wamp\www\anujain\framework\web\CController.php(271): CController->missingAction('favicon.ico')
+#1 E:\wamp\www\anujain\framework\web\CWebApplication.php(276): CController->run('favicon.ico')
+#2 E:\wamp\www\anujain\framework\web\CWebApplication.php(135): CWebApplication->runController('matrimonyMember...')
+#3 E:\wamp\www\anujain\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 E:\wamp\www\anujain\admin\index.php(11): CApplication->run()
+#5 {main}
+REQUEST_URI=/admin/index.php/matrimonyMembers/favicon.ico
+---

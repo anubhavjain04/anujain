@@ -9,14 +9,17 @@ define(function (require) {
 			this.key = key;
 			this.text = text;
 		};
+		self.Group = function(entity){
+			this.entity = entity;
+			this.children = ko.observable();
+		};
 		self.AnnualIncome = function(text, from, to){
 			this.text = text;
 			this.from = from;
 			this.to = to;
 		};
-		self.facetViewModel = function(root) {
-			var vm = this;
-			vm.root = root;
+		self.facetViewModel = function() {
+			var vm = this;			
 			vm.sex = ko.observable(0);
 			vm.memberCode = ko.observable();
 			vm.ageList = [];
@@ -27,10 +30,19 @@ define(function (require) {
 			vm.casteList = ko.observableArray();
 			vm.motherTongueList = ko.observableArray();
 			vm.courseGroupList = ko.observableArray();
+			vm.educationList = ko.observableArray();
 			vm.countryList = ko.observableArray();
 			vm.stateList = ko.observableArray();
 			vm.occupationGroupList = ko.observableArray();
+			vm.occupationList = ko.observableArray();
 			vm.annualIncomeList = [];
+			vm.weightList = [];
+			vm.dateList = [];
+			vm.monthList = [];
+			vm.yearList = [];
+			vm.hourList = [];
+			vm.minuteList = [];
+			vm.ampmList = ["am","pm"];
 			vm.registeredByList = [new self.SelectObject(1, 'Myself'), new self.SelectObject(2, 'Parents'), new self.SelectObject(3, 'Sibling (Brother/Sister)'), new self.SelectObject(4, 'Relative'), new self.SelectObject(5, 'Other')];
 			vm.physicalStatusList = [new self.SelectObject(0, 'Normal'), new self.SelectObject(1, 'Physically Challenged')];
 			vm.employedInList = [new self.SelectObject('1','Government'),new self.SelectObject('2','Defence'),new self.SelectObject('3','Private'),new self.SelectObject('4','Business'),new self.SelectObject('5','Self Employed'),new self.SelectObject('6','Not Working')];
@@ -38,6 +50,55 @@ define(function (require) {
 			vm.bodyTypeList =  [new self.SelectObject(1, 'Slim'), new self.SelectObject(2, 'Athletic'), new self.SelectObject(3, 'Average'), new self.SelectObject(4, 'Heavy')];
 			vm.complexionList =  [new self.SelectObject(1, 'Very Fair'), new self.SelectObject(2, 'Fair'), new self.SelectObject(3, 'Wheatish'), new self.SelectObject(4, 'Wheatish Brown'), new self.SelectObject(5, 'Dark')];
 			vm.registeredByList = [new self.SelectObject(1, 'Myself'), new self.SelectObject(2, 'Parents'), new self.SelectObject(3, 'Sibling'), new self.SelectObject(4, 'Relative'), new self.SelectObject(5, 'Other')];
+						
+			vm.getNumberList = function(start, end){
+				var numberList = [];
+				if(start<=end){
+					var i = start;
+					for(i; i<=end; i++){
+						numberList.push(new self.SelectObject(i, i));
+					}	
+				}
+				return numberList;
+			};
+			
+			vm.fillDateMonthYear = function(){
+				//fill date
+				for(var i=1; i<=31; i++){
+					var num = i.toString();
+					if(num.length==1){
+						num = '0'+num;
+					}
+					vm.dateList.push(new self.SelectObject(num, num));
+				}
+				//fill month
+				vm.monthList.push(new self.SelectObject('01', 'Jan'));
+				vm.monthList.push(new self.SelectObject('02', 'Feb'));
+				vm.monthList.push(new self.SelectObject('03', 'Mar'));
+				vm.monthList.push(new self.SelectObject('04', 'Apr'));
+				vm.monthList.push(new self.SelectObject('05', 'May'));
+				vm.monthList.push(new self.SelectObject('06', 'Jun'));
+				vm.monthList.push(new self.SelectObject('07', 'Jul'));
+				vm.monthList.push(new self.SelectObject('08', 'Aug'));
+				vm.monthList.push(new self.SelectObject('09', 'Sep'));
+				vm.monthList.push(new self.SelectObject('10', 'Oct'));
+				vm.monthList.push(new self.SelectObject('11', 'Nov'));
+				vm.monthList.push(new self.SelectObject('12', 'Dec'));
+				
+				// fill year 
+				var currentDate = new Date();
+				var startYear = currentDate.getFullYear() - 70;
+				var endYear = currentDate.getFullYear() - 18;
+				for(var i=startYear; i<=endYear; i++){					
+					vm.yearList.push(new self.SelectObject(i, i));
+				}
+				
+				// fill hour
+				vm.hourList = vm.getNumberList(1, 12);
+				
+				// fill minuts
+				vm.minuteList = vm.getNumberList(0, 59);
+			};
 			
 			vm.fillAgeList = function(){
 				var start = (vm.sex()==0)?18:21;
@@ -54,6 +115,12 @@ define(function (require) {
 						var value = i+' feet'+((j==0)?'':' '+j+' inches');
 						vm.heightList.push(new self.SelectObject(key, value));
 					}
+				}
+			};
+			vm.fillWeightList = function(){
+				var start = 30;
+				for(var i=start; i<=150; i++){
+					vm.weightList.push(new self.SelectObject(i, i+' kg'));
 				}
 			};
 			vm.heightInWords = function(heightValue){
@@ -101,6 +168,24 @@ define(function (require) {
 						}
 						if(data.courseGroupList){
 							vm.courseGroupList(data.courseGroupList);
+							if(data.courseList){
+								var educationGroups = ko.utils.arrayMap(data.courseGroupList, function(item){
+									return new self.Group(item);
+								});								
+								if(educationGroups && educationGroups.length > 0){
+									ko.utils.arrayForEach(educationGroups, function(group){
+										var groupId = group.entity.pkCourseGroupId;
+										var courses = [];
+										ko.utils.arrayForEach(data.courseList, function(item){
+											if(item.fkCourseGroupId == groupId){
+												courses.push(item);
+											}
+										});
+										group.children(courses);
+									});
+								}
+								vm.educationList(educationGroups);
+							}
 						}
 						if(data.countryList){
 							vm.countryList(data.countryList);
@@ -110,6 +195,24 @@ define(function (require) {
 						}
 						if(data.occupationGroupList){
 							vm.occupationGroupList(data.occupationGroupList);
+							if(data.occupationList){
+								var occupationGroups = ko.utils.arrayMap(data.occupationGroupList, function(item){
+									return new self.Group(item);
+								});								
+								if(occupationGroups && occupationGroups.length > 0){
+									ko.utils.arrayForEach(occupationGroups, function(group){
+										var groupId = group.entity.pkOccGroupId;
+										var occupations = [];
+										ko.utils.arrayForEach(data.occupationList, function(item){
+											if(item.fkOccGroupId == groupId){
+												occupations.push(item);
+											}
+										});
+										group.children(occupations);
+									});
+								}
+								vm.occupationList(occupationGroups);
+							}
 						}
 					}					
 				},function(error){
@@ -149,11 +252,14 @@ define(function (require) {
 					});
 				}
 			};
+			
 			// init here
-			vm.init = function(){
+			vm.init = function(){	
+				vm.fillDateMonthYear();
 				vm.fillAgeList();
 				vm.fillHeightList();
 				vm.fillAnnualIncomeList();
+				vm.fillWeightList();
 				vm.fillDataList();
 			};
 		};

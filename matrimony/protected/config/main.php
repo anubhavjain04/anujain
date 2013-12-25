@@ -58,8 +58,8 @@ return array(
             	'gii'=>'gii',
             	'gii/<controller:\w+>'=>'gii/<controller>',
             	'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',
-				'programs/forthcomingPrograms/<leveltype>'=>'programs/forthcomingPrograms',
-				'programs/recentPrograms/<leveltype>'=>'programs/recentPrograms',
+				//'programs/forthcomingPrograms/<leveltype>'=>'programs/forthcomingPrograms',
+				//'programs/recentPrograms/<leveltype>'=>'programs/recentPrograms',
 		
 			/*'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',

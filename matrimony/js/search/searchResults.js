@@ -1,8 +1,8 @@
 define(function (require) {
     
-	var ko               = require('knockout');
-	var $                = require('jquery');
-	var ajaxutil		 = require('ajaxutil');
+	var ko          = require('knockout');
+	var ajaxutil	= require('ajaxutil');
+	var Label   	= require('label');
 
 	return function(){ 
 		var self = this;
@@ -10,9 +10,9 @@ define(function (require) {
 			this.pageNo = pageNo;
 			this.selected = selected;
 		};
-		self.searchResultsViewModel = function(searchVM) {
+		self.searchResultsViewModel = function(searchMainVM) {
 			var vm = this;
-			vm.searchVM = searchVM;			
+			vm.searchMainVM = searchMainVM;	
 			vm.totalItems = ko.observable(0);
 			vm.start = ko.observable(0);
 			vm.end = ko.observable(0);
@@ -53,7 +53,7 @@ define(function (require) {
 				}
 				ajaxutil.find("search/results", dataObject, function(data){
 					if(data){
-						vm.searchVM.mainVM.showPage('search-results-page');
+						vm.searchMainVM.showPage('search-results-page');
 						vm.totalItems(data.total);
 						vm.start(data.start);
 						vm.end(data.end);
@@ -133,7 +133,7 @@ define(function (require) {
 			};
 			
 			vm.viewMember = function(memberId){
-				vm.searchVM.mainVM.route.searchMember(memberId);
+				jHash.set(Label.SEARCH_PAGE+'/member/'+memberId, {});
 			};
 			
 			vm.showSearchResults = function(specs){

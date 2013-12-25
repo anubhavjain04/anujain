@@ -1,6 +1,6 @@
 <!-- javascript -->
 <?php
-$version = 3;
+$version = 4;
 Yii::app()->clientScript->registerScript('search', "
 	var sitePath = '".Yii::app()->homeUrl."/';
 	var siteBaseUrl = '".Yii::app()->request->baseUrl."';

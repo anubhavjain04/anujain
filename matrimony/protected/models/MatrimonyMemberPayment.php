@@ -11,8 +11,8 @@
  * @property string $EndDate
  * @property string $AmountPaid
  * @property integer $Status
- * @property string $Discount
- * @property string $ReasonOfDiscount
+ * @property integer $PaymentMode
+ * @property string $Comments
  *
  * The followings are the available model relations:
  * @property MatrimonyMembers $fkMember
@@ -46,13 +46,13 @@ class MatrimonyMemberPayment extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fkMemberId, fkPackageId, StartDate, EndDate, AmountPaid', 'required'),
-			array('Status', 'numerical', 'integerOnly'=>true),
-			array('fkMemberId, fkPackageId, AmountPaid, Discount', 'length', 'max'=>10),
-			array('ReasonOfDiscount', 'length', 'max'=>100),
+			array('fkMemberId, fkPackageId, StartDate, EndDate, AmountPaid, PaymentMode', 'required'),
+			array('Status, PaymentMode', 'numerical', 'integerOnly'=>true),
+			array('fkMemberId, fkPackageId, AmountPaid', 'length', 'max'=>10),
+			array('Comments', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('pkMemPayId, fkMemberId, fkPackageId, StartDate, EndDate, AmountPaid, Status, Discount, ReasonOfDiscount', 'safe', 'on'=>'search'),
+			array('pkMemPayId, fkMemberId, fkPackageId, StartDate, EndDate, AmountPaid, Status, PaymentMode, Comments', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -76,14 +76,14 @@ class MatrimonyMemberPayment extends CActiveRecord
 	{
 		return array(
 			'pkMemPayId' => 'Pk Mem Pay',
-			'fkMemberId' => 'Fk Member',
-			'fkPackageId' => 'Fk Package',
+			'fkMemberId' => 'Member',
+			'fkPackageId' => 'Package',
 			'StartDate' => 'Start Date',
 			'EndDate' => 'End Date',
 			'AmountPaid' => 'Amount Paid',
 			'Status' => 'Status',
-			'Discount' => 'Discount',
-			'ReasonOfDiscount' => 'Reason Of Discount',
+			'PaymentMode' => 'PaymentMode',
+			'Comments' => 'Comments',
 		);
 	}
 
@@ -105,8 +105,8 @@ class MatrimonyMemberPayment extends CActiveRecord
 		$criteria->compare('EndDate',$this->EndDate,true);
 		$criteria->compare('AmountPaid',$this->AmountPaid,true);
 		$criteria->compare('Status',$this->Status);
-		$criteria->compare('Discount',$this->Discount,true);
-		$criteria->compare('ReasonOfDiscount',$this->ReasonOfDiscount,true);
+		$criteria->compare('PaymentMode',$this->PaymentMode,true);
+		$criteria->compare('Comments',$this->Comments,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
