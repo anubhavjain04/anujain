@@ -66,6 +66,16 @@ class StaticPagesController extends Controller
 		));
 	}
 	
+	public function actionPrivacyPolicy(){
+		Yii::app()->clientScript->registerMetaTag('Bhartiya Jain Milan Privacy Policy,jain milan policy, policy, privacy', 'keywords');
+		Yii::app()->clientScript->registerMetaTag('This page describes the privacy policy of Bhartiya Jain Milan.', 'description');
+		$model = $this->loadModel();
+		$this->render('bjm_privacy_policy',array(
+			'model'=>$model,
+		));
+	}
+	
+	
 	public function actionHospitalEstablishment(){
 		Yii::app()->clientScript->registerMetaTag('Bhartiya Jain Milan Hospital, Hospital Establishment', 'keywords');
 		Yii::app()->clientScript->registerMetaTag('This page describes the establishment of Bhartiya Jain Milan Hospital.', 'description');

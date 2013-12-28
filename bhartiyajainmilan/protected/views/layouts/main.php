@@ -163,7 +163,7 @@
     </div>
     <div class="row-2">
       <div class="padding">
-        <div class="text-bot"> <span>Bhartiya Jain Milan &copy; <?php echo date('Y'); ?></span> : <a href="#">Privacy Policy</a> </div>
+        <div class="text-bot"> <span>Bhartiya Jain Milan &copy; <?php echo date('Y'); ?></span> : <a href='<?php echo Yii::app()->createUrl("/staticPages/privacyPolicy");?>'>Privacy Policy</a> </div>
       </div>
     </div>
   </div>
