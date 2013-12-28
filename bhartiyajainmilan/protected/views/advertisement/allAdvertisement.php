@@ -21,7 +21,10 @@ $pageSize=Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageS
                           <div class="padding">
                           	<h3 class="title-1">
                           		Bhartiya Jain Milan Website <strong>Sponsors</strong>
-                          	</h3>                      
+                          	</h3> 
+                            <div class="p2">
+                            <strong>To know more about advertisement, please click on advertisement title, website link or advertisement image.</strong>
+                           </div>                     
                             <div class="clear"></div>  
                             
                             <form name="actionForm" id="actionForm" action="" method="post">
@@ -61,7 +64,9 @@ $pageSize=Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageS
                                 <div id="grid-data_loader" class="ajax"></div> 
                                 <div id="grid-data">
                                 
-                                <div>Displaying <?php echo $start; ?>-<?php echo $end; ?> of <?php echo $total; ?> results.</div>
+                                <div class="p2">Displaying <?php echo $start; ?>-<?php echo $end; ?> of <?php echo $total; ?> results.</div>
+                                
+                                
                                 
                                <?php 								
 								 $pager=array();
