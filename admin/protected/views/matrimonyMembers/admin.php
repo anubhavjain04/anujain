@@ -98,11 +98,16 @@ $pageSize=Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageS
 									  'imageUrl'=>Yii::app()->request->baseUrl . '/img/icons/unpublish_small.png',
 									  'url'=>'Yii::app()->createUrl("/matrimonyMembers/unpublish?id=$data->pkMemberId")',
 									),
+								'login'=>array(
+									  'label'=>'Create/Update Login',
+									  'imageUrl'=>Yii::app()->request->baseUrl . '/img/icons/user.png',
+									  'url'=>'Yii::app()->createUrl("/matrimonyUser/memberLogin/id/$data->pkMemberId")',
+									),	
 							),		                                
 							'viewButtonLabel'=>yii::t('core','View'),
 							'updateButtonLabel'=>yii::t('core','Update'),
 							'deleteButtonLabel'=>yii::t('core','Delete'),
-							'template'=> '{up} {down} {view} {update} {delete}',
+							'template'=> '{up} {down} {view} {update} {delete} {login}',
         				),
         			),
         )); ?>

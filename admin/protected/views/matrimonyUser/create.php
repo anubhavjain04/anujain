@@ -1,15 +1,5 @@
-<?php
-$this->breadcrumbs=array(
-	'Matrimony Users'=>array('index'),
-	'Create',
-);
-
-$this->menu=array(
-	array('label'=>'List MatrimonyUser', 'url'=>array('index')),
-	array('label'=>'Manage MatrimonyUser', 'url'=>array('admin')),
-);
-?>
-
-<h1>Create MatrimonyUser</h1>
-
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<div class="headings">
+<h2 class="left">Add/Update Matrimony Member Login details</h2>
+</div>
+<div class="contentbox nopad" id="tabs-2"><?php echo $this->renderPartial('_form', array('model'=>$model, 'memberModel'=>$memberModel)); ?>
+</div>

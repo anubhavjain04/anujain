@@ -31,7 +31,7 @@ class MatrimonyUserController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'memberLogin'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -62,15 +62,30 @@ class MatrimonyUserController extends Controller
 	public function actionCreate()
 	{
 		$model=new MatrimonyUser;
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['MatrimonyUser']))
 		{
-			$model->attributes=$_POST['MatrimonyUser'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->pkUserId));
+			if(isset($_POST['MatrimonyMembers']) && isset($_POST['MatrimonyMembers']['pkMemberId'])){
+				$memberModel=MatrimonyMembers::model()->findByPk($_POST['MatrimonyMembers']['pkMemberId']);
+				
+				$currentTime = date('Y-m-d H:i',time());
+				$model->attributes=$_POST['MatrimonyUser'];
+				// update static values
+				$model->CreatedDate=$currentTime;
+				$model->ModifiedDate=$currentTime;
+				$model->Type = 'USR';
+				$model->Password = $model->hashPassword($model->Password);
+				
+				if($model->save()){
+					$memberModel->fkLoginId = $model->pkUserId;
+					$memberModel->save();
+					$this->redirect(array('matrimonyMembers/admin'));
+				}
+			}else{
+				throw new CHttpException(404,'Member not found.');
+			}
 		}
 
 		$this->render('create',array(
@@ -86,20 +101,55 @@ class MatrimonyUserController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['MatrimonyUser']))
 		{
-			$model->attributes=$_POST['MatrimonyUser'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->pkUserId));
+			if(isset($_POST['MatrimonyMembers']) && isset($_POST['MatrimonyMembers']['pkMemberId'])){
+				$memberModel=MatrimonyMembers::model()->findByPk($_POST['MatrimonyMembers']['pkMemberId']);
+				
+				$currentTime = date('Y-m-d H:i',time());
+				$model->attributes=$_POST['MatrimonyUser'];
+				
+				// update static values
+				$model->ModifiedDate=$currentTime;
+				$model->Type = 'USR';
+				$model->Password = $model->hashPassword($model->Password);
+		
+				if($model->save()){
+					$memberModel->fkLoginId = $model->pkUserId;
+					$memberModel->save();
+					$this->redirect(array('matrimonyMembers/admin'));
+				}
+			}else{
+				throw new CHttpException(404,'Member not found.');
+			}
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
 		));
+	}
+	
+	public function actionMemberLogin($id){
+		$memberModel=MatrimonyMembers::model()->findByPk($id);		
+		if($memberModel){
+			$model = null;
+			if($memberModel->fkLoginId){
+				$model=$this->loadModel($memberModel->fkLoginId);				
+			}
+			if($model == null){
+				$model = new MatrimonyUser;					
+			}
+			$model->EmailID = $memberModel->MemberCode;
+			$this->render('create',array(
+				'model'=>$model,
+				'memberModel'=>$memberModel,
+			));
+		}else{
+			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+		}
 	}
 
 	/**

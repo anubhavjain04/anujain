@@ -71,7 +71,7 @@ class MatrimonyUser extends CActiveRecord
 	{
 		return array(
 			'pkUserId' => 'Pk User',
-			'EmailID' => 'Email',
+			'EmailID' => 'User Id',
 			'Password' => 'Password',
 			'Type' => 'Type',
 			'Status' => 'Status',
@@ -104,5 +104,43 @@ class MatrimonyUser extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+	
+	/**
+	 * Checks if the given password is correct.
+	 * @param string the password to be validated
+	 * @return boolean whether the password is valid
+	 */
+	public function validatePassword($password)
+	{
+		return $this->hashPassword($password)===$this->Password;
+	}
+
+	/**
+	 * Generates the password hash.
+	 * @param string password
+	 * @param string salt
+	 * @return string hash
+	 */
+	public function hashPassword($password)
+	{
+		$salt = $this->getSalt();
+		$newpass = md5($password);
+		return md5($salt.$newpass);
+	}
+	
+	
+
+	/**
+	 * Generates a salt that can be used to generate a password hash.
+	 * @return string the salt
+	 */
+	/*protected function generateSalt()
+	 {
+		return uniqid('',true);
+		}*/
+
+	protected function getSalt(){
+		return '98b206599478ce621m204afd9cf91761';
 	}
 }

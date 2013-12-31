@@ -569,6 +569,9 @@ ul#topmenu li a.current, ul#topmenu li a.current:hover {
 .mrgl5 {
     margin-left: 5px;
 }
+.mrgb0 {
+    margin-bottom: 0px;
+}
 .mrgb10 {
     margin-bottom: 10px;
 }
@@ -650,6 +653,12 @@ img {
 }
 .clr7 {
     color: #C4161C;
+}
+.clr8 {
+    color: #ff0000;
+}
+.clr9{
+	color: #008000;
 }
 .biggertxt {
     font-size: 230%;
