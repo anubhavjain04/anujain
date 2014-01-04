@@ -16,6 +16,7 @@ Yii::app()->clientScript->registerScript('search', "
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/js/lib/css/bootstrap-theme-modified.css?v='.$version; ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/css/style.css?v='.$version; ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/css/pager.css?v='.$version; ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/js/lib/Jcrop/jquery.Jcrop.css?v='.$version; ?>" />
  <!--[if lt IE 9]>
  	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie-fix.css" />
  	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/lib/json2.js" ></script>

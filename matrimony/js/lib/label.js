@@ -10,7 +10,8 @@ define(function(require) {
 		PRIVACY_POLICY : "privacy-policy",
 		TERMS_N_CONDITIONS : "terms-n-conditions",
 		CONTACT_US : "contact-us",
-		LOGIN : "login"
+		LOGIN : "login",
+		MEMBER: 'member'
 	};
 });
 

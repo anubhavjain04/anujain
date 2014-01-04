@@ -136,6 +136,7 @@ define(function (require) {
 			};
 			vm.getObjectText = function(list, key){				
 				if(list){
+					key = ko.utils.unwrapObservable(key);
 					var matchObject = ko.utils.arrayFirst(list, function(item) {
 						return item.key == key;
 					});

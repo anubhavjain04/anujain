@@ -31,7 +31,7 @@ class MatrimonyUserController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'changePassword'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -146,6 +146,28 @@ class MatrimonyUserController extends Controller
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+	}
+	
+	public function actionChangePassword($id){
+		$model=$this->loadModel($id);
+
+		if($_POST){
+			$user = $_POST;
+			$oldPassword = $user['oldPassword'];
+			$newPassword = $user['newPassword'];
+			if($model->validatePassword($oldPassword)){
+				$model->Password = $model->hashPassword($newPassword);
+				if($model->save()){
+					$data['status'] = 'success';
+					$this->echoObjectAsJSON($data);
+				}
+				
+			}else {
+				throw new CHttpException(403,'Unauthorized');
+			}
+		}else{
+			throw new CHttpException(400,'Invalid Request.');
+		}		
 	}
 
 	/**

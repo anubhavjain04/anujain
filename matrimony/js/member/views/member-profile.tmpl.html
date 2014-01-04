@@ -1,0 +1,33 @@
+<div class="padt30" data-bind="with: memberVM">
+    <div class="col-xs-6 col-sm-3">      
+      	<div class="panel panel-default">
+		  	<div class="panel-heading">
+		      <h3 class="panel-title">Member Profile</h3>
+		    </div>
+		    <div class="panel-body">  
+		        <div>
+		            <p> You can modify/change your profile details:- </p>
+		        </div>
+		        <div>
+		        	<ul class="nav nav-pills nav-stacked">
+		        		<li data-bind="css: {'active': showProfileType()=='basic-details'}"><a href="#!member/member-profile/basic-details">Basic Information</a></li>
+		        		<li data-bind="css: {'active': showProfileType()=='education-details'}"><a href="#!member/member-profile/education-details">Education &amp; Occupation</a></li>
+		        		<li data-bind="css: {'active': showProfileType()=='family-details'}"><a href="#!member/member-profile/family-details">Family &amp; Details</a></li>
+		        		<li data-bind="css: {'active': showProfileType()=='change-photo'}"><a href="#!member/member-profile/change-photo">Profile Photo</a></li>
+		        		<li data-bind="css: {'active': showProfileType()=='change-photo'}"><a href="#!member/member-profile/change-photo">Partner Preference</a></li>
+		        		
+		        	</ul> 		          
+		        </div>
+		        
+        	</div>
+		</div>      
+    </div>
+    <div class="col-xs-12 col-sm-9">      
+    	<!-- ko if: showProfileType()=='basic-details' -->
+    	<div data-bind="template: { name: 'member/views/basic-details'}"></div>
+    	<!-- /ko -->
+      	<!-- ko if: showProfileType()=='change-photo' -->
+      	<div data-bind="template: { name: 'member/views/change-photo'}"></div>
+      	<!-- /ko -->
+    </div>
+</div>

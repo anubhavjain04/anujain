@@ -194,6 +194,10 @@
               <div class="col-xs-6 col-sm-6"><label>Manglik Status</label></div>
               <div class="col-xs-6 col-sm-6"> : <span data-bind="text: $root.facetVM.getObjectText($root.facetVM.manglikList, Manglik)"></span> </div>
             </div>
+            <div class="col-xs-12 col-sm-12 row">
+              <div class="col-xs-6 col-sm-6"><label>Birth Time</label></div>
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: (((new Date(DOB)).getHours()>12)?(new Date(DOB)).getHours()-12 :(new Date(DOB)).getHours()) + ':' + (new Date(DOB)).getMinutes() + ' ' + (((new Date(DOB)).getHours()>12)?'pm' :'am') "></span> </div>
+            </div>
           </div>
         </div>
         <!-- ko if: familyDetails -->
@@ -251,6 +255,10 @@
             <div class="col-xs-12 col-sm-12 row">
               <div class="col-xs-6 col-sm-6"><label>Contact No.</label></div>
               <div class="col-xs-6 col-sm-6"> : <span data-bind="text: ContactNo"></span> </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 row">
+              <div class="col-xs-6 col-sm-6"><label>Email</label></div>
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: Email"></span> </div>
             </div>
           </div>
         </div>

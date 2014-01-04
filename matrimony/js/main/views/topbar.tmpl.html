@@ -9,7 +9,9 @@
         	<a href="#!home" data-bind="text: $root.publishMember()? 'My Matrimony' : 'Home' "></a>
         </li>        
         <li data-bind="css: {'active': $root.categorySwitch()==$root.label.SEARCH_PAGE}"><a href="#!search/criteria?type=regular">Search</a></li>
+        <!-- ko ifnot: $root.user() -->
         <li data-bind="css: {'active': $root.categorySwitch()==$root.label.REGISTER_PAGE}"><a href="#!register">Register</a></li>
+        <!-- /ko -->
         <li data-bind="css: {'active': $root.categorySwitch()==$root.label.UPGRADE_PAGE}"><a href="#!upgrade">Upgrade</a></li>
         <li data-bind="css: {'active': $root.categorySwitch()==$root.label.CONTACT_US}"><a href="#!contact-us">Contact Us</a></li>
       </ul>
@@ -46,10 +48,10 @@
         <li id="logout-popup" class="dropdown"> <a href="#" class="dropdown-toggle btn btn-success" data-toggle="dropdown"><span data-bind="text: user().userName"></span> <b class="caret"></b></a>
       		<div class="dropdown-menu">
       			<div class="form-group">
-		        	<a href="#" data-bind="click: function(){}">My Profile</a>
+		        	<a href="#!member/member-profile" >My Profile</a>
 		        </div>	
       			<div class="form-group">
-		        	<a href="#" data-bind="click: function(){}">Change Password</a>
+		        	<a href="#!member/change-password">Change Password</a>
 		        </div>	        
 		        <div class="form-group">
 		        	<a href="#" data-bind="click: function(){}">Settings</a>

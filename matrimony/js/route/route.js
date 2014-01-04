@@ -14,7 +14,9 @@ define(function (require) {
 			memberId : self.root.searchMainVM.showMember,
 			showRegisterationPage : self.root.registerMainVM.showRegisterationPage,
 			showRegisterProfilePage : self.root.registerMainVM.showRegisterProfilePage,
-			initMemberData : self.root.memberMainVM.loadMember
+			initMemberData : self.root.memberMainVM.loadMember,
+			showChangePassword : self.root.memberMainVM.showChangePassword,
+			showMemberProfile : self.root.memberMainVM.showMemberProfile
 		};
 		
 		jHash.route(Label.HOME_PAGE, function () {
@@ -31,6 +33,21 @@ define(function (require) {
 		jHash.route(Label.REGISTER_PAGE+"/fill-profile", function () {
 			self.action.showRegisterProfilePage();
 			self.categorySwitch(Label.REGISTER_PAGE);
+		});
+		jHash.route(Label.MEMBER+"/change-password", function () {
+			self.action.showChangePassword();
+			self.categorySwitch(Label.MEMBER);
+		});
+		jHash.route(Label.MEMBER+"/member-profile", function () {
+			self.action.showMemberProfile('basic-details');
+			self.categorySwitch(Label.MEMBER);
+		});
+		jHash.route(Label.MEMBER+"/member-profile/{section}", function () {
+			if(this.section){
+				self.action.showMemberProfile(this.section);
+				self.categorySwitch(Label.MEMBER);	
+			}
+			
 		});
 		jHash.route(Label.UPGRADE_PAGE, function () {
 			self.categorySwitch(Label.UPGRADE_PAGE);

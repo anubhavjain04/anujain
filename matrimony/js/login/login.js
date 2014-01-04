@@ -9,15 +9,19 @@ define(function (require) {
 		self.loginViewModel = function() {
 			var vm = this;
 			vm.user = ko.observable().syncWith("loggedInUser", true);
-			
 			vm.categorySwitch = ko.observable().subscribeTo("requestCategorySwitch", true);
-			
-			
-			
 			
 			vm.emailid = ko.observable();
 			vm.password = ko.observable();
 			vm.message = ko.observable();
+			
+			vm.user.subscribe(function(usr){
+				if(usr){
+					if(vm.categorySwitch()==Label.REGISTER_PAGE){
+						jHash.set(Label.HOME_PAGE, {});
+					}
+				}
+			});
 			
 			vm.clear = function(){
 				vm.user(undefined);
@@ -64,7 +68,7 @@ define(function (require) {
 			vm.checkUserStatus = function(){
 				ajaxutil.syncFindAll("site/user", function(data){
 					if(data && !data.isGuest){
-						vm.user(data);
+						vm.user(data);						
 					}else{
 						vm.user(undefined);
 					}			

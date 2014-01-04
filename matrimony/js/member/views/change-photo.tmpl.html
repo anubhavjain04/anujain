@@ -1,0 +1,20 @@
+<div data-bind="with: uploadPhoto">  
+  	<h1>Change Profile photo</h1>
+	<div>
+	    <div id="uploadedImage" class="pull-left" data-bind="html: uploadedImage"></div>		
+	    <div class="pull-left" style="margin-left: 20px;">
+	    	<form id="imageform" method="post" enctype="multipart/form-data" data-bind="attr: {'action': sitePath + 'matrimonyMembers/uploadImg'}">
+				<label for="photoimg">Upload Member Photo</label>
+				<input type="file" name="photoimg" data-bind="event: {change: changeUploadPhoto}"  />
+			    <span class="text-muted">.jpg, .gif, .bmp, .png file only (max. size 1MB)</span> 
+			</form>
+		    <h4>Preview of cropped image</h4>
+		    <div data-bind="style: {'width': previewWidth()+'px', 'height': previewHeight()+'px'}" style="position: relative; overflow:hidden; margin-top: 10px; margin-bottom: 10px;">
+		        <img id="preview" src="" data-bind="style: {'width': previewImgStyle.width()+'px', 'height': previewImgStyle.height()+'px', marginLeft: previewImgStyle.marginLeft()+'px', marginTop: previewImgStyle.marginTop()+'px'}">
+		    </div>
+		    <button class="btn btn-primary" data-bind="click: uploadImage">Save</button>
+		    <button class="btn btn-primary" data-bind="click: clear" >Cancel current crop</button>
+	    </div>
+	</div>
+	<div class="clearfix"></div>
+</div>

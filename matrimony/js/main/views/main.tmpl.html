@@ -9,7 +9,14 @@
 	 <div data-bind="template: { name: 'member/views/member'}"></div>	
 	 <!-- /ko -->
   </div>
-
+  <div data-bind="if: $root.categorySwitch() == $root.label.MEMBER">
+  	<!-- ko if: user() -->
+    <div data-bind="template: { name: 'member/views/member'}"></div>
+    <!-- /ko -->
+    <!-- ko ifnot: user() -->
+    <div data-bind="template: { name: 'main/views/error', data: {'message': 'You have given an invalid request.'}}"></div>
+    <!-- /ko -->
+  </div>
   <div data-bind="if: $root.categorySwitch() == $root.label.SEARCH_PAGE">
     <div data-bind="with: $root.searchMainVM">
       <div data-bind="template: { name: 'search/views/search'}"></div>

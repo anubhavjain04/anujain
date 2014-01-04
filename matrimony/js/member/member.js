@@ -1,6 +1,7 @@
 define(function (require) {    
 	var ko               = require('knockout');
 	var ajaxutil		 = require('ajaxutil');
+	var UploadPhoto	 = require('member/uploadPhoto');
 
 	return function(){ 
 		var self = this;
@@ -15,6 +16,14 @@ define(function (require) {
 					vm.initializeMember();
 				}else{
 					vm.publishMember(undefined);
+				}
+			});
+			
+			vm.showProfileType = ko.observable('basic-details');
+			
+			vm.showProfileType.subscribe(function(type){
+				if(type && type == 'change-photo'){
+					vm.uploadPhoto.clear();
 				}
 			});
 			
@@ -110,6 +119,8 @@ define(function (require) {
 			vm.occupationName = ko.observable();
 			vm.motherToungueName = ko.observable();
 			
+			vm.message = ko.observable();
+			vm.isEditMode = ko.observable(false);
 			
 			vm.clear = function(){
 				vm.sex(0);
@@ -172,6 +183,9 @@ define(function (require) {
 				vm.educationName(undefined);
 				vm.occupationName(undefined);
 				vm.motherToungueName(undefined);
+				
+				vm.message(undefined);
+				vm.isEditMode(false);
 			};
 			
 			vm.initializeMember = function(){
@@ -283,10 +297,14 @@ define(function (require) {
 						vm.marriedSisters(family.MarriedSisters);
 						vm.aboutFamily(family.AboutFamily);
 					}					
-					console.log(ko.toJS(vm));
 				}
 			};
 			
+			vm.updateMemberDetails = function(){
+				
+			};
+			
+			vm.uploadPhoto = new UploadPhoto();
 		};
 	};
 });
