@@ -35,6 +35,7 @@ $this->pageTitle="Bhartiya Jain Milan"
         <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/4.jpg" alt=""/></li>
         <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/5.jpg" alt=""/></li>
         <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/6.jpg" alt=""/></li>
+		<li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/7.jpg" alt=""/></li>
       </ul>
       <a href="#" class="play">stop</a> </div>
   </div>
