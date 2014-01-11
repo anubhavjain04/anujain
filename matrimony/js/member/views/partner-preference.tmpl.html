@@ -1,0 +1,75 @@
+<div>
+  <h1>Partner Preference
+  	<!-- ko ifnot: isEditMode() -->
+  	<small><button class="btn btn-primary btn-sm" data-bind="click: function(){isEditMode(true);}">Edit</button></small>
+  	<!-- /ko -->
+  	<!-- ko if: isEditMode() -->
+  	<small><button class="btn btn-primary btn-sm" data-bind="click: function(){isEditMode(false);}">Cancel Edit</button></small>
+  	<!-- /ko -->
+  </h1>
+  
+  <div class="col-xs-12 col-sm-12 tab-content">
+    <div id="register-member">      
+      <div class="padt20 form-horizontal">
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label>Willing to marry from the same/other sub sect</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+              <span data-bind="text: (marryInSameSect()==1)?'same':'other also'"></span>
+              <!-- /ko -->
+              <!-- ko if: isEditMode() -->	
+              <label for="marrySame_Yes" class="radio-inline">
+		          <input type="radio" id="marrySame_Yes" name="marryInSameSect" data-bind="value: 1, checked: marryInSameSect" />
+		          Willing to marry from the same sub sect </label>
+		      <label for="marrySame_No" class="radio-inline">
+		          <input type="radio" id="marrySame_No" name="marryInSameSect" data-bind="value: 2, checked: marryInSameSect" />
+		          Willing to marry from other sub sect also </label>
+              <!-- /ko -->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">About My Partner</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+              <span data-bind="text: aboutMyPartner"></span>
+              <!-- /ko -->
+              <!-- ko if: isEditMode() -->	
+              <textarea class="form-control" placeholder="write something about your partner preferance" data-bind="value: aboutMyPartner" ></textarea>
+              <!-- /ko -->
+            </div>
+          </div>
+        </div>
+        <!-- ko if: isEditMode() -->
+        <div class="row">
+          <div class="dot-line padt10"></div>          
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2"></div>
+            <div class="col-xs-12 col-sm-10">
+            	<div id="captchadiv"></div>
+              	<button class="btn btn-success" data-bind="click: updatePartnerPreferences">Save</button>
+              	<button class="btn btn-primary" data-bind="click: function(){isEditMode(false);}">Cancel</button>
+            </div>
+          </div>
+        </div>
+        <div class="padb35"></div>
+        
+        <div data-bind="if: message">
+	        <div class="alert alert-danger alert-dismissable">
+			  	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  	<span data-bind="text: message"></span>
+			</div>
+		</div>
+        <!-- /ko -->
+      </div>
+    </div>
+  </div>
+</div>

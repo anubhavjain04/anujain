@@ -248,15 +248,8 @@
 	            <div class="col-xs-12 col-sm-2">
 	              <label class="control-label">Education</label>
 	            </div>
-	            <div class="col-xs-12 col-sm-10">	            	
-	              	<select class="form-control def-element-width" data-bind="value:education">
-	              		<option>--select--</option>
-	              		<!-- ko foreach: $root.facetVM.educationList -->
-					    <optgroup data-bind="attr: {label: entity.GroupName}, foreach: children">
-					        <option data-bind="value: pkCourseId,text: CourseName"></option>
-					    </optgroup>
-					    <!-- /ko -->
-					</select>
+	            <div class="col-xs-12 col-sm-10">
+	            	<select class="form-control def-element-width" data-bind="groupedOptions: $root.facetVM.educationList, optionsText: 'CourseName', optionsValue: 'pkCourseId', optionsGroup: 'group', optionsCaption: '--select--', value: education"></select>
 	            </div>
 	          </div>
 	        </div>
@@ -295,15 +288,7 @@
 	              <label class="control-label">Occupation</label>
 	            </div>
 	            <div class="col-xs-12 col-sm-10">
-	              	<select class="form-control def-element-width" data-bind="value:occupation">
-	              		<option>--select--</option>
-	              		<!-- ko foreach: $root.facetVM.occupationList -->
-					    <optgroup data-bind="attr: {label: entity.GroupName}, foreach: children">
-					        <option data-bind="value: pkOccupationId, text: OccupationName"></option>
-					    </optgroup>
-					    <!-- /ko -->
-					</select>
-	              
+	            	<select class="form-control def-element-width" data-bind="groupedOptions: $root.facetVM.occupationList, optionsText: 'OccupationName', optionsValue: 'pkOccupationId', optionsGroup: 'group', optionsCaption: '--select--', value: occupation"></select>
 	            </div>
 	          </div>
 	        </div>

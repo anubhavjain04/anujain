@@ -107,7 +107,9 @@ public function actionResults(){
 			$plainDataList = array();
 			for($i=0; $i<count($dataList); $i++){
 				$plainData = CJSON::decode(CJSON::encode($dataList[$i]));
-				$plainData['age'] = date('Y',time()) - date('Y',strtotime($dataList[$i]['DOB']));
+				$ageDiff = abs(time() - strtotime($dataList[$i]['DOB']));
+				$years = floor($ageDiff / (365*60*60*24));
+				$plainData['age'] = $years;
 				$plainData['sectName'] = $dataList[$i]->fkSect0->SectName;
 				$plainData['subSectName'] = $dataList[$i]->fkSubSect0->SubSectName;
 				$plainData['country'] = $dataList[$i]->fkCountryLivingIn0->CountryName;
@@ -134,7 +136,9 @@ public function actionResults(){
 			$familyDetails = MatrimonyFamilyDetails::model()->find($criteria);
 			if($member){
 				$jsonMember = CJSON::decode(CJSON::encode($member));
-				$jsonMember['age'] = date('Y',time()) - date('Y',strtotime($member['DOB']));
+				$ageDiff = abs(time() - strtotime($member['DOB']));
+				$years = floor($ageDiff / (365*60*60*24));
+				$jsonMember['age'] = $years;				
 				$jsonMember['sectName'] = $member->fkSect0->SectName;
 				$jsonMember['subSectName'] = $member->fkSubSect0->SubSectName;
 				$jsonMember['country'] = $member->fkCountryLivingIn0->CountryName;

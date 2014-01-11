@@ -2,11 +2,13 @@ define(function (require) {
 	var ko               = require('knockout');
 	var ajaxutil		 = require('ajaxutil');
 	var UploadPhoto	 = require('member/uploadPhoto');
+	var ChangePassword	 = require('member/changePassword');
 
 	return function(){ 
 		var self = this;
 		self.memberViewModel = function() {
 			var vm = this;
+			vm.root = ko.observable().subscribeTo("requestRootObject", true);
 			vm.publishMember = ko.observable().syncWith("loggedInMember", true);
 			vm.user = ko.observable().subscribeTo("loggedInUser", true);
 			
@@ -19,13 +21,13 @@ define(function (require) {
 				}
 			});
 			
-			vm.showProfileType = ko.observable('basic-details');
-			
+			vm.showProfileType = ko.observable('basic-details');			
 			vm.showProfileType.subscribe(function(type){
 				if(type && type == 'change-photo'){
 					vm.uploadPhoto.clear();
 				}
 			});
+			vm.disableButton = ko.observable(false);
 			
 			vm.sex = ko.observable(0);
 			vm.registeredBy = ko.observable().extend({
@@ -109,8 +111,7 @@ define(function (require) {
 			vm.marriedSisters = ko.observable();
 			vm.aboutFamily = ko.observable();
 			vm.createdDate = ko.observable();
-			vm.modifiedDate = ko.observable();
-			
+			vm.modifiedDate = ko.observable();			
 			vm.sectName = ko.observable();
 			vm.subSectName = ko.observable();
 			vm.countryName = ko.observable();
@@ -118,9 +119,18 @@ define(function (require) {
 			vm.educationName = ko.observable();
 			vm.occupationName = ko.observable();
 			vm.motherToungueName = ko.observable();
+			vm.casteName = ko.observable();
 			
 			vm.message = ko.observable();
 			vm.isEditMode = ko.observable(false);
+			vm.originalData = ko.observable();
+			
+			vm.isEditMode.subscribe(function(mode){
+				if(mode === false && vm.originalData()){
+					vm.setMemberDetails(vm.originalData());
+				}
+			});
+			
 			
 			vm.clear = function(){
 				vm.sex(0);
@@ -183,9 +193,12 @@ define(function (require) {
 				vm.educationName(undefined);
 				vm.occupationName(undefined);
 				vm.motherToungueName(undefined);
+				vm.casteName(undefined);
 				
 				vm.message(undefined);
 				vm.isEditMode(false);
+				vm.disableButton(false);
+				vm.originalData(undefined);
 			};
 			
 			vm.initializeMember = function(){
@@ -204,7 +217,8 @@ define(function (require) {
 			};
 			
 			vm.setMemberDetails = function(data){
-				if(data){					
+				if(data){		
+					vm.originalData(data);
 					var member = data.member;
 					var family = data.family;
 					var dob = new Date(member.DOB);
@@ -216,7 +230,7 @@ define(function (require) {
 					var dobAmPm = undefined;
 					if(dob){
 						dobDate = dob.getDate();
-						dobMonth = dob.getMonth();
+						dobMonth = dob.getMonth()+1;
 						if(dobMonth.length==1){
 							dobMonth = '0'+dobMonth;
 						}
@@ -247,7 +261,11 @@ define(function (require) {
 					vm.maritalStatus(member.MaritalStatus);
 					vm.childrens(member.Childrens);
 					vm.sect(member.fkSect);
-					vm.subSect(member.fkSubSect);
+					if(vm.sect()){
+						vm.root().facetVM.afterSectChange(vm.sect(), function(){
+							vm.subSect(member.fkSubSect);
+						});
+					}
 					vm.caste(member.fkCaste);
 					vm.otherCaste(member.OtherCaste);
 					vm.motherTongue(member.fkMotherTongue);
@@ -257,7 +275,7 @@ define(function (require) {
 					vm.contactNumber(member.ContactNo);
 					vm.memberCode(member.MemberCode);
 					vm.memberPhoto(member.MemberPhoto);
-					vm.emailId(member.MemberPhoto);
+					vm.emailId(member.Email);
 					vm.height(member.Height);
 					vm.weight(member.Weight);
 					vm.bodyType(member.BodyType);
@@ -285,6 +303,7 @@ define(function (require) {
 					vm.educationName(member.education);
 					vm.occupationName(member.occupation);
 					vm.motherToungueName(member.motherTongue);
+					vm.casteName(member.caste);
 					
 					if(family){
 						vm.fatherName(family.FatherName);
@@ -296,15 +315,189 @@ define(function (require) {
 						vm.unmarriedSisters(family.UnmarriedSisters);
 						vm.marriedSisters(family.MarriedSisters);
 						vm.aboutFamily(family.AboutFamily);
-					}					
+					}	
+					
 				}
 			};
 			
-			vm.updateMemberDetails = function(){
-				
+			vm.saveMemberDetails = function(formData){
+				vm.disableButton(true);
+				var path = "matrimonyMembers/updateMemberDetails/id/"+vm.user().id;
+				ajaxutil.put(path, formData, function(data){
+					if(data){
+						var originalData = vm.originalData();
+						originalData.member = data;
+						alert("Data updated successfully.");
+						vm.isEditMode(false);
+					}
+					vm.disableButton(false);
+				},function(error){
+					if(error && error.status === 204){
+						vm.message(error.responseText);
+						vm.hideMessage();							
+					}else{
+						alert("Error found in updating data, please try after some time.");
+						console.log(error);
+					}
+					vm.disableButton(false);
+				});
 			};
 			
-			vm.uploadPhoto = new UploadPhoto();
+			vm.updateBasicDetails = function(){
+				if(vm.validateBasicDetails()){
+					var formData = {
+						registerBy 	: vm.registeredBy(),
+						memberName 	: vm.memberName(),
+						sex 		: vm.sex(),
+						maritalStatus:vm.maritalStatus(),
+						motherTongue: vm.motherTongue(),
+						height		: (vm.height()===undefined)?null:vm.height(),
+						weight		: (vm.weight()===undefined)?null:vm.weight(),
+						bodyType	: (vm.bodyType()===undefined)?null:vm.bodyType(),
+						complexion	: (vm.complexion()===undefined)?null:vm.complexion(),
+						physicalStatus: (vm.physicalStatus()===undefined)?null:vm.physicalStatus()
+					};		
+					vm.saveMemberDetails(formData);
+				}
+			};
+			
+			vm.updateHoroscopeDetails = function(){
+				if(vm.validateHoroscopeDetails()){
+					var dob = '';
+					if(vm.date() && vm.month() && vm.year()){
+						dob = vm.month() + '/'+vm.date()+'/'+vm.year();
+					}
+					var formData = {
+						sect 			: vm.sect(),
+						subSect 		: vm.subSect(),
+						caste 			: (vm.caste()===undefined)?null:vm.caste(), 
+						gotra			: (vm.gotra()===undefined)?null:vm.gotra(), 
+						dob				: dob,
+						birthHour		: (vm.birthHour()===undefined)?null:vm.birthHour(), 
+						birthMinute		: (vm.birthMinute()===undefined)?null:vm.birthMinute(), 
+						birthAmPm		: (vm.birthAmPm()===undefined)?null:vm.birthAmPm(), 
+						manglikStatus	: (vm.manglikStatus()===undefined)?null:vm.manglikStatus()
+					};					
+					vm.saveMemberDetails(formData);
+				}
+			};
+			
+			vm.updateProfessionalDetails = function(){
+				var formData = {
+					education		: vm.education(),
+					employedIn		: vm.employedIn(),
+					occupation		: vm.occupation(),
+					annualIncome	: vm.annualIncome()
+				};					
+				vm.saveMemberDetails(formData);
+			};
+			
+			vm.updatePartnerPreferences = function(){
+				var formData = {
+					marryInSameSect	: vm.marryInSameSect(),
+					aboutMyPartner	: vm.aboutMyPartner()
+				};					
+				vm.saveMemberDetails(formData);
+			};
+			
+			vm.updateContactDetails = function(){
+				if(vm.validateContactDetails()){
+					var formData = {
+						homeAddress		: vm.homeAddress(),
+						workingAddress	: vm.workingAddress(),
+						country		: vm.country(),
+						state		: vm.state(),
+						city		: vm.city(),
+						emailId		: vm.emailId(),
+						contactNumber: vm.contactNumber()
+					};					
+					vm.saveMemberDetails(formData);
+				}
+			};
+			
+			vm.updateFamilyDetails = function(){
+				var formData = {
+					fatherName		: vm.fatherName(),
+					fatherOccupation: vm.fatherOccupation(),
+					motherName		: vm.motherName(),
+					motherOccupation: vm.motherOccupation(),
+					unmarriedBrothers: vm.unmarriedBrothers(),
+					marriedBrothers	: vm.marriedBrothers(),
+					unmarriedSisters: vm.unmarriedSisters(),
+					marriedSisters	: vm.marriedSisters(),
+					aboutFamily		: vm.aboutFamily()
+				};				
+				
+				vm.disableButton(true);
+				var path = "matrimonyFamilyDetails/updateFamilyDetails/id/"+vm.user().id;
+				ajaxutil.put(path, formData, function(data){
+					if(data){
+						var originalData = vm.originalData();
+						originalData.family = data;
+						alert("Data updated successfully.");
+						vm.isEditMode(false);
+					}
+					vm.disableButton(false);
+				},function(error){
+					if(error && error.status === 204){
+						vm.message(error.responseText);
+						vm.hideMessage();							
+					}else{
+						alert("Error found in updating data, please try after some time.");
+						console.log(error);
+					}
+					vm.disableButton(false);
+				});
+			};
+			
+			vm.validateBasicDetails = function(){
+				if(!vm.registeredBy.isValid() || !vm.memberName.isValid() || !vm.sex.isValid() || !vm.maritalStatus.isValid() || !vm.motherTongue.isValid()){
+					vm.errors.showAllMessages();
+					$(window).scrollTop(0);
+					return false;
+				}else{
+					return true;
+				}
+			};
+			vm.validateHoroscopeDetails = function(){
+				if(!vm.sect.isValid() || !vm.subSect.isValid() || !((vm.date() && vm.month() && vm.year()) || (!vm.date() && !vm.month() && !vm.year()))){
+					vm.errors.showAllMessages();
+					$(window).scrollTop(0);
+					return false;
+				}else{
+					return true;
+				}
+			};
+			vm.validateContactDetails = function(){
+				if(!vm.country.isValid() || !vm.state.isValid() || !vm.city.isValid() || !vm.emailId.isValid() || !vm.contactNumber.isValid()){
+					vm.errors.showAllMessages();
+					$(window).scrollTop(0);
+					return false;
+				}else{
+					return true;
+				}
+			};
+			
+			
+			vm.hideMessage = function(){
+				setTimeout(function(){
+					vm.message(undefined);
+				}, 3000);				
+			};
+			
+			// Checks whether the form is valid or not
+			vm.isFormValid = function(){
+				if(vm.errors().length > 0){
+					// Show errors
+					vm.errors.showAllMessages();
+					return false;
+				}
+				return true;
+			};
+			vm.errors = ko.validation.group(vm);
+			
+			vm.uploadPhoto = new UploadPhoto(vm);
+			vm.changePassword = new ChangePassword();
 		};
 	};
 });

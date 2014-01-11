@@ -1,0 +1,151 @@
+<div>
+  <h1>Location/Contact Details
+  	<!-- ko ifnot: isEditMode() -->
+  	<small><button class="btn btn-primary btn-sm" data-bind="click: function(){isEditMode(true);}">Edit</button></small>
+  	<!-- /ko -->
+  	<!-- ko if: isEditMode() -->
+  	<small><button class="btn btn-primary btn-sm" data-bind="click: function(){isEditMode(false);}">Cancel Edit</button></small>
+  	<!-- /ko -->
+  </h1>
+  
+  <div class="col-xs-12 col-sm-12 tab-content">
+    <div id="register-member">      
+      <div class="padt20 form-horizontal">
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Home Address</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+              <span data-bind="text: homeAddress"></span>
+              <!-- /ko -->
+              <!-- ko if: isEditMode() -->	
+              <textarea class="form-control" placeholder="home address" data-bind="value: homeAddress" ></textarea>
+              <!-- /ko -->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Working Address</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+              <span data-bind="text: workingAddress"></span>
+              <!-- /ko -->
+              <!-- ko if: isEditMode() -->
+              <textarea class="form-control" placeholder="working address" data-bind="value: workingAddress" ></textarea>
+              <!-- /ko -->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Country living in<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+	          <span data-bind="text: countryName"></span>
+	          <!-- /ko -->
+	          <!-- ko if: isEditMode() -->
+              <select class="form-control def-element-width" data-bind="options: $root.facetVM.countryList, optionsText: 'CountryName', optionsValue: 'pkCountryId', value: country, disable: true"></select>
+              <!-- /ko -->	
+            </div>
+          </div>
+        </div>
+         <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">State<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+	          <span data-bind="text: stateName"></span>
+	          <!-- /ko -->
+	          <!-- ko if: isEditMode() -->
+              <select class="form-control def-element-width" data-bind="options: $root.facetVM.stateList, optionsText: 'StateName', optionsValue: 'pkStateId', optionsCaption: '--Select--', value: state"></select>
+              <!-- /ko -->
+            </div>
+          </div>
+        </div>
+         <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">City<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+	          <span data-bind="text: city"></span>
+	          <!-- /ko -->
+	          <!-- ko if: isEditMode() -->
+              <input type="text" class="form-control def-element-width" placeholder="City" data-bind="value: city, valueUpdate: 'afterkeydown'" />
+              <!-- /ko -->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Email<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+	          <span data-bind="text: emailId"></span>
+	          <!-- /ko -->
+	          <!-- ko if: isEditMode() -->
+              <input type="email" class="form-control def-element-width" placeholder="(ex: xyz@abc.com)" data-bind="value: emailId, valueUpdate: 'afterkeydown'" />
+              <!-- /ko -->	
+            </div>
+          </div>
+        </div>        
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Contact Number<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+	          <span data-bind="text: contactNumber"></span>
+	          <!-- /ko -->
+	          <!-- ko if: isEditMode() -->
+              <input type="text" class="form-control def-element-width" placeholder="Contact Number" data-bind="value: contactNumber, valueUpdate: 'afterkeydown'" />
+              <span class="text-muted">(ex: 1234567890, 9876543210)</span>
+              <!-- /ko -->	
+            </div>
+          </div>
+        </div>
+        <!-- ko if: isEditMode() -->
+        <div class="row">
+          <div class="dot-line padt10"></div>          
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2"></div>
+            <div class="col-xs-12 col-sm-10">
+            	<div id="captchadiv"></div>
+              	<button class="btn btn-success" data-bind="click: updateContactDetails">Save</button>
+              	<button class="btn btn-primary" data-bind="click: function(){isEditMode(false);}">Cancel</button>
+            </div>
+          </div>
+        </div>
+        <div class="padb35"></div>
+        
+        <div data-bind="if: message">
+	        <div class="alert alert-danger alert-dismissable">
+			  	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  	<span data-bind="text: message"></span>
+			</div>
+		</div>
+        <!-- /ko -->
+      </div>
+    </div>
+  </div>
+</div>

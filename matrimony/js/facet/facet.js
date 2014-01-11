@@ -170,22 +170,15 @@ define(function (require) {
 						if(data.courseGroupList){
 							vm.courseGroupList(data.courseGroupList);
 							if(data.courseList){
-								var educationGroups = ko.utils.arrayMap(data.courseGroupList, function(item){
-									return new self.Group(item);
-								});								
-								if(educationGroups && educationGroups.length > 0){
-									ko.utils.arrayForEach(educationGroups, function(group){
-										var groupId = group.entity.pkCourseGroupId;
-										var courses = [];
-										ko.utils.arrayForEach(data.courseList, function(item){
-											if(item.fkCourseGroupId == groupId){
-												courses.push(item);
-											}
-										});
-										group.children(courses);
+								ko.utils.arrayForEach(data.courseList, function(item){
+									var group = ko.utils.arrayFirst(data.courseGroupList, function(grp){
+										return (grp.pkCourseGroupId == item.fkCourseGroupId);
 									});
-								}
-								vm.educationList(educationGroups);
+									if(group){
+										item.group = group.GroupName;
+									}
+								});
+								vm.educationList(data.courseList);
 							}
 						}
 						if(data.countryList){
@@ -197,22 +190,15 @@ define(function (require) {
 						if(data.occupationGroupList){
 							vm.occupationGroupList(data.occupationGroupList);
 							if(data.occupationList){
-								var occupationGroups = ko.utils.arrayMap(data.occupationGroupList, function(item){
-									return new self.Group(item);
-								});								
-								if(occupationGroups && occupationGroups.length > 0){
-									ko.utils.arrayForEach(occupationGroups, function(group){
-										var groupId = group.entity.pkOccGroupId;
-										var occupations = [];
-										ko.utils.arrayForEach(data.occupationList, function(item){
-											if(item.fkOccGroupId == groupId){
-												occupations.push(item);
-											}
-										});
-										group.children(occupations);
+								ko.utils.arrayForEach(data.occupationList, function(item){
+									var group = ko.utils.arrayFirst(data.occupationGroupList, function(grp){
+										return (grp.pkOccGroupId == item.fkOccGroupId);
 									});
-								}
-								vm.occupationList(occupationGroups);
+									if(group){
+										item.group = group.GroupName;
+									}
+								});
+								vm.occupationList(data.occupationList);
 							}
 						}
 					}					
@@ -237,7 +223,7 @@ define(function (require) {
 				vm.annualIncomeList = dataArray;
 			};
 			// fill sub sect after sect change
-			vm.afterSectChange = function(selectedSect){
+			vm.afterSectChange = function(selectedSect, callback){
 				vm.subSectList.removeAll();
 				if(selectedSect){
 					ko.utils.arrayForEach(selectedSect, function(sect){
@@ -245,6 +231,9 @@ define(function (require) {
 							ajaxutil.find("matrimonySubSect/getSubSects", {'sectId': sect}, function(data){
 								if(data && data instanceof Array){
 									vm.subSectList.push.apply(vm.subSectList, data);
+									if(callback && typeof callback == 'function'){
+										callback();
+									}
 								}
 							},function(error){
 								console.log(error);

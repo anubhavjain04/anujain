@@ -210,7 +210,7 @@ class RegisterController extends Controller
 			$model->HomeAddress = (isset($memberProfile['homeAddress']) && $memberProfile['homeAddress'])?$memberProfile['homeAddress']: null;
 			$model->WorkingAddress = (isset($memberProfile['workingAddress']) && $memberProfile['workingAddress'])?$memberProfile['workingAddress']: null;
 			$model->IncomeAnnual = (isset($memberProfile['annualIncome']) && $memberProfile['annualIncome'])?$memberProfile['annualIncome']: null;
-			$model->MarryInSameSubSect = (isset($memberProfile['marryInSameSect']) && $memberProfile['marryInSameSect'])?$memberProfile['marryInSameSect']: null;
+			$model->MarryInSameSubSect = (isset($memberProfile['marryInSameSect']) && $memberProfile['marryInSameSect'])?$memberProfile['marryInSameSect']: 2;
 			$model->AboutMyPartner = (isset($memberProfile['aboutMyPartner']) && $memberProfile['aboutMyPartner'])?$memberProfile['aboutMyPartner']: null;
 			$model->fkCaste = (isset($memberProfile['caste']) && $memberProfile['caste'])?$memberProfile['caste']: null;
 			$model->Gotra = (isset($memberProfile['gotra']) && $memberProfile['gotra'])?$memberProfile['gotra']: null;

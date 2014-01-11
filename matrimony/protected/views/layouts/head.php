@@ -1,6 +1,6 @@
 <!-- javascript -->
 <?php
-$version = 4;
+$version = 6;
 Yii::app()->clientScript->registerScript('search', "
 	var sitePath = '".Yii::app()->homeUrl."/';
 	var siteBaseUrl = '".Yii::app()->request->baseUrl."';
@@ -10,9 +10,9 @@ Yii::app()->clientScript->registerScript('search', "
 ",CClientScript::POS_HEAD);
 ?>
 <!-- bhartiya jain milan matrimony CSS framework -->
-<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/js/lib/css/bootstrap.min.css?v='.$version; ?>" />
-<?php /*   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/js/lib/css/offcanvas.css?v='.$version; ?>" /> */?>
-<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/js/lib/css/bootstrap-datetimepicker.min.css?v='.$version; ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/js/lib/css/bootstrap.min.css' ?>" />
+<?php /*   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/js/lib/css/offcanvas.css?v='.$version; ?>" /> 
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/js/lib/css/bootstrap-datetimepicker.min.css?v='.$version; ?>" /> */?>
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/js/lib/css/bootstrap-theme-modified.css?v='.$version; ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/css/style.css?v='.$version; ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl.'/css/pager.css?v='.$version; ?>" />

@@ -1,0 +1,119 @@
+<div>
+  <h1>Professional Details 
+  	<!-- ko ifnot: isEditMode() -->
+  	<small><button class="btn btn-primary btn-sm" data-bind="click: function(){isEditMode(true);}">Edit</button></small>
+  	<!-- /ko -->
+  	<!-- ko if: isEditMode() -->
+  	<small><button class="btn btn-primary btn-sm" data-bind="click: function(){isEditMode(false);}">Cancel Edit</button></small>
+  	<!-- /ko -->
+  </h1>
+  
+  <div class="col-xs-12 col-sm-12 tab-content">
+    <div id="register-member">      
+      <div class="padt20 form-horizontal">
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Education</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+              <span data-bind="text: educationName"></span>
+              <!-- /ko -->
+              <div data-bind="visible: isEditMode()">              
+              	<select class="form-control def-element-width" data-bind="groupedOptions: $root.facetVM.educationList, optionsText: 'CourseName', optionsValue: 'pkCourseId', optionsGroup: 'group', optionsCaption: '--select--', value: education"></select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Employed In</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+              <span data-bind="text: $root.facetVM.getObjectText($root.facetVM.employedInList, employedIn)"></span>
+              <!-- /ko -->
+              <div data-bind="visible: isEditMode()">
+              <label for="emp_Government" class="radio-inline">
+		          <input type="radio" id="emp_Government" name="employedIn" data-bind="value: 1, checked: employedIn" />
+		          Government </label>
+		      <label for="emp_Defence" class="radio-inline">
+		          <input type="radio" id="emp_Defence" name="employedIn" data-bind="value: 2, checked: employedIn" />
+		          Defence </label>
+		      <label for="emp_Private" class="radio-inline">
+		          <input type="radio" id="emp_Private" name="employedIn" data-bind="value: 3, checked: employedIn" />
+		          Private </label>
+		      <label for="emp_Business" class="radio-inline">
+		          <input type="radio" id="emp_Business" name="employedIn" data-bind="value: 4, checked: employedIn" />
+		          Business </label>
+		      <label for="emp_Employed" class="radio-inline">
+		          <input type="radio" id="emp_Employed" name="employedIn" data-bind="value: 5, checked: employedIn" />
+		          Self Employed </label>
+		      <label for="emp_Working" class="radio-inline">
+		          <input type="radio" id="emp_Working" name="employedIn" data-bind="value: 6, checked: employedIn" />
+		          Not Working </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Occupation</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+              <span data-bind="text: occupationName"></span>
+              <!-- /ko -->
+              <div data-bind="visible: isEditMode()">
+              	<select class="form-control def-element-width" data-bind="groupedOptions: $root.facetVM.occupationList, optionsText: 'OccupationName', optionsValue: 'pkOccupationId', optionsGroup: 'group', optionsCaption: '--select--', value: occupation"></select>
+              </div>      
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Annual Income</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+              <span data-bind="text: annualIncome"></span>
+              <!-- /ko -->
+              <!-- ko if: isEditMode() -->
+              <input type="text" class="form-control def-element-width" placeholder="annual Income" data-bind="value: annualIncome" />	
+              <!-- /ko -->   
+            </div>
+          </div>
+        </div>
+        <!-- ko if: isEditMode() -->
+        <div class="row">
+          <div class="dot-line padt10"></div>          
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2"></div>
+            <div class="col-xs-12 col-sm-10">
+            	<div id="captchadiv"></div>
+              	<button class="btn btn-success" data-bind="click: updateProfessionalDetails">Save</button>
+              	<button class="btn btn-primary" data-bind="click: function(){isEditMode(false);}">Cancel</button>
+            </div>
+          </div>
+        </div>
+        <div class="padb35"></div>
+        
+        <div data-bind="if: message">
+	        <div class="alert alert-danger alert-dismissable">
+			  	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  	<span data-bind="text: message"></span>
+			</div>
+		</div>
+        <!-- /ko -->
+      </div>
+    </div>
+  </div>
+</div>

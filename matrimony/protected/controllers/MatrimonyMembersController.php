@@ -31,7 +31,7 @@ class MatrimonyMembersController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'uploadImg','changeUploadedImage'),
+				'actions'=>array('uploadImg','changeUploadedImage', 'updateMemberDetails'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -54,7 +54,9 @@ class MatrimonyMembersController extends Controller
 			if($model){
 				$familyModel=MatrimonyFamilyDetails::model()->find('MemberCode=:MemberCode', array(':MemberCode'=>$model->MemberCode));
 				$plainModel = CJSON::decode(CJSON::encode($model));
-				$plainModel['age'] = date('Y',time()) - date('Y',strtotime($model['DOB']));
+				$ageDiff = abs(time() - strtotime($model['DOB']));
+				$years = floor($ageDiff / (365*60*60*24));
+				$plainModel['age'] = $years;
 				$plainModel['sectName'] = $model->fkSect0->SectName;
 				$plainModel['subSectName'] = $model->fkSubSect0->SubSectName;
 				$plainModel['country'] = $model->fkCountryLivingIn0->CountryName;
@@ -264,6 +266,92 @@ class MatrimonyMembersController extends Controller
 		$this->render('update',array(
 			'model'=>$model,
 		));
+	}
+	
+	public function actionUpdateMemberDetails($id){
+		$currentTime = date('Y-m-d H:i',time());						
+		$model=MatrimonyMembers::model()->find('fkLoginId=:fkLoginId',array('fkLoginId'=>$id));
+		if($model===null){
+			throw new CHttpException(204,'The requested member does not exist.');
+			return;
+		}
+		if($_POST){
+			$data = $_POST;
+						
+			$model->MemberName = (isset($data['memberName']) && $data['memberName'])?$data['memberName']: $model->MemberName;
+			$model->RegisteredBy = (isset($data['registerBy']) && $data['registerBy'])?$data['registerBy']: $model->RegisteredBy;
+			$model->Sex = (isset($data['sex']))?$data['sex']: $model->Sex;
+			// DOB with time update
+			$memberDOB = date('m/d/Y',strtotime($model->DOB));
+			$memberTOB = date('h:i a',strtotime($model->DOB));
+			$memberDOB = (isset($data['dob']) && $data['dob'])?date('m/d/Y',strtotime($data['dob'])): $memberDOB;
+			if(isset($memberProfile['birthHour']) && isset($memberProfile['birthMinute']) && isset($memberProfile['birthAmPm'])){
+				$memberTOB = $memberProfile['birthHour'].':'.$memberProfile['birthMinute'].' '.$memberProfile['birthAmPm'];
+			} 
+			$model->DOB = date('Y-m-d H:i',strtotime($memberDOB.' '.$memberTOB));
+			
+			$model->MaritalStatus = (isset($data['maritalStatus']) && $data['maritalStatus'])?$data['maritalStatus']: $model->MaritalStatus;
+			$model->Childrens = isset($data['childrens'])?$data['childrens']: $model->Childrens;
+			$model->fkSect = (isset($data['sect']) && $data['sect'])?$data['sect']: $model->fkSect;
+			$model->fkSubSect = (isset($data['subSect']) && $data['subSect'])?$data['subSect']: $model->fkSubSect;
+			$model->fkCaste = isset($data['caste'])? (($data['caste'])?$data['caste']:null) : $model->fkCaste;
+			$model->OtherCaste = isset($data['otherCaste'])? (($data['otherCaste'])?$data['otherCaste']:null) : $model->OtherCaste;
+			$model->fkMotherTongue = (isset($data['motherTongue']) && $data['motherTongue'])?$data['motherTongue']: $model->fkMotherTongue;
+			$model->ContactNo = (isset($data['contactNumber']) && $data['contactNumber'])?$data['contactNumber']: $model->ContactNo;
+			$model->fkCountryLivingIn = (isset($data['country']) && $data['country'])?$data['country']: $model->fkCountryLivingIn;
+			$model->fkResidingState = (isset($data['state']) && $data['state'])?$data['state']: $model->fkResidingState;
+			$model->ResidingCity = (isset($data['city']) && $data['city'])?$data['city']: $model->ResidingCity;
+			
+			$model->Height = isset($data['height'])? (($data['height'])?$data['height']:null) : $model->Height;
+			$model->Weight = isset($data['weight'])? (($data['weight'])?$data['weight']:null) : $model->Weight;
+			$model->BodyType = isset($data['bodyType'])? (($data['bodyType'])?$data['bodyType']:null) : $model->BodyType;
+			$model->Complexion = isset($data['complexion'])? (($data['complexion'])?$data['complexion']:null) : $model->Complexion;
+			$model->PhysicalStatus = isset($data['physicalStatus'])?$data['physicalStatus']: $model->PhysicalStatus;
+			$model->MarryInSameSubSect = isset($data['marryInSameSect'])?$data['marryInSameSect']: $model->MarryInSameSubSect;
+			$model->fkEducation = isset($data['education'])? (($data['education'])?$data['education']:null) : $model->fkEducation;
+			$model->EmployedIn = isset($data['employedIn'])? $data['employedIn']: $model->EmployedIn;
+			$model->Occupation = isset($data['occupation'])? (($data['occupation'])?$data['occupation']:null) : $model->Occupation;
+			$model->Gotra = isset($data['gotra'])? (($data['gotra'])?$data['gotra']:null) : $model->Gotra;
+			$model->Manglik = isset($data['manglikStatus'])?$data['manglikStatus']: $model->Manglik;
+			
+			$model->AboutMe = isset($data['aboutMe'])?$data['aboutMe']: $model->AboutMe;
+			$model->HomeAddress = isset($data['homeAddress'])?$data['homeAddress']: $model->HomeAddress;
+			$model->WorkingAddress = isset($data['workingAddress'])?$data['workingAddress']: $model->WorkingAddress;
+			$model->IncomeAnnual = isset($data['annualIncome'])? (($data['annualIncome'])?$data['annualIncome']:null) : $model->IncomeAnnual;
+			$model->AboutMyPartner = isset($data['aboutMyPartner'])?$data['aboutMyPartner']: $model->AboutMyPartner;
+			$model->Email = isset($data['emailId'])?$data['emailId']: $model->Email;
+			
+			$model->ModifiedDate = $currentTime;
+					
+			// validate and save data
+			if($model->validate()){				
+				$model->save();	
+
+				$plainModel = CJSON::decode(CJSON::encode($model));
+				$ageDiff = abs(time() - strtotime($model['DOB']));
+				$years = floor($ageDiff / (365*60*60*24));
+				$plainModel['age'] = $years;
+				$plainModel['sectName'] = $model->fkSect0->SectName;
+				$plainModel['subSectName'] = $model->fkSubSect0->SubSectName;
+				$plainModel['country'] = $model->fkCountryLivingIn0->CountryName;
+				$plainModel['state'] = $model->fkResidingState0->StateName;				
+				$plainModel['education'] = ($model->fkEducation0)? $model->fkEducation0->CourseName : '';
+				$plainModel['occupation'] = ($model->occupation)? $model->occupation->OccupationName : '';
+				$plainModel['motherTongue'] = $model->fkMotherTongue0->TongueName;
+				if($model->fkCaste0){
+					$plainModel['caste'] = $model->fkCaste0->CasteName;
+				}else{
+					$plainModel['caste'] = null;
+				}
+				
+				$this->echoObjectAsJSON($plainModel);
+			}
+			else{
+				throw new CHttpException(500,'Invalid data.');	
+			}			
+		}else{
+			throw new CHttpException(400,'Invalid request.');
+		}
 	}
 
 	/**

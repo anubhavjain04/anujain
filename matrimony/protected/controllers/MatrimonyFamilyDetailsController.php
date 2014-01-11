@@ -31,7 +31,7 @@ class MatrimonyFamilyDetailsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','updateFamilyDetails'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -101,6 +101,48 @@ class MatrimonyFamilyDetailsController extends Controller
 			'model'=>$model,
 		));
 	}
+	
+	public function actionUpdateFamilyDetails($id){
+		$model=MatrimonyMembers::model()->find('fkLoginId=:fkLoginId',array('fkLoginId'=>$id));
+		if($model===null){
+			throw new CHttpException(204,'The requested member does not exist.');
+			return;
+		}
+		if($model){
+			$currentTime = date('Y-m-d H:i',time());
+			$familyModel=MatrimonyFamilyDetails::model()->find('MemberCode=:MemberCode', array(':MemberCode'=>$model->MemberCode));
+			if($familyModel===null){
+				$familyModel = new MatrimonyFamilyDetails;
+				$familyModel->MemberCode = $model->MemberCode;
+				$familyModel->CreatedDate = $currentTime;
+			}
+			if($_POST){
+				
+				$data = $_POST;
+				$familyModel->FatherName = isset($data['fatherName'])? (($data['fatherName'])?$data['fatherName']:null) : $model->FatherName;
+				$familyModel->MotherName = isset($data['motherName'])? (($data['motherName'])?$data['motherName']:null) : $model->MotherName;
+				$familyModel->FatherOccupation = isset($data['fatherOccupation'])? (($data['fatherOccupation'])?$data['fatherOccupation']:null) : $model->FatherOccupation;
+				$familyModel->MotherOccupation = isset($data['motherOccupation'])? (($data['motherOccupation'])?$data['motherOccupation']:null) : $model->MotherOccupation;
+				$familyModel->UnmarriedBrothers = isset($data['unmarriedBrothers'])? (($data['unmarriedBrothers'])?$data['unmarriedBrothers']:null) : $model->UnmarriedBrothers;
+				$familyModel->MarriedBrothers = isset($data['marriedBrothers'])? (($data['marriedBrothers'])?$data['marriedBrothers']:null) : $model->MarriedBrothers;
+				$familyModel->UnmarriedSisters = isset($data['unmarriedSisters'])? (($data['unmarriedSisters'])?$data['unmarriedSisters']:null) : $model->UnmarriedSisters;
+				$familyModel->MarriedSisters = isset($data['marriedSisters'])? (($data['marriedSisters'])?$data['marriedSisters']:null) : $model->MarriedSisters;
+				$familyModel->AboutFamily = isset($data['aboutFamily'])? (($data['aboutFamily'])?$data['aboutFamily']:null) : $model->AboutFamily;
+				$familyModel->ModifiedDate = $currentTime;
+				
+				// validate and save data
+				if($familyModel->validate()){				
+					$familyModel->save();	
+					$this->echoObjectAsJSON($familyModel);
+				}
+				else{
+					throw new CHttpException(500,'Invalid data.');	
+				}	
+			}else{
+				throw new CHttpException(400,'Invalid request.');
+			}			
+		}
+	} 
 
 	/**
 	 * Deletes a particular model.

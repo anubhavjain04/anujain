@@ -1,0 +1,182 @@
+<div>
+  <h1>Family Details
+  	<!-- ko ifnot: isEditMode() -->
+  	<small><button class="btn btn-primary btn-sm" data-bind="click: function(){isEditMode(true);}">Edit</button></small>
+  	<!-- /ko -->
+  	<!-- ko if: isEditMode() -->
+  	<small><button class="btn btn-primary btn-sm" data-bind="click: function(){isEditMode(false);}">Cancel Edit</button></small>
+  	<!-- /ko -->
+  </h1>
+  
+  <div class="col-xs-12 col-sm-12 tab-content">
+    <div id="register-member">      
+      <div class="padt20 form-horizontal">
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Father Name</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+              <span data-bind="text: fatherName"></span>
+              <!-- /ko -->
+              <!-- ko if: isEditMode() -->	
+              <input type="text" class="form-control def-element-width" placeholder="father name" data-bind="value: fatherName" />
+              <!-- /ko -->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Father's Occupation</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+              <span data-bind="text: fatherOccupation"></span>
+              <!-- /ko -->
+              <!-- ko if: isEditMode() -->
+              <input type="text" class="form-control def-element-width" placeholder="father's occupation" data-bind="value: fatherOccupation" />
+              <!-- /ko -->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Mother Name</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+	          <span data-bind="text: motherName"></span>
+	          <!-- /ko -->
+	          <!-- ko if: isEditMode() -->
+              <input type="text" class="form-control def-element-width" placeholder="mother name" data-bind="value: motherName" />
+              <!-- /ko -->	
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Mother's Occupation</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+	          <span data-bind="text: motherOccupation"></span>
+	          <!-- /ko -->
+	          <!-- ko if: isEditMode() -->
+              <input type="text" class="form-control def-element-width" placeholder="mother's occupation" data-bind="value: motherOccupation" />
+              <!-- /ko -->	
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Unmarried Brothers</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+	          <span data-bind="text: unmarriedBrothers"></span>
+	          <!-- /ko -->
+	          <!-- ko if: isEditMode() -->
+              <select class="form-control def-element-width" data-bind="options: $root.facetVM.getNumberList(1, 6), optionsText: 'text', optionsValue: 'key', optionsCaption: 'None', value: unmarriedBrothers"></select>
+              <!-- /ko -->	
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Married Brothers</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+	          <span data-bind="text: marriedBrothers"></span>
+	          <!-- /ko -->
+	          <!-- ko if: isEditMode() -->
+              <select class="form-control def-element-width" data-bind="options: $root.facetVM.getNumberList(1, 6), optionsText: 'text', optionsValue: 'key', optionsCaption: 'None', value: marriedBrothers"></select>
+              <!-- /ko -->	
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Unmarried Sisters</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+	          <span data-bind="text: unmarriedSisters"></span>
+	          <!-- /ko -->
+	          <!-- ko if: isEditMode() -->
+              <select class="form-control def-element-width" data-bind="options: $root.facetVM.getNumberList(1, 6), optionsText: 'text', optionsValue: 'key', optionsCaption: 'None', value: unmarriedSisters"></select>
+              <!-- /ko -->	
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Married Sisters</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+	          <span data-bind="text: marriedSisters"></span>
+	          <!-- /ko -->
+	          <!-- ko if: isEditMode() -->
+              <select class="form-control def-element-width" data-bind="options: $root.facetVM.getNumberList(1, 6), optionsText: 'text', optionsValue: 'key', optionsCaption: 'None', value: marriedSisters"></select>
+              <!-- /ko -->	
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">About Family</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+	          <span data-bind="text: aboutFamily"></span>
+	          <!-- /ko -->
+	          <!-- ko if: isEditMode() -->
+              <textarea class="form-control" placeholder="about family" data-bind="value: aboutFamily" ></textarea>
+              <!-- /ko -->	
+            </div>
+          </div>
+        </div>
+        <!-- ko if: isEditMode() -->
+        <div class="row">
+          <div class="dot-line padt10"></div>          
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2"></div>
+            <div class="col-xs-12 col-sm-10">
+            	<div id="captchadiv"></div>
+              	<button class="btn btn-success" data-bind="click: updateFamilyDetails">Save</button>
+              	<button class="btn btn-primary" data-bind="click: function(){isEditMode(false);}">Cancel</button>
+            </div>
+          </div>
+        </div>
+        <div class="padb35"></div>
+        
+        <div data-bind="if: message">
+	        <div class="alert alert-danger alert-dismissable">
+			  	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  	<span data-bind="text: message"></span>
+			</div>
+		</div>
+        <!-- /ko -->
+      </div>
+    </div>
+  </div>
+</div>

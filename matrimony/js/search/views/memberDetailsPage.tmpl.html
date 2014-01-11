@@ -79,7 +79,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 row">
               <div class="col-xs-6 col-sm-6"><label>Weight</label></div>
-              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: Weight+' kg'"></span> </div>
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: (Weight)? Weight +' kg': ''"></span> </div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6">
@@ -193,6 +193,10 @@
             <div class="col-xs-12 col-sm-12 row">
               <div class="col-xs-6 col-sm-6"><label>Manglik Status</label></div>
               <div class="col-xs-6 col-sm-6"> : <span data-bind="text: $root.facetVM.getObjectText($root.facetVM.manglikList, Manglik)"></span> </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 row">
+              <div class="col-xs-6 col-sm-6"><label>Birth Date</label></div>
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: (new Date(DOB)).getDate() + ' ' + $root.facetVM.getObjectText($root.facetVM.monthList,((new Date(DOB)).getMonth()+1)) + ' ' + (new Date(DOB)).getFullYear()"></span> </div>
             </div>
             <div class="col-xs-12 col-sm-12 row">
               <div class="col-xs-6 col-sm-6"><label>Birth Time</label></div>

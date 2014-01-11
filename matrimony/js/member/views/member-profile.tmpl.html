@@ -1,5 +1,15 @@
 <div class="padt30" data-bind="with: memberVM">
-    <div class="col-xs-6 col-sm-3">      
+    <div class="col-xs-6 col-sm-3">
+        <div class="panel panel-default">
+		  	
+		    <div class="panel-body">  
+		       <center><div class="bdr1 pad-reset text-center" data-bind="css: {'women': sex()=='0', 'men': sex()=='1'}"> 
+	            	<!-- ko if: memberPhoto() --> 
+	            	<img data-bind="attr:{'src': siteBaseUrl+'/resources/membersphoto/'+memberPhoto(), 'title': memberName()}" /> 
+	            	<!-- /ko --> 
+	          	</div></center> 		        
+        	</div>
+		</div>      
       	<div class="panel panel-default">
 		  	<div class="panel-heading">
 		      <h3 class="panel-title">Member Profile</h3>
@@ -10,24 +20,47 @@
 		        </div>
 		        <div>
 		        	<ul class="nav nav-pills nav-stacked">
-		        		<li data-bind="css: {'active': showProfileType()=='basic-details'}"><a href="#!member/member-profile/basic-details">Basic Information</a></li>
-		        		<li data-bind="css: {'active': showProfileType()=='education-details'}"><a href="#!member/member-profile/education-details">Education &amp; Occupation</a></li>
-		        		<li data-bind="css: {'active': showProfileType()=='family-details'}"><a href="#!member/member-profile/family-details">Family &amp; Details</a></li>
-		        		<li data-bind="css: {'active': showProfileType()=='change-photo'}"><a href="#!member/member-profile/change-photo">Profile Photo</a></li>
-		        		<li data-bind="css: {'active': showProfileType()=='change-photo'}"><a href="#!member/member-profile/change-photo">Partner Preference</a></li>
-		        		
+		        		<li data-bind="css: {'active': showProfileType()=='basic-details'}"><a href="#!member/member-profile/basic-details">Basic Details</a></li>
+		        		<li data-bind="css: {'active': showProfileType()=='horoscope'}"><a href="#!member/member-profile/horoscope">Religious/Horoscope</a></li>
+		        		<li data-bind="css: {'active': showProfileType()=='professional-details'}"><a href="#!member/member-profile/professional-details">Professional &amp; Occupation</a></li>
+		        		<li data-bind="css: {'active': showProfileType()=='family-details'}"><a href="#!member/member-profile/family-details">Family Details</a></li>
+		        		<li data-bind="css: {'active': showProfileType()=='partner-preference'}"><a href="#!member/member-profile/partner-preference">Partner Preference</a></li>
+		        		<li data-bind="css: {'active': showProfileType()=='contact-details'}"><a href="#!member/member-profile/contact-details">Location/Contact Details</a></li>
+		        		<li data-bind="css: {'active': showProfileType()=='change-photo'}"><a href="#!member/member-profile/change-photo">Change Profile Photo</a></li>
+		        		<li data-bind="css: {'active': showProfileType()=='change-password'}"><a href="#!member/member-profile/change-password">Change Password</a></li>
+		        		<!-- <li data-bind="css: {'active': showProfileType()=='deactivate-profile'}"><a href="#!member/member-profile/deactivate-profile">Deactivate Profile</a></li> -->
 		        	</ul> 		          
 		        </div>
-		        
         	</div>
 		</div>      
     </div>
     <div class="col-xs-12 col-sm-9">      
     	<!-- ko if: showProfileType()=='basic-details' -->
     	<div data-bind="template: { name: 'member/views/basic-details'}"></div>
+    	<!-- /ko -->   
+    	<!-- ko if: showProfileType()=='horoscope' -->
+    	<div data-bind="template: { name: 'member/views/horoscope'}"></div>
+    	<!-- /ko -->	
+      	<!-- ko if: showProfileType()=='professional-details' -->
+    	<div data-bind="template: { name: 'member/views/professional-details'}"></div>
     	<!-- /ko -->
-      	<!-- ko if: showProfileType()=='change-photo' -->
+    	<!-- ko if: showProfileType()=='family-details' -->
+    	<div data-bind="template: { name: 'member/views/family-details'}"></div>
+    	<!-- /ko -->
+    	<!-- ko if: showProfileType()=='partner-preference' -->
+    	<div data-bind="template: { name: 'member/views/partner-preference'}"></div>
+    	<!-- /ko -->
+    	<!-- ko if: showProfileType()=='contact-details' -->
+    	<div data-bind="template: { name: 'member/views/contact-details'}"></div>
+    	<!-- /ko -->
+    	<!-- ko if: showProfileType()=='change-photo' -->
       	<div data-bind="template: { name: 'member/views/change-photo'}"></div>
       	<!-- /ko -->
+      	<!-- ko if: showProfileType()=='change-password' -->
+      	<div data-bind="template: { name: 'member/views/change-password'}"></div>
+      	<!-- /ko -->
+    	<!-- ko if: showProfileType()=='deactivate-profile' -->
+    	<!-- <div data-bind="template: { name: 'member/views/deactivate-profile'}"></div> -->
+    	<!-- /ko -->
     </div>
 </div>

@@ -2,8 +2,10 @@
 	<div data-bind="if: showPage() == 'my-matrimony'">		
 		<div data-bind="template: { name: 'member/views/my-matrimony'}"></div>
 	</div>
-	<div data-bind="if: showPage() == 'change-password'">		
-		<div data-bind="template: { name: 'member/views/change-password'}"></div>
+	<div data-bind="if: showPage() == 'change-password'">
+		<div data-bind="with: memberVM">		
+			<div data-bind="template: { name: 'member/views/change-password'}"></div>
+		</div>
 	</div>
 	<div data-bind="if: showPage() == 'member-profile'">
 		<div data-bind="template: { name: 'member/views/member-profile'}"></div>

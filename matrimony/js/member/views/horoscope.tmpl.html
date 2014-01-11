@@ -1,0 +1,163 @@
+<div>
+  <h1>Religious/Horoscope Details 
+  	<!-- ko ifnot: isEditMode() -->
+  	<small><button class="btn btn-primary btn-sm" data-bind="click: function(){isEditMode(true);}">Edit</button></small>
+  	<!-- /ko -->
+  	<!-- ko if: isEditMode() -->
+  	<small><button class="btn btn-primary btn-sm" data-bind="click: function(){isEditMode(false);}">Cancel Edit</button></small>
+  	<!-- /ko -->
+  </h1>
+  
+  <div class="col-xs-12 col-sm-12 tab-content">
+    <div id="register-member">      
+      <div class="padt20 form-horizontal">
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label>Sect<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+              <span data-bind="text: sectName"></span>
+              <!-- /ko -->
+              <div data-bind="visible: isEditMode()">
+              	<select class="form-control def-element-width" data-bind="options: $root.facetVM.sectList, optionsText: 'SectName', optionsValue: 'pkSectId', optionsCaption: '--Select--', value: sect, event: {change: function(){$root.facetVM.afterSectChange(sect())}}"></select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Sub Sect<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+              <span data-bind="text: subSectName"></span>
+              <!-- /ko -->
+              <div data-bind="visible: isEditMode()">	
+              	<select class="form-control def-element-width" data-bind="options: $root.facetVM.subSectList, optionsText: 'SubSectName', optionsValue: 'pkSubSectId', optionsCaption: '--Select--', value: subSect"></select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Caste</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+              <span data-bind="text: casteName"></span>
+              <!-- /ko -->
+              <!-- ko if: isEditMode() -->
+              <select class="form-control def-element-width" data-bind="options: $root.facetVM.casteList, optionsText: 'CasteName', optionsValue: 'pkCasteId', optionsCaption: '--select--', value: caste"></select>
+              <!-- /ko -->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Gotra</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+              <span data-bind="text: gotra"></span>
+              <!-- /ko -->
+              <!-- ko if: isEditMode() -->
+              <input type="text" class="form-control def-element-width" placeholder="gotra" data-bind="value: gotra" />	
+              <!-- /ko -->      
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Date of Birth<span class="requiredFields"> *</span></label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+            	<!-- ko ifnot: isEditMode() -->
+	            <span data-bind="text: date()+' '+$root.facetVM.getObjectText($root.facetVM.monthList,month)+' '+year()"></span>
+	            <!-- /ko -->
+	            <!-- ko if: isEditMode() -->
+            	<select class="form-control clearwidth pull-left" data-bind="options: $root.facetVM.dateList, optionsText: 'text', optionsValue: 'key', optionsCaption: '--Date--', value: date"></select>
+    			<select class="form-control clearwidth pull-left" data-bind="options: $root.facetVM.monthList, optionsText: 'text', optionsValue: 'key', optionsCaption: '--Month--', value: month"></select>
+    			<select class="form-control clearwidth pull-left" data-bind="options: $root.facetVM.yearList, optionsText: 'text', optionsValue: 'key', optionsCaption: '--Year--', value: year"></select>
+    			<!-- /ko -->
+            </div>
+          </div>
+        </div>          
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Time of Birth</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+	          <span data-bind="text: birthHour()+':'+birthMinute()+' '+birthAmPm()"></span>
+	          <!-- /ko -->
+	          <!-- ko if: isEditMode() -->
+              <select id="birthHour" class="form-control clearwidth pull-left" data-bind="options: $root.facetVM.hourList, optionsText: 'text', optionsValue: 'key', optionsCaption: '--hour--', value: birthHour"></select>
+	          <select class="form-control clearwidth pull-left" data-bind="options: $root.facetVM.minuteList, optionsText: 'text', optionsValue: 'key', optionsCaption: '--minute--', value: birthMinute"></select>
+	          <select class="form-control clearwidth pull-left" data-bind="options: $root.facetVM.ampmList, optionsCaption: '--am/pm--', value: birthAmPm"></select>
+              <!-- /ko -->	
+            </div>
+          </div>
+        </div>        
+        <div class="row">
+          <div class="dot-line padt10"></div>
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2">
+              <label data-bind="css: {'control-label':isEditMode()}">Manglik</label>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <!-- ko ifnot: isEditMode() -->
+	          <span data-bind="text: $root.facetVM.getObjectText($root.facetVM.manglikList, manglikStatus)"></span>
+	          <!-- /ko -->
+	          <!-- ko if: isEditMode() -->
+              <label for="m_None" class="radio-inline">
+		          <input type="radio" id="m_None" name="manglik" data-bind="value: 0, checked: manglikStatus" />
+		          None </label>
+		        &nbsp;
+		      <label for="m_AanshikManglik" class="radio-inline">
+		          <input type="radio" id="m_AanshikManglik" name="manglik" data-bind="value: 1, checked: manglikStatus" />
+		          Aanshik Manglik </label>
+		      <label for="m_Manglik" class="radio-inline">
+		          <input type="radio" id="m_Manglik" name="manglik" data-bind="value: 2, checked: manglikStatus" />
+		          Manglik </label>
+              <!-- /ko -->	
+            </div>
+          </div>
+        </div>
+        <!-- ko if: isEditMode() -->
+        <div class="row">
+          <div class="dot-line padt10"></div>          
+          <div class="padt20">
+            <div class="col-xs-12 col-sm-2"></div>
+            <div class="col-xs-12 col-sm-10">
+            	<div id="captchadiv"></div>
+              	<button class="btn btn-success" data-bind="click: updateHoroscopeDetails">Save</button>
+              	<button class="btn btn-primary" data-bind="click: function(){isEditMode(false);}">Cancel</button>
+            </div>
+          </div>
+        </div>
+        <div class="padb35"></div>
+        
+        <div data-bind="if: message">
+	        <div class="alert alert-danger alert-dismissable">
+			  	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  	<span data-bind="text: message"></span>
+			</div>
+		</div>
+        <!-- /ko -->
+      </div>
+    </div>
+  </div>
+</div>

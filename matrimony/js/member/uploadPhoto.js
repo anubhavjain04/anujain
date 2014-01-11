@@ -6,8 +6,9 @@ define(function (require) {
 	var JqueryCrop 		 = require('Jcrop/jquery.Jcrop');
 	var JqueryColor		 = require('Jcrop/jquery.color');
 
-	return function(){ 
+	return function(member){ 
 		var self = this;
+		self.member = member;
 		self.user = ko.observable().subscribeTo("loggedInUser", true);
 		
 		self.previewWidth = ko.observable(100);
@@ -71,7 +72,6 @@ define(function (require) {
 		};
 		self.uploadImage = function(){
 			if(self.user()){
-				//console.log("upload img")
 				var formData = {
 					cropID 	: self.cropID,
 					cropX 	: self.cropDimension.x,
@@ -83,7 +83,11 @@ define(function (require) {
 				ajaxutil.put(url, formData, function(data){
 					if(data){
 						if(data.status == 'success'){
-							jHash.set(Label.HOME_PAGE, {});
+							alert("your photo has been changed successfully.");
+							//jHash.set(Label.HOME_PAGE, {});
+							var oldPath = self.member.memberPhoto();
+							self.member.memberPhoto('');
+							self.member.memberPhoto(oldPath);
 							self.clear();
 						}else{
 							alert("error in change password");
