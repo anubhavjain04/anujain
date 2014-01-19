@@ -11,7 +11,7 @@ define(function (require) {
 			vm.searchMainVM = searchMainVM;
 			vm.activeSearchTab = ko.observable('regular');
 			
-			vm.sex = ko.observable(0);
+			vm.sex = ko.observable("0");
 			vm.memberCode = ko.observable();
 			vm.ageFrom = ko.observable();
 			vm.ageTo = ko.observable();	

@@ -69,7 +69,7 @@ class MatrimonyUserController extends Controller
 		{
 			if(isset($_POST['MatrimonyMembers']) && isset($_POST['MatrimonyMembers']['pkMemberId'])){
 				$memberModel=MatrimonyMembers::model()->findByPk($_POST['MatrimonyMembers']['pkMemberId']);
-				
+				$pwd = $model->Password;
 				$currentTime = date('Y-m-d H:i',time());
 				$model->attributes=$_POST['MatrimonyUser'];
 				// update static values
@@ -81,6 +81,7 @@ class MatrimonyUserController extends Controller
 				if($model->save()){
 					$memberModel->fkLoginId = $model->pkUserId;
 					$memberModel->save();
+					$this->sendMailToUser($memberModel, $pwd);
 					$this->redirect(array('matrimonyMembers/admin'));
 				}
 			}else{
@@ -99,7 +100,7 @@ class MatrimonyUserController extends Controller
 	 * @param integer $id the ID of the model to be updated
 	 */
 	public function actionUpdate($id)
-	{
+	{	
 		$model=$this->loadModel($id);
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -108,7 +109,7 @@ class MatrimonyUserController extends Controller
 		{
 			if(isset($_POST['MatrimonyMembers']) && isset($_POST['MatrimonyMembers']['pkMemberId'])){
 				$memberModel=MatrimonyMembers::model()->findByPk($_POST['MatrimonyMembers']['pkMemberId']);
-				
+				$pwd = $model->Password;
 				$currentTime = date('Y-m-d H:i',time());
 				$model->attributes=$_POST['MatrimonyUser'];
 				
@@ -120,6 +121,7 @@ class MatrimonyUserController extends Controller
 				if($model->save()){
 					$memberModel->fkLoginId = $model->pkUserId;
 					$memberModel->save();
+					$this->sendMailToUser($memberModel, $pwd);
 					$this->redirect(array('matrimonyMembers/admin'));
 				}
 			}else{
@@ -130,6 +132,65 @@ class MatrimonyUserController extends Controller
 		$this->render('update',array(
 			'model'=>$model,
 		));
+	}
+	
+	protected function sendMailToUser($member, $password){
+		if($member->Email){
+			$mail=new MailMessage();
+			$mail->fromEmail = "matrimony@bhartiyajainmilan.com";
+			$mail->fromName = "Bhartiya Jain Milan Matrimonial";
+			//$mail->toEmail = $member->Email;
+			$mail->toEmail = 'anubhavjain04@gmail.com';
+			$mail->subject = "Your login credentials";
+			$mail->message = $this->userCreateMailMessage($member, $password);
+			$result = $mail->sendMail();
+		}
+	}
+	
+	protected function userCreateMailMessage($member, $password){
+		if($member){
+			$message = '<div style="font-family: verdana;font-size: 13px;">'
+				.'<div style="height: 50px; margin-bottom: 30px; background-color: #ED1C24; text-align: left;">'
+					.'<img src="http://www.matrimony.bhartiyajainmilan.com/images/matrimony-logo.gif" width="224" height="50" />'
+				.'</div>'
+				.'<div>'
+				.'Dear <strong>'.$member->MemberName.' ('.$member->MemberCode.')</strong>'
+				.'</div>'
+			
+				.'<p style="margin-top: 20px;">'
+				.'Your profile has been created/updated successfully on <strong>Bhartiya Jain Milan Matrimonial</strong>. Your BJM Matrimonial Id is <strong>'.$member->MemberCode.'</strong>.' 
+				
+				.'</p>'
+				.'<p>'
+					.'Below are your sign-in credentials:-'
+				.'</p>'
+				.'<ul style="list-style: none;">'
+					.'<li><strong>Matrimony ID / Email ID:</strong> '.$member->MemberCode.' <b>/</b> '.$member->Email.' </li>'
+					.'<li><strong>Password:</strong> '.$password.'</li>'
+				.'</ul>'
+				.'<p>'
+					.'You can sign-in using matrimony id or registered email id. After sign-in, you can change your profile details instantly.'
+				.'</p>'
+				.'<div style="margin-top: 20px;">thanks</div>'
+				.'<div style="margin-top: 30px;">'
+					.'<div>With Regards,</div>'
+					.'<div style="padding-top: 10px;">'
+						.'<div style="font-size: 1.1em;"><strong>Bhartiya Jain Milan Matrimonial</strong></div>'
+						.'<div style="padding-top: 5px;"><strong>Email:</strong> <a href="mailto:matrimony@bhartiyajainmilan.com">matrimony@bhartiyajainmilan.com</a></div>'
+						.'<div style="padding-top: 5px;"><strong>Website:</strong> <a href="http://www.matrimony.bhartiyajainmilan.com" target="_blank">www.matrimony.bhartiyajainmilan.com</a></div>'
+					.'</div>'
+				.'</div>'
+				
+				.'<div style="margin-top: 50px; height: 20px; text-align: center; background-color: #f5f5f5; font-size: 0.9em; padding: 10px;">'
+					.'<span style="color: #999;">Jain Milan Matrimonial is a part of <a href="http://www.bhartiyajainmilan.com" target="_blank">www.bhartiyajainmilan.com</a></span>'
+				
+				.'</div>'
+			  
+			.'</div>';
+			return $message;
+		}else{
+			return "";
+		}
 	}
 	
 	public function actionMemberLogin($id){

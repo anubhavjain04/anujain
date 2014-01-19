@@ -416,12 +416,17 @@ class MatrimonyMembersController extends Controller
 			$rootPath = pathinfo(Yii::app()->baseUrl);
 			$path = Yii::app()->params['tempPath']."/";		
 			$src = $path.Yii::app()->session['tempImgName'];
-				
+
+			$oldImagePath = null;
 			if($model->MemberPhoto){
 				$imageName = $model->MemberPhoto;
-			}else{
-				$imageName = $model->MemberCode."_".$this->generateRandomString()."_P.jpg";
+				$oldImagePath = Yii::app()->params['matrimonyPath']."/".$imageName;
 			}
+			/*else{
+				$imageName = $model->MemberCode."_".$this->generateRandomString()."_P.jpg";
+			}*/
+			$imageName = $model->MemberCode."_".$this->generateRandomString()."_P.jpg";
+			
 			$distSrc = Yii::app()->params['matrimonyPath']."/".$imageName;
 					
 			$extArr = explode(".", $src); 
@@ -455,11 +460,19 @@ class MatrimonyMembersController extends Controller
 			imagedestroy($dst_r);
 					
 			$model->MemberPhoto = $imageName;
-			$model->save();
+			$result = $model->save();
+			
+			// delete old profile image
+			if($result && $oldImagePath){
+				if(file_exists($oldImagePath)){
+					unlink($oldImagePath);
+				}
+			}
 					
 			$this->removeTempData();
 
 			$data['status'] = 'success';
+			$data['updatedPhoto'] = $model->MemberPhoto;
 			$this->echoObjectAsJSON($data);
 		}
 	}
@@ -516,6 +529,15 @@ class MatrimonyMembersController extends Controller
 		
 		
 	
+	}
+	
+	protected function generateRandomString($length = 5) {
+	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $randomString = '';
+	    for ($i = 0; $i < $length; $i++) {
+	        $randomString .= $characters[rand(0, strlen($characters) - 1)];
+	    }
+	    return $randomString;
 	}
 	
 	public function removeTempData(){

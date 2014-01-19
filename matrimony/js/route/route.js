@@ -88,7 +88,7 @@ define(function (require) {
 			if(this.memberId){
 				self.action.memberId(this.memberId);
 			}
-			//self.categorySwitch(Label.SEARCH_PAGE);
+			self.categorySwitch(Label.SEARCH_PAGE);
 		});
 		
 		jHash.change(function(handler) {

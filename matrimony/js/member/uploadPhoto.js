@@ -84,10 +84,7 @@ define(function (require) {
 					if(data){
 						if(data.status == 'success'){
 							alert("your photo has been changed successfully.");
-							//jHash.set(Label.HOME_PAGE, {});
-							var oldPath = self.member.memberPhoto();
-							self.member.memberPhoto('');
-							self.member.memberPhoto(oldPath);
+							self.member.memberPhoto(data.updatedPhoto);
 							self.clear();
 						}else{
 							alert("error in change password");
