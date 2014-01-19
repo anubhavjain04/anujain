@@ -71,6 +71,9 @@ class MatrimonyUserController extends Controller
 				$memberModel=MatrimonyMembers::model()->findByPk($_POST['MatrimonyMembers']['pkMemberId']);
 				$currentTime = date('Y-m-d H:i',time());
 				$model->attributes=$_POST['MatrimonyUser'];
+				if($memberModel->Email){
+					$model->EmailID = $memberModel->Email;
+				}
 				$pwd = $model->Password;
 				// update static values
 				$model->CreatedDate=$currentTime;
@@ -111,6 +114,9 @@ class MatrimonyUserController extends Controller
 				$memberModel=MatrimonyMembers::model()->findByPk($_POST['MatrimonyMembers']['pkMemberId']);
 				$currentTime = date('Y-m-d H:i',time());
 				$model->attributes=$_POST['MatrimonyUser'];
+				if($memberModel->Email){
+					$model->EmailID = $memberModel->Email;
+				}
 				$pwd = $model->Password;
 				// update static values
 				$model->ModifiedDate=$currentTime;
@@ -138,8 +144,7 @@ class MatrimonyUserController extends Controller
 			$mail=new MailMessage();
 			$mail->fromEmail = "matrimony@bhartiyajainmilan.com";
 			$mail->fromName = "Bhartiya Jain Milan Matrimonial";
-			//$mail->toEmail = $member->Email;
-			$mail->toEmail = 'anubhavjain04@gmail.com';
+			$mail->toEmail = $member->Email;			
 			$mail->subject = "Your login credentials";
 			$mail->message = $this->userCreateMailMessage($member, $password);
 			$result = $mail->sendMail();
