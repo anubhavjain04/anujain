@@ -69,9 +69,9 @@ class MatrimonyUserController extends Controller
 		{
 			if(isset($_POST['MatrimonyMembers']) && isset($_POST['MatrimonyMembers']['pkMemberId'])){
 				$memberModel=MatrimonyMembers::model()->findByPk($_POST['MatrimonyMembers']['pkMemberId']);
-				$pwd = $model->Password;
 				$currentTime = date('Y-m-d H:i',time());
 				$model->attributes=$_POST['MatrimonyUser'];
+				$pwd = $model->Password;
 				// update static values
 				$model->CreatedDate=$currentTime;
 				$model->ModifiedDate=$currentTime;
@@ -109,10 +109,9 @@ class MatrimonyUserController extends Controller
 		{
 			if(isset($_POST['MatrimonyMembers']) && isset($_POST['MatrimonyMembers']['pkMemberId'])){
 				$memberModel=MatrimonyMembers::model()->findByPk($_POST['MatrimonyMembers']['pkMemberId']);
-				$pwd = $model->Password;
 				$currentTime = date('Y-m-d H:i',time());
 				$model->attributes=$_POST['MatrimonyUser'];
-				
+				$pwd = $model->Password;
 				// update static values
 				$model->ModifiedDate=$currentTime;
 				$model->Type = 'USR';
@@ -151,7 +150,7 @@ class MatrimonyUserController extends Controller
 		if($member){
 			$message = '<div style="font-family: verdana;font-size: 13px;">'
 				.'<div style="height: 50px; margin-bottom: 30px; background-color: #ED1C24; text-align: left;">'
-					.'<img src="http://www.matrimony.bhartiyajainmilan.com/images/matrimony-logo.gif" width="224" height="50" />'
+					.'<img src="http://www.matrimony.bhartiyajainmilan.com/images/matrimony-logo.gif" width="224" height="50" alt="Bhartiya Jain Milan Matrimonial" />'
 				.'</div>'
 				.'<div>'
 				.'Dear <strong>'.$member->MemberName.' ('.$member->MemberCode.')</strong>'
