@@ -1,0 +1,184 @@
+<div><h4>Search criteria:</h4></div>
+<div>
+	<!-- ko if: ageFrom() && ageTo()--> 
+	<span class="padr10">
+		<strong>Age</strong><span class="arrow_icon"></span>
+		<span data-bind="text: ageFrom"></span> yrs To <span data-bind="text: ageTo"></span> yrs
+	</span>
+	<!-- /ko -->
+	
+	<!-- ko if: heightFrom() && heightTo()-->
+	<span class="padr10">
+		<strong>Height</strong><span class="arrow_icon"></span> 
+		<span data-bind="text: $root.facetVM.heightInWords(heightFrom())"></span> To <span data-bind="text: $root.facetVM.heightInWords(heightTo())"></span>
+	</span>
+	<!-- /ko -->
+	
+	<!-- ko ifnot: selectedMaritalStatus().length==0 || (selectedMaritalStatus().length==1 && !selectedMaritalStatus()[0]) -->
+	<span class="padr10">
+		<strong>Marital Status</strong><span class="arrow_icon"></span>
+		<!-- ko foreach: selectedMaritalStatus() --> 
+		<!-- ko foreach: $root.facetVM.maritalStatusList --> 
+	    <!-- ko if: $parent && $data.key==$parent -->
+	    	<span data-bind="text: $data.text"></span>
+	    <!-- ko if: $index()<($parents[1].selectedMaritalStatus().length-1)  -->
+	      	<span>,</span>
+	    <!-- /ko -->
+	    <!-- /ko --> 
+	    <!-- /ko --> 
+	    <!-- /ko -->
+	</span>
+	<!-- /ko --> 
+	
+	<!-- ko ifnot: selectedMotherTongue().length==0 || (selectedMotherTongue().length==1 && !selectedMotherTongue()[0]) -->
+	<span class="padr10">
+		<strong>Mother Toungue</strong><span class="arrow_icon"></span>
+		<!-- ko foreach: selectedMotherTongue() --> 
+        <!-- ko foreach: $root.facetVM.motherTongueList() --> 
+        <!-- ko if: $parent && $data.pkTongueId==$parent -->
+        <span data-bind="text: $data.TongueName"></span>
+        <!-- ko if: $index()<($parents[1].selectedMotherTongue().length-1)  -->
+	      	<span>,</span>
+	    <!-- /ko -->
+        <!-- /ko --> 
+        <!-- /ko --> 
+        <!-- /ko --> 
+	</span>
+	<!-- /ko -->
+	
+	<!-- ko ifnot: selectedSect().length==0 || (selectedSect().length==1 && !selectedSect()[0]) -->
+	<span class="padr10">
+		<strong>Sect</strong><span class="arrow_icon"></span>
+		<!-- ko foreach: selectedSect() --> 
+        <!-- ko foreach: $root.facetVM.sectList() --> 
+        <!-- ko if: $parent && $data.pkSectId==$parent -->
+        <span data-bind="text: $data.SectName"></span>
+        <!-- ko if: $index()<($parents[1].selectedSect().length-1)  -->
+	      	<span>,</span>
+	    <!-- /ko -->
+        <!-- /ko --> 
+        <!-- /ko --> 
+        <!-- /ko --> 
+	</span>
+	<!-- /ko -->
+	
+	<!-- ko ifnot: selectedSubSect().length==0 || (selectedSubSect().length==1 && !selectedSubSect()[0]) -->
+	<span class="padr10">
+		<strong>Sub Sect</strong><span class="arrow_icon"></span>
+		<!-- ko foreach: selectedSubSect() --> 
+        <!-- ko foreach: $root.facetVM.subSectList() --> 
+        <!-- ko if: $parent && $data.pkSubSectId==$parent -->
+        <span data-bind="text: $data.SubSectName"></span>
+        <!-- ko if: $index()<($parents[1].selectedSubSect().length-1)  -->
+	      	<span>,</span>
+	    <!-- /ko -->
+        <!-- /ko --> 
+        <!-- /ko --> 
+        <!-- /ko --> 
+	</span>
+	<!-- /ko -->
+	 
+	<!-- ko ifnot: selectedCaste().length==0 || (selectedCaste().length==1 && !selectedCaste()[0]) -->
+	<span class="padr10">
+		<strong>Caste</strong><span class="arrow_icon"></span>
+		<!-- ko foreach: selectedCaste() --> 
+        <!-- ko foreach: $root.facetVM.casteList() --> 
+        <!-- ko if: $parent && $data.pkCasteId==$parent -->
+        <span data-bind="text: $data.CasteName"></span>
+        <!-- ko if: $index()<($parents[1].selectedCaste().length-1)  -->
+	      	<span>,</span>
+	    <!-- /ko -->
+        <!-- /ko --> 
+        <!-- /ko --> 
+        <!-- /ko --> 
+	</span>
+	<!-- /ko -->
+	 
+	<!-- ko ifnot: selectedCourseGroup().length==0 || (selectedCourseGroup().length==1 && !selectedCourseGroup()[0]) --> 
+	<span class="padr10">
+		<strong>Education</strong><span class="arrow_icon"></span>
+		<!-- ko foreach: selectedCourseGroup() --> 
+        <!-- ko foreach: $root.facetVM.courseGroupList() --> 
+        <!-- ko if: $parent && $data.pkCourseGroupId==$parent -->
+        <span data-bind="text: $data.GroupName"></span>
+        <!-- ko if: $index()<($parents[1].selectedCourseGroup().length-1)  -->
+	      	<span>,</span>
+	    <!-- /ko -->
+        <!-- /ko --> 
+        <!-- /ko --> 
+        <!-- /ko --> 
+	</span>
+	<!-- /ko --> 
+	
+	<!-- ko ifnot: selectedOccupationGroup().length==0 || (selectedOccupationGroup().length==1 && !selectedOccupationGroup()[0]) --> 
+	<span class="padr10">
+		<strong>Occupation</strong><span class="arrow_icon"></span>
+		<!-- ko foreach: selectedOccupationGroup() --> 
+        <!-- ko foreach: $root.facetVM.occupationGroupList() --> 
+        <!-- ko if: $parent && $data.pkOccGroupId==$parent -->
+        <span data-bind="text: $data.GroupName"></span>
+        <!-- ko if: $index()<($parents[1].selectedOccupationGroup().length-1)  -->
+	      	<span>,</span>
+	    <!-- /ko -->
+        <!-- /ko --> 
+        <!-- /ko --> 
+        <!-- /ko --> 
+	</span>
+	<!-- /ko -->  
+	
+	<!-- ko if: selectedAnnualIncome() --> 
+	<span class="padr10">
+		<strong>Annual Income</strong><span class="arrow_icon"></span>
+        <span data-bind="text: selectedAnnualIncome().text"></span>
+	</span>
+	<!-- /ko -->  
+	
+	<!-- ko ifnot: selectedCountry().length==0 || (selectedCountry().length==1 && !selectedCountry()[0]) --> 
+	<span class="padr10">
+		<strong>Country</strong><span class="arrow_icon"></span>
+		<!-- ko foreach: selectedCountry() --> 
+        <!-- ko foreach: $root.facetVM.countryList() --> 
+        <!-- ko if: $parent && $data.pkCountryId==$parent -->
+        <span data-bind="text: $data.CountryName"></span>
+        <!-- ko if: $index()<($parents[1].selectedCountry().length-1)  -->
+	      	<span>,</span>
+	    <!-- /ko -->
+        <!-- /ko --> 
+        <!-- /ko --> 
+        <!-- /ko --> 
+	</span>
+	<!-- /ko -->
+	
+	<!-- ko ifnot: selectedPhysicalStatus().length==0 || (selectedPhysicalStatus().length==1 && !selectedPhysicalStatus()[0]) -->
+	<span class="padr10">
+		<strong>Physical Status</strong><span class="arrow_icon"></span>
+		<!-- ko foreach: selectedPhysicalStatus() --> 
+        <!-- ko foreach: $root.facetVM.physicalStatusList --> 
+        <!-- ko if: $parent && $data.key==$parent -->
+        <span data-bind="text: $data.text"></span>
+        <!-- ko if: $index()<($parents[1].selectedPhysicalStatus().length-1)  -->
+	      	<span>,</span>
+	    <!-- /ko -->
+        <!-- /ko --> 
+        <!-- /ko --> 
+        <!-- /ko --> 
+	</span>
+	<!-- /ko --> 
+	
+	<!-- ko ifnot: selectedEmployedIn().length==0 || (selectedEmployedIn().length==1 && !selectedEmployedIn()[0]) -->
+	<span class="padr10">
+		<strong>Employed In</strong><span class="arrow_icon"></span>
+		<!-- ko foreach: selectedEmployedIn() --> 
+        <!-- ko foreach: $root.facetVM.employedInList --> 
+        <!-- ko if: $parent && $data.key==$parent -->
+        <span data-bind="text: $data.text"></span>
+        <!-- ko if: $index()<($parents[1].selectedEmployedIn().length-1)  -->
+	      	<span>,</span>
+	    <!-- /ko -->
+        <!-- /ko --> 
+        <!-- /ko --> 
+        <!-- /ko --> 
+	</span>
+	<!-- /ko -->  
+</div>
+ 

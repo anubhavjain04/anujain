@@ -208,9 +208,11 @@ class MatrimonyUserController extends Controller
 				$model = new MatrimonyUser;					
 			}
 			$model->EmailID = $memberModel->MemberCode;
+			$randomString = $this->generateRandomString();
 			$this->render('create',array(
 				'model'=>$model,
 				'memberModel'=>$memberModel,
+				'randomString'=>$randomString
 			));
 		}else{
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
@@ -261,6 +263,15 @@ class MatrimonyUserController extends Controller
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+	}
+	
+	protected function generateRandomString($length = 8) {
+	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $randomString = '';
+	    for ($i = 0; $i < $length; $i++) {
+	        $randomString .= $characters[rand(0, strlen($characters) - 1)];
+	    }
+	    return $randomString;
 	}
 
 	/**

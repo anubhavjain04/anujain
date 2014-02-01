@@ -70,7 +70,7 @@ define(function (require) {
 			vm.setSpecs = function(queryJSON){
 				if(queryJSON){
 					if(queryJSON.sex)
-						vm.sex(parseInt(queryJSON.sex));
+						vm.sex(queryJSON.sex);
 					if(queryJSON.agefrom)
 						vm.ageFrom(parseInt(queryJSON.agefrom));
 					if(queryJSON.ageto)

@@ -15,18 +15,18 @@ define(function (require) {
 		self.weight = ko.observable();
 		self.bodyType = ko.observable();
 		self.complexion = ko.observable();
-		self.physicalStatus = ko.observable(0);
+		self.physicalStatus = ko.observable("0");
 		self.aboutMe = ko.observable();		
 		self.homeAddress = ko.observable();
 		self.workingAddress = ko.observable();
 		self.annualIncome = ko.observable();
-		self.marryInSameSect = ko.observable(2);
+		self.marryInSameSect = ko.observable("2");
 		self.aboutMyPartner = ko.observable();
 		self.caste = ko.observable();
 		self.gotra = ko.observable();
-		self.manglikStatus = ko.observable(0);
+		self.manglikStatus = ko.observable("0");
 		self.education = ko.observable();
-		self.employedIn = ko.observable(5);
+		self.employedIn = ko.observable("5");
 		self.occupation = ko.observable();
 		self.fatherName = ko.observable();
 		self.fatherOccupation = ko.observable();
@@ -46,18 +46,18 @@ define(function (require) {
 			self.weight(undefined);
 			self.bodyType(undefined);
 			self.complexion(undefined);
-			self.physicalStatus(0);
+			self.physicalStatus("0");
 			self.aboutMe(undefined);		
 			self.homeAddress(undefined);
 			self.workingAddress(undefined);
 			self.annualIncome(undefined);
-			self.marryInSameSect(2);
+			self.marryInSameSect("2");
 			self.aboutMyPartner(undefined);
 			self.caste(undefined);
 			self.gotra(undefined);
-			self.manglikStatus(0);
+			self.manglikStatus("0");
 			self.education(undefined);
-			self.employedIn(5);
+			self.employedIn("5");
 			self.occupation(undefined);
 			self.fatherName(undefined);
 			self.fatherOccupation(undefined);
@@ -110,10 +110,9 @@ define(function (require) {
 				var path = "register/updateProfile/id/"+self.registration.user().id;
 				ajaxutil.put(path, formData, function(data){
 					if(data){
-						// member data
-						console.log(data);
-						alert("profile updated successfully..");
-						jHash.set(Label.HOME_PAGE, {});
+						// member data						
+						alert("Your profile is created/updated successfully. To activate your account, please pay subscription charges.");
+						jHash.set(Label.UPGRADE_PAGE, {});
 					}
 					self.disableButton(false);
 				},function(error){

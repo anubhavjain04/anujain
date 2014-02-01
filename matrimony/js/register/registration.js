@@ -15,7 +15,7 @@ define(function (require) {
 			vm.disableButton = ko.observable(false);
 			vm.message = ko.observable();
 			vm.termsConditions = ko.observable(false);
-			vm.sex = ko.observable(0);
+			vm.sex = ko.observable("0");
 			vm.registeredBy = ko.observable().extend({
 				required: true
 			});
@@ -157,7 +157,7 @@ define(function (require) {
 			};
 			
 			vm.clear = function(){
-				vm.sex(0);
+				vm.sex("0");
 				vm.registeredBy(undefined);
 				vm.memberName(undefined);
 				//vm.dob(undefined);

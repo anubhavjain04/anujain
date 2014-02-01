@@ -48,4 +48,13 @@
 
 <?php $this->endWidget(); ?>
 
+<div class="row">
+	<dl>
+		<dt>Random String : </dt>
+		<dd>
+			<?php echo $randomString;  ?>
+            </dd>    
+        </dl>
+</div>
+
 </div><!-- form -->

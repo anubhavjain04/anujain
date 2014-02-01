@@ -196,11 +196,12 @@
             </div>
             <div class="col-xs-12 col-sm-12 row">
               <div class="col-xs-6 col-sm-6"><label>Birth Date</label></div>
-              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: (new Date(DOB)).getDate() + ' ' + $root.facetVM.getObjectText($root.facetVM.monthList,((new Date(DOB)).getMonth()+1)) + ' ' + (new Date(DOB)).getFullYear()"></span> </div>
+              
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: $root.facetVM.getDateAsString(DOB)"></span>  </div>
             </div>
             <div class="col-xs-12 col-sm-12 row">
               <div class="col-xs-6 col-sm-6"><label>Birth Time</label></div>
-              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: (((new Date(DOB)).getHours()>12)?(new Date(DOB)).getHours()-12 :(new Date(DOB)).getHours()) + ':' + (new Date(DOB)).getMinutes() + ' ' + (((new Date(DOB)).getHours()>12)?'pm' :'am') "></span> </div>
+              <div class="col-xs-6 col-sm-6"> : <span data-bind="text: $root.facetVM.getTimeAsString(DOB)"></span> </div>
             </div>
           </div>
         </div>

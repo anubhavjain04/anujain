@@ -129,7 +129,7 @@ class MatrimonyMembers extends CActiveRecord
 			'pkMemberId' => 'Pk Member',
 			'MemberName' => 'Member Name',
 			'Sex' => 'Gender',
-			'DOB' => 'Date of Birth',
+			'DOB' => 'Date&nbsp;of&nbsp;Birth',
 			'MaritalStatus' => 'Marital Status',
 			'Childrens' => 'Childrens',
 			'Height' => 'Height',
@@ -222,7 +222,7 @@ class MatrimonyMembers extends CActiveRecord
 		$criteria->compare('ModifiedDate',$this->ModifiedDate,true);
 		
 		$criteria->order = ' MemberName ASC ';		
-
+		
 		return new CActiveDataProvider(get_class($this), array(
 			'pagination'=>array(
 				'pageSize'=> Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize']),

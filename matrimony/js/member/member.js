@@ -1,6 +1,7 @@
 define(function (require) {    
 	var ko               = require('knockout');
 	var ajaxutil		 = require('ajaxutil');
+	var moment		 	 = require('moment');
 	var UploadPhoto	 = require('member/uploadPhoto');
 	var ChangePassword	 = require('member/changePassword');
 
@@ -221,33 +222,13 @@ define(function (require) {
 					vm.originalData(data);
 					var member = data.member;
 					var family = data.family;
-					var dob = new Date(member.DOB);
-					var dobDate = undefined;
-					var dobMonth = undefined;
-					var dobYear = undefined;
-					var dobHour = undefined;
-					var dobMinute = undefined;
-					var dobAmPm = undefined;
-					if(dob){
-						dobDate = dob.getDate();
-						dobMonth = dob.getMonth()+1;
-						if(dobMonth.length==1){
-							dobMonth = '0'+dobMonth;
-						}
-						dobYear = dob.getFullYear();
-						if(dob.getHours() <= 12){
-							dobHour = dob.getHours();
-							if(dobHour == 0){
-								dobHour = 12;
-							}
-							dobAmPm = 'am';
-						}else{
-							dobHour = dob.getHours() - 12;
-							dobAmPm = 'pm';
-						}
-						dobMinute = dob.getMinutes();
-					}				
-					
+					var mm = moment(member.DOB, "YYYY-MM-DD HH:mm:ss");
+					var dobDate = mm.format('DD');
+					var dobMonth = mm.format('MM');
+					var dobYear = mm.format('YYYY');
+					var dobHour = mm.format('hh');
+					var dobMinute = mm.format('mm');;
+					var dobAmPm = mm.format('a');					
 					vm.sex(member.Sex);
 					vm.registeredBy(member.RegisteredBy);
 					vm.memberName(member.MemberName);

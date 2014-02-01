@@ -48,7 +48,7 @@ $pageSize=Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageS
 						array(
 							'name'=>'DOB',
 							'value'=>'date("d-m-Y h:i a",strtotime($data->DOB))',
-							'filter'=>false,
+							'filter'=>false,						
 						),
 						array(
 							'name'=>'MemberCode',
@@ -70,12 +70,23 @@ $pageSize=Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageS
 						array(
 							'name'=>'Email',
 							'value'=>'$data->Email',
-						),					
+						),	
 						array(
 							'name'=>'Status',
 							'value'=>'$data->Status==1 ? "Published" : "Unpublished"',
-							'filter'=>false,
-						),					        
+							'filter'=>CHtml::dropDownList('MatrimonyMembers[Status]', $model->Status,  
+										array(''=>'All','1'=>'Published','0'=>'Unpublished'),
+										array('style'=>'width: 110px;')),
+						),	
+						array(
+							'name'=>'CreatedDate',
+							'value'=>'$data->CreatedDate',
+						),	
+						array(
+							'name'=>'ModifiedDate',
+							'value'=>'$data->ModifiedDate',
+						),		
+											        
 						array(
 							'class'=>'CButtonColumn',
 							'htmlOptions' => array('style'=>'width:120px'),				

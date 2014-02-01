@@ -1,7 +1,10 @@
 <div class="row-fluid">
   <h1>Your Search Results (<span data-bind="text: totalItems"></span>)</h1>
   <div class="dot-line mrgb20"></div>
-  
+  <!-- choosen search criteria -->
+  <div data-bind="with: $parent">  	
+  	<div data-bind="template: { name: 'search/views/choosenSearchCriteria'}"></div>                
+  </div>
   <!-- ko if: dataList && dataList().length>0 -->
   <div class="pager"> Go to page:
     <ul class="yiiPager" >
@@ -81,7 +84,9 @@
   <!-- /ko --> 
   
   <!-- ko if: dataList && dataList().length===0 -->
-  <div>No results found.....</div>
+  <div class="text-center">
+  	<h4>----No match found----</h4>
+  </div>
   <!-- /ko -->
   <div></div>
 </div>

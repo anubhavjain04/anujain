@@ -157,12 +157,15 @@ class RegisterController extends Controller
 						$login=new LoginForm;
 						$login->emailid = $registerData['emailId'];
 						$login->password = $registerData['password'];
+						$pwd = $registerData['password'];
 						// validate user input and login
 						if($login->validate() && $login->login()){
 							$user["id"] = Yii::app()->user->id;
 							$user["userName"] = Yii::app()->user->name;
 							$user["role"] = Yii::app()->user->role;
 							
+							$this->sendMailToUser($model, $pwd);
+							$this->sendMailToAdmin($model, $pwd);
 							$this->echoObjectAsJSON($user);
 							//$this->redirect(Yii::app()->homeUrl);
 						}else{
@@ -238,7 +241,7 @@ class RegisterController extends Controller
 				$familyModel->save();
 								
 				$data['member'] = $model;
-				$data['memberFamilyDetails'] = $familyModel;			
+				$data['memberFamilyDetails'] = $familyModel;
 				$this->echoObjectAsJSON($data);
 			}
 			else{
@@ -248,6 +251,146 @@ class RegisterController extends Controller
 			throw new CHttpException(400,'Invalid request.');
 		}
 		
+	}
+	
+	protected function sendMailToUser($member, $password){
+		if($member->Email){
+			$mail=new MailMessage();
+			$mail->fromEmail = "matrimony@bhartiyajainmilan.com";
+			$mail->fromName = "Bhartiya Jain Milan Matrimonial";
+			$mail->toEmail = $member->Email;			
+			$mail->subject = "Your login credentials";
+			$mail->message = $this->userCreateMailMessage($member, $password);
+			$result = $mail->sendMail();
+		}
+	}
+	
+	protected function sendMailToAdmin($member, $password){
+		if($member->Email){
+			$mail=new MailMessage();
+			$mail->fromEmail = "matrimony@bhartiyajainmilan.com";
+			$mail->fromName = "Bhartiya Jain Milan Matrimonial";
+			$mail->toEmail = "matrimony@bhartiyajainmilan.com";			
+			$mail->subject = "New Matrimony User ".$member->MemberName." (".$member->MemberCode.") is registered";
+			$mail->message = $this->notifyAdminMailMessage($member, $password);
+			$result = $mail->sendMail();
+		}
+	}
+	
+	protected function userCreateMailMessage($member, $password){
+		if($member){
+			$message = '<div style="font-family: verdana;font-size: 13px;">'
+				.'<div style="height: 50px; margin-bottom: 30px; background-color: #ED1C24; text-align: left;">'
+					.'<img src="http://www.matrimony.bhartiyajainmilan.com/images/matrimony-logo.gif" width="224" height="50" alt="Bhartiya Jain Milan Matrimonial" />'
+				.'</div>'
+				.'<div>'
+				.'Dear <strong>'.$member->MemberName.' ('.$member->MemberCode.')</strong>'
+				.'</div>'
+			
+				.'<p style="margin-top: 20px;">'
+				.'Your profile has been created/updated successfully on <strong>Bhartiya Jain Milan Matrimonial</strong>. Your BJM Matrimonial Id is <strong>'.$member->MemberCode.'</strong>.' 
+				
+				.'</p>'
+				.'<p>'
+					.'Below are your sign-in credentials:-'
+				.'</p>'
+				.'<ul style="list-style: none;">'
+					.'<li><strong>Matrimony ID / Email ID:</strong> '.$member->MemberCode.' <b>/</b> '.$member->Email.' </li>'
+					.'<li><strong>Password:</strong> '.$password.'</li>'
+				.'</ul>'
+				.'<p>'
+					.'You can sign-in using matrimony id or registered email id. After sign-in, you can change your profile details instantly.'
+				.'</p>'
+				.'<p>'
+					.'After registration, you have to pay to activate your account.'
+				.'</p>'
+				.'<div style="text-align: center;"><h4>'
+					.'<a href="http://www.matrimony.bhartiyajainmilan.com/#!upgrade" target="_blank">click here to know about how to pay subscription charges.</a>'
+				.'</h4><div>'
+				.'<div style="margin-top: 20px;">thanks</div>'
+				.'<div style="margin-top: 30px;">'
+					.'<div>With Regards,</div>'
+					.'<div style="padding-top: 10px;">'
+						.'<div style="font-size: 1.1em;"><strong>Bhartiya Jain Milan Matrimonial</strong></div>'
+						.'<div style="padding-top: 5px;"><strong>Email:</strong> <a href="mailto:matrimony@bhartiyajainmilan.com">matrimony@bhartiyajainmilan.com</a></div>'
+						.'<div style="padding-top: 5px;"><strong>Website:</strong> <a href="http://www.matrimony.bhartiyajainmilan.com" target="_blank">www.matrimony.bhartiyajainmilan.com</a></div>'
+					.'</div>'
+				.'</div>'
+				
+				.'<div style="margin-top: 50px; height: 20px; text-align: center; background-color: #f5f5f5; font-size: 0.9em; padding: 10px;">'
+					.'<span style="color: #999;">Jain Milan Matrimonial is a part of <a href="http://www.bhartiyajainmilan.com" target="_blank">www.bhartiyajainmilan.com</a></span>'
+				
+				.'</div>'
+			  
+			.'</div>';
+			return $message;
+		}else{
+			return "";
+		}
+	}
+	
+	protected function notifyAdminMailMessage($member, $password){
+		if($member){
+			$message = '<div style="font-family: verdana;font-size: 13px;">'
+				.'<div style="height: 50px; margin-bottom: 30px; background-color: #ED1C24; text-align: left;">'
+					.'<img src="http://www.matrimony.bhartiyajainmilan.com/images/matrimony-logo.gif" width="224" height="50" alt="Bhartiya Jain Milan Matrimonial" />'
+				.'</div>'
+				.'<div>'
+				.'Dear <strong>Admin</strong>'
+				.'</div>'
+			
+				.'<p style="margin-top: 20px;">'
+				.'A new member is registered at www.matrimony.bhartiyajainmilan.com. Below are registered user details:' 
+				
+				.'</p>'
+				
+				.'<table style="font-family: verdana;font-size: 13px;">'
+					.'<tr>'
+						.'<th>Member Name</th>'
+						.'<td>'.$member->MemberName.'</td>'
+					.'</tr>'
+					.'<tr>'
+						.'<th>Member Code</th>'
+						.'<td>'.$member->MemberCode.'</td>'
+					.'</tr>'
+					.'<tr>'
+						.'<th>Email</th>'
+						.'<td>'.$member->Email.'</td>'
+					.'</tr>'
+					.'<tr>'
+						.'<th>Contact No.</th>'
+						.'<td>'.$member->ContactNo.'</td>'
+					.'</tr>'
+					.'<tr>'
+						.'<th>City</th>'
+						.'<td>'.$member->ResidingCity.'</td>'
+					.'</tr>'
+				.'</table>'
+				
+				.'<p>'
+					.'Please review registered user.'
+				.'</p>'
+								
+				.'<div style="margin-top: 20px;">thanks</div>'
+				.'<div style="margin-top: 30px;">'
+					.'<div>With Regards,</div>'
+					.'<div style="padding-top: 10px;">'
+						.'<div style="font-size: 1.1em;"><strong>Bhartiya Jain Milan Matrimonial</strong></div>'
+						.'<div style="padding-top: 5px;"><strong>Email:</strong> <a href="mailto:matrimony@bhartiyajainmilan.com">matrimony@bhartiyajainmilan.com</a></div>'
+						.'<div style="padding-top: 5px;"><strong>Website:</strong> <a href="http://www.matrimony.bhartiyajainmilan.com" target="_blank">www.matrimony.bhartiyajainmilan.com</a></div>'
+					.'</div>'
+				.'</div>'
+				
+				.'<div style="margin-top: 50px; height: 20px; text-align: center; background-color: #f5f5f5; font-size: 0.9em; padding: 10px;">'
+					.'<span style="color: #999;">Jain Milan Matrimonial is a part of <a href="http://www.bhartiyajainmilan.com" target="_blank">www.bhartiyajainmilan.com</a></span>'
+				
+				.'</div>'
+			  
+			.'</div>';
+			return $message;
+		}else{
+			return "";
+		}
 	}
 
 }

@@ -16,8 +16,8 @@ requirejs.config({
         isBuild : false
     }
 });
-require(['jquery', 'jquery-migrate-1.2.1.min', 'knockout', 'knockout-groupedOptions', 'infuser-amd', 'koExternalTemplateEngine-amd', 'knockout.validation', 'knockout-postbox.min', 'bootstrap.min', 'jhash-custom-2.1.min', 'main/main', 'domReady!'], 
-function( $,        jqueryMigrate,				knockout,   koGroupedOptions, 			infuser,       koExtTemplate,                  koValidation,              koPostbox,          bootstrap,       	route,      	   Main) {
+require(['jquery', 'jquery-migrate-1.2.1.min', 'moment.min', 'knockout', 'knockout-groupedOptions', 'infuser-amd', 'koExternalTemplateEngine-amd', 'knockout.validation', 'knockout-postbox.min', 'bootstrap.min', 'jhash-custom-2.1.min', 'main/main', 'domReady!'], 
+function( $,        jqueryMigrate,			  moment,    knockout,   koGroupedOptions, 			infuser,       koExtTemplate,                  koValidation,              koPostbox,          bootstrap,       	route,      	   Main) {
     // Set up some defaults for templates loaded using koExternalTemplateEngine
     infuser.defaults.templateSuffix = ".tmpl.html?v="+version;
     infuser.defaults.templateUrl = "js";

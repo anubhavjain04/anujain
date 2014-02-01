@@ -1,7 +1,8 @@
 define(function (require) {    
-	var ko               = require('knockout');
-	var $                = require('jquery');
-	var ajaxutil		 = require('ajaxutil');
+	var ko          = require('knockout');
+	var $           = require('jquery');
+	var ajaxutil	= require('ajaxutil');
+	var moment		= require('moment');
 
 	return function(){ 
 		var self = this;
@@ -241,6 +242,36 @@ define(function (require) {
 						}
 					});
 				}
+			};
+			
+			vm.getDateAsString = function(DOB){
+				if(DOB){
+					var mm = moment(DOB, "YYYY-MM-DD HH:mm:ss");
+					if(mm){
+						return mm.format('D MMMM YYYY');
+					}else{
+						return "";
+					}
+				}else{
+					return "";
+				}
+			};
+			vm.getTimeAsString = function(DOB){
+				if(DOB){
+					var mm = moment(DOB, "YYYY-MM-DD HH:mm:ss");
+					if(mm){
+						return mm.format('h:mm:ss A');
+					}else{
+						return "";
+					}
+				}else{
+					return "";
+				}
+			};
+			
+			vm.stringToDate = function(str, format){
+				var mm = moment(str, format);
+				return mm.toDate();
 			};
 			
 			// init here
