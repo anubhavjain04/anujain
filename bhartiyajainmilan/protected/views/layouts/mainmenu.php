@@ -277,27 +277,7 @@
         </div>
       </div>
       <!--[if lte IE 6]></td></tr></table></a><![endif]--> 
-    </li>    
-    <li class="level1-li sub"><a class="level1-a" href="#nogo">Jain Matrimonial<!--[if gte IE 7]><!--></a><!--<![endif]--> 
-      <!--[if lte IE 6]><table><tr><td><![endif]-->
-      <div class="listHolder col1">
-        <div class="listCol">
-          <h5>Profile</h5>
-          <ul>
-            <li><a href="#url">Boys</a></li>
-            <li><a href="#url">Girls</a></li>
-          </ul>
-          <h5>Apply</h5>
-          <ul>
-            <li><a href="#url">Submit Matrimonial Form</a></li>
-          </ul>
-        </div>        
-        <div class="bottomLine">
-          <p></p>
-        </div>
-      </div>
-      <!--[if lte IE 6]></td></tr></table></a><![endif]--> 
-    </li>   
+    </li>
        
     <?php 
 		if(isset(Yii::app()->session['currentUser'])){
@@ -311,4 +291,10 @@
 		}
 	?>
   </ul>
+  <div style="float: right; height:30px; width:30px;">
+    <a href="https://twitter.com/bjm_1966" target="_blank" title="Bhartiya Jain Milan on Twitter"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/twitter.png" alt="" /> </a>
+  </div>
+  <div style="float: right; height:30px; width:30px;">
+      <a href="http://www.facebook.com/bhartiyajainmilan" target="_blank" title="Bhartiya Jain Milan on Facebook"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fb.png" alt="" /> </a>
+    </div>
 </div>

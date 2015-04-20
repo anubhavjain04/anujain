@@ -152,7 +152,7 @@
             <div class="wrapper">
               <ul class="services">
                 <li><a href="http://www.facebook.com/bhartiyajainmilan" target="_blank" title="Bhartiya Jain Milan on Facebook"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/pict-2.gif" alt="" /> </a></li>
-                <li><a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/pict-3.gif" alt="" /> </a></li>
+                <li><a href="https://twitter.com/bjm_1966" target="_blank" title="Bhartiya Jain Milan on Twitter"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/pict-3.gif" alt="" /> </a></li>
                 <li><a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/pict-1.gif" alt="" /> </a> Connect with us</li>
               </ul>
             </div>
