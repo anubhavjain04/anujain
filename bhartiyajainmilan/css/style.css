@@ -1235,13 +1235,13 @@ h5{
 	display: inline-block;
 	color: #fff;
 	cursor: pointer;
-	padding-left: 12px;
+	padding-left: 10px;
 	background: url(../images/button3-left.png) 0 0 no-repeat;
 }
 
 .button1 span {
 	display: inline-block;
-	padding-right: 12px;
+	padding-right: 10px;
 	background: url(../images/button3-right.png) right 0 no-repeat;
 }
 
