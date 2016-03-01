@@ -4,8 +4,19 @@ $this->pageTitle="Bhartiya Jain Milan"
 ?>
 
 <div id="header-banner">
-  <div class="row-2 relative">
-    <div class="fright hindi">
+  <div class="row-2 relative">    
+    <div class="slider fleft">
+      <ul class="items">
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/1.jpg" alt=""/></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/2.jpg" alt=""/></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/3.jpg" alt=""/></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/4.jpg" alt=""/></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/5.jpg" alt=""/></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/6.jpg" alt=""/></li>
+		<li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/7.jpg" alt=""/></li>
+      </ul>
+      <a href="#" class="play">stop</a> </div>
+	<div class="fright hindi">
       <div class="slogan-1">
       	<div class="stitle-1">Bhartiya Jain Milan</div>
         <div class="stitle-2" style="float: left;"><span style="font-size:.9em;">Andhata Nivaran &amp; <br />Dristi Suraksha Varsh</span></div>
@@ -26,18 +37,7 @@ $this->pageTitle="Bhartiya Jain Milan"
         <div class="stitle-2">Hospital (Sardhana)</div>
         <div class="padding"><a class="button-top png" href='<?php echo Yii::app()->createUrl("/staticPages/hospitalEstablishment");?>'><span class="png"><span class="png">more</span></span> </a></div>
       </div>
-    </div>
-    <div class="slider">
-      <ul class="items">
-        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/1.jpg" alt=""/></li>
-        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/2.jpg" alt=""/></li>
-        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/3.jpg" alt=""/></li>
-        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/4.jpg" alt=""/></li>
-        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/5.jpg" alt=""/></li>
-        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/6.jpg" alt=""/></li>
-		<li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/7.jpg" alt=""/></li>
-      </ul>
-      <a href="#" class="play">stop</a> </div>
+    </div>  
   </div>
 </div>
 <div id="content">

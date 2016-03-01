@@ -587,7 +587,7 @@ p {
 }
 
 .slider {
-	position: absolute;
+	position: relative;
 	z-index: 1;
 	top: 3px;
 	left: 0;
@@ -979,7 +979,7 @@ p {
 .button-top {
 	display: inline-block;
 	cursor: pointer;
-	padding-left: 12px;
+	padding-left: 10px;
 	background: url(../images/button-top-left.png) 0 0 no-repeat;
 }
 
@@ -1212,13 +1212,13 @@ h5{
 	display: inline-block;
 	color: #05a3e5;
 	cursor: pointer;
-	padding-left: 13px;
+	padding-left: 12px;
 	background: url(../images/button-left.png) 0 0 no-repeat;
 }
 
 .button span {
 	display: inline-block;
-	padding-right: 13px;
+	padding-right: 10px;
 	background: url(../images/button-right.png) right 0 no-repeat;
 }
 
