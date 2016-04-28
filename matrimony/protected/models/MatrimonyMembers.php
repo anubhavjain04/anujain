@@ -262,7 +262,7 @@ class MatrimonyMembers extends CActiveRecord
 				$criteria->compare('MemberCode',$search['memberCode']);	
 			}
 		}
-		$criteria->order = ' MemberName ASC ';
+		$criteria->order = ' ModifiedDate DESC ';
 		
 		return new CActiveDataProvider(get_class($this), array(
 			'pagination'=>array(

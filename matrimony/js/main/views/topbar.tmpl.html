@@ -12,7 +12,7 @@
         <!-- ko ifnot: $root.user() -->
         <li data-bind="css: {'active': $root.categorySwitch()==$root.label.REGISTER_PAGE}"><a href="#!register">Register</a></li>
         <!-- /ko -->
-        <li data-bind="css: {'active': $root.categorySwitch()==$root.label.UPGRADE_PAGE}"><a href="#!upgrade">Upgrade</a></li>
+        <!--<li data-bind="css: {'active': $root.categorySwitch()==$root.label.UPGRADE_PAGE}"><a href="#!upgrade">Upgrade</a></li>-->
         <li data-bind="css: {'active': $root.categorySwitch()==$root.label.CONTACT_US}"><a href="#!contact-us">Contact Us</a></li>
       </ul>
       <!-- ko if: $root.categorySwitch()!=$root.label.LOGIN -->      
