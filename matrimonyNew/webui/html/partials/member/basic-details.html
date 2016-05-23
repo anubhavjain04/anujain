@@ -1,0 +1,235 @@
+<form name="myForm">
+    <h1>Basic Details
+        <small ng-show="!isEditMode"><button class="btn btn-primary btn-sm" ng-click="changeMode(true)">Edit</button></small>
+        <small ng-show="isEditMode"><button class="btn btn-primary btn-sm" ng-click="changeMode(false)">Cancel Edit</button></small>
+    </h1>
+
+    <div class="col-xs-12 col-sm-12 tab-content">
+        <div id="register-member">
+            <div class="padt20 form-horizontal">
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label>Matrimony ID</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <label><span class="clr9" ng-bind="memberCode"></span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Registered by<span class="requiredFields"> *</span></label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="facetVM.getObjectText(facetVM.registeredByList,registeredBy)"></span>
+                            <div ng-show="isEditMode" ng-class="{'has-error': myForm.registeredBy.$touched && myForm.registeredBy.$invalid, 'has-success': myForm.registeredBy.$touched && myForm.registeredBy.$valid}">
+                                <select class="form-control def-element-width" name="registeredBy" ng-model="registeredBy" required>
+                                    <option value="">--Select--</option>
+                                    <option ng-repeat="item in facetVM.registeredByList track by item.key" ng-attr-value="{{item.key}}" ng-bind="item.text" ng-selected="registeredBy==item.key"></option>
+                                </select>
+                                <div ng-messages="myForm.registeredBy.$touched && myForm.registeredBy.$error" class="text-danger">
+                                    <div ng-message="required">Please select the profile registered by.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Name<span class="requiredFields"> *</span></label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="memberName"></span>
+                            <div ng-show="isEditMode" ng-class="{'has-error': myForm.memberName.$touched && myForm.memberName.$invalid, 'has-success': myForm.memberName.$touched && myForm.memberName.$valid}">
+                                <input type="text" class="form-control def-element-width" placeholder="Name" ng-model="memberName" />
+                                <div ng-messages="myForm.memberName.$touched && myForm.memberName.$error" class="text-danger">
+                                    <div ng-message="required">Please write your name.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Gender<span class="requiredFields"> *</span></label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-bind="(sex==1)?'Male':'Female'"></span>
+                            &nbsp;&nbsp;&nbsp;
+                            <dfn ng-show="isEditMode" class="text-muted">
+                                To edit, please contact customer care
+                            </dfn>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Marital Status<span class="requiredFields"> *</span></label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="facetVM.getObjectText(facetVM.maritalStatusList, maritalStatus)"></span>
+                            <div ng-show="isEditMode" ng-class="{'has-error': myForm.maritalStatus.$touched && myForm.maritalStatus.$invalid, 'has-success': myForm.maritalStatus.$touched && myForm.maritalStatus.$valid}">
+                                <select class="form-control def-element-width" name="maritalStatus" required ng-model="maritalStatus">
+                                    <option value="">--Select--</option>
+                                    <option ng-repeat="item in facetVM.maritalStatusList track by item.key" ng-attr-value="{{item.key}}" ng-bind="item.text" ng-selected="maritalStatus==item.key"></option>
+                                </select>
+                                <div ng-messages="myForm.maritalStatus.$touched && myForm.maritalStatus.$error" class="text-danger">
+                                    <div ng-message="required">Please select marital status.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Mother Tongue<span class="requiredFields"> *</span></label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="motherToungueName"></span>
+                            <div ng-show="isEditMode" ng-class="{'has-error': myForm.motherTongue.$touched && myForm.motherTongue.$invalid, 'has-success': myForm.motherTongue.$touched && myForm.motherTongue.$valid}">
+                                <select class="form-control def-element-width" name="motherTongue" required ng-model="motherTongue">
+                                    <option value="">--Select--</option>
+                                    <option ng-repeat="item in facetVM.motherTongueList track by item.pkTongueId" ng-attr-value="{{item.pkTongueId}}" ng-bind="item.TongueName" ng-selected="motherTongue==item.pkTongueId"></option>
+                                </select>
+                                <div ng-messages="myForm.motherTongue.$touched && myForm.motherTongue.$error" class="text-danger">
+                                    <div ng-message="required">Please select mother tongue.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Height</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="facetVM.getObjectText(facetVM.heightList,height)"></span>
+                            <select ng-show="isEditMode" class="form-control def-element-width" name="height" ng-model="height" ng-options="item.key as item.text for item in facetVM.heightList">
+                                <option value="">--select--</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Weight</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="facetVM.getObjectText(facetVM.weightList,weight)"></span>
+                            <select ng-show="isEditMode" class="form-control def-element-width" ng-model="weight" ng-options="item.key as item.text for item in facetVM.weightList">
+                                <option value="">--select--</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Body Type</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="facetVM.getObjectText(facetVM.bodyTypeList, bodyType)"></span>
+                            <div ng-show="isEditMode" class="btn-group">
+                                <label for="b_Slim" class="btn btn-default" ng-class="{'active': bodyType=='1'}">
+                                    <input type="radio" id="b_Slim" name="bodytype" value="1" ng-model="bodyType" />
+                                    Slim </label>
+                                &nbsp;
+                                <label for="b_Athletic" class="btn btn-default" ng-class="{'active': bodyType=='2'}">
+                                    <input type="radio" id="b_Athletic" name="bodytype" value="2" ng-model="bodyType" />
+                                    Athletic </label>
+                                <label for="b_Average" class="btn btn-default" ng-class="{'active': bodyType=='3'}">
+                                    <input type="radio" id="b_Average" name="bodytype" value="3" ng-model="bodyType" />
+                                    Average </label>
+                                <label for="b_Heavy" class="btn btn-default" ng-class="{'active': bodyType=='4'}">
+                                    <input type="radio" id="b_Heavy" name="bodytype" value="4" ng-model="bodyType" />
+                                    Heavy </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Complexion</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="facetVM.getObjectText(facetVM.complexionList, complexion)"></span>
+                            <div ng-show="isEditMode" class="btn-group">
+                                <label for="c_VeryFair" class="btn btn-default" ng-class="{'active': complexion=='1'}">
+                                    <input type="radio" id="c_VeryFair" name="complexion" value="1" ng-model="complexion" />
+                                    Very Fair </label>
+                                &nbsp;
+                                <label for="c_Fair" class="btn btn-default" ng-class="{'active': complexion=='2'}">
+                                    <input type="radio" id="c_Fair" name="complexion" value="2" ng-model="complexion" />
+                                    Fair </label>
+                                <label for="c_Wheatish" class="btn btn-default" ng-class="{'active': complexion=='3'}">
+                                    <input type="radio" id="c_Wheatish" name="complexion" value="3" ng-model="complexion" />
+                                    Wheatish </label>
+                                <label for="c_WheatishBrown" class="btn btn-default" ng-class="{'active': complexion=='4'}">
+                                    <input type="radio" id="c_WheatishBrown" name="complexion" value="4" ng-model="complexion" />
+                                    Wheatish Brown </label>
+                                <label for="c_Dark" class="btn btn-default" ng-class="{'active': complexion=='5'}">
+                                    <input type="radio" id="c_Dark" name="complexion" value="5" ng-model="complexion" />
+                                    Dark </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Physical Status</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="facetVM.getObjectText(facetVM.physicalStatusList, physicalStatus)"></span>
+                            <div ng-show="isEditMode" class="btn-group">
+                                <label for="ps_Normal" class="btn btn-default" ng-class="{'active': physicalStatus=='0'}">
+                                    <input type="radio" id="ps_Normal" name="physicalStatus" value="0" ng-model="physicalStatus" />
+                                    Normal </label>
+                                <label for="ps_Challenged" class="btn btn-default" ng-class="{'active': physicalStatus=='1'}">
+                                    <input type="radio" id="ps_Challenged" name="physicalStatus" value="1" ng-model="physicalStatus" />
+                                    Physically Challenged </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-show="isEditMode">
+                    <div class="row">
+                        <div class="dot-line padt10"></div>
+                        <div class="padt20">
+                            <div class="col-xs-12 col-sm-2"></div>
+                            <div class="col-xs-12 col-sm-10">
+                                <div id="captchadiv"></div>
+                                <button class="btn btn-success" ng-click="updateBasicDetails()" ng-disabled="disableButton">Save</button>
+                                <button class="btn btn-primary" ng-click="changeMode(false)">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="padb35"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

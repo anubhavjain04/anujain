@@ -1,0 +1,25 @@
+<div ng-controller="MainCtrl">
+    <div ng-include="'layouts/topbar.html'"></div>
+    <div id="page-body">
+        <div class="container">
+            <div ng-include="'layouts/flash.html'"></div>
+            <section ui-view>
+                <div>
+                    <h2>Loading.....</h2>
+                </div>
+                <div>
+                    <img src="images/spinner-horizontal.gif" title="Loading....">
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div ng-include="'layouts/footer.html'"></div>
+    <div class="clearfix"></div>
+    <div id="ajaxLoader" class="ajax-layer" style="display:none;">
+        <span class="loading">Loading...</span>
+    </div>
+    <bjm-alert message="alertMessage"></bjm-alert>
+</div>
+
+

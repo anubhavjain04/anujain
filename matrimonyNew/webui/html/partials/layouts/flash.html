@@ -1,0 +1,5 @@
+<div class="ng-cloak" ng-controller='FlashCtrl', ng-init='flash=[]'>
+    <uib-alert close='closeAlert($index)', ng-repeat='alert in flash', type='{{ alert.type }}'>
+        <span ng-bind="alert.msg"></span>
+    </uib-alert>
+</div>

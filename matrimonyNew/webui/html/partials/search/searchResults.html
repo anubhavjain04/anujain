@@ -1,0 +1,198 @@
+<div id="searchbar" class="row row-offcanvas row-offcanvas-left">
+    <div class="padt30">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Refine your search</h3>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <p> You can refine your search results by simply modify/change search criteria as given below:- </p>
+                    </div>
+                    <div class="accordion" id="accordion1">
+                        <!-- Age -->
+                        <div class="accordion-group">
+                            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse1"> Age </a> </div>
+                            <div id="collapse1" class="accordion-body collapse in">
+                                <div class="accordion-inner">
+                                    <div><span class="glyphicon glyphicon-triangle-right"></span><span ng-bind="ageFrom"></span> yrs - <span ng-bind="ageTo"></span> yrs </div>
+                                    <div class="tlright"> <a class="btn btn-primary" ng-click="openModal('search/modals/age.html')" title="click here to change criteria">change</a> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Height -->
+                        <div class="accordion-group">
+                            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse2"> Height </a> </div>
+                            <div id="collapse2" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div> <span class="glyphicon glyphicon-triangle-right"></span> <span ng-bind="facetVM.heightInWords(heightFrom)"></span> - <span ng-bind="facetVM.heightInWords(heightTo)"></span> </div>
+                                    <div class="tlright"> <a class="btn btn-primary" ng-click="openModal('search/modals/height.html')" title="click here to change criteria">change</a> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Marital Status -->
+                        <div class="accordion-group">
+                            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse3"> Marital Status </a> </div>
+                            <div id="collapse3" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div ng-if="selectedMaritalStatus.length > 0" ng-repeat="item in selectedMaritalStatus track by item">
+                                        <span class="glyphicon glyphicon-triangle-right"></span><span ng-bind="getSelectedItem(item, facetVM.maritalStatusList, 'key').text"></span>
+                                    </div>
+                                    <div ng-if="selectedMaritalStatus.length == 0 || (selectedMaritalStatus.length==1 && !selectedMaritalStatus[0])"><span class="glyphicon glyphicon-triangle-right"></span><span>Any</span></div>
+                                    <div class="tlright"> <a class="btn btn-primary" ng-click="openModal('search/modals/maritalStatus.html')" title="click here to change criteria">change</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mother Toungue -->
+                        <div class="accordion-group">
+                            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse4"> Mother Toungue </a> </div>
+                            <div id="collapse4" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div ng-if="selectedMotherTongue.length > 0" ng-repeat="item in selectedMotherTongue track by item">
+                                        <span class="glyphicon glyphicon-triangle-right"></span><span ng-bind="getSelectedItem(item, facetVM.motherTongueList, 'pkTongueId').TongueName"></span>
+                                    </div>
+                                    <div ng-if="selectedMotherTongue.length==0 || (selectedMotherTongue.length==1 && !selectedMotherTongue[0])"><span class="glyphicon glyphicon-triangle-right"></span><span>Any</span></div>
+
+                                    <div class="tlright"> <a class="btn btn-primary" ng-click="openModal('search/modals/motherToungue.html')" title="click here to change criteria">change</a> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sect -->
+                        <div class="accordion-group">
+                            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse5"> Sect </a> </div>
+                            <div id="collapse5" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div ng-if="selectedSect.length > 0" ng-repeat="item in selectedSect track by item">
+                                        <span class="glyphicon glyphicon-triangle-right"></span><span ng-bind="getSelectedItem(item, facetVM.sectList, 'pkSectId').SectName"></span>
+                                    </div>
+                                    <div ng-if="selectedSect.length==0 || (selectedSect.length==1 && !selectedSect[0])"><span class="glyphicon glyphicon-triangle-right"></span><span>Any</span></div>
+                                    <div class="tlright"> <a class="btn btn-primary" ng-click="openModal('search/modals/sect.html')" title="click here to change criteria">change</a> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sub Sect -->
+                        <div class="accordion-group">
+                            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse6"> Sub Sect </a> </div>
+                            <div id="collapse6" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div ng-if="selectedSubSect.length > 0" ng-repeat="item in selectedSubSect track by item">
+                                        <span class="glyphicon glyphicon-triangle-right"></span><span ng-bind="getSelectedItem(item, facetVM.subSectList, 'pkSubSectId').SubSectName"></span>
+                                    </div>
+                                    <div ng-if="selectedSubSect.length==0 || (selectedSubSect.length==1 && !selectedSubSect[0])"><span class="glyphicon glyphicon-triangle-right"></span><span>Any</span></div>
+                                    <div class="tlright"> <a class="btn btn-primary" ng-click="openModal('search/modals/subsect.html')" title="click here to change criteria">change</a> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Caste -->
+                        <div class="accordion-group">
+                            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse7"> Caste </a> </div>
+                            <div id="collapse7" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div ng-if="selectedCaste.length > 0" ng-repeat="item in selectedCaste track by item">
+                                        <span class="glyphicon glyphicon-triangle-right"></span><span ng-bind="getSelectedItem(item, facetVM.casteList, 'pkCasteId').CasteName"></span>
+                                    </div>
+                                    <div ng-if="selectedCaste.length==0 || (selectedCaste.length==1 && !selectedCaste[0])"><span class="glyphicon glyphicon-triangle-right"></span><span>Any</span></div>
+                                    <div class="tlright"> <a class="btn btn-primary" ng-click="openModal('search/modals/caste.html')" title="click here to change criteria">change</a> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="accordion-group">
+                            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse8"> Education </a> </div>
+                            <div id="collapse8" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div ng-if="selectedCourseGroup.length > 0" ng-repeat="item in selectedCourseGroup track by item">
+                                        <span class="glyphicon glyphicon-triangle-right"></span><span ng-bind="getSelectedItem(item, facetVM.courseGroupList, 'pkCourseGroupId').GroupName"></span>
+                                    </div>
+                                    <div ng-if="selectedCourseGroup.length==0 || (selectedCourseGroup.length==1 && !selectedCourseGroup[0])"><span class="glyphicon glyphicon-triangle-right"></span><span>Any</span></div>
+                                    <div class="tlright"> <a class="btn btn-primary" ng-click="openModal('search/modals/courseGroup.html')" title="click here to change criteria">change</a> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Occupation -->
+                        <div class="accordion-group">
+                            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse9"> Occupation </a> </div>
+                            <div id="collapse9" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div ng-if="selectedOccupationGroup.length > 0" ng-repeat="item in selectedOccupationGroup track by item">
+                                        <span class="glyphicon glyphicon-triangle-right"></span><span ng-bind="getSelectedItem(item, facetVM.occupationGroupList, 'pkOccGroupId').GroupName"></span>
+                                    </div>
+                                    <div ng-if="selectedOccupationGroup.length==0 || (selectedOccupationGroup.length==1 && !selectedOccupationGroup[0])"><span class="glyphicon glyphicon-triangle-right"></span><span>Any</span></div>
+                                    <div class="tlright"> <a class="btn btn-primary" ng-click="openModal('search/modals/occupationGroup.html')" title="click here to change criteria">change</a> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Annual Income -->
+                        <div class="accordion-group">
+                            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse10"> Annual Income </a> </div>
+                            <div id="collapse10" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div ng-if="selectedAnnualIncome"><span class="glyphicon glyphicon-triangle-right"></span><span ng-bind="selectedAnnualIncome.text"></span></div>
+                                    <div ng-if="!selectedAnnualIncome"><span class="glyphicon glyphicon-triangle-right"></span><span>Any</span></div>
+                                    <div class="tlright"> <a class="btn btn-primary" ng-click="openModal('search/modals/annualIncome.html')" title="click here to change criteria">change</a> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Country -->
+                        <div class="accordion-group">
+                            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse11"> Country </a> </div>
+                            <div id="collapse11" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div ng-if="selectedCountry.length > 0" ng-repeat="item in selectedCountry track by item">
+                                        <span class="glyphicon glyphicon-triangle-right"></span><span ng-bind="getSelectedItem(item, facetVM.countryList, 'pkCountryId').CountryName"></span>
+                                    </div>
+                                    <div ng-if="selectedCountry.length==0 || (selectedCountry.length==1 && !selectedCountry[0])"><span class="glyphicon glyphicon-triangle-right"></span><span>Any</span></div>
+                                    <div class="tlright"> <a class="btn btn-primary" ng-click="openModal('search/modals/country.html')" title="click here to change criteria">change</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Physical Status -->
+                        <div class="accordion-group">
+                            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse12"> Physical Status </a> </div>
+                            <div id="collapse12" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div ng-if="selectedPhysicalStatus.length > 0" ng-repeat="item in selectedPhysicalStatus track by item">
+                                        <span class="glyphicon glyphicon-triangle-right"></span><span ng-bind="getSelectedItem(item, facetVM.physicalStatusList, 'key').text"></span>
+                                    </div>
+                                    <div ng-if="selectedPhysicalStatus.length==0 || (selectedPhysicalStatus.length==1 && !selectedPhysicalStatus[0] && selectedPhysicalStatus[0] !== 0)"><span class="glyphicon glyphicon-triangle-right"></span><span>Any</span></div>
+                                    <div class="tlright"> <a class="btn btn-primary" ng-click="openModal('search/modals/physicalStatus.html')" title="click here to change criteria">change</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Employed in -->
+                        <div class="accordion-group">
+                            <div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse13"> Employed in </a> </div>
+                            <div id="collapse13" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <div ng-if="selectedEmployedIn.length > 0" ng-repeat="item in selectedEmployedIn track by item">
+                                        <span class="glyphicon glyphicon-triangle-right"></span><span ng-bind="getSelectedItem(item, facetVM.employedInList, 'key').text"></span>
+                                    </div>
+                                    <!-- ko if:  -->
+                                    <div ng-if="selectedEmployedIn.length==0 || (selectedEmployedIn.length==1 && !selectedEmployedIn[0])"><span class="glyphicon glyphicon-triangle-right"></span><span>Any</span></div>
+                                    <!-- /ko -->
+                                    <div class="tlright"> <a class="btn btn-primary" ng-click="openModal('search/modals/employedIn.html')" title="click here to change criteria">change</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+            <p class="pull-left visible-xs">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas" data-bind="click: function(){$root.toggleClass('#searchbar','active');}">Refine Your Search</button>
+            </p>
+            <div class="clearfix"></div>
+            <div ng-include="'search/renderResults.html'"></div>
+        </div>
+    </div>
+</div>

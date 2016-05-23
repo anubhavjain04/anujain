@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="closeModal()" aria-hidden="true">&times;</button>
+    <h4 class="modal-title">Physical Status</h4>
+</div>
+<div class="modal-body">
+    <ul class="list-unstyled list-group">
+        <li class="list-group-item" ng-repeat="item in facetVM.physicalStatusList track by item.key">
+            <label class="label-normal">
+                <checkbox ng-init="item.selected = $parent.selectedPhysicalStatus.indexOf(item.key)>-1?true:false" name="physicalStatus" ng-model="item.selected" ng-change="toggleSelection(item.key, $parent.selectedPhysicalStatus)" ></checkbox>
+                <span ng-bind="item.text" class="disinblk"></span>
+            </label>
+        </li>
+    </ul>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="closeModal()">Close</button>
+    <button type="button" class="btn btn-primary" ng-click="search()">Search</button>
+</div>

@@ -1,0 +1,143 @@
+<div>
+    <h1>Family Details
+        <small ng-show="!isEditMode"><button class="btn btn-primary btn-sm" ng-click="changeMode(true)">Edit</button></small>
+        <small ng-show="isEditMode"><button class="btn btn-primary btn-sm" ng-click="changeMode(false)">Cancel Edit</button></small>
+    </h1>
+
+    <div class="col-xs-12 col-sm-12 tab-content">
+        <div id="register-member">
+            <div class="padt20 form-horizontal">
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Father Name</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="fatherName"></span>
+                            <input ng-show="isEditMode" type="text" class="form-control def-element-width" placeholder="father name" ng-model="fatherName" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Father's Occupation</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="fatherOccupation"></span>
+                            <input ng-show="isEditMode" type="text" class="form-control def-element-width" placeholder="father's occupation" ng-model="fatherOccupation" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Mother Name</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="motherName"></span>
+                            <input ng-show="isEditMode" type="text" class="form-control def-element-width" placeholder="mother name" ng-model="motherName" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Mother's Occupation</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="motherOccupation"></span>
+                            <input ng-show="isEditMode" type="text" class="form-control def-element-width" placeholder="mother's occupation" ng-model="motherOccupation" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Unmarried Brothers</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="unmarriedBrothers"></span>
+                            <select ng-show="isEditMode" class="form-control def-element-width" ng-model="unmarriedBrothers" ng-options="item.key as item.text for item in getSiblingsList">
+                                <option value="">None</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Married Brothers</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="marriedBrothers"></span>
+                            <select ng-show="isEditMode" class="form-control def-element-width" ng-model="marriedBrothers" ng-options="item.key as item.text for item in getSiblingsList">
+                                <option value="">None</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Unmarried Sisters</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="unmarriedSisters"></span>
+                            <select ng-show="isEditMode" class="form-control def-element-width" ng-model="unmarriedSisters" ng-options="item.key as item.text for item in getSiblingsList">
+                                <option value="">None</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Married Sisters</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="marriedSisters"></span>
+                            <select ng-show="isEditMode" class="form-control def-element-width" ng-model="marriedSisters" ng-options="item.key as item.text for item in getSiblingsList">
+                                <option value="">None</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">About Family</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" data-bind="text: aboutFamily"></span>
+                            <textarea ng-show="isEditMode" class="form-control" placeholder="about family" ng-model="aboutFamily" ></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="isEditMode">
+                    <div class="row">
+                        <div class="dot-line padt10"></div>
+                        <div class="padt20">
+                            <div class="col-xs-12 col-sm-2"></div>
+                            <div class="col-xs-12 col-sm-10">
+                                <div id="captchadiv"></div>
+                                <button class="btn btn-success" ng-click="updateFamilyDetails()">Save</button>
+                                <button class="btn btn-primary" ng-click="changeMode(false)">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="padb35"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

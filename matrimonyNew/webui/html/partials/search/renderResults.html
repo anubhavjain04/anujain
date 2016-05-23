@@ -1,0 +1,86 @@
+<div class="row-fluid">
+    <h1>Your Search Results (<span ng-bind="totalItems"></span>)</h1>
+    <div class="dot-line mrgb20"></div>
+    <!-- choosen search criteria -->
+    <div >
+        <div ng-include="'search/choosenSearchCriteria.html'"></div>
+    </div>
+    <div ng-if="dataList && dataList.length>0">
+        <div class="pager"> Go to page:
+            <ul class="yiiPager" >
+                <li class="previous" ng-class="{'disabled': disablePrevious}"><a href="javascript:void(0)" ng-click="previousPage()">&lt; Previous</a></li>
+                <li class="page" ng-repeat="item in pageList track by item.pageNo" ng-class="{'selected': item.selected}">
+                    <a href="javascript:void(0)" ng-bind="item.pageNo" ng-click="goToPage(item.pageNo)"></a>
+                </li>
+                <li class="next" ng-class="{'disabled': disableNext}"><a href="javascript:void(0)" ng-click="nextPage()">Next &gt;</a></li>
+            </ul>
+        </div>
+        <div ng-repeat="item in dataList track by item.pkMemberId">
+            <div class="bdr1 mrgb20 curve10">
+                <div class="pad15">
+                    <div class="pull-left"> <span class="h3" ng-bind="item.MemberCode"></span> </div>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-primary" ng-click="viewMember(item.MemberCode)">View Full Profile</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="pad15 padt0">
+                    <div class="bdr1 col-sm-3 pad-reset profile-pic text-center" ng-class="{'women': (item.Sex=='0' && !item.ProfilePic), 'men': (item.Sex=='1' && !item.ProfilePic)}">
+                        <a href="#" ng-if="item.ProfilePic"><img ng-src="{{item.ProfilePic}}" ng-attr-title="{{item.MemberName}}" /></a>
+                    </div>
+                    <div class="pad5 col-sm-9">
+                        <div class="padt3 padb10 col-sm-12 row">
+                            <div class="bigtxt-s"><a href="#" class="clr5" ng-bind="item.MemberName"></a></div>
+                        </div>
+                        <div class="padt5 col-sm-12 row">
+                            <div class="clr3 col-sm-3">Age, Height</div>
+                            <div class="clrblack col-sm-9"> : <span ng-bind="item.age+' yrs, '+facetVM.heightInWords(item.Height)"></span> </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="padt5 col-sm-12 row">
+                            <div class="clr3 col-sm-3">Sect</div>
+                            <div class="clrblack col-sm-9"> : <span ng-bind="item.sectName"></span> </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="padt5 col-sm-12 row">
+                            <div class="clr3 col-sm-3">Sub Sect</div>
+                            <div class="clrblack col-sm-9"> : <span ng-bind="item.subSectName"></span> </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="padt5 col-sm-12 row">
+                            <div class="clr3 col-sm-3">Location</div>
+                            <div class="clrblack col-sm-9"> : <span ng-bind="item.ResidingCity+', '+item.state+', '+item.country"></span> </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="padt5 col-sm-12 row">
+                            <div class="clr3 col-sm-3">Education</div>
+                            <div class="clrblack col-sm-9"> : <span ng-bind="item.education"></span> </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="padt5 col-sm-12 row">
+                            <div class="clr3 col-sm-3">Occupation</div>
+                            <div class="clrblack col-sm-9"> : <span ng-bind="item.occupation"></span> </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="padt10">
+                        <div class="pad5 bgclr4" ng-bind="item.AboutMe"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pager"> Go to page:
+            <ul class="yiiPager" >
+                <li class="previous" ng-class="{'disabled': disablePrevious}"><a href="javascript:void(0)" ng-click="previousPage()">&lt; Previous</a></li>
+                <li class="page" ng-repeat="item in pageList track by item.pageNo" ng-class="{'selected': item.selected}">
+                    <a href="javascript:void(0)" ng-bind="item.pageNo" ng-click="goToPage(item.pageNo)"></a>
+                </li>
+                <li class="next" ng-class="{'disabled': disableNext}"><a href="javascript:void(0)" ng-click="nextPage()">Next &gt;</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="text-center" ng-if="dataList && dataList.length === 0">
+        <h4>----No match found----</h4>
+    </div>
+</div>

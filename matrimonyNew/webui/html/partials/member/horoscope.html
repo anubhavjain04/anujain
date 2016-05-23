@@ -1,0 +1,189 @@
+<form name="myForm">
+    <h1>Religious/Horoscope Details
+        <small ng-show="!isEditMode"><button class="btn btn-primary btn-sm" ng-click="changeMode(true)">Edit</button></small>
+        <small ng-show="isEditMode"><button class="btn btn-primary btn-sm" ng-click="changeMode(false)">Cancel Edit</button></small>
+    </h1>
+
+    <div class="col-xs-12 col-sm-12 tab-content">
+        <div id="register-member">
+            <div class="padt20 form-horizontal">
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Sect<span class="requiredFields"> *</span></label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="sectName"></span>
+                            <div ng-show="isEditMode" ng-class="{'has-error': myForm.sect.$touched && myForm.sect.$invalid, 'has-success': myForm.sect.$touched && myForm.sect.$valid}">
+                                <select class="form-control def-element-width" name="sect" required ng-model="sect" ng-change="facetVM.afterSectChange(sect)">
+                                    <option value="">--Select--</option>
+                                    <option ng-repeat="item in facetVM.sectList track by item.pkSectId" ng-attr-value="{{item.pkSectId}}" ng-bind="item.SectName" ng-selected="sect==item.pkSectId"></option>
+                                </select>
+                                <div ng-messages="myForm.sect.$touched && myForm.sect.$error" class="text-danger">
+                                    <div ng-message="required">Please select sect.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Sub Sect<span class="requiredFields"> *</span></label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="subSectName"></span>
+                            <div ng-show="isEditMode" ng-class="{'has-error': myForm.subSect.$touched && myForm.subSect.$invalid, 'has-success': myForm.subSect.$touched && myForm.subSect.$valid}">
+                                <select class="form-control def-element-width" name="subSect" required ng-model="subSect">
+                                    <option value="{{undefined}}">--Select--</option>
+                                    <option ng-repeat="item in facetVM.subSectList" value="{{item.pkSubSectId}}" ng-bind="item.SubSectName" ng-selected="subSect==item.pkSubSectId"></option>
+                                </select>
+                                <div ng-messages="myForm.subSect.$touched && myForm.subSect.$error" class="text-danger">
+                                    <div ng-message="required">Please select sub sect.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Caste</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="casteName"></span>
+                            <select ng-show="isEditMode" class="form-control def-element-width" ng-model="caste" ng-options="item.pkCasteId as item.CasteName for item in facetVM.casteList">
+                                <option value="">--select--</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Gotra</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="gotra"></span>
+                            <input ng-show="isEditMode" type="text" class="form-control def-element-width" placeholder="gotra" ng-model="gotra" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Date of Birth<span class="requiredFields"> *</span></label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="date+' '+facetVM.getObjectText(facetVM.monthList,month)+' '+year"></span>
+                            <div ng-show="isEditMode">
+                                <div class="clearfix media">
+                                    <div class="pull-left" ng-class="{'has-error': myForm.dobDate.$touched && myForm.dobDate.$invalid, 'has-success': myForm.dobDate.$touched && myForm.dobDate.$valid}">
+                                        <select class="form-control clearwidth" name="dobDate" required ng-model="date">
+                                            <option value="">-dd-</option>
+                                            <option ng-repeat="item in facetVM.dateList track by item.key" ng-attr-value="{{item.key}}" ng-bind="item.text" ng-selected="date==item.key"></option>
+                                        </select>
+                                    </div>
+                                    <div class="pull-left" ng-class="{'has-error': myForm.dobMonth.$touched && myForm.dobMonth.$invalid, 'has-success': myForm.dobMonth.$touched && myForm.dobMonth.$valid}">
+                                        <select class="form-control clearwidth" name="dobMonth" required ng-model="month">
+                                            <option value="">-mm-</option>
+                                            <option ng-repeat="item in facetVM.monthList track by item.key" ng-attr-value="{{item.key}}" ng-bind="item.text" ng-selected="month==item.key"></option>
+                                        </select>
+                                    </div>
+                                    <div class="pull-left" ng-class="{'has-error': myForm.dobYear.$touched && myForm.dobYear.$invalid, 'has-success': myForm.dobYear.$touched && myForm.dobYear.$valid}">
+                                        <select class="form-control clearwidth" name="dobYear" required ng-model="year">
+                                            <option value="">-yyyy-</option>
+                                            <option ng-repeat="item in facetVM.yearList track by item.key" ng-attr-value="{{item.key}}" ng-bind="item.text" ng-selected="year==item.key"></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div ng-messages="myForm.dobDate.$touched && myForm.dobDate.$error" class="text-danger">
+                                    <div ng-message="required">Please select date.</div>
+                                </div>
+                                <div ng-messages="myForm.dobMonth.$touched && myForm.dobMonth.$error" class="text-danger">
+                                    <div ng-message="required">Please select month.</div>
+                                </div>
+                                <div ng-messages="myForm.dobYear.$touched && myForm.dobYear.$error" class="text-danger">
+                                    <div ng-message="required">Please select year.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Time of Birth</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="birthHour+':'+birthMinute+' '+birthAmPm"></span>
+                            <div ng-show="isEditMode">
+                                <div class="pull-left">
+                                    <select id="birthHour" class="form-control clearwidth" name="birthHour" ng-model="birthHour">
+                                        <option value="">-hour-</option>
+                                        <option ng-repeat="item in facetVM.hourList track by item.key" ng-attr-value="{{item.key}}" ng-bind="item.text" ng-selected="birthHour==item.key"></option>
+                                    </select>
+                                </div>
+                                <div class="pull-left">
+                                    <select class="form-control clearwidth" name="birthMinute" ng-model="birthMinute">
+                                        <option value="">-minutes-</option>
+                                        <option ng-repeat="item in facetVM.minuteList track by item.key" ng-attr-value="{{item.key}}" ng-bind="item.text" ng-selected="birthMinute==item.key"></option>
+                                    </select>
+                                </div>
+                                <div class="pull-left">
+                                    <select class="form-control clearwidth" name="birthAmPm" ng-model="birthAmPm" ng-options="item for item in facetVM.ampmList">
+                                        <option value="">-am/pm-</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Manglik</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="facetVM.getObjectText(facetVM.manglikList, manglikStatus)"></span>
+                            <div ng-show="isEditMode" class="btn-group">
+                                <label for="m_None" class="btn btn-default" ng-class="{'active': manglikStatus=='0'}">
+                                    <input type="radio" id="m_None" name="manglik" value="0" ng-model="manglikStatus" />
+                                    None </label>
+                                &nbsp;
+                                <label for="m_AanshikManglik" class="btn btn-default" ng-class="{'active': manglikStatus=='1'}">
+                                    <input type="radio" id="m_AanshikManglik" name="manglik" value="1" ng-model="manglikStatus" />
+                                    Aanshik Manglik </label>
+                                <label for="m_Manglik" class="btn btn-default" ng-class="{'active': manglikStatus=='2'}">
+                                    <input type="radio" id="m_Manglik" name="manglik" value="2" ng-model="manglikStatus" />
+                                    Manglik </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="isEditMode">
+                    <div class="row">
+                        <div class="dot-line padt10"></div>
+                        <div class="padt20">
+                            <div class="col-xs-12 col-sm-2"></div>
+                            <div class="col-xs-12 col-sm-10">
+                                <div id="captchadiv"></div>
+                                <button class="btn btn-success" ng-click="updateHoroscopeDetails()">Save</button>
+                                <button class="btn btn-primary" ng-click="changeMode(false)">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="padb35"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

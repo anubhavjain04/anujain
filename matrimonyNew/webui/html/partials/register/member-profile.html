@@ -1,0 +1,454 @@
+<div ng-controller="MemberProfileCtrl">
+    <form name="myForm">
+        <h3>Add your personal details</h3>
+        <p>We recommend you add more details about you, your life style and family to get exactly matching profiles.</p>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <label class="panel-title">Appearance</label>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Height</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <select class="form-control def-element-width" name="height" ng-model="profile.height" ng-options="item.key as item.text for item in facetVM.heightList">
+                                <option value="">--select--</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Weight</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <select class="form-control def-element-width" ng-model="profile.weight" ng-options="item.key as item.text for item in facetVM.weightList">
+                                <option value="">--select--</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Body Type</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10 btn-group">
+                            <label for="b_Slim" class="btn btn-default" ng-class="{'active': profile.bodyType=='1'}">
+                                <input type="radio" id="b_Slim" name="bodytype" value="1" ng-model="profile.bodyType" />
+                                Slim </label>
+                            &nbsp;
+                            <label for="b_Athletic" class="btn btn-default" ng-class="{'active': profile.bodyType=='2'}">
+                                <input type="radio" id="b_Athletic" name="bodytype" value="2" ng-model="profile.bodyType" />
+                                Athletic </label>
+                            <label for="b_Average" class="btn btn-default" ng-class="{'active': profile.bodyType=='3'}">
+                                <input type="radio" id="b_Average" name="bodytype" value="3" ng-model="profile.bodyType" />
+                                Average </label>
+                            <label for="b_Heavy" class="btn btn-default" ng-class="{'active': profile.bodyType=='4'}">
+                                <input type="radio" id="b_Heavy" name="bodytype" value="4" ng-model="profile.bodyType" />
+                                Heavy </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Complexion</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10 btn-group">
+                            <label for="c_VeryFair" class="btn btn-default" ng-class="{'active': profile.complexion=='1'}">
+                                <input type="radio" id="c_VeryFair" name="complexion" value="1" ng-model="profile.complexion" />
+                                Very Fair </label>
+                            &nbsp;
+                            <label for="c_Fair" class="btn btn-default" ng-class="{'active': profile.complexion=='2'}">
+                                <input type="radio" id="c_Fair" name="complexion" value="2" ng-model="profile.complexion" />
+                                Fair </label>
+                            <label for="c_Wheatish" class="btn btn-default" ng-class="{'active': profile.complexion=='3'}">
+                                <input type="radio" id="c_Wheatish" name="complexion" value="3" ng-model="profile.complexion" />
+                                Wheatish </label>
+                            <label for="c_WheatishBrown" class="btn btn-default" ng-class="{'active': profile.complexion=='4'}">
+                                <input type="radio" id="c_WheatishBrown" name="complexion" value="4" ng-model="profile.complexion" />
+                                Wheatish Brown </label>
+                            <label for="c_Dark" class="btn btn-default" ng-class="{'active': profile.complexion=='5'}">
+                                <input type="radio" id="c_Dark" name="complexion" value="5" ng-model="profile.complexion" />
+                                Dark </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Physical Status</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10 btn-group">
+                            <label for="ps_Normal" class="btn btn-default" ng-class="{'active': profile.physicalStatus=='0'}">
+                                <input type="radio" id="ps_Normal" name="physicalStatus" value="0" ng-model="profile.physicalStatus" />
+                                Normal </label>
+                            <label for="ps_Challenged" class="btn btn-default" ng-class="{'active': profile.physicalStatus=='1'}">
+                                <input type="radio" id="ps_Challenged" name="physicalStatus" value="1" ng-model="profile.physicalStatus" />
+                                Physically Challenged </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <label class="panel-title">Personal Details</label>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">About Me</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <textarea class="form-control" placeholder="write something about yourself" ng-model="profile.aboutMe" ></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Home Address</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <textarea class="form-control" placeholder="home address" ng-model="profile.homeAddress" ></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Working Address</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <textarea class="form-control" placeholder="working address" ng-model="profile.workingAddress" ></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Annual Income</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <input type="text" class="form-control def-element-width" placeholder="annual Income" ng-model="profile.annualIncome" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <label class="panel-title">Marry Preferances</label>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Marry In Same Sub Sect</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10 btn-group">
+                            <label for="marrySame_Yes" class="btn btn-default" ng-class="{'active': profile.marryInSameSect=='1'}">
+                                <input type="radio" id="marrySame_Yes" name="marryInSameSect" value="1" ng-model="profile.marryInSameSect" />
+                                Willing to marry from the same sub sect </label>
+                            <label for="marrySame_No" class="btn btn-default" ng-class="{'active': profile.marryInSameSect=='2'}">
+                                <input type="radio" id="marrySame_No" name="marryInSameSect" value="2" ng-model="profile.marryInSameSect" />
+                                Willing to marry from other sub sect also </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">About My Partner</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <textarea class="form-control" placeholder="write something about your partner preferance" ng-model="profile.aboutMyPartner" ></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <label class="panel-title">Horoscope</label>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Birth Time</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <div class="clearfix media">
+                                <div class="pull-left">
+                                    <select id="birthHour" class="form-control" ng-model="profile.birthHour" ng-options="item.key as item.text for item in facetVM.hourList">
+                                        <option value="">--hour--</option>
+                                    </select>
+                                </div>
+                                <div class="pull-left">
+                                    <select class="form-control" ng-model="profile.birthMinute" ng-options="item.key as item.text for item in facetVM.minuteList">
+                                        <option value="">--minute--</option>
+                                    </select>
+                                </div>
+                                <div class="pull-left">
+                                    <select class="form-control" ng-model="profile.birthAmPm" ng-options="item for item in facetVM.ampmList track by item">
+                                        <option value="">--am/pm--</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Caste</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <select class="form-control def-element-width" ng-model="profile.caste" ng-options="item.pkCasteId as item.CasteName for item in facetVM.casteList">
+                                <option value="">--select--</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Gotra</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <input type="text" class="form-control def-element-width" placeholder="gotra" ng-model="profile.gotra" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Manglik</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10 btn-group">
+                            <label for="m_None" class="btn btn-default" ng-class="{'active': profile.manglikStatus=='0'}">
+                                <input type="radio" id="m_None" name="manglik" value="0" ng-model="profile.manglikStatus" />
+                                None </label>
+                            &nbsp;
+                            <label for="m_AanshikManglik" class="btn btn-default" ng-class="{'active': profile.manglikStatus=='1'}">
+                                <input type="radio" id="m_AanshikManglik" name="manglik" value="1" ng-model="profile.manglikStatus" />
+                                Aanshik Manglik </label>
+                            <label for="m_Manglik" class="btn btn-default" ng-class="{'active': profile.manglikStatus=='2'}">
+                                <input type="radio" id="m_Manglik" name="manglik" value="2" ng-model="profile.manglikStatus" />
+                                Manglik </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <label class="panel-title">Professional Details</label>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Education</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <select class="form-control def-element-width" ng-model="profile.education" ng-options="item.pkCourseId as item.CourseName group by item.group for item in facetVM.educationList">
+                                <option value="">--select--</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Employed In</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10 btn-group">
+                            <label for="emp_Government" class="btn btn-default" ng-class="{'active': profile.employedIn=='1'}">
+                                <input type="radio" id="emp_Government" name="employedIn" value="1" ng-model="profile.employedIn" />
+                                Government </label>
+                            <label for="emp_Defence" class="btn btn-default" ng-class="{'active': profile.employedIn=='2'}">
+                                <input type="radio" id="emp_Defence" name="employedIn" value="2" ng-model="profile.employedIn" />
+                                Defence </label>
+                            <label for="emp_Private" class="btn btn-default" ng-class="{'active': profile.employedIn=='3'}">
+                                <input type="radio" id="emp_Private" name="employedIn" value="3" ng-model="profile.employedIn" />
+                                Private </label>
+                            <label for="emp_Business" class="btn btn-default" ng-class="{'active': profile.employedIn=='4'}">
+                                <input type="radio" id="emp_Business" name="employedIn" value="4" ng-model="profile.employedIn" />
+                                Business </label>
+                            <label for="emp_Employed" class="btn btn-default" ng-class="{'active': profile.employedIn=='5'}">
+                                <input type="radio" id="emp_Employed" name="employedIn" value="5" ng-model="profile.employedIn" />
+                                Self Employed </label>
+                            <label for="emp_Working" class="btn btn-default" ng-class="{'active': profile.employedIn=='6'}">
+                                <input type="radio" id="emp_Working" name="employedIn" value="6" ng-model="profile.employedIn" />
+                                Not Working </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Occupation</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <select class="form-control def-element-width" ng-model="profile.occupation" ng-options="item.pkOccupationId as item.OccupationName group by item.group for item in facetVM.occupationList">
+                                <option value="">--select--</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <label class="panel-title">Family Details</label>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Father Name</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <input type="text" class="form-control def-element-width" placeholder="father name" ng-model="profile.fatherName" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Father's Occupation</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <input type="text" class="form-control def-element-width" placeholder="father's occupation" ng-model="profile.fatherOccupation" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Mother Name</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <input type="text" class="form-control def-element-width" placeholder="mother name" ng-model="profile.motherName" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Mother's Occupation</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <input type="text" class="form-control def-element-width" placeholder="mother's occupation" ng-model="profile.motherOccupation" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Unmarried Brothers</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <select class="form-control def-element-width" ng-model="profile.unmarriedBrothers" ng-options="item.key as item.text for item in getSiblingsList">
+                                <option value="">None</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Married Brothers</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <select class="form-control def-element-width" ng-model="profile.marriedBrothers" ng-options="item.key as item.text for item in getSiblingsList">
+                                <option value="">None</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Unmarried Sisters</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <select class="form-control def-element-width" ng-model="profile.unmarriedSisters" ng-options="item.key as item.text for item in getSiblingsList">
+                                <option value="">None</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">Married Sisters</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <select class="form-control def-element-width" ng-model="profile.marriedSisters" ng-options="item.key as item.text for item in getSiblingsList">
+                                <option value="">None</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt10">
+                        <div class="col-xs-12 col-sm-2">
+                            <label class="control-label">About Family</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <textarea class="form-control" placeholder="about family" ng-model="profile.aboutFamily" ></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row">
+                <div class="padt10">
+                    <div class="col-xs-12 col-sm-2"></div>
+                    <div class="col-xs-12 col-sm-10">
+                        <button class="btn btn-success" ng-click="saveProfile()" ng-disabled="disableButton">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="padb35"></div>
+        <div ng-if="message">
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <span ng-bind="message"></span>
+            </div>
+        </div>
+    </form>
+</div>

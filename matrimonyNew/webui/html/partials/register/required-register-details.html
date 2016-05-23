@@ -1,0 +1,147 @@
+<div class="form-horizontal" ng-controller="RegistrationCtrl">
+    <div class="form-group">
+        <label class="col-sm-4 ">Registered by<span class="requiredFields"> *</span></label>
+        <div class="col-sm-8">
+            <select class="form-control" ng-model="registeredBy">
+                <option value="">--Select--</option>
+                <option ng-repeat="item in facetVM.registeredByList track by item.key" ng-attr-value="{{item.key}}" ng-bind="item.text" ng-selected="registeredBy==item.key"></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 ">Name<span class="requiredFields"> *</span></label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="Name" ng-model="memberName" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 ">Gender<span class="requiredFields"> *</span></label>
+        <div class="col-sm-8">
+            <label for="gendermale" class="radio-inline">
+                <input type="radio" id="gendermale" name="gender" value="1" ng-model="sex" />
+                Male </label>
+            &nbsp;
+            <label for="genderfemale" class="radio-inline">
+                <input type="radio" id="genderfemale" name="gender" value="0" ng-model="sex" />
+                Female </label>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 ">Date of birth<span class="requiredFields"> *</span></label>
+        <div class="col-sm-8">
+            <select class="form-control clearwidth pull-left" ng-model="date">
+                <option value="">Date</option>
+                <option ng-repeat="item in facetVM.dateList track by item.key" ng-attr-value="{{item.key}}" ng-bind="item.text" ng-selected="date==item.key"></option>
+            </select>
+            <select class="form-control clearwidth pull-left" ng-model="month">
+                <option value="">Month</option>
+                <option ng-repeat="item in facetVM.monthList track by item.key" ng-attr-value="{{item.key}}" ng-bind="item.text" ng-selected="month==item.key"></option>
+            </select>
+            <select class="form-control clearwidth pull-left" ng-model="year">
+                <option value="">Year</option>
+                <option ng-repeat="item in facetVM.yearList track by item.key" ng-attr-value="{{item.key}}" ng-bind="item.text" ng-selected="year==item.key"></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 ">Marital Status<span class="requiredFields"> *</span></label>
+        <div class="col-sm-8">
+            <select class="form-control" ng-model="maritalStatus">
+                <option value="">--Select--</option>
+                <option ng-repeat="item in facetVM.maritalStatusList track by item.key" ng-attr-value="{{item.key}}" ng-bind="item.text" ng-selected="maritalStatus==item.key"></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 ">Sect<span class="requiredFields"> *</span></label>
+        <div class="col-sm-8">
+            <select class="form-control" ng-model="sect" ng-change="facetVM.afterSectChange(sect)">
+                <option value="">--Select--</option>
+                <option ng-repeat="item in facetVM.sectList track by item.pkSectId" ng-attr-value="{{item.pkSectId}}" ng-bind="item.SectName" ng-selected="sect==item.pkSectId"></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 ">Sub Sect<span class="requiredFields"> *</span></label>
+        <div class="col-sm-8">
+            <select class="form-control" ng-model="subSect">
+                <option value="">--Select--</option>
+                <option ng-repeat="item in facetVM.subSectList track by item.pkSubSectId" ng-attr-value="{{item.pkSubSectId}}" ng-bind="item.SubSectName" ng-selected="subSect==item.pkSubSectId"></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 ">Mother Tongue<span class="requiredFields"> *</span></label>
+        <div class="col-sm-8">
+            <select class="form-control" ng-model="motherTongue">
+                <option value="">--Select--</option>
+                <option ng-repeat="item in facetVM.motherTongueList track by item.pkTongueId" ng-attr-value="{{item.pkTongueId}}" ng-bind="item.TongueName" ng-selected="motherTongue==item.pkTongueId"></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 ">Country living in<span class="requiredFields"> *</span></label>
+        <div class="col-sm-8">
+            <select class="form-control" ng-model="country" ng-disabled="true">
+                <option value="">--Select--</option>
+                <option ng-repeat="item in facetVM.countryList track by item.pkCountryId" ng-attr-value="{{item.pkCountryId}}" ng-bind="item.CountryName" ng-selected="country==item.pkCountryId"></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 ">State<span class="requiredFields"> *</span></label>
+        <div class="col-sm-8">
+            <select class="form-control" ng-model="state">
+                <option value="">--Select--</option>
+                <option ng-repeat="item in facetVM.stateList track by item.pkStateId" ng-attr-value="{{item.pkStateId}}" ng-bind="item.StateName" ng-selected="state==item.pkStateId"></option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 ">City<span class="requiredFields"> *</span></label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="City" ng-model="city" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 ">Contact Number<span class="requiredFields"> *</span></label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="(ex: 1234567890, 9876543210)" ng-model="contactNumber" ng-pattern="contactNumberRegex" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 ">E-mail<span class="requiredFields"> *</span></label>
+        <div class="col-sm-8">
+            <input type="email" class="form-control" placeholder="(ex: xyz@abc.com)" ng-model="emailId" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 ">Password<span class="requiredFields"> *</span></label>
+        <div class="col-sm-8">
+            <input type="password" class="form-control" placeholder="password" ng-model="password" ng-minlength="8">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 ">Confirm Password<span class="requiredFields"> *</span></label>
+        <div class="col-sm-8">
+            <input type="password" class="form-control" placeholder="confirm above password" ng-model="confirmPassword" ng-minlength="8">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-12">
+            <label>
+                <checkbox ng-model="termsConditions" ></checkbox>
+                I agree to the <a href="#nogo" class="link" data-toggle="modal" data-target="#privacyPolicy">Privacy Policy</a>
+                and
+                <a href="#nogo" class="link" data-toggle="modal" data-target="#termsConditions">Terms &amp; Conditions</a>
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-8 col-sm-offset-4">
+            <button class="btn btn-success" ng-click="registerUser()" ng-disabled="!termsConditions && disableButton">Register</button>
+        </div>
+    </div>
+</div>
+<div ng-include="'register/register-modal.html'"></div>

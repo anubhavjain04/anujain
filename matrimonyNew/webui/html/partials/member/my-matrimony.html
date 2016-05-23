@@ -1,0 +1,71 @@
+<form name="myForm">
+    <div class="clearfix">
+        <h1>My Matrimony Profile</h1>
+        <p class="text-muted">Below is your short profile view when sombody search for profile:-</p>
+        <div class="well clearfix">
+            <div class="col-xs-12 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation" >
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" ng-bind="memberCode"></h3>
+                    </div>
+                    <div class="panel-body">
+                        <center><div class="bdr1 pad-reset profile-pic text-center" ng-class="{'women': (sex=='0' && !profilePic), 'men': (sex=='1' && !profilePic)}">
+                            <img ng-if="profilePic" ng-src="{{profilePic}}" ng-attr-title="{{memberName}}" />
+                        </div></center>
+                        <div class="padt20">
+                            <p class="text-muted">We are working on below links:</p>
+                            <ul class="list-unstyled">
+                                <li><a ui-sref="userProfile.changePhoto" title="change or add your profile photo">Change/Add Photo</a></li>
+                                <li><a ui-sref="userProfile" title="update your profile">Change Profile</a></li>
+                                <li><a ui-sref="searchMember({memberCode: memberCode})" title="how your profile will look">View Full Profile</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-9 ">
+                <div >
+                    <h2>Hi <span ng-bind="memberName"></span></h2>
+                    <p class="text-muted">Your basic profile details are:</p>
+                    <div class="padt5 col-xs-12 col-sm-12 row">
+                        <div class="clr3 col-xs-3 col-sm-3">Age, Height</div>
+                        <div class="clrblack col-xs-9 col-sm-9"> : <span ng-bind="age+' yrs,'"></span> <span ng-bind="facetVM.heightInWords(height)"></span> </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="padt5 col-xs-12 col-sm-12 row">
+                        <div class="clr3 col-xs-3 col-sm-3">Sect</div>
+                        <div class="clrblack col-xs-9 col-sm-9"> : <span ng-bind="sectName"></span> </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="padt5 col-xs-12 col-sm-12 row">
+                        <div class="clr3 col-xs-3 col-sm-3">Sub Sect</div>
+                        <div class="clrblack col-xs-9 col-sm-9"> : <span ng-bind="subSectName"></span> </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="padt5 col-xs-12 col-sm-12 row">
+                        <div class="clr3 col-xs-3 col-sm-3">Location</div>
+                        <div class="clrblack col-xs-9 col-sm-9"> : <span ng-bind="city+', '+stateName+', '+countryName"></span> </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="padt5 col-xs-12 col-sm-12 row">
+                        <div class="clr3 col-xs-3 col-sm-3">Education</div>
+                        <div class="clrblack col-xs-9 col-sm-9"> : <span ng-bind="educationName"></span> </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="padt5 col-xs-12 col-sm-12 row">
+                        <div class="clr3 col-xs-3 col-sm-3">Occupation</div>
+                        <div class="clrblack col-xs-9 col-sm-9"> : <span ng-bind="occupationName"></span> </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <h3>About Me</h3>
+                    <p ng-bind="aboutMe"></p>
+                </div>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</form>
+<div ng-include="'search/quickSearch.html'"></div>

@@ -1,0 +1,38 @@
+<div class="well" ng-controller="SearchCtrl">
+    <h3>Quick Search:</h3>
+    <div>
+        <div class="pull-left">
+            <div class="btn-group">
+                <label for="gendermale" class="btn btn-default" ng-class="{'active': sex=='1'}">
+                    <input type="radio" id="gendermale" name="gender" value="1" ng-model="sex" />
+                    Groom </label>
+                &nbsp;
+                <label for="genderfemale" class="btn btn-default" ng-class="{'active': sex=='0'}">
+                    <input type="radio" id="genderfemale" name="gender" value="0" ng-model="sex" />
+                    Bride </label>
+            </div>
+        </div>
+        <div class="pull-left mrgl20">
+            <select class="form-control clearwidth disinblk" ng-model="ageFrom" ng-options="item for item in facetVM.ageList track by item"></select>
+            <span class="padl5 padr5">To</span>
+            <select class="form-control clearwidth disinblk" ng-model="ageTo" ng-options="item for item in facetVM.ageList track by item"></select>
+            <span class="padl5 padr5">Years</span>
+        </div>
+        <div class="pull-left mrgl20">
+            <select class="form-control clearwidth" ng-model="selectedCaste[0]">
+                <option value="">Any</option>
+                <option ng-repeat="item in facetVM.casteList track by item.pkCasteId" value="{{item.pkCasteId}}" ng-bind="item.CasteName" ng-selected="item.pkCasteId==selectedCaste[0]"></option>
+            </select>
+        </div>
+        <div class="pull-left mrgl20">
+            <select class="form-control clearwidth" ng-model="selectedMotherTongue[0]">
+                <option value="">Any</option>
+                <option ng-repeat="item in facetVM.motherTongueList track by item.pkTongueId" value="{{item.pkTongueId}}" ng-bind="item.TongueName" ng-selected="item.pkTongueId==selectedMotherTongue[0]"></option>
+            </select>
+        </div>
+        <div class="pull-left mrgl20">
+            <button type="button" class="btn btn-success" ng-click="searchByCriteria()">Search</button>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

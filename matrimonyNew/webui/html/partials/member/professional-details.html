@@ -1,0 +1,103 @@
+<div>
+    <h1>Professional Details
+        <small ng-show="!isEditMode"><button class="btn btn-primary btn-sm" ng-click="changeMode(true)">Edit</button></small>
+        <small ng-show="isEditMode"><button class="btn btn-primary btn-sm" ng-click="changeMode(false)">Cancel Edit</button></small>
+    </h1>
+
+    <div class="col-xs-12 col-sm-12 tab-content">
+        <div id="register-member">
+            <div class="padt20 form-horizontal">
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Education</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="educationName"></span>
+                            <div ng-show="isEditMode">
+                                <select class="form-control def-element-width" ng-model="education" ng-options="item.pkCourseId as item.CourseName group by item.group for item in facetVM.educationList">
+                                    <option value="">--select--</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Employed In</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="facetVM.getObjectText(facetVM.employedInList, employedIn)"></span>
+                            <div ng-show="isEditMode" class="btn-group">
+                                <label for="emp_Government" class="btn btn-default" ng-class="{'active': employedIn=='1'}">
+                                    <input type="radio" id="emp_Government" name="employedIn" value="1" ng-model="employedIn" />
+                                    Government </label>
+                                <label for="emp_Defence" class="btn btn-default" ng-class="{'active': employedIn=='2'}">
+                                    <input type="radio" id="emp_Defence" name="employedIn" value="2" ng-model="employedIn" />
+                                    Defence </label>
+                                <label for="emp_Private" class="btn btn-default" ng-class="{'active': employedIn=='3'}">
+                                    <input type="radio" id="emp_Private" name="employedIn" value="3" ng-model="employedIn" />
+                                    Private </label>
+                                <label for="emp_Business" class="btn btn-default" ng-class="{'active': employedIn=='4'}">
+                                    <input type="radio" id="emp_Business" name="employedIn" value="4" ng-model="employedIn" />
+                                    Business </label>
+                                <label for="emp_Employed" class="btn btn-default" ng-class="{'active': employedIn=='5'}">
+                                    <input type="radio" id="emp_Employed" name="employedIn" value="5" ng-model="employedIn" />
+                                    Self Employed </label>
+                                <label for="emp_Working" class="btn btn-default" ng-class="{'active': employedIn=='6'}">
+                                    <input type="radio" id="emp_Working" name="employedIn" value="6" ng-model="employedIn" />
+                                    Not Working </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Occupation</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="occupationName"></span>
+                            <div ng-show="isEditMode">
+                                <select class="form-control def-element-width" ng-model="occupation" ng-options="item.pkOccupationId as item.OccupationName group by item.group for item in facetVM.occupationList">
+                                    <option value="">--select--</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="dot-line padt10"></div>
+                    <div class="padt20">
+                        <div class="col-xs-12 col-sm-2">
+                            <label ng-class="{'control-label':isEditMode}">Annual Income</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <span ng-show="!isEditMode" ng-bind="annualIncome"></span>
+                            <input ng-show="isEditMode" type="text" class="form-control def-element-width" placeholder="annual Income" ng-model="annualIncome" />
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="isEditMode">
+                    <div class="row">
+                        <div class="dot-line padt10"></div>
+                        <div class="padt20">
+                            <div class="col-xs-12 col-sm-2"></div>
+                            <div class="col-xs-12 col-sm-10">
+                                <div id="captchadiv"></div>
+                                <button class="btn btn-success" ng-click="updateProfessionalDetails()">Save</button>
+                                <button class="btn btn-primary" ng-click="changeMode(false)">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="padb35"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
