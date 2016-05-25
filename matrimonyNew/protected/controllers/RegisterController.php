@@ -164,8 +164,8 @@ class RegisterController extends Controller
 							$user["role"] = Yii::app()->user->role;
 
 							try {
-								//$this->sendMailToUser($model, $pwd);
-								//$this->sendMailToAdmin($model, $pwd);
+								$this->sendMailToUser($model, $pwd);
+								$this->sendMailToAdmin($model, $pwd);
 							}catch(Exception $e){
 								//error_log("Unable to send mail.");
 							}
@@ -285,7 +285,7 @@ class RegisterController extends Controller
 		if($member){
 			$message = '<div style="font-family: verdana;font-size: 13px;">'
 				.'<div style="height: 50px; margin-bottom: 30px; background-color: #ED1C24; text-align: left;">'
-					.'<img src="http://www.matrimony.bhartiyajainmilan.com/images/matrimony-logo.gif" width="224" height="50" alt="Bhartiya Jain Milan Matrimonial" />'
+					.'<img src="http://www.matrimony.bhartiyajainmilan.com/dist/images/matrimony-logo.gif" width="224" height="50" alt="Bhartiya Jain Milan Matrimonial" />'
 				.'</div>'
 				.'<div>'
 				.'Dear <strong>'.$member->MemberName.' ('.$member->MemberCode.')</strong>'
@@ -337,7 +337,7 @@ class RegisterController extends Controller
 		if($member){
 			$message = '<div style="font-family: verdana;font-size: 13px;">'
 				.'<div style="height: 50px; margin-bottom: 30px; background-color: #ED1C24; text-align: left;">'
-					.'<img src="http://www.matrimony.bhartiyajainmilan.com/images/matrimony-logo.gif" width="224" height="50" alt="Bhartiya Jain Milan Matrimonial" />'
+					.'<img src="http://www.matrimony.bhartiyajainmilan.com/dist/images/matrimony-logo.gif" width="224" height="50" alt="Bhartiya Jain Milan Matrimonial" />'
 				.'</div>'
 				.'<div>'
 				.'Dear <strong>Admin</strong>'

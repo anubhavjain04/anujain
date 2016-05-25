@@ -7,7 +7,7 @@
   <meta content="chrome=IE7" http-equiv="X-UA-Compatible">
   <meta content="website" property="og:type">
   <meta content="http://www.bjmmatrimony.com/" property="og:url">
-  <meta content="images/logo.png" property="og:image">
+  <meta content="dist/images/logo.png" property="og:image">
   <meta content="This belongs to jain community to find life partner through for marriage.|| Bhartiya Jain Milan Matrimonial" property="og:description">
   <meta name="msvalidate.01" content="F13E77F5D75D39FDAAF5860AE0897233" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -35,5 +35,6 @@
 </head>
 <body>
 <?php echo $content; ?>
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl.'/dist/javascripts/application.js?v='.$version; ?>"></script>
 </body>
 </html>

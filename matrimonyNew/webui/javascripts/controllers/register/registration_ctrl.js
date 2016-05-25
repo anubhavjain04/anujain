@@ -102,7 +102,7 @@ var RegistrationCtrl = function($scope, $rootScope, $state, $stateParams, $timeo
                 if(error.status === 302){
                     $scope.isFocusEmail = true;
                 }
-                $scope.showAlert(error.message);
+                $scope.$root.showAlert(error.message);
             });
         }else{
             angular.forEach($scope.myForm.$error, function (field) {

@@ -14,7 +14,7 @@ this.app = angular.module("BJMMatrimony", [
 ]);
 
 
-Offline.options = {checks: {xhr: {url: 'images/favicon.ico'}}};
+Offline.options = {checks: {xhr: {url: 'dist/images/favicon.ico'}}};
 
 var _isMobile = (function() {
     var check = false;

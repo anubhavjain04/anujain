@@ -144,51 +144,51 @@ class MatrimonyMembersController extends Controller
 					$familyModel->save();
 				}
 				if(isset($_POST['cropID']) && $_POST['cropID']==1){					
-					$targ_w = 150;
+					$targ_w = 200;
 					$targ_h = 200;
-					$jpeg_quality = 90;
-					
+					$jpeg_quality = 100;
+
 					$rootPath = pathinfo(Yii::app()->baseUrl);
 					$path = Yii::app()->params['tempPath']."/";
-		
 					$src = $path.Yii::app()->session['tempImgName'];
 					$imageName = $model->MemberCode."_".$this->generateRandomString()."_P.jpg";
-					$distSrc = Yii::app()->params['matrimonyDIR'].Yii::app()->params['matrimonyPath']."/".$imageName;
-					
-					$extArr = explode(".", $src); 
+					$distSrc = Yii::app()->params['tempPath']. "/".$imageName;
+
+					$extArr = explode(".", $src);
 					$ext = $extArr[count($extArr)-1];
-					
+
 					$cropX = $_POST['cropX'];
 					$cropY = $_POST['cropY'];
 					$cropW = $_POST['cropW'];
 					$cropH = $_POST['cropH'];
-					
+
 					$img_r = imagecreatefromjpeg($src);
-					
+
 					if ($ext == '.jpeg' || $ext == '.jpg') {
-							$img_r = imagecreatefromjpeg($path.$filename);
+						$img_r = imagecreatefromjpeg($src);
 					} else if ($ext == '.gif') {
-							$img_r = imagecreatefromgif($path.$filename);
+						$img_r = imagecreatefromgif($src);
 					}  else if ($ext == '.png') {
-							$img_r = imagecreatefrompng($path.$filename);
+						$img_r = imagecreatefrompng($src);
 					}
-						
-					
+
 					$dst_r = imagecreatetruecolor( $targ_w, $targ_h );
-				
 					imagecopyresampled($dst_r,$img_r,0,0,$cropX,$cropY,
-					$targ_w,$targ_h,$cropW,$cropH);
-				
+						$targ_w,$targ_h,$cropW,$cropH);
+
 					//header('Content-type: image/jpeg');
 					imagejpeg($dst_r,$distSrc,$jpeg_quality);
 					//imagepng($dst_r, "upload/mm.png", 0);
 					imagedestroy($img_r);
 					imagedestroy($dst_r);
-					
-					$model->MemberPhoto = $imageName;
+
+					$model->ProfilePic = file_get_contents($distSrc);
 					$model->save();
-					
-					$this->removeTempData();				
+
+					$this->removeTempData();
+					if(file_exists($distSrc)){
+						unlink($distSrc);
+					}
 				}
 				$this->redirect(array('admin'));
 			}
@@ -276,21 +276,17 @@ class MatrimonyMembersController extends Controller
 				}				
 				
 				if(isset($_POST['cropID']) && $_POST['cropID']==1){					
-					$targ_w = 150;
+					$targ_w = 200;
 					$targ_h = 200;
-					$jpeg_quality = 90;
+					$jpeg_quality = 100;
 					
 					$rootPath = pathinfo(Yii::app()->baseUrl);
 					$path = Yii::app()->params['tempPath']."/";		
 					$src = $path.Yii::app()->session['tempImgName'];
 					
-					if($model->MemberPhoto){
-						$imageName = $model->MemberPhoto;
-					}else{
-						$imageName = $model->MemberCode."_".$this->generateRandomString()."_P.jpg";
-					}
-					$distSrc = Yii::app()->params['matrimonyDIR']. Yii::app()->params['matrimonyPath']."/".$imageName;
-					
+					$imageName = $model->MemberCode."_".$this->generateRandomString()."_P.jpg";
+					$distSrc = Yii::app()->params['tempPath']. "/".$imageName;
+
 					$extArr = explode(".", $src); 
 					$ext = $extArr[count($extArr)-1];
 					
@@ -302,29 +298,30 @@ class MatrimonyMembersController extends Controller
 					$img_r = imagecreatefromjpeg($src);
 					
 					if ($ext == '.jpeg' || $ext == '.jpg') {
-							$img_r = imagecreatefromjpeg($path.$filename);
+							$img_r = imagecreatefromjpeg($src);
 					} else if ($ext == '.gif') {
-							$img_r = imagecreatefromgif($path.$filename);
+							$img_r = imagecreatefromgif($src);
 					}  else if ($ext == '.png') {
-							$img_r = imagecreatefrompng($path.$filename);
+							$img_r = imagecreatefrompng($src);
 					}
-						
-					
+
 					$dst_r = imagecreatetruecolor( $targ_w, $targ_h );
-				
 					imagecopyresampled($dst_r,$img_r,0,0,$cropX,$cropY,
 					$targ_w,$targ_h,$cropW,$cropH);
-				
+
 					//header('Content-type: image/jpeg');
 					imagejpeg($dst_r,$distSrc,$jpeg_quality);
 					//imagepng($dst_r, "upload/mm.png", 0);
 					imagedestroy($img_r);
 					imagedestroy($dst_r);
-					
-					$model->MemberPhoto = $imageName;
+
+					$model->ProfilePic = file_get_contents($distSrc);
 					$model->save();
-					
-					$this->removeTempData();				
+
+					$this->removeTempData();
+					if(file_exists($distSrc)){
+						unlink($distSrc);
+					}
 				}
 				$this->redirect(array('admin'));
 			}
@@ -449,6 +446,8 @@ class MatrimonyMembersController extends Controller
 		
 	
 	}
+
+
 	
 	protected function generateRandomString($length = 5) {
 	    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

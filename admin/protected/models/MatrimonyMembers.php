@@ -44,6 +44,7 @@
  * @property string $Gotra
  * @property string $CreatedDate
  * @property string $ModifiedDate
+ * @property string $ProfilePic
  *
  * The followings are the available model relations:
  * @property MatrimonyMemberPayment[] $matrimonyMemberPayments
@@ -93,6 +94,7 @@ class MatrimonyMembers extends CActiveRecord
 			array('AboutMe, AboutMyPartner', 'length', 'max'=>500),
 			array('Email', 'length', 'max'=>100),
 			array('Weight', 'length', 'max'=>3),
+			array('ProfilePic', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('pkMemberId, MemberName, Sex, DOB, MaritalStatus, Childrens, Height, fkSect, fkSubSect, fkCaste, OtherCaste, fkMotherTongue, fkCountryLivingIn, ContactNo, MemberPhoto, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, fkEducation, EmployedIn, Occupation, IncomeAnnual, AboutMe, AboutMyPartner, HomeAddress, WorkingAddress, Email, Status, ActivationCode, fkLoginId, MemberCode, Gotra,CreatedDate, ModifiedDate', 'safe', 'on'=>'search'),
@@ -166,6 +168,7 @@ class MatrimonyMembers extends CActiveRecord
 			'Gotra'=>'Gotra',
 			'CreatedDate'=>'Created Date', 
 			'ModifiedDate'=>'Modified Date',
+			'ProfilePic' => 'Profile Pic',
 		);
 	}
 
@@ -179,6 +182,9 @@ class MatrimonyMembers extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
+		$criteria->with = array('fkResidingState0');
+		$criteria->together = true;
+		$sort = new CSort;
 
 		$criteria->compare('pkMemberId',$this->pkMemberId,true);
 		$criteria->compare('MemberName',$this->MemberName,true);
@@ -221,13 +227,63 @@ class MatrimonyMembers extends CActiveRecord
 		$criteria->compare('CreatedDate',$this->CreatedDate,true);
 		$criteria->compare('ModifiedDate',$this->ModifiedDate,true);
 		
-		$criteria->order = ' MemberName ASC ';		
+		$sort->attributes = array(
+			'MemberName'=>array(
+			  'asc'=>'MemberName',
+			  'desc'=>'MemberName desc',
+			),
+			'Sex'=>array(
+			  'asc'=>'Sex',
+			  'desc'=>'Sex desc',
+			),
+			'DOB'=>array(
+			  'asc'=>'DOB',
+			  'desc'=>'DOB desc',
+			),
+			'MemberCode'=>array(
+			  'asc'=>'MemberCode',
+			  'desc'=>'MemberCode desc',
+			),
+			'fkResidingState'=>array(
+			  'asc'=>'fkResidingState0.StateName',
+			  'desc'=>'fkResidingState0.StateName desc',
+			),
+			'ResidingCity'=>array(
+			  'asc'=>'ResidingCity',
+			  'desc'=>'ResidingCity desc',
+			),
+			'Email'=>array(
+			  'asc'=>'Email',
+			  'desc'=>'Email desc',
+			),
+			'Status'=>array(
+			  'asc'=>'Status',
+			  'desc'=>'Status desc',
+			),
+			'CreatedDate'=>array(
+			  'asc'=>'CreatedDate',
+			  'desc'=>'CreatedDate desc',
+			),
+			'ModifiedDate'=>array(
+			  'asc'=>'ModifiedDate',
+			  'desc'=>'ModifiedDate desc',
+			),
+			
+		  );
+		  
+		  /* Default Sort Order*/
+        $sort->defaultOrder= array(
+            'MemberName'=>CSort::SORT_ASC,
+        );
+		
+		//$criteria->order = ' MemberName ASC ';		
 		
 		return new CActiveDataProvider(get_class($this), array(
 			'pagination'=>array(
 				'pageSize'=> Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageSize']),
 			),
 			'criteria'=>$criteria,
+			'sort'=>$sort,
 		));
 	}
 }

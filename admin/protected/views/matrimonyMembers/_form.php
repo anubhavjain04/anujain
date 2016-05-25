@@ -107,11 +107,13 @@
 <div style="float: right;">
 	<?php
 		$imgPath = Yii::app()->params['bjmURL']."/images/blank_user.png";										
-		if($model->MemberPhoto && trim($model->MemberPhoto)!=""){
-			$imgPath = Yii::app()->params['matrimonyURL'].Yii::app()->params['matrimonyPath']."/".$model->MemberPhoto;
+		if($model->ProfilePic){
+			$imgPath = "data:image/jpeg;base64," . base64_encode($model->ProfilePic);
 		}
 	?>
-	<div style="background: url(<?php echo $imgPath; ?>) no-repeat center; width: 150px; height: 200px; border: solid 1px #CCCCCC;" ></div>
+	<div style="text-align:center; width: 200px; height: 200px; border: solid 1px #CCCCCC;" >
+		<img src="<?php echo $imgPath; ?>" />
+	</div>
 </div>
 <div style="clear:both;"></div>
 
@@ -568,7 +570,7 @@
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
-<?php $previewWidth = 100; $previewHeight = 140; ?>
+<?php $previewWidth = 200; $previewHeight = 200; ?>
 <div>
     <input type="hidden" id="cropID" name="cropID" value="0" />
     <input type="hidden" id="cropX" name="cropX" value="0" />
@@ -706,12 +708,12 @@ $(document).ready(function(e) {
 				$('#uploadedImage').find("#prewImg").Jcrop({
 					onChange:   updateCoords,
 					onSelect:   updateCoords,
-					aspectRatio: .75,
+					aspectRatio: 1,
 					boxWidth: 600,
 					boxHeight: 600,
 					bgFade: true,
 					bgOpacity: .6,
-					setSelect: [ 0, 0, 150, 200 ],
+					setSelect: [ 0, 0, 200, 200 ],
 					onRelease:  clearCoords
 				  });
 			}
