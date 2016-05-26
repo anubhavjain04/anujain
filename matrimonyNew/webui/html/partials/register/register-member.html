@@ -95,6 +95,22 @@
                         <div class="dot-line padt10"></div>
                         <div class="padt20">
                             <div class="col-xs-12 col-sm-2">
+                                <label class="control-label">Height<span class="requiredFields"> *</span></label>
+                            </div>
+                            <div class="col-xs-12 col-sm-10" ng-class="{'has-error': myForm.height.$touched && myForm.height.$invalid, 'has-success': myForm.height.$touched && myForm.height.$valid}">
+                                <select class="form-control def-element-width" name="height" ng-model="height" required ng-options="item.key as item.text for item in facetVM.heightList">
+                                    <option value="">--select--</option>
+                                </select>
+                                <div ng-messages="myForm.height.$touched && myForm.height.$error" class="text-danger">
+                                    <div ng-message="required">Please select height.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="dot-line padt10"></div>
+                        <div class="padt20">
+                            <div class="col-xs-12 col-sm-2">
                                 <label class="control-label">Marital Status<span class="requiredFields"> *</span></label>
                             </div>
                             <div class="col-xs-12 col-sm-10" ng-class="{'has-error': myForm.maritalStatus.$touched && myForm.maritalStatus.$invalid, 'has-success': myForm.maritalStatus.$touched && myForm.maritalStatus.$valid}">
