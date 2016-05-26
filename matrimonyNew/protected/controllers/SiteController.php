@@ -145,20 +145,21 @@ class SiteController extends Controller
 
 	public function actionDashboard()
 	{
-		$members = MatrimonyMembers::model()->findAll();
-		foreach($members as $member)
-		{
-			if(isset($member->MemberPhoto)){
-				$imagePath = Yii::app()->params['matrimonyPath']."/".$member->MemberPhoto;
-				if(file_exists($imagePath)) {
-					$imgData = file_get_contents($imagePath, FILE_USE_INCLUDE_PATH);
-					if (isset($imgData)) {
-						$member->ProfilePic = $imgData;
-						$member->save();
-					}
-				}
-			}
-		}
+//		save profile pic into DB
+//		$members = MatrimonyMembers::model()->findAll();
+//		foreach($members as $member)
+//		{
+//			if(isset($member->MemberPhoto)){
+//				$imagePath = Yii::app()->params['matrimonyPath']."/".$member->MemberPhoto;
+//				if(file_exists($imagePath)) {
+//					$imgData = file_get_contents($imagePath, FILE_USE_INCLUDE_PATH);
+//					if (isset($imgData)) {
+//						$member->ProfilePic = $imgData;
+//						$member->save();
+//					}
+//				}
+//			}
+//		}
 
 
 //		if(Yii::app()->user->isGuest) {
