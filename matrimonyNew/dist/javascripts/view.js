@@ -1329,18 +1329,6 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "            </div>\n" +
     "            <div class=\"panel-body\">\n" +
     "                <div class=\"row\">\n" +
-    "                    <div class=\"padt10\">\n" +
-    "                        <div class=\"col-xs-12 col-sm-2\">\n" +
-    "                            <label class=\"control-label\">Height</label>\n" +
-    "                        </div>\n" +
-    "                        <div class=\"col-xs-12 col-sm-10\">\n" +
-    "                            <select class=\"form-control def-element-width\" name=\"height\" ng-model=\"profile.height\" ng-options=\"item.key as item.text for item in facetVM.heightList\">\n" +
-    "                                <option value=\"\">--select--</option>\n" +
-    "                            </select>\n" +
-    "                        </div>\n" +
-    "                    </div>\n" +
-    "                </div>\n" +
-    "                <div class=\"row\">\n" +
     "                    <div class=\"dot-line padt10\"></div>\n" +
     "                    <div class=\"padt10\">\n" +
     "                        <div class=\"col-xs-12 col-sm-2\">\n" +
@@ -2009,9 +1997,9 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "                            <div class=\"col-xs-12 col-sm-10\" ng-class=\"{'has-error': myForm.contactNumber.$touched && myForm.contactNumber.$invalid, 'has-success': myForm.contactNumber.$touched && myForm.contactNumber.$valid}\">\n" +
     "                                <div class=\"input-group\">\n" +
     "                                    <span class=\"input-group-addon\">+91</span>\n" +
-    "                                    <input type=\"text\" class=\"form-control def-element-width\" name=\"contactNumber\" required placeholder=\"contact number\" ng-pattern=\"/^(\\d{10}(,([\\s]*)?\\d{10})*)?$/\" ng-model=\"contactNumber\" />\n" +
+    "                                    <input type=\"text\" class=\"form-control def-element-width\" name=\"contactNumber\" required placeholder=\"contact number\" ng-pattern=\"/^\\d{10}$/\" ng-model=\"contactNumber\" />\n" +
     "                                </div>\n" +
-    "                                <span class=\"text-muted\">Hint: 99xxxxxxxx, 98xxxxxxxx </span>\n" +
+    "                                <span class=\"text-muted\">Hint: 99xxxxxxxx</span>\n" +
     "                                <div ng-messages=\"myForm.contactNumber.$touched && myForm.contactNumber.$error\" class=\"text-danger\">\n" +
     "                                    <div ng-message=\"required\">Please write contact number.</div>\n" +
     "                                    <div ng-message=\"pattern\">Please write valid contact number.</div>\n" +
@@ -2173,229 +2161,231 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "</div>\n" +
     "");
   $templateCache.put("register/required-register-details.html",
-    "<div class=\"form-horizontal\" ng-controller=\"RegistrationCtrl\">\n" +
-    "    <form name=\"myForm\">\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">Registered by<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.registerdBy.$touched && myForm.registerdBy.$invalid, 'has-success': myForm.registerdBy.$touched && myForm.registerdBy.$valid}\">\n" +
-    "                <select class=\"form-control\" name=\"registerdBy\" required ng-model=\"registeredBy\">\n" +
-    "                    <option value=\"\">--Select--</option>\n" +
-    "                    <option ng-repeat=\"item in facetVM.registeredByList track by item.key\" ng-attr-value=\"{{item.key}}\" ng-bind=\"item.text\" ng-selected=\"registeredBy==item.key\"></option>\n" +
-    "                </select>\n" +
-    "                <div ng-messages=\"myForm.registerdBy.$touched && myForm.registerdBy.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please select the profile registered by.</div>\n" +
+    "<div ng-controller=\"RegisterMainCtrl\">\n" +
+    "    <div class=\"form-horizontal\" ng-controller=\"RegistrationCtrl\">\n" +
+    "        <form name=\"myForm\">\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">Registered by<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.registerdBy.$touched && myForm.registerdBy.$invalid, 'has-success': myForm.registerdBy.$touched && myForm.registerdBy.$valid}\">\n" +
+    "                    <select class=\"form-control\" name=\"registerdBy\" required ng-model=\"registeredBy\">\n" +
+    "                        <option value=\"\">--Select--</option>\n" +
+    "                        <option ng-repeat=\"item in facetVM.registeredByList track by item.key\" ng-attr-value=\"{{item.key}}\" ng-bind=\"item.text\" ng-selected=\"registeredBy==item.key\"></option>\n" +
+    "                    </select>\n" +
+    "                    <div ng-messages=\"myForm.registerdBy.$touched && myForm.registerdBy.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please select the profile registered by.</div>\n" +
+    "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">Name<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.memberName.$touched && myForm.memberName.$invalid, 'has-success': myForm.memberName.$touched && myForm.memberName.$valid}\">\n" +
-    "                <input type=\"text\" class=\"form-control\" name=\"memberName\" required placeholder=\"Name\" ng-model=\"memberName\" />\n" +
-    "                <div ng-messages=\"myForm.memberName.$touched && myForm.memberName.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please write your name.</div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">Name<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.memberName.$touched && myForm.memberName.$invalid, 'has-success': myForm.memberName.$touched && myForm.memberName.$valid}\">\n" +
+    "                    <input type=\"text\" class=\"form-control\" name=\"memberName\" required placeholder=\"Name\" ng-model=\"memberName\" />\n" +
+    "                    <div ng-messages=\"myForm.memberName.$touched && myForm.memberName.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please write your name.</div>\n" +
+    "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">Gender<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\">\n" +
-    "                <label for=\"gendermale\" class=\"radio-inline\">\n" +
-    "                    <input type=\"radio\" id=\"gendermale\" name=\"gender\" value=\"1\" ng-model=\"sex\" />\n" +
-    "                    Male </label>\n" +
-    "                &nbsp;\n" +
-    "                <label for=\"genderfemale\" class=\"radio-inline\">\n" +
-    "                    <input type=\"radio\" id=\"genderfemale\" name=\"gender\" value=\"0\" ng-model=\"sex\" />\n" +
-    "                    Female </label>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">Gender<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\">\n" +
+    "                    <label for=\"gendermale\" class=\"radio-inline\">\n" +
+    "                        <input type=\"radio\" id=\"gendermale\" name=\"gender\" value=\"1\" ng-model=\"sex\" />\n" +
+    "                        Male </label>\n" +
+    "                    &nbsp;\n" +
+    "                    <label for=\"genderfemale\" class=\"radio-inline\">\n" +
+    "                        <input type=\"radio\" id=\"genderfemale\" name=\"gender\" value=\"0\" ng-model=\"sex\" />\n" +
+    "                        Female </label>\n" +
     "\n" +
+    "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">Date of birth<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\">\n" +
-    "                <div class=\"clearfix\">\n" +
-    "                    <div class=\"pull-left\" ng-class=\"{'has-error': myForm.dobDate.$touched && myForm.dobDate.$invalid, 'has-success': myForm.dobDate.$touched && myForm.dobDate.$valid}\">\n" +
-    "                        <select class=\"form-control clearwidth\" name=\"dobDate\" required ng-model=\"date\">\n" +
-    "                            <option value=\"\">Date</option>\n" +
-    "                            <option ng-repeat=\"item in facetVM.dateList track by item.key\" ng-attr-value=\"{{item.key}}\" ng-bind=\"item.text\" ng-selected=\"date==item.key\"></option>\n" +
-    "                        </select>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">Date of birth<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\">\n" +
+    "                    <div class=\"clearfix\">\n" +
+    "                        <div class=\"pull-left\" ng-class=\"{'has-error': myForm.dobDate.$touched && myForm.dobDate.$invalid, 'has-success': myForm.dobDate.$touched && myForm.dobDate.$valid}\">\n" +
+    "                            <select class=\"form-control clearwidth\" name=\"dobDate\" required ng-model=\"date\">\n" +
+    "                                <option value=\"\">Date</option>\n" +
+    "                                <option ng-repeat=\"item in facetVM.dateList track by item.key\" ng-attr-value=\"{{item.key}}\" ng-bind=\"item.text\" ng-selected=\"date==item.key\"></option>\n" +
+    "                            </select>\n" +
+    "                        </div>\n" +
+    "                        <div class=\"pull-left\" ng-class=\"{'has-error': myForm.dobMonth.$touched && myForm.dobMonth.$invalid, 'has-success': myForm.dobMonth.$touched && myForm.dobMonth.$valid}\">\n" +
+    "                            <select class=\"form-control clearwidth\" name=\"dobMonth\" required ng-model=\"month\">\n" +
+    "                                <option value=\"\">Month</option>\n" +
+    "                                <option ng-repeat=\"item in facetVM.monthList track by item.key\" ng-attr-value=\"{{item.key}}\" ng-bind=\"item.text\" ng-selected=\"month==item.key\"></option>\n" +
+    "                            </select>\n" +
+    "                        </div>\n" +
+    "                        <div class=\"pull-left\" ng-class=\"{'has-error': myForm.dobYear.$touched && myForm.dobYear.$invalid, 'has-success': myForm.dobYear.$touched && myForm.dobYear.$valid}\">\n" +
+    "                            <select class=\"form-control clearwidth\" name=\"dobYear\" required ng-model=\"year\">\n" +
+    "                                <option value=\"\">Year</option>\n" +
+    "                                <option ng-repeat=\"item in facetVM.yearList track by item.key\" ng-attr-value=\"{{item.key}}\" ng-bind=\"item.text\" ng-selected=\"year==item.key\"></option>\n" +
+    "                            </select>\n" +
+    "                        </div>\n" +
     "                    </div>\n" +
-    "                    <div class=\"pull-left\" ng-class=\"{'has-error': myForm.dobMonth.$touched && myForm.dobMonth.$invalid, 'has-success': myForm.dobMonth.$touched && myForm.dobMonth.$valid}\">\n" +
-    "                        <select class=\"form-control clearwidth\" name=\"dobMonth\" required ng-model=\"month\">\n" +
-    "                            <option value=\"\">Month</option>\n" +
-    "                            <option ng-repeat=\"item in facetVM.monthList track by item.key\" ng-attr-value=\"{{item.key}}\" ng-bind=\"item.text\" ng-selected=\"month==item.key\"></option>\n" +
-    "                        </select>\n" +
+    "                    <div ng-messages=\"myForm.dobDate.$touched && myForm.dobDate.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please select date.</div>\n" +
     "                    </div>\n" +
-    "                    <div class=\"pull-left\" ng-class=\"{'has-error': myForm.dobYear.$touched && myForm.dobYear.$invalid, 'has-success': myForm.dobYear.$touched && myForm.dobYear.$valid}\">\n" +
-    "                        <select class=\"form-control clearwidth\" name=\"dobYear\" required ng-model=\"year\">\n" +
-    "                            <option value=\"\">Year</option>\n" +
-    "                            <option ng-repeat=\"item in facetVM.yearList track by item.key\" ng-attr-value=\"{{item.key}}\" ng-bind=\"item.text\" ng-selected=\"year==item.key\"></option>\n" +
-    "                        </select>\n" +
+    "                    <div ng-messages=\"myForm.dobMonth.$touched && myForm.dobMonth.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please select month.</div>\n" +
+    "                    </div>\n" +
+    "                    <div ng-messages=\"myForm.dobYear.$touched && myForm.dobYear.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please select year.</div>\n" +
     "                    </div>\n" +
     "                </div>\n" +
-    "                <div ng-messages=\"myForm.dobDate.$touched && myForm.dobDate.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please select date.</div>\n" +
-    "                </div>\n" +
-    "                <div ng-messages=\"myForm.dobMonth.$touched && myForm.dobMonth.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please select month.</div>\n" +
-    "                </div>\n" +
-    "                <div ng-messages=\"myForm.dobYear.$touched && myForm.dobYear.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please select year.</div>\n" +
+    "            </div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">Height<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.height.$touched && myForm.height.$invalid, 'has-success': myForm.height.$touched && myForm.height.$valid}\">\n" +
+    "                    <select class=\"form-control\" name=\"height\" ng-model=\"height\" required ng-options=\"item.key as item.text for item in facetVM.heightList\">\n" +
+    "                        <option value=\"\">--select--</option>\n" +
+    "                    </select>\n" +
+    "                    <div ng-messages=\"myForm.height.$touched && myForm.height.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please select height.</div>\n" +
+    "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">Height<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.height.$touched && myForm.height.$invalid, 'has-success': myForm.height.$touched && myForm.height.$valid}\">\n" +
-    "                <select class=\"form-control\" name=\"height\" ng-model=\"height\" required ng-options=\"item.key as item.text for item in facetVM.heightList\">\n" +
-    "                    <option value=\"\">--select--</option>\n" +
-    "                </select>\n" +
-    "                <div ng-messages=\"myForm.height.$touched && myForm.height.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please select height.</div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">Marital Status<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.maritalStatus.$touched && myForm.maritalStatus.$invalid, 'has-success': myForm.maritalStatus.$touched && myForm.maritalStatus.$valid}\">\n" +
+    "                    <select class=\"form-control\" name=\"maritalStatus\" required ng-model=\"maritalStatus\">\n" +
+    "                        <option value=\"\">--Select--</option>\n" +
+    "                        <option ng-repeat=\"item in facetVM.maritalStatusList track by item.key\" ng-attr-value=\"{{item.key}}\" ng-bind=\"item.text\" ng-selected=\"maritalStatus==item.key\"></option>\n" +
+    "                    </select>\n" +
+    "                    <div ng-messages=\"myForm.maritalStatus.$touched && myForm.maritalStatus.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please select marital status.</div>\n" +
+    "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">Marital Status<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.maritalStatus.$touched && myForm.maritalStatus.$invalid, 'has-success': myForm.maritalStatus.$touched && myForm.maritalStatus.$valid}\">\n" +
-    "                <select class=\"form-control\" name=\"maritalStatus\" required ng-model=\"maritalStatus\">\n" +
-    "                    <option value=\"\">--Select--</option>\n" +
-    "                    <option ng-repeat=\"item in facetVM.maritalStatusList track by item.key\" ng-attr-value=\"{{item.key}}\" ng-bind=\"item.text\" ng-selected=\"maritalStatus==item.key\"></option>\n" +
-    "                </select>\n" +
-    "                <div ng-messages=\"myForm.maritalStatus.$touched && myForm.maritalStatus.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please select marital status.</div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">Sect<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.sect.$touched && myForm.sect.$invalid, 'has-success': myForm.sect.$touched && myForm.sect.$valid}\">\n" +
+    "                    <select class=\"form-control\" name=\"sect\" required ng-model=\"sect\" ng-change=\"facetVM.afterSectChange(sect)\">\n" +
+    "                        <option value=\"\">--Select--</option>\n" +
+    "                        <option ng-repeat=\"item in facetVM.sectList track by item.pkSectId\" ng-attr-value=\"{{item.pkSectId}}\" ng-bind=\"item.SectName\" ng-selected=\"sect==item.pkSectId\"></option>\n" +
+    "                    </select>\n" +
+    "                    <div ng-messages=\"myForm.sect.$touched && myForm.sect.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please select sect.</div>\n" +
+    "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">Sect<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.sect.$touched && myForm.sect.$invalid, 'has-success': myForm.sect.$touched && myForm.sect.$valid}\">\n" +
-    "                <select class=\"form-control\" name=\"sect\" required ng-model=\"sect\" ng-change=\"facetVM.afterSectChange(sect)\">\n" +
-    "                    <option value=\"\">--Select--</option>\n" +
-    "                    <option ng-repeat=\"item in facetVM.sectList track by item.pkSectId\" ng-attr-value=\"{{item.pkSectId}}\" ng-bind=\"item.SectName\" ng-selected=\"sect==item.pkSectId\"></option>\n" +
-    "                </select>\n" +
-    "                <div ng-messages=\"myForm.sect.$touched && myForm.sect.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please select sect.</div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">Sub Sect<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.subSect.$touched && myForm.subSect.$invalid, 'has-success': myForm.subSect.$touched && myForm.subSect.$valid}\">\n" +
+    "                    <select class=\"form-control\" name=\"subSect\" required ng-model=\"subSect\">\n" +
+    "                        <option value=\"\">--Select--</option>\n" +
+    "                        <option ng-repeat=\"item in facetVM.subSectList track by item.pkSubSectId\" ng-attr-value=\"{{item.pkSubSectId}}\" ng-bind=\"item.SubSectName\" ng-selected=\"subSect==item.pkSubSectId\"></option>\n" +
+    "                    </select>\n" +
+    "                    <div ng-messages=\"myForm.subSect.$touched && myForm.subSect.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please select sub sect.</div>\n" +
+    "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">Sub Sect<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.subSect.$touched && myForm.subSect.$invalid, 'has-success': myForm.subSect.$touched && myForm.subSect.$valid}\">\n" +
-    "                <select class=\"form-control\" name=\"subSect\" required ng-model=\"subSect\">\n" +
-    "                    <option value=\"\">--Select--</option>\n" +
-    "                    <option ng-repeat=\"item in facetVM.subSectList track by item.pkSubSectId\" ng-attr-value=\"{{item.pkSubSectId}}\" ng-bind=\"item.SubSectName\" ng-selected=\"subSect==item.pkSubSectId\"></option>\n" +
-    "                </select>\n" +
-    "                <div ng-messages=\"myForm.subSect.$touched && myForm.subSect.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please select sub sect.</div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">Mother Tongue<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.motherTongue.$touched && myForm.motherTongue.$invalid, 'has-success': myForm.motherTongue.$touched && myForm.motherTongue.$valid}\">\n" +
+    "                    <select class=\"form-control\" name=\"motherTongue\" required ng-model=\"motherTongue\">\n" +
+    "                        <option value=\"\">--Select--</option>\n" +
+    "                        <option ng-repeat=\"item in facetVM.motherTongueList track by item.pkTongueId\" ng-attr-value=\"{{item.pkTongueId}}\" ng-bind=\"item.TongueName\" ng-selected=\"motherTongue==item.pkTongueId\"></option>\n" +
+    "                    </select>\n" +
+    "                    <div ng-messages=\"myForm.motherTongue.$touched && myForm.motherTongue.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please select mother tongue.</div>\n" +
+    "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">Mother Tongue<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.motherTongue.$touched && myForm.motherTongue.$invalid, 'has-success': myForm.motherTongue.$touched && myForm.motherTongue.$valid}\">\n" +
-    "                <select class=\"form-control\" name=\"motherTongue\" required ng-model=\"motherTongue\">\n" +
-    "                    <option value=\"\">--Select--</option>\n" +
-    "                    <option ng-repeat=\"item in facetVM.motherTongueList track by item.pkTongueId\" ng-attr-value=\"{{item.pkTongueId}}\" ng-bind=\"item.TongueName\" ng-selected=\"motherTongue==item.pkTongueId\"></option>\n" +
-    "                </select>\n" +
-    "                <div ng-messages=\"myForm.motherTongue.$touched && myForm.motherTongue.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please select mother tongue.</div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">Country living in<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.country.$touched && myForm.country.$invalid, 'has-success': myForm.country.$touched && myForm.country.$valid}\">\n" +
+    "                    <select class=\"form-control\" name=\"country\" required ng-model=\"country\" ng-disabled=\"true\">\n" +
+    "                        <option value=\"\">--Select--</option>\n" +
+    "                        <option ng-repeat=\"item in facetVM.countryList track by item.pkCountryId\" ng-attr-value=\"{{item.pkCountryId}}\" ng-bind=\"item.CountryName\" ng-selected=\"country==item.pkCountryId\"></option>\n" +
+    "                    </select>\n" +
+    "                    <div ng-messages=\"myForm.country.$touched && myForm.country.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please select country.</div>\n" +
+    "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">Country living in<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.country.$touched && myForm.country.$invalid, 'has-success': myForm.country.$touched && myForm.country.$valid}\">\n" +
-    "                <select class=\"form-control\" name=\"country\" required ng-model=\"country\" ng-disabled=\"true\">\n" +
-    "                    <option value=\"\">--Select--</option>\n" +
-    "                    <option ng-repeat=\"item in facetVM.countryList track by item.pkCountryId\" ng-attr-value=\"{{item.pkCountryId}}\" ng-bind=\"item.CountryName\" ng-selected=\"country==item.pkCountryId\"></option>\n" +
-    "                </select>\n" +
-    "                <div ng-messages=\"myForm.country.$touched && myForm.country.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please select country.</div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">State<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.state.$touched && myForm.state.$invalid, 'has-success': myForm.state.$touched && myForm.state.$valid}\">\n" +
+    "                    <select class=\"form-control\" name=\"state\" required ng-model=\"state\">\n" +
+    "                        <option value=\"\">--Select--</option>\n" +
+    "                        <option ng-repeat=\"item in facetVM.stateList track by item.pkStateId\" ng-attr-value=\"{{item.pkStateId}}\" ng-bind=\"item.StateName\" ng-selected=\"state==item.pkStateId\"></option>\n" +
+    "                    </select>\n" +
+    "                    <div ng-messages=\"myForm.state.$touched && myForm.state.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please select state.</div>\n" +
+    "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">State<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.state.$touched && myForm.state.$invalid, 'has-success': myForm.state.$touched && myForm.state.$valid}\">\n" +
-    "                <select class=\"form-control\" name=\"state\" required ng-model=\"state\">\n" +
-    "                    <option value=\"\">--Select--</option>\n" +
-    "                    <option ng-repeat=\"item in facetVM.stateList track by item.pkStateId\" ng-attr-value=\"{{item.pkStateId}}\" ng-bind=\"item.StateName\" ng-selected=\"state==item.pkStateId\"></option>\n" +
-    "                </select>\n" +
-    "                <div ng-messages=\"myForm.state.$touched && myForm.state.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please select state.</div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">City<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.city.$touched && myForm.city.$invalid, 'has-success': myForm.city.$touched && myForm.city.$valid}\">\n" +
+    "                    <input type=\"text\" name=\"city\" required class=\"form-control\" placeholder=\"City\" ng-model=\"city\" />\n" +
+    "                    <div ng-messages=\"myForm.city.$touched && myForm.city.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please write city name.</div>\n" +
+    "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">City<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.city.$touched && myForm.city.$invalid, 'has-success': myForm.city.$touched && myForm.city.$valid}\">\n" +
-    "                <input type=\"text\" name=\"city\" required class=\"form-control\" placeholder=\"City\" ng-model=\"city\" />\n" +
-    "                <div ng-messages=\"myForm.city.$touched && myForm.city.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please write city name.</div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">Contact Number<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.contactNumber.$touched && myForm.contactNumber.$invalid, 'has-success': myForm.contactNumber.$touched && myForm.contactNumber.$valid}\">\n" +
+    "                    <div class=\"input-group\">\n" +
+    "                        <span class=\"input-group-addon\">+91</span>\n" +
+    "                        <input type=\"text\" class=\"form-control\" name=\"contactNumber\" required placeholder=\"contact number\" ng-pattern=\"/^\\d{10}$/\" ng-model=\"contactNumber\" />\n" +
+    "                    </div>\n" +
+    "                    <span class=\"text-muted\">Hint: 99xxxxxxxx</span>\n" +
+    "                    <div ng-messages=\"myForm.contactNumber.$touched && myForm.contactNumber.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please write contact number.</div>\n" +
+    "                        <div ng-message=\"pattern\">Please write valid contact number.</div>\n" +
+    "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">Contact Number<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.contactNumber.$touched && myForm.contactNumber.$invalid, 'has-success': myForm.contactNumber.$touched && myForm.contactNumber.$valid}\">\n" +
-    "                <div class=\"input-group\">\n" +
-    "                    <span class=\"input-group-addon\">+91</span>\n" +
-    "                    <input type=\"text\" class=\"form-control\" name=\"contactNumber\" required placeholder=\"contact number\" ng-pattern=\"/^(\\d{10}(,([\\s]*)?\\d{10})*)?$/\" ng-model=\"contactNumber\" />\n" +
-    "                </div>\n" +
-    "                <span class=\"text-muted\">Hint: 99xxxxxxxx, 98xxxxxxxx </span>\n" +
-    "                <div ng-messages=\"myForm.contactNumber.$touched && myForm.contactNumber.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please write contact number.</div>\n" +
-    "                    <div ng-message=\"pattern\">Please write valid contact number.</div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">E-mail<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.email.$touched && myForm.email.$invalid, 'has-success': myForm.email.$touched && myForm.email.$valid}\">\n" +
+    "                    <input type=\"email\" name=\"email\" required class=\"form-control\" placeholder=\"(ex: xyz@abc.com)\" ng-model=\"emailId\" />\n" +
+    "                    <div ng-messages=\"myForm.email.$touched && myForm.email.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please write email address.</div>\n" +
+    "                        <div ng-message=\"email\">Please write a vaild email address.</div>\n" +
+    "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">E-mail<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.email.$touched && myForm.email.$invalid, 'has-success': myForm.email.$touched && myForm.email.$valid}\">\n" +
-    "                <input type=\"email\" name=\"email\" required class=\"form-control\" placeholder=\"(ex: xyz@abc.com)\" ng-model=\"emailId\" />\n" +
-    "                <div ng-messages=\"myForm.email.$touched && myForm.email.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please write email address.</div>\n" +
-    "                    <div ng-message=\"email\">Please write a vaild email address.</div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">Password<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.password.$touched && myForm.password.$invalid, 'has-success': myForm.password.$touched && myForm.password.$valid}\">\n" +
+    "                    <input type=\"password\" class=\"form-control\" name=\"password\" required placeholder=\"password\" ng-model=\"password\" ng-minlength=\"8\">\n" +
+    "                    <div ng-messages=\"myForm.password.$touched && myForm.password.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please write password.</div>\n" +
+    "                        <div ng-message=\"minlength\">Password should be minimum 8 characters.</div>\n" +
+    "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">Password<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.password.$touched && myForm.password.$invalid, 'has-success': myForm.password.$touched && myForm.password.$valid}\">\n" +
-    "                <input type=\"password\" class=\"form-control\" name=\"password\" required placeholder=\"password\" ng-model=\"password\" ng-minlength=\"8\">\n" +
-    "                <div ng-messages=\"myForm.password.$touched && myForm.password.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please write password.</div>\n" +
-    "                    <div ng-message=\"minlength\">Password should be minimum 8 characters.</div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"col-sm-4 \">Confirm Password<span class=\"requiredFields\"> *</span></label>\n" +
+    "                <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.confirmPassword.$touched && myForm.confirmPassword.$invalid, 'has-success': myForm.confirmPassword.$touched && myForm.confirmPassword.$valid}\">\n" +
+    "                    <input type=\"password\" class=\"form-control\" name=\"confirmPassword\" required placeholder=\"password again\" ng-pattern=\"{{password}}\" ng-model=\"confirmPassword\" ng-minlength=\"8\">\n" +
+    "                    <div ng-messages=\"myForm.confirmPassword.$touched && myForm.confirmPassword.$error\" class=\"text-danger\">\n" +
+    "                        <div ng-message=\"required\">Please write password.</div>\n" +
+    "                        <div ng-message=\"minlength\">Password should be minimum 8 characters.</div>\n" +
+    "                        <div ng-message=\"pattern\">Password and confirm password should match.</div>\n" +
+    "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <label class=\"col-sm-4 \">Confirm Password<span class=\"requiredFields\"> *</span></label>\n" +
-    "            <div class=\"col-sm-8\" ng-class=\"{'has-error': myForm.confirmPassword.$touched && myForm.confirmPassword.$invalid, 'has-success': myForm.confirmPassword.$touched && myForm.confirmPassword.$valid}\">\n" +
-    "                <input type=\"password\" class=\"form-control\" name=\"confirmPassword\" required placeholder=\"password again\" ng-pattern=\"{{password}}\" ng-model=\"confirmPassword\" ng-minlength=\"8\">\n" +
-    "                <div ng-messages=\"myForm.confirmPassword.$touched && myForm.confirmPassword.$error\" class=\"text-danger\">\n" +
-    "                    <div ng-message=\"required\">Please write password.</div>\n" +
-    "                    <div ng-message=\"minlength\">Password should be minimum 8 characters.</div>\n" +
-    "                    <div ng-message=\"pattern\">Password and confirm password should match.</div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <div class=\"col-sm-12\">\n" +
+    "                    <label>\n" +
+    "                        <checkbox ng-model=\"termsConditions\" ></checkbox>\n" +
+    "                        I agree to the <a href=\"#nogo\" class=\"link\" data-toggle=\"modal\" data-target=\"#privacyPolicy\">Privacy Policy</a>\n" +
+    "                        and\n" +
+    "                        <a href=\"#nogo\" class=\"link\" data-toggle=\"modal\" data-target=\"#termsConditions\">Terms &amp; Conditions</a>\n" +
+    "                    </label>\n" +
     "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <div class=\"col-sm-12\">\n" +
-    "                <label>\n" +
-    "                    <checkbox ng-model=\"termsConditions\" ></checkbox>\n" +
-    "                    I agree to the <a href=\"#nogo\" class=\"link\" data-toggle=\"modal\" data-target=\"#privacyPolicy\">Privacy Policy</a>\n" +
-    "                    and\n" +
-    "                    <a href=\"#nogo\" class=\"link\" data-toggle=\"modal\" data-target=\"#termsConditions\">Terms &amp; Conditions</a>\n" +
-    "                </label>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <div class=\"col-sm-8 col-sm-offset-4\">\n" +
+    "                    <button class=\"btn btn-success\" ng-click=\"registerUser()\" ng-disabled=\"!termsConditions || disableButton || myForm.$invalid\">Register</button>\n" +
+    "                </div>\n" +
     "            </div>\n" +
-    "        </div>\n" +
-    "        <div class=\"form-group\">\n" +
-    "            <div class=\"col-sm-8 col-sm-offset-4\">\n" +
-    "                <button class=\"btn btn-success\" ng-click=\"registerUser()\" ng-disabled=\"!termsConditions || disableButton || myForm.$invalid\">Register</button>\n" +
-    "            </div>\n" +
-    "        </div>\n" +
-    "    </form>\n" +
+    "        </form>\n" +
+    "    </div>\n" +
     "</div>\n" +
     "<div ng-include=\"'register/register-modal.html'\"></div>");
   $templateCache.put("search/choosenSearchCriteria.html",

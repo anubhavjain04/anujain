@@ -7,7 +7,6 @@ var MemberProfileCtrl = function ($scope, $state, $stateParams, FacetFactory, Re
         birthHour: undefined,
         birthMinute: undefined,
         birthAmPm: undefined,
-        height: "",
         weight: "",
         bodyType: undefined,
         complexion: undefined,

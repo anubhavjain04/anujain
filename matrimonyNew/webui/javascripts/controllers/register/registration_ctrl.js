@@ -1,5 +1,5 @@
 "use strict";
-var RegistrationCtrl = function($scope, $rootScope, $state, $stateParams, $timeout, FacetFactory, RegisterFactory, PasswordScore) {
+var RegistrationCtrl = function($scope, $rootScope, $state, $stateParams, $timeout, $location, FacetFactory, RegisterFactory, PasswordScore) {
     $scope.facetVM = FacetFactory;
     $scope.disableButton = false;
     $scope.termsConditions = true;
@@ -9,6 +9,7 @@ var RegistrationCtrl = function($scope, $rootScope, $state, $stateParams, $timeo
     $scope.date = null;
     $scope.month = null;
     $scope.year = null;
+    $scope.height = null;
     $scope.maritalStatus = null;
     $scope.sect = null;
     $scope.subSect = null;
@@ -78,6 +79,7 @@ var RegistrationCtrl = function($scope, $rootScope, $state, $stateParams, $timeo
                 memberName 	: $scope.memberName,
                 sex 		: $scope.sex,
                 dob 		: dob,
+                height      : $scope.height,
                 maritalStatus:$scope.maritalStatus,
                 sect		: $scope.sect,
                 subSect		: $scope.subSect,
@@ -95,7 +97,11 @@ var RegistrationCtrl = function($scope, $rootScope, $state, $stateParams, $timeo
             RegisterFactory.registerMember(formData).then(function(data){
                 $scope.disableButton = false;
                 if(data){
-                    $scope.showRegisterProfilePage(data);
+                    if($location.path() != "/register"){
+                        $scope.redirectToMemberProfile(data);
+                    }else {
+                        $scope.showRegisterProfilePage(data);
+                    }
                 }
             },function(error){
                 $scope.disableButton = false;

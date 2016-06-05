@@ -104,7 +104,7 @@ module.exports = function(grunt) {
         watch: {
             source: {
                 files: ['<%= files.less %>', '<%= files.html %>', '<%= files.js %>'],
-                tasks: ['less:build', 'html2js', 'concat'],
+                tasks: ['less:dev', 'html2js', 'concat:dev'],
                 options: {}
             }
         }

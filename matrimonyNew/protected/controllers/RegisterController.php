@@ -91,6 +91,7 @@ class RegisterController extends Controller
 					$model->fkCountryLivingIn = $registerData['country'];
 					$model->fkResidingState = $registerData['state'];
 					$model->ResidingCity = $registerData['city'];
+					$model->Height = $registerData['height'];
 					
 					$model->Email = $userModel->EmailID;
 					
@@ -208,7 +209,7 @@ class RegisterController extends Controller
 				$model->DOB = date('m/d/Y',strtotime($model->DOB));
 				$model->DOB = date('Y-m-d H:i',strtotime($model->DOB.' '.$memberProfile['birthHour'].':'.$memberProfile['birthMinute'].' '.$memberProfile['birthAmPm']));
 			}			
-			$model->Height = (isset($memberProfile['height']) && $memberProfile['height'])?$memberProfile['height']: null;
+			//$model->Height = (isset($memberProfile['height']) && $memberProfile['height'])?$memberProfile['height']: null;
 			$model->Weight = (isset($memberProfile['weight']) && $memberProfile['weight'])?$memberProfile['weight']: null;
 			$model->BodyType = (isset($memberProfile['bodyType']) && $memberProfile['bodyType'])?$memberProfile['bodyType']: null;
 			$model->Complexion = (isset($memberProfile['complexion']) && $memberProfile['complexion'])?$memberProfile['complexion']: null;
