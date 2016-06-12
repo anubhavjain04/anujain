@@ -26,11 +26,11 @@
                 </div>
                 <div class="pad15 padt0">
                     <div class="bdr1 col-sm-3 pad-reset profile-pic text-center" ng-class="{'women': (item.Sex=='0' && !item.ProfilePic), 'men': (item.Sex=='1' && !item.ProfilePic)}">
-                        <a href="#" ng-if="item.ProfilePic"><img ng-src="{{item.ProfilePic}}" ng-attr-title="{{item.MemberName}}" /></a>
+                        <a ui-sref="searchMember({memberCode: item.MemberCode})" ng-if="item.ProfilePic"><img ng-src="{{getMemberProfilePic(item.ProfilePic)}}" ng-attr-title="{{item.MemberName}}" /></a>
                     </div>
                     <div class="pad5 col-sm-9">
                         <div class="padt3 padb10 col-sm-12 row">
-                            <div class="bigtxt-s"><a href="#" class="clr5" ng-bind="item.MemberName"></a></div>
+                            <div class="bigtxt-s"><a ui-sref="searchMember({memberCode: item.MemberCode})" class="clr5" ng-bind="item.MemberName"></a></div>
                         </div>
                         <div class="padt5 col-sm-12 row">
                             <div class="clr3 col-sm-3">Age, Height</div>

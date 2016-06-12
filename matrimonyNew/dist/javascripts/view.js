@@ -81,29 +81,26 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "</div>\n" +
     "");
   $templateCache.put("home/home.html",
-    "<div class=\"bdr1 bot-shadow clearfix\">\n" +
-    "    <div class=\"col-sm-8 jmm_banner\" style=\"height:530px;\">\n" +
-    "        <div class=\"highlight-section\">\n" +
-    "            <div class=\"highlight\">\n" +
-    "                <div style=\"font-size: 50px;\">Free Membership</div>\n" +
-    "                <h5>After registration, your profile will be activated within 24 to 48 hours.</h5>\n" +
-    "                <div class=\"btn-success pad5\"><h5>(Note: To know more, please contact us at matrimony@bhartiyajainmilan.com )</h5></div>\n" +
-    "            </div>\n" +
+    "<div class=\"jmm_banner\">\n" +
+    "    <img src=\"dist/images/banner.jpg\" />\n" +
+    "</div>\n" +
+    "\n" +
+    "<div class=\"register-panel\">\n" +
+    "    <div class=\"register-home panel panel-green\">\n" +
+    "        <div class=\"panel-heading\">\n" +
+    "            <h3 class=\"panel-title\">Register Now - It's FREE !</h3>\n" +
     "        </div>\n" +
-    "    </div>\n" +
-    "    <div class=\"col-sm-4 bgclr2\">\n" +
-    "        <div id=\"register-home\" class=\"panel panel-green\">\n" +
-    "            <div class=\"panel-heading\">\n" +
-    "                <h3 class=\"panel-title\">Register</h3>\n" +
-    "            </div>\n" +
-    "            <div class=\"panel-body\">\n" +
-    "                <div ng-include=\"'register/required-register-details.html'\"></div>\n" +
-    "                <!--<div class=\"disabled-block-layer\"></div>-->\n" +
-    "            </div>\n" +
+    "        <div class=\"panel-body\">\n" +
+    "            <div ng-include=\"'register/required-register-details.html'\"></div>\n" +
+    "            <!--<div class=\"disabled-block-layer\"></div>-->\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>\n" +
+    "\n" +
     "<div class=\"clearfix\"></div>\n" +
+    "<div style=\"position: relative;\">\n" +
+    "    <div ng-include=\"'search/quickSearch.html'\"></div>\n" +
+    "</div>\n" +
     "");
   $templateCache.put("layouts/flash.html",
     "<div class=\"ng-cloak\" ng-controller='FlashCtrl', ng-init='flash=[]'>\n" +
@@ -113,7 +110,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "</div>");
   $templateCache.put("layouts/footer.html",
     "<!-- footer starts -->\n" +
-    "<div class=\"panel-footer\">\n" +
+    "<div class=\"panel-footer\" style=\"position: relative;\">\n" +
     "    <div id=\"footer\" class=\"container\">\n" +
     "        <div class=\"padb10 col-xs-12 col-sm-12\">\n" +
     "            <p>\n" +
@@ -145,54 +142,85 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "<!-- footer ends --> ");
   $templateCache.put("layouts/topbar.html",
     "<div ng-controller='MenuCtrl'>\n" +
-    "    <div id=\"topbar-fixed\" class=\"navbar navbar-default navbar-inverse navbar-fixed-top\" role='navigation'>\n" +
-    "        <div class=\"container\">\n" +
-    "            <div class=\"navbar-header\">\n" +
-    "                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#slider-navbar\">\n" +
-    "                    <span class=\"sr-only\">Toggle navigation</span>\n" +
-    "                    <span class=\"icon-bar\"></span> <span class=\"icon-bar\"></span> <span class=\"icon-bar\"></span>\n" +
-    "                </button>\n" +
-    "                <a class=\"navbar-brand\" ui-sref='home'></a>\n" +
-    "            </div>\n" +
-    "            <div class=\"collapse navbar-collapse\" id=\"slider-navbar\">\n" +
-    "                    <ul class=\"nav navbar-nav\">\n" +
-    "                        <li ui-sref-active=\"active\">\n" +
-    "                            <a ui-sref=\"home\" ng-bind=\"global.currentUser? 'My Matrimony' : 'Home' \"></a>\n" +
-    "                        </li>\n" +
-    "                        <li ui-sref-active=\"active\">\n" +
-    "                            <a ui-sref=\"search\">Search</a></li>\n" +
-    "                        <li ng-if=\"!global.currentUser\" ui-sref-active=\"active\">\n" +
-    "                            <a ui-sref=\"register\">Register</a>\n" +
-    "                        </li>\n" +
-    "                        <!--<li data-bind=\"css: {'active': $root.categorySwitch()==$root.label.UPGRADE_PAGE}\"><a href=\"#!upgrade\">Upgrade</a></li>-->\n" +
-    "                        <li ui-sref-active=\"active\">\n" +
-    "                            <a ui-sref=\"contactUs\">Contact Us</a>\n" +
-    "                        </li>\n" +
-    "                    </ul>\n" +
-    "                    <ul class=\"nav navbar-nav navbar-right\">\n" +
-    "                        <li ng-if='!global.currentUser' class=\"dropdown\">\n" +
-    "                            <a ui-sref=\"login\" class=\"btn btn-success\">Login</a>\n" +
-    "                        </li>\n" +
-    "                        <li id=\"logout-popup\" ng-if='global.currentUser' class=\"dropdown\">\n" +
-    "                            <a href=\"#\" class=\"dropdown-toggle btn btn-success\" data-toggle=\"dropdown\">\n" +
-    "                                <span ng-bind=\"global.currentUser.MemberName\"></span> <b class=\"caret\"></b>\n" +
-    "                            </a>\n" +
-    "                            <div class=\"dropdown-menu\">\n" +
-    "                                <div class=\"form-group\">\n" +
-    "                                    <a ui-sref=\"userProfile.basicDetails\">My Profile</a>\n" +
-    "                                </div>\n" +
-    "                                <div class=\"form-group\">\n" +
-    "                                    <a ui-sref=\"userProfile.changePassword\">Change Password</a>\n" +
-    "                                </div>\n" +
-    "                                <div class=\"form-group\">\n" +
-    "                                    <a href=\"javascript:void(0)\" ng-click=\"logout()\">Sign Out</a>\n" +
-    "                                </div>\n" +
-    "\n" +
-    "                            </div>\n" +
-    "                        </li>\n" +
-    "                    </ul>\n" +
+    "    <div id=\"sidebar-wrapper\" class=\"navbar navbar-fixed-top\" role='navigation'>\n" +
+    "        <div class=\"\">\n" +
+    "            <div >\n" +
+    "                <ul class=\"nav navbar-nav sidebar-nav\" ng-click=\"$parent.toggleMenu()\">\n" +
+    "                    <li class=\"sidebar-brand\">\n" +
+    "                        <a href=\"#\">\n" +
+    "                            <img src=\"dist/images/symbol-sm-grey.png\" />\n" +
+    "                            JM Matrimonial\n" +
+    "                        </a>\n" +
+    "                    </li>\n" +
+    "                    <li ui-sref-active=\"active\">\n" +
+    "                        <a ui-sref=\"home\" ng-bind=\"global.currentUser? 'My Matrimony' : 'Home' \"></a>\n" +
+    "                    </li>\n" +
+    "                    <li ui-sref-active=\"active\">\n" +
+    "                        <a ui-sref=\"search\">Search</a></li>\n" +
+    "                    <li ng-if=\"!global.currentUser\" ui-sref-active=\"active\">\n" +
+    "                        <a ui-sref=\"register\">Register</a>\n" +
+    "                    </li>\n" +
+    "                    <li ng-if=\"global.currentUser\" ui-sref-active=\"active\">\n" +
+    "                        <a ui-sref=\"userProfile.basicDetails\">My Profile</a>\n" +
+    "                    </li>\n" +
+    "                    <li ng-if=\"global.currentUser\" ui-sref-active=\"active\">\n" +
+    "                        <a ui-sref=\"userProfile.changePassword\">Change Password</a>\n" +
+    "                    </li>\n" +
+    "                    <li ui-sref-active=\"active\">\n" +
+    "                        <a ui-sref=\"contactUs\">Contact Us</a>\n" +
+    "                    </li>\n" +
+    "                </ul>\n" +
     "            </div>\n" +
     "            <!--/.navbar-collapse -->\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>\n" +
+    "");
+  $templateCache.put("layouts/topheader.html",
+    "<div id=\"top-header\" class=\"container\">\n" +
+    "    <div class=\"pull-left\">\n" +
+    "        <a class=\"brand\" ui-sref='home'>\n" +
+    "            <img src=\"dist/images/spacer.gif\"/>\n" +
+    "        </a>\n" +
+    "    </div>\n" +
+    "    <div ng-if=\"!global.auth\" class=\"pull-right login-panel\" ng-controller=\"LoginCtrl\">\n" +
+    "        <span class=\"login-link\">\n" +
+    "            <a ui-sref=\"login\" class=\"btn btn-sm btn-primary\">Login</a>\n" +
+    "        </span>\n" +
+    "        <form name=\"loginForm\" class=\"form-inline login-form\">\n" +
+    "            <div ng-messages=\"(loginForm.password.$touched && loginForm.password.$error) || (loginForm.email.$touched && loginForm.email.$error)\"\n" +
+    "                 class=\"text-danger\">\n" +
+    "                <div ng-message=\"required\">Invalid username/e-mail or password.</div>\n" +
+    "            </div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"control-label sr-only\">Matrimony ID / Email ID</label>\n" +
+    "                <input type=\"text\" placeholder=\"Matrimony ID / Email ID\" class=\"form-control input-sm\" required\n" +
+    "                       name=\"email\" ng-model=\"user.email\"/>\n" +
+    "            </div>\n" +
+    "            <div class=\"form-group\">\n" +
+    "                <label class=\"control-label sr-only\">Password</label>\n" +
+    "                <input type=\"password\" placeholder=\"Password\" class=\"form-control input-sm\" name=\"password\" required\n" +
+    "                       ng-model=\"user.password\"/>\n" +
+    "\n" +
+    "                <div></div>\n" +
+    "                <button type=\"button\" class=\"btn btn-sm btn-link\" ng-click=\"forgotPassword()\">Forgot password?</button>\n" +
+    "            </div>\n" +
+    "            <button type=\"submit\" class=\"btn btn-sm btn-success\" ng-click=\"login()\">Login</button>\n" +
+    "        </form>\n" +
+    "    </div>\n" +
+    "    <div ng-if=\"global.auth && global.currentUser\" class=\"pull-right login-panel\" ng-controller=\"MemberCtrl\">\n" +
+    "        <div class=\"pull-left mini-profile-pic\">\n" +
+    "            <img ng-if=\"profilePic\" ng-src=\"{{global.profilePicData}}\" ng-attr-title=\"{{memberName+' ('+memberCode+')'}}\" />\n" +
+    "        </div>\n" +
+    "        <div class=\"pull-left member-details padl8\">\n" +
+    "            <div>\n" +
+    "                <a ui-sref=\"searchMember(memberCode: memberCode)\" ng-bind=\"memberName+' ('+memberCode+')'\"></a>\n" +
+    "            </div>\n" +
+    "            <!--<div>Profile Completeness - </div>-->\n" +
+    "            <div class=\"padt10\"><span>Free Member</span></div>\n" +
+    "        </div>\n" +
+    "        <div class=\"pull-left padl8\">\n" +
+    "            <a ui-sref=\"logout\" class=\"btn btn-primary btn-sm\" ui-sref=\"logout\">Sign Out</a>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "</div>");
@@ -1033,7 +1061,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "                    </div>\n" +
     "                    <div class=\"panel-body\">\n" +
     "                        <center><div class=\"bdr1 pad-reset profile-pic text-center\" ng-class=\"{'women': (sex=='0' && !profilePic), 'men': (sex=='1' && !profilePic)}\">\n" +
-    "                            <img ng-if=\"profilePic\" ng-src=\"{{profilePic}}\" ng-attr-title=\"{{memberName}}\" />\n" +
+    "                            <img ng-if=\"profilePic\" ng-src=\"{{global.profilePicData}}\" ng-attr-title=\"{{memberName}}\" />\n" +
     "                        </div></center>\n" +
     "                        <div class=\"padt20\">\n" +
     "                            <p class=\"text-muted\">We are working on below links:</p>\n" +
@@ -1264,7 +1292,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "\n" +
     "            <div class=\"panel-body\">\n" +
     "                <center><div class=\"bdr1 pad-reset profile-pic text-center\" ng-class=\"{'women': (user.Sex=='0' && !user.ProfilePic), 'men': (user.Sex=='1' && !user.ProfilePic)}\">\n" +
-    "                    <img ng-if=\"user.ProfilePic\" ng-src=\"{{user.ProfilePic}}\" ng-attr-title=\"{{user.MemberName}}\" />\n" +
+    "                    <img ng-if=\"user.ProfilePic\" ng-src=\"{{global.profilePicData}}\" ng-attr-title=\"{{user.MemberName}}\" />\n" +
     "                </div></center>\n" +
     "            </div>\n" +
     "        </div>\n" +
@@ -2481,7 +2509,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "            <div class=\"pad15\">\n" +
     "                <div class=\"bdr1 col-xs-3 col-sm-3 pad-reset profile-pic text-center\" ng-class=\"{'women': (member.Sex=='0' && !member.ProfilePic), 'men': (member.Sex=='1' && !member.ProfilePic)}\">\n" +
     "                    <span ng-if=\"member.ProfilePic\">\n" +
-    "                        <img ng-src=\"{{member.ProfilePic}}\" ng-attr-title=\"{{member.MemberName}}\" />\n" +
+    "                        <img ng-src=\"{{getMemberProfilePic(member.ProfilePic)}}\" ng-attr-title=\"{{member.MemberName}}\" />\n" +
     "                    </span>\n" +
     "                </div>\n" +
     "                <div class=\"pad5 col-xs-9 col-sm-9\">\n" +
@@ -3090,11 +3118,11 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "                </div>\n" +
     "                <div class=\"pad15 padt0\">\n" +
     "                    <div class=\"bdr1 col-sm-3 pad-reset profile-pic text-center\" ng-class=\"{'women': (item.Sex=='0' && !item.ProfilePic), 'men': (item.Sex=='1' && !item.ProfilePic)}\">\n" +
-    "                        <a href=\"#\" ng-if=\"item.ProfilePic\"><img ng-src=\"{{item.ProfilePic}}\" ng-attr-title=\"{{item.MemberName}}\" /></a>\n" +
+    "                        <a ui-sref=\"searchMember({memberCode: item.MemberCode})\" ng-if=\"item.ProfilePic\"><img ng-src=\"{{getMemberProfilePic(item.ProfilePic)}}\" ng-attr-title=\"{{item.MemberName}}\" /></a>\n" +
     "                    </div>\n" +
     "                    <div class=\"pad5 col-sm-9\">\n" +
     "                        <div class=\"padt3 padb10 col-sm-12 row\">\n" +
-    "                            <div class=\"bigtxt-s\"><a href=\"#\" class=\"clr5\" ng-bind=\"item.MemberName\"></a></div>\n" +
+    "                            <div class=\"bigtxt-s\"><a ui-sref=\"searchMember({memberCode: item.MemberCode})\" class=\"clr5\" ng-bind=\"item.MemberName\"></a></div>\n" +
     "                        </div>\n" +
     "                        <div class=\"padt5 col-sm-12 row\">\n" +
     "                            <div class=\"clr3 col-sm-3\">Age, Height</div>\n" +

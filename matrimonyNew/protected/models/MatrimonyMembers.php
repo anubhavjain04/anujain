@@ -281,7 +281,8 @@ class MatrimonyMembers extends CActiveRecord
 		if($model){
 			$familyModel=MatrimonyFamilyDetails::model()->find('MemberCode=:MemberCode', array(':MemberCode'=>$model->MemberCode));
 			if(isset($model->ProfilePic)){
-				$model->ProfilePic = "data:image/jpeg;base64," . base64_encode($model->ProfilePic);
+				//$model->ProfilePic = "data:image/jpeg;base64," . base64_encode($model->ProfilePic);
+				$model->ProfilePic = $model->pkMemberId;
 			}
 			$plainModel = CJSON::decode(CJSON::encode($model));
 			$ageDiff = abs(time() - strtotime($model['DOB']));

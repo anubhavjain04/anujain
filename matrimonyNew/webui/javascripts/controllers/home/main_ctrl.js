@@ -11,6 +11,12 @@ var MainCtrl = function($scope, $rootScope, $http, $serverPath, $state, $timeout
     $rootScope.showAlert = function(message){
         $scope.alertMessage = message;
     };
+
+    /***Toggled Menu***/
+    $scope.isClosed = false;
+    $scope.toggleMenu = function(){
+        $scope.isClosed = !$scope.isClosed;
+    };
 };
 
 angular.module("BJMMatrimony").controller("MainCtrl", MainCtrl);

@@ -2,7 +2,7 @@
 var Session = function(RESTUtil, $q, $location, $rootScope, ipCookie, $state){
     var Global = {
         currentUser: null,
-        isLandingPage: null,
+        profilePicData: null,
         auth: null
     };
 
@@ -13,12 +13,13 @@ var Session = function(RESTUtil, $q, $location, $rootScope, ipCookie, $state){
         ipCookie("auth", auth, { expires: 30 });
         Global.currentUser = data;
         Global.auth = auth;
-        console.log(Global);
+        userProfilePic(Global.currentUser);
     };
 
     var clearCredentials = function() {
         ipCookie.remove('auth');
         Global.auth = null;
+        Global.profilePicData = null;
         //delete $http.defaults.headers.common['X-User-Email'];
         //delete $http.defaults.headers.common['X-User-Token'];
         Global.currentUser = null;
@@ -34,13 +35,13 @@ var Session = function(RESTUtil, $q, $location, $rootScope, ipCookie, $state){
         return (auth && auth.id);
     };
 
-    //var userProfilePic = function(user){
-    //    if(user && user.pkMemberId){
-    //        RESTUtil.get("matrimonyMembers/getProfilePic"+user.pkMemberId).then(function(resp){
-    //            Global.currentUser.
-    //        });
-    //    }
-    //};
+    var userProfilePic = function(user){
+        if(user && user.pkMemberId){
+            RESTUtil.get("matrimonyMembers/userProfilePic/id/"+user.pkMemberId).then(function(resp){
+                Global.profilePicData = resp;
+            });
+        }
+    };
 
     var login = function(data, successcallback, errorcallback) {
         $rootScope.isLogging = true;

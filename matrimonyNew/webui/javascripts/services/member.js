@@ -14,12 +14,16 @@ var MemberFactory = function(RESTUtil){
     var changePassword = function (id, data) {
         return RESTUtil.post("matrimonyUser/changePassword/id/"+id, data);
     };
+    var userProfilePic = function (id) {
+        return RESTUtil.get("matrimonyMembers/userProfilePic/id/"+id);
+    };
     return {
         getMember: getMember,
         updateMemberDetails: updateMemberDetails,
         updateFamilyDetails: updateFamilyDetails,
         uploadProfilePhoto: uploadProfilePhoto,
-        changePassword: changePassword
+        changePassword: changePassword,
+        userProfilePic: userProfilePic
     };
 };
 angular.module("BJMMatrimony").factory("MemberFactory", MemberFactory);

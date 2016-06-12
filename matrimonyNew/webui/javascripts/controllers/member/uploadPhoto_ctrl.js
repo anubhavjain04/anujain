@@ -14,7 +14,7 @@ var UploadPhotoCtrl = function($scope, $rootScope, $serverPath, Upload, UploadDa
             }).progress(function(evt){
                 $scope.uploadProgress = parseInt(100.0 * evt.loaded / evt.total);
             }).success(function (imageDataUrl) {
-                $scope.user.ProfilePic = imageDataUrl;
+                Session.sessionData.profilePicData = imageDataUrl;
                 $scope.uploadingImage = false;
                 $rootScope.$emit('addFlash', [{
                     type: 'success',

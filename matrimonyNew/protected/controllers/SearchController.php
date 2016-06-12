@@ -23,7 +23,7 @@ class SearchController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('search','results','member','dataList'),
+				'actions'=>array('search','results','member','dataList', "memberProfilePic"),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -107,7 +107,8 @@ class SearchController extends Controller
 			$plainDataList = array();
 			for($i=0; $i<count($dataList); $i++){
 				if(isset($dataList[$i]->ProfilePic)){
-					$dataList[$i]->ProfilePic = "data:image/jpeg;base64," . base64_encode($dataList[$i]->ProfilePic);
+					//$dataList[$i]->ProfilePic = "data:image/jpeg;base64," . base64_encode($dataList[$i]->ProfilePic);
+					$dataList[$i]->ProfilePic = $dataList[$i]->pkMemberId;
 				}
 				$plainData = CJSON::decode(CJSON::encode($dataList[$i]));
 				$ageDiff = abs(time() - strtotime($dataList[$i]['DOB']));
@@ -139,7 +140,8 @@ class SearchController extends Controller
 			$familyDetails = MatrimonyFamilyDetails::model()->find($criteria);
 			if($member){
 				if(isset($member->ProfilePic)){
-					$member->ProfilePic = "data:image/jpeg;base64," . base64_encode($member->ProfilePic);
+					//$member->ProfilePic = "data:image/jpeg;base64," . base64_encode($member->ProfilePic);
+					$member->ProfilePic = $member->pkMemberId;
 				}
 				$jsonMember = CJSON::decode(CJSON::encode($member));
 				$ageDiff = abs(time() - strtotime($member['DOB']));
@@ -190,6 +192,16 @@ class SearchController extends Controller
 		$results["occupationList"] = Occupation::model()->findAll(array('order'=>' OccupationName ASC '));
 		
 		$this->echoObjectAsJSON($results);
+	}
+
+	public function actionMemberProfilePic($id){
+		$member = MatrimonyMembers::model()->findByPk($id);
+		if(isset($member->ProfilePic)) {
+			header("Content-type: image/jpeg");
+			echo $member->ProfilePic;
+		}else{
+			echo "";
+		}
 	}
 
 	

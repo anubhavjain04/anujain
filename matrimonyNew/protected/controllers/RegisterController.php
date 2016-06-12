@@ -285,15 +285,15 @@ class RegisterController extends Controller
 	protected function userCreateMailMessage($member, $password){
 		if($member){
 			$message = '<div style="font-family: verdana;font-size: 13px;">'
-				.'<div style="height: 50px; margin-bottom: 30px; background-color: #ED1C24; text-align: left;">'
-					.'<img src="http://www.matrimony.bhartiyajainmilan.com/dist/images/matrimony-logo.gif" width="224" height="50" alt="Bhartiya Jain Milan Matrimonial" />'
+				.'<div style="height: 50px; margin-bottom: 30px; padding: 15px; background-color: #f8f8f8; text-align: left;">'
+					.'<img src="http://www.jainmilanmatrimonial.com/dist/images/matrimony-logo.png" height="50" alt="Jain Milan Matrimonial" />'
 				.'</div>'
 				.'<div>'
 				.'Dear <strong>'.$member->MemberName.' ('.$member->MemberCode.')</strong>'
 				.'</div>'
 			
 				.'<p style="margin-top: 20px;">'
-				.'Your profile has been created/updated successfully on <strong>Bhartiya Jain Milan Matrimonial</strong>. Your BJM Matrimonial Id is <strong>'.$member->MemberCode.'</strong>.' 
+				.'Your profile has been created/updated successfully on <strong>Bhartiya Jain Milan Matrimonial</strong>. Your BJM Matrimonial Id is <strong>'.$member->MemberCode.'</strong>.'
 				
 				.'</p>'
 				.'<p>'
@@ -309,16 +309,13 @@ class RegisterController extends Controller
 				.'<p>'
 					.'After registration, you have to pay to activate your account.'
 				.'</p>'
-				.'<div style="text-align: center;"><h4>'
-					.'<a href="http://www.matrimony.bhartiyajainmilan.com/#!upgrade" target="_blank">click here to know about how to pay subscription charges.</a>'
-				.'</h4><div>'
 				.'<div style="margin-top: 20px;">thanks</div>'
 				.'<div style="margin-top: 30px;">'
 					.'<div>With Regards,</div>'
 					.'<div style="padding-top: 10px;">'
 						.'<div style="font-size: 1.1em;"><strong>Bhartiya Jain Milan Matrimonial</strong></div>'
 						.'<div style="padding-top: 5px;"><strong>Email:</strong> <a href="mailto:matrimony@bhartiyajainmilan.com">matrimony@bhartiyajainmilan.com</a></div>'
-						.'<div style="padding-top: 5px;"><strong>Website:</strong> <a href="http://www.matrimony.bhartiyajainmilan.com" target="_blank">www.matrimony.bhartiyajainmilan.com</a></div>'
+						.'<div style="padding-top: 5px;"><strong>Website:</strong> <a href="http://www.jainmilanmatrimonial.com" target="_blank">www.jainmilanmatrimonial.com</a></div>'
 					.'</div>'
 				.'</div>'
 				
@@ -337,15 +334,15 @@ class RegisterController extends Controller
 	protected function notifyAdminMailMessage($member, $password){
 		if($member){
 			$message = '<div style="font-family: verdana;font-size: 13px;">'
-				.'<div style="height: 50px; margin-bottom: 30px; background-color: #ED1C24; text-align: left;">'
-					.'<img src="http://www.matrimony.bhartiyajainmilan.com/dist/images/matrimony-logo.gif" width="224" height="50" alt="Bhartiya Jain Milan Matrimonial" />'
+				.'<div style="height: 50px; margin-bottom: 30px; padding: 15px; background-color: #f8f8f8; text-align: left;">'
+					.'<img src="http://www.jainmilanmatrimonial.com/dist/images/matrimony-logo.png" height="50" alt="Jain Milan Matrimonial" />'
 				.'</div>'
 				.'<div>'
 				.'Dear <strong>Admin</strong>'
 				.'</div>'
 			
 				.'<p style="margin-top: 20px;">'
-				.'A new member is registered at www.matrimony.bhartiyajainmilan.com. Below are registered user details:' 
+				.'A new member is registered at www.jainmilanmatrimonial.com. Below are registered user details:'
 				
 				.'</p>'
 				
@@ -382,7 +379,7 @@ class RegisterController extends Controller
 					.'<div style="padding-top: 10px;">'
 						.'<div style="font-size: 1.1em;"><strong>Bhartiya Jain Milan Matrimonial</strong></div>'
 						.'<div style="padding-top: 5px;"><strong>Email:</strong> <a href="mailto:matrimony@bhartiyajainmilan.com">matrimony@bhartiyajainmilan.com</a></div>'
-						.'<div style="padding-top: 5px;"><strong>Website:</strong> <a href="http://www.matrimony.bhartiyajainmilan.com" target="_blank">www.matrimony.bhartiyajainmilan.com</a></div>'
+						.'<div style="padding-top: 5px;"><strong>Website:</strong> <a href="http://www.jainmilanmatrimonial.com" target="_blank">www.jainmilanmatrimonial.com</a></div>'
 					.'</div>'
 				.'</div>'
 				

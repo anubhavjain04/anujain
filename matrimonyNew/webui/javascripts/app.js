@@ -56,6 +56,9 @@ this.app.config(function($stateProvider, $urlRouterProvider) {
         url: "/login",
         templateUrl: "auth/login.html",
         controller: "LoginCtrl"
+    }).state('logout', {
+        url: "/logout",
+        controller: "LogoutCtrl"
     }).state('aboutUs', {
         url: "/about-us",
         templateUrl: "static/aboutus.html"
@@ -178,9 +181,9 @@ this.app.run([
         $rootScope.$on('$locationChangeStart', function(event, newUrl, oldUrl) {
             var currentPath = $location.path();
             if((currentPath == '/' || currentPath == '') && !Session.sessionData.auth){
-                Session.sessionData.isLandingPage = true;
+                $rootScope.isLandingPage = true;
             }else {
-                Session.sessionData.isLandingPage = false;
+                $rootScope.isLandingPage = false;
             }
             // redirect to login page if not logged in
             if(currentPath == '') {

@@ -4,7 +4,7 @@
 
             <div class="panel-body">
                 <center><div class="bdr1 pad-reset profile-pic text-center" ng-class="{'women': (user.Sex=='0' && !user.ProfilePic), 'men': (user.Sex=='1' && !user.ProfilePic)}">
-                    <img ng-if="user.ProfilePic" ng-src="{{user.ProfilePic}}" ng-attr-title="{{user.MemberName}}" />
+                    <img ng-if="user.ProfilePic" ng-src="{{global.profilePicData}}" ng-attr-title="{{user.MemberName}}" />
                 </div></center>
             </div>
         </div>

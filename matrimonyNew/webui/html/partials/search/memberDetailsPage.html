@@ -11,7 +11,7 @@
             <div class="pad15">
                 <div class="bdr1 col-xs-3 col-sm-3 pad-reset profile-pic text-center" ng-class="{'women': (member.Sex=='0' && !member.ProfilePic), 'men': (member.Sex=='1' && !member.ProfilePic)}">
                     <span ng-if="member.ProfilePic">
-                        <img ng-src="{{member.ProfilePic}}" ng-attr-title="{{member.MemberName}}" />
+                        <img ng-src="{{getMemberProfilePic(member.ProfilePic)}}" ng-attr-title="{{member.MemberName}}" />
                     </span>
                 </div>
                 <div class="pad5 col-xs-9 col-sm-9">

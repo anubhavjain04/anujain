@@ -1,4 +1,4 @@
-var SearchFactory = function(RESTUtil){
+var SearchFactory = function(RESTUtil, $serverPath){
     var searchSpecs = {};
     var setSearchSpecs = function(specs){
         searchSpecs = specs;
@@ -15,13 +15,17 @@ var SearchFactory = function(RESTUtil){
     var getMember = function(memberId){
         return RESTUtil.get("search/member/id/"+memberId);
     };
+    var memberProfilePicPath = function (id) {
+        return $serverPath + "search/memberProfilePic/id/"+id;
+    };
 
     return {
         getDataList: getDataList,
         getSearchResults: getSearchResults,
         getMember: getMember,
         setSearchSpecs: setSearchSpecs,
-        getSearchSpecs: getSearchSpecs
+        getSearchSpecs: getSearchSpecs,
+        memberProfilePicPath: memberProfilePicPath
     };
 };
 angular.module("BJMMatrimony").factory("SearchFactory", SearchFactory);

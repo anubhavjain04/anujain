@@ -16,6 +16,9 @@ var SearchMemberCtrl = function($scope, $state, $stateParams, FacetFactory, Sear
     $scope.back = function(){
         $state.go('searchResults', SearchFactory.getSearchSpecs());
     };
+    $scope.getMemberProfilePic = function(id){
+        return SearchFactory.memberProfilePicPath(id);
+    };
     $scope.findOne(memberCode);
 };
 angular.module("BJMMatrimony").controller("SearchMemberCtrl", SearchMemberCtrl);

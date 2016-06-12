@@ -1,0 +1,47 @@
+<div id="top-header" class="container">
+    <div class="pull-left">
+        <a class="brand" ui-sref='home'>
+            <img src="dist/images/spacer.gif"/>
+        </a>
+    </div>
+    <div ng-if="!global.auth" class="pull-right login-panel" ng-controller="LoginCtrl">
+        <span class="login-link">
+            <a ui-sref="login" class="btn btn-sm btn-primary">Login</a>
+        </span>
+        <form name="loginForm" class="form-inline login-form">
+            <div ng-messages="(loginForm.password.$touched && loginForm.password.$error) || (loginForm.email.$touched && loginForm.email.$error)"
+                 class="text-danger">
+                <div ng-message="required">Invalid username/e-mail or password.</div>
+            </div>
+            <div class="form-group">
+                <label class="control-label sr-only">Matrimony ID / Email ID</label>
+                <input type="text" placeholder="Matrimony ID / Email ID" class="form-control input-sm" required
+                       name="email" ng-model="user.email"/>
+            </div>
+            <div class="form-group">
+                <label class="control-label sr-only">Password</label>
+                <input type="password" placeholder="Password" class="form-control input-sm" name="password" required
+                       ng-model="user.password"/>
+
+                <div></div>
+                <button type="button" class="btn btn-sm btn-link" ng-click="forgotPassword()">Forgot password?</button>
+            </div>
+            <button type="submit" class="btn btn-sm btn-success" ng-click="login()">Login</button>
+        </form>
+    </div>
+    <div ng-if="global.auth && global.currentUser" class="pull-right login-panel" ng-controller="MemberCtrl">
+        <div class="pull-left mini-profile-pic">
+            <img ng-if="profilePic" ng-src="{{global.profilePicData}}" ng-attr-title="{{memberName+' ('+memberCode+')'}}" />
+        </div>
+        <div class="pull-left member-details padl8">
+            <div>
+                <a ui-sref="searchMember(memberCode: memberCode)" ng-bind="memberName+' ('+memberCode+')'"></a>
+            </div>
+            <!--<div>Profile Completeness - </div>-->
+            <div class="padt10"><span>Free Member</span></div>
+        </div>
+        <div class="pull-left padl8">
+            <a ui-sref="logout" class="btn btn-primary btn-sm" ui-sref="logout">Sign Out</a>
+        </div>
+    </div>
+</div>

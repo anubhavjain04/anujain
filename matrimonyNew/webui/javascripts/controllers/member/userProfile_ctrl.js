@@ -10,6 +10,7 @@ var UserProfileCtrl = function($scope, $state, Session) {
         "/change-password",
         "/deactivate-profile"
     ];
+    $scope.global = Session.sessionData;
     $scope.user = Session.sessionData.currentUser;
     var profileType = $state.current.url;
     if(!(profileType!="/member-profile" && profiles.indexOf(profileType) > -1)){

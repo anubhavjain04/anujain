@@ -31,7 +31,7 @@ class MatrimonyMembersController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('uploadImg','changeUploadedImage', 'updateMemberDetails', "changeProfilePic", "getProfilePic"),
+				'actions'=>array('uploadImg','changeUploadedImage', 'updateMemberDetails', "changeProfilePic", "userProfilePic"),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -475,16 +475,21 @@ class MatrimonyMembersController extends Controller
 				$ext = $uploadedFile->getExtensionName();
 				if(in_array($ext,$valid_formats))
 				{
-					if($size<(1024*1024))
+					if($size<(1024*1024*15))
 					{
 						$tmp = $uploadedFile->getTempName();
+//						$fp = fopen($tmp, 'r');
+//						$imgData = fread($fp, filesize($tmp));
+//						fclose($fp);
 						$imgData = file_get_contents($tmp);
-						$model->ProfilePic = $imgData;
-						if($model->save()) {
-							// print image data url
-							MatrimonyMembers::getProfileImageData($model);
-						}else{
-							throw new CHttpException(302,'Error in save image');
+						if (isset($imgData)) {
+							$model->ProfilePic = $imgData;
+							if ($model->save()) {
+								// print image data url
+								MatrimonyMembers::getProfileImageData($model);
+							} else {
+								throw new CHttpException(302, 'Error in save image');
+							}
 						}
 					}
 					else {
@@ -503,7 +508,7 @@ class MatrimonyMembersController extends Controller
 		}
 	}
 
-	public function actionGetProfilePic($id)
+	public function actionUserProfilePic($id)
 	{
 		$model = MatrimonyMembers::model()->find('pkMemberId=:pkMemberId', array('pkMemberId' => $id));
 		if($model) {

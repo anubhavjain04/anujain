@@ -146,6 +146,10 @@ var SearchResultsCtrl = function($scope, $controller, $state, $stateParams, Face
         $state.go('searchMember', {memberCode: memberId});
     };
 
+    $scope.getMemberProfilePic = function(id){
+        return SearchFactory.memberProfilePicPath(id);
+    };
+
     $scope.getSearchResults();
 };
 angular.module("BJMMatrimony").controller("SearchResultsCtrl", SearchResultsCtrl);
