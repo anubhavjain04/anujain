@@ -1335,10 +1335,10 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "        <h4><u>Your Login Details</u></h4>\n" +
     "        <h4><span class=\"label label-primary\">Your Matrimony ID: <strong ng-bind=\"userDetails.member.MemberCode\"></strong></span></h4>\n" +
     "        <p>\n" +
-    "            Henceforth please use above matrimony ID to login to your profile at <strong>matrimony.bhartiyajainmilan.com</strong>.\n" +
+    "            Henceforth please use above matrimony ID to login to your profile at <strong><a href=\"http://www.jainmilanmatrimonial.com\">http://www.jainmilanmatrimonial.com</a></strong>.\n" +
     "            A confirmation e-mail has been sent to your registered e-mail.\n" +
     "            <br />\n" +
-    "            Please <a href=\"#\">login</a> to see or update your profile.\n" +
+    "            Please <a ui-sref=\"login\">login</a> to see or update your profile.\n" +
     "        </p>\n" +
     "        <h5 class=\"text-primary\">\n" +
     "            Your profile will be activated and available in search with in 24 to 48 hours.\n" +
@@ -3589,7 +3589,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "    <h3>About Us</h3>\n" +
     "    <div class=\"dot-line padt10\"></div>\n" +
     "    <h4>A exclusive matrimony portal for the Indian JAIN Community.</h4>\n" +
-    "    <p> The <strong>matrimony.bhartiyajainmilan.com</strong> is a part of an religious organization named <strong>Bhartiya Jain Milan</strong> which is spreaded all over india. </p>\n" +
+    "    <p> The <strong><a href=\"http://www.jainmilanmatrimonial.com\">http://www.jainmilanmatrimonial.com</a></strong> is a part of an religious organization named <strong>Bhartiya Jain Milan</strong> which is spreaded all over india. </p>\n" +
     "    <p> Bhartiya Jain Milan is the most trusted organization <strong>since 21st June 1953</strong>. It's first unit is established at sangam of\n" +
     "        holy rivers in Allahabad. </p>\n" +
     "    <p> This organization is a unit of diffrent branches of jain religion (Digamber, Shavetamber, Sthanakvasi and Terahpanthi). </p>\n" +
@@ -3616,7 +3616,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "<div >\n" +
     "    <h3>Privacy Policy</h3>\n" +
     "    <div class=\"dot-line padt10\"></div>\n" +
-    "    <p> <strong>Matrimony.BhartiyaJainMilan.com</strong> is an online matrimonial portal endeavouring constantly to provide you with premium matrimonial services. This privacy statement is common to all the matrimonial sites operated under matrimony.bhartiyajainmilan.com. Since we are strongly committed to your right to privacy, we have drawn out a privacy statement with regard to the information we collect from you. </p>\n" +
+    "    <p> <strong><a href=\"http://www.jainmilanmatrimonial.com\">http://www.jainmilanmatrimonial.com</a></strong> is an online matrimonial portal endeavouring constantly to provide you with premium matrimonial services. This privacy statement is common to all the matrimonial sites operated under <a href=\"http://www.jainmilanmatrimonial.com\">http://www.jainmilanmatrimonial.com</a>. Since we are strongly committed to your right to privacy, we have drawn out a privacy statement with regard to the information we collect from you. </p>\n" +
     "    <p> We use a secure server for credit card transactions to protect the credit card information of our users and Cookies are used to store the login information. </p>\n" +
     "    <dl>\n" +
     "        <dt>What information you need to give in to use this site?</dt>\n" +
@@ -3635,7 +3635,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "        <dt>With whom the site shares the information it collects/tracks?</dt>\n" +
     "        <dd>\n" +
     "            <p> The information collected from any of our users is not shared with any individual or organisation without the former's approval. <br>\n" +
-    "                matrimony.bhartiyajainmilan.com does not sell, rent, or loan any identifiable information at the individual level regarding its customers to any third party. Any information you give us is held with the utmost care and security. We are also bound to cooperate fully should a situation arise where we are required by law or legal process to provide information about a customer. </p>\n" +
+    "                <a href=\"http://www.jainmilanmatrimonial.com\">http://www.jainmilanmatrimonial.com</a> does not sell, rent, or loan any identifiable information at the individual level regarding its customers to any third party. Any information you give us is held with the utmost care and security. We are also bound to cooperate fully should a situation arise where we are required by law or legal process to provide information about a customer. </p>\n" +
     "        </dd>\n" +
     "    </dl>\n" +
     "    <dl>\n" +
@@ -3662,7 +3662,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "            <p> We may change this Privacy Policy from time to time based on your comments or as a result of a change of policy in our company. </p>\n" +
     "        </dd>\n" +
     "    </dl>\n" +
-    "    <p> If you have any questions regarding our Privacy Statement, please write in to <a href=\"mailto:privacy@matrimony.bhartiyajainmilan.com\">privacy@matrimony.bhartiyajainmilan.com</a> </p>\n" +
+    "    <p> If you have any questions regarding our Privacy Statement, please write in to <a href=\"mailto:matrimony@bhartiyajainmilan.com\">matrimony@bhartiyajainmilan.com</a> </p>\n" +
     "</div>");
   $templateCache.put("static/termsnconditions.html",
     "<div >\n" +
@@ -3688,7 +3688,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "        <dt>2. Invitation</dt>\n" +
     "        <dd>\n" +
     "            <p> 2. 1. You hereby expressly solicit and invite JMM and/or its authorized personnel to communicate to you through any telecom resources in the registered number provided by you to explain, explicate and clarify the various services provided by JMM and to assist, aid or support you in availing the said services of JMM. </p>\n" +
-    "            <p> 2. 2. If at any time, you wish to discontinue receiving the communications (including, but not limited to emails, sms and phone calls) from JMM, you may by email to customercare@matrimony.bhartiyajainmilan.com to indicate the same to JMM and/or its authorized personnel regarding such discontinuance and You hereby agree that, unless expressly communicated to You about discontinuing communications from JMM to JMM and/or its authorized personnel, it will be deemed to be that you want to continue and solicit and invite all such or other communications from JMM. </p>\n" +
+    "            <p> 2. 2. If at any time, you wish to discontinue receiving the communications (including, but not limited to emails, sms and phone calls) from JMM, you may by email to matrimony@bhartiyajainmilan.com to indicate the same to JMM and/or its authorized personnel regarding such discontinuance and You hereby agree that, unless expressly communicated to You about discontinuing communications from JMM to JMM and/or its authorized personnel, it will be deemed to be that you want to continue and solicit and invite all such or other communications from JMM. </p>\n" +
     "            <p> 2. 3. You are representing that you or the mobile number submitted by you is not registered with the Do Not Disturb / National Customer Preference Register and/or you have already changed your registration suitably. </p>\n" +
     "            <p> 2. 4. Further and in any event, you do hereby also unconditionally agree and undertake that this invitation and solicitation shall supersede any preferences set by you with or registration done with the Do Not Disturb (\"DND Register\")/ National Customer Preference Register (\"NCPR\"). Without prejudice to the aforesaid and in any event, by expressly inviting and soliciting the services from JMM, you also unconditionally agree that your rights under the Telecom Commercial Communications Customer Preference Regulations, 2010 or any subsequent amendments thereto or under NCPR, are kept in abeyance or remain extinguished till you expressly communicate for discontinuation of relationship. </p>\n" +
     "            <p> 2. 5. You also unconditionally agree to indemnify JMM against all losses, damages, penalties, costs or consequences whether direct or indirect, that may arise out of any breach or violation of the aforesaid representation, commitment and undertaking. </p>\n" +
@@ -3714,8 +3714,8 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "        <dd>\n" +
     "            <p> JMM is the owner and authorized user of the following domain names: </p>\n" +
     "            <ul>\n" +
-    "                <li>www.bhartiyajainmilan.com</li>\n" +
-    "                <li>www.matrimony.bhartiyajainmilan.com</li>\n" +
+    "                <li><a href=\"http://www.bhartiyajainmilan.com\">http://www.bhartiyajainmilan.com</a></li>\n" +
+    "                <li><a href=\"http://www.jainmilanmatrimonial.com\">http://www.jainmilanmatrimonial.com</a></li>\n" +
     "            </ul>\n" +
     "            <p> JMM graphics, logos, page headers, button icons, scripts, and service names are trademarks or trade address of JMM or its subsidiaries. JMM's trademarks and trade address may not be used in connection with any product or service that is not JMM, in any manner that is likely to cause confusion among customers or in any manner that disparages or discredits JMM. All other trademarks not owned by JMM or its subsidiaries that appear on this site are the property of their respective owners, who may or may not be affiliated with, connected to, or sponsored by JMM or its subsidiaries. </p>\n" +
     "        </dd>\n" +
