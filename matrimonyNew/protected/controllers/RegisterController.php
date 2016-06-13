@@ -205,10 +205,19 @@ class RegisterController extends Controller
 				
 			$memberProfile = $_POST;			
 			// set memder details
-			if(isset($memberProfile['birthHour']) && isset($memberProfile['birthMinute']) && isset($memberProfile['birthAmPm'])){
-				$model->DOB = date('m/d/Y',strtotime($model->DOB));
-				$model->DOB = date('Y-m-d H:i',strtotime($model->DOB.' '.$memberProfile['birthHour'].':'.$memberProfile['birthMinute'].' '.$memberProfile['birthAmPm']));
-			}			
+			if(!isset($memberProfile['birthHour'])){
+				$memberProfile['birthHour'] = "00";
+			}
+			if(!isset($memberProfile['birthMinute'])){
+				$memberProfile['birthMinute'] = "00";
+			}
+			if(!isset($memberProfile['birthAmPm'])){
+				$memberProfile['birthAmPm'] = "am";
+			}
+			$memberTOB = $memberProfile['birthHour'].':'.$memberProfile['birthMinute'].' '.$memberProfile['birthAmPm'];
+			$model->DOB = date('m/d/Y',strtotime($model->DOB));
+			$model->DOB = date('Y-m-d H:i',strtotime($model->DOB.' '.$memberTOB));
+
 			//$model->Height = (isset($memberProfile['height']) && $memberProfile['height'])?$memberProfile['height']: null;
 			$model->Weight = (isset($memberProfile['weight']) && $memberProfile['weight'])?$memberProfile['weight']: null;
 			$model->BodyType = (isset($memberProfile['bodyType']) && $memberProfile['bodyType'])?$memberProfile['bodyType']: null;

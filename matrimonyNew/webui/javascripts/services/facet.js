@@ -46,12 +46,16 @@ var FacetFactory = function(SearchFactory, SectFactory){
         vm.bodyTypeList =  [new self.SelectObject(1, 'Slim'), new self.SelectObject(2, 'Athletic'), new self.SelectObject(3, 'Average'), new self.SelectObject(4, 'Heavy')];
         vm.complexionList =  [new self.SelectObject(1, 'Very Fair'), new self.SelectObject(2, 'Fair'), new self.SelectObject(3, 'Wheatish'), new self.SelectObject(4, 'Wheatish Brown'), new self.SelectObject(5, 'Dark')];
 
-        vm.getNumberList = function(start, end){
+        vm.getNumberList = function(start, end, isTwoDigit){
             var numberList = [];
             if(start<=end){
                 var i = start;
                 for(i; i<=end; i++){
-                    numberList.push(new self.SelectObject(i.toString(), i.toString()));
+                    var num_string = i.toString();
+                    if(isTwoDigit && num_string.length == 1){
+                        num_string = "0"+num_string;
+                    }
+                    numberList.push(new self.SelectObject(num_string, num_string));
                 }
             }
             return numberList;
@@ -89,10 +93,10 @@ var FacetFactory = function(SearchFactory, SectFactory){
             }
 
             // fill hour
-            vm.hourList = vm.getNumberList(1, 12);
+            vm.hourList = vm.getNumberList(1, 12, true);
 
             // fill minuts
-            vm.minuteList = vm.getNumberList(0, 59);
+            vm.minuteList = vm.getNumberList(0, 59, true);
         };
 
         vm.fillAgeList = function(){

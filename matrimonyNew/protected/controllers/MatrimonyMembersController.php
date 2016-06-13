@@ -254,24 +254,33 @@ class MatrimonyMembersController extends Controller
 		if($_POST){
 			$data = $_POST;
 
-			if(isset($data['emailId'])) {
+			/*if(isset($data['emailId'])) {
 				$existingUser = MatrimonyUser::model()->find('LOWER(EmailID)=?', array(strtolower($data['emailId'])));
 				if ($existingUser !== null && $model->fkLoginId != $existingUser->pkUserId) {
 					throw new CHttpException(302, 'This email-id is already registered.');
 					return;
 				}
-			}
+			}*/
 						
 			$model->MemberName = (isset($data['memberName']) && $data['memberName'])?$data['memberName']: $model->MemberName;
-			$model->RegisteredBy = (isset($data['registerBy']) && $data['registerBy'])?$data['registerBy']: $model->RegisteredBy;
-			$model->Sex = (isset($data['sex']))?$data['sex']: $model->Sex;
+			//$model->RegisteredBy = (isset($data['registerBy']) && $data['registerBy'])?$data['registerBy']: $model->RegisteredBy;
+			//$model->Sex = (isset($data['sex']))?$data['sex']: $model->Sex;
 			// DOB with time update
 			$memberDOB = date('m/d/Y',strtotime($model->DOB));
 			$memberTOB = date('h:i a',strtotime($model->DOB));
-			$memberDOB = (isset($data['dob']) && $data['dob'])?date('m/d/Y',strtotime($data['dob'])): $memberDOB;
-			if(isset($memberProfile['birthHour']) && isset($memberProfile['birthMinute']) && isset($memberProfile['birthAmPm'])){
-				$memberTOB = $memberProfile['birthHour'].':'.$memberProfile['birthMinute'].' '.$memberProfile['birthAmPm'];
-			} 
+			//$memberDOB = (isset($data['dob']) && $data['dob'])?date('m/d/Y',strtotime($data['dob'])): $memberDOB;
+
+			if(!isset($data['birthHour'])){
+				$data['birthHour'] = "00";
+			}
+			if(!isset($data['birthMinute'])){
+				$data['birthMinute'] = "00";
+			}
+			if(!isset($data['birthAmPm'])){
+				$data['birthAmPm'] = "am";
+			}
+			$memberTOB = $data['birthHour'].':'.$data['birthMinute'].' '.$data['birthAmPm'];
+
 			$model->DOB = date('Y-m-d H:i',strtotime($memberDOB.' '.$memberTOB));
 			
 			$model->MaritalStatus = (isset($data['maritalStatus']) && $data['maritalStatus'])?$data['maritalStatus']: $model->MaritalStatus;
@@ -281,7 +290,7 @@ class MatrimonyMembersController extends Controller
 			$model->fkCaste = isset($data['caste'])? (($data['caste'])?$data['caste']:null) : $model->fkCaste;
 			$model->OtherCaste = isset($data['otherCaste'])? (($data['otherCaste'])?$data['otherCaste']:null) : $model->OtherCaste;
 			$model->fkMotherTongue = (isset($data['motherTongue']) && $data['motherTongue'])?$data['motherTongue']: $model->fkMotherTongue;
-			$model->ContactNo = (isset($data['contactNumber']) && $data['contactNumber'])?$data['contactNumber']: $model->ContactNo;
+			//$model->ContactNo = (isset($data['contactNumber']) && $data['contactNumber'])?$data['contactNumber']: $model->ContactNo;
 			$model->fkCountryLivingIn = (isset($data['country']) && $data['country'])?$data['country']: $model->fkCountryLivingIn;
 			$model->fkResidingState = (isset($data['state']) && $data['state'])?$data['state']: $model->fkResidingState;
 			$model->ResidingCity = (isset($data['city']) && $data['city'])?$data['city']: $model->ResidingCity;
@@ -303,7 +312,7 @@ class MatrimonyMembersController extends Controller
 			$model->WorkingAddress = isset($data['workingAddress'])?$data['workingAddress']: $model->WorkingAddress;
 			$model->IncomeAnnual = isset($data['annualIncome'])? (($data['annualIncome'])?$data['annualIncome']:null) : $model->IncomeAnnual;
 			$model->AboutMyPartner = isset($data['aboutMyPartner'])?$data['aboutMyPartner']: $model->AboutMyPartner;
-			$model->Email = isset($data['emailId'])?$data['emailId']: $model->Email;
+			//$model->Email = isset($data['emailId'])?$data['emailId']: $model->Email;
 			
 			$model->ModifiedDate = $currentTime;
 					
