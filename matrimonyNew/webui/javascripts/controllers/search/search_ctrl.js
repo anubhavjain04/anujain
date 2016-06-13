@@ -1,4 +1,5 @@
 var SearchCtrl = function($scope, $state, $stateParams, Session, FacetFactory, $uibModal) {
+    $scope.global = Session.sessionData;
     var user = Session.sessionData.currentUser;
     var femaleAgeStart = 18;
     var maleAgeStart = 21;

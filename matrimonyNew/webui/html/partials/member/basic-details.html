@@ -22,19 +22,13 @@
                     <div class="dot-line padt10"></div>
                     <div class="padt20">
                         <div class="col-xs-12 col-sm-2">
-                            <label ng-class="{'control-label':isEditMode}">Registered by<span class="requiredFields"> *</span></label>
+                            <label>Registered by<span class="requiredFields"> *</span></label>
                         </div>
                         <div class="col-xs-12 col-sm-10">
-                            <span ng-show="!isEditMode" ng-bind="facetVM.getObjectText(facetVM.registeredByList,registeredBy)"></span>
-                            <div ng-show="isEditMode" ng-class="{'has-error': myForm.registeredBy.$touched && myForm.registeredBy.$invalid, 'has-success': myForm.registeredBy.$touched && myForm.registeredBy.$valid}">
-                                <select class="form-control def-element-width" name="registeredBy" ng-model="registeredBy" required>
-                                    <option value="">--Select--</option>
-                                    <option ng-repeat="item in facetVM.registeredByList track by item.key" ng-attr-value="{{item.key}}" ng-bind="item.text" ng-selected="registeredBy==item.key"></option>
-                                </select>
-                                <div ng-messages="myForm.registeredBy.$touched && myForm.registeredBy.$error" class="text-danger">
-                                    <div ng-message="required">Please select the profile registered by.</div>
-                                </div>
-                            </div>
+                            <span ng-bind="facetVM.getObjectText(facetVM.registeredByList,registeredBy)"></span>
+                            <span ng-show="isEditMode" class="text-muted pull-right">
+                                <small>To edit, please contact to customer care.</small>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -63,10 +57,9 @@
                         </div>
                         <div class="col-xs-12 col-sm-10">
                             <span ng-bind="(sex==1)?'Male':'Female'"></span>
-                            &nbsp;&nbsp;&nbsp;
-                            <dfn ng-show="isEditMode" class="text-muted">
-                                To edit, please contact customer care
-                            </dfn>
+                            <span ng-show="isEditMode" class="text-muted pull-right">
+                                <small>To edit, please contact to customer care.</small>
+                            </span>
                         </div>
                     </div>
                 </div>

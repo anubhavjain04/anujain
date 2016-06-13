@@ -5,7 +5,7 @@
     <div >
         <div ng-include="'search/choosenSearchCriteria.html'"></div>
     </div>
-    <div ng-if="dataList && dataList.length>0">
+    <div ng-if="dataList && dataList.length>0 && isLoaded">
         <div class="pager"> Go to page:
             <ul class="yiiPager" >
                 <li class="previous" ng-class="{'disabled': disablePrevious}"><a href="javascript:void(0)" ng-click="previousPage()">&lt; Previous</a></li>
@@ -80,7 +80,7 @@
             </ul>
         </div>
     </div>
-    <div class="text-center" ng-if="dataList && dataList.length === 0">
+    <div class="text-center" ng-if="dataList && dataList.length === 0 && isLoaded">
         <h4>----No match found----</h4>
     </div>
 </div>

@@ -1,6 +1,6 @@
-<div class="padt30" ng-if="member">
+<div class="padt30" ng-if="member && isLoaded">
     <div>
-        <button type="button" class="btn btn-info" ng-click="back()">Back to Results</button>
+        <!--<button type="button" class="btn btn-info" ng-click="back()">Back to Results</button>-->
     </div>
     <div class="row-fluid padt20">
         <div class="bdr1 mrgb20 curve10">
@@ -271,7 +271,7 @@
         <p ng-bind="member.AboutMyPartner"></p>
     </div>
 </div>
-<div ng-if="!member">
+<div ng-if="!member && isLoaded">
     <div class="panel panel-default text-center">
         <div class="panel-body">
             <h1><i class="text-danger glyphicon glyphicon-ban-circle"></i></h1>

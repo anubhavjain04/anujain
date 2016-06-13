@@ -214,9 +214,9 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "        </div>\n" +
     "        <div class=\"pull-left member-details padl8\">\n" +
     "            <div>\n" +
-    "                <a ui-sref=\"searchMember(memberCode: memberCode)\" ng-bind=\"memberName+' ('+memberCode+')'\"></a>\n" +
+    "                <a ui-sref=\"searchMember({memberCode: memberCode})\" ng-bind=\"memberName+' ('+memberCode+')'\"></a>\n" +
     "            </div>\n" +
-    "            <!--<div>Profile Completeness - </div>-->\n" +
+    "\n" +
     "            <div class=\"padt10\"><span>Free Member</span></div>\n" +
     "        </div>\n" +
     "        <div class=\"pull-left padl8\">\n" +
@@ -249,19 +249,13 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "                    <div class=\"dot-line padt10\"></div>\n" +
     "                    <div class=\"padt20\">\n" +
     "                        <div class=\"col-xs-12 col-sm-2\">\n" +
-    "                            <label ng-class=\"{'control-label':isEditMode}\">Registered by<span class=\"requiredFields\"> *</span></label>\n" +
+    "                            <label>Registered by<span class=\"requiredFields\"> *</span></label>\n" +
     "                        </div>\n" +
     "                        <div class=\"col-xs-12 col-sm-10\">\n" +
-    "                            <span ng-show=\"!isEditMode\" ng-bind=\"facetVM.getObjectText(facetVM.registeredByList,registeredBy)\"></span>\n" +
-    "                            <div ng-show=\"isEditMode\" ng-class=\"{'has-error': myForm.registeredBy.$touched && myForm.registeredBy.$invalid, 'has-success': myForm.registeredBy.$touched && myForm.registeredBy.$valid}\">\n" +
-    "                                <select class=\"form-control def-element-width\" name=\"registeredBy\" ng-model=\"registeredBy\" required>\n" +
-    "                                    <option value=\"\">--Select--</option>\n" +
-    "                                    <option ng-repeat=\"item in facetVM.registeredByList track by item.key\" ng-attr-value=\"{{item.key}}\" ng-bind=\"item.text\" ng-selected=\"registeredBy==item.key\"></option>\n" +
-    "                                </select>\n" +
-    "                                <div ng-messages=\"myForm.registeredBy.$touched && myForm.registeredBy.$error\" class=\"text-danger\">\n" +
-    "                                    <div ng-message=\"required\">Please select the profile registered by.</div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
+    "                            <span ng-bind=\"facetVM.getObjectText(facetVM.registeredByList,registeredBy)\"></span>\n" +
+    "                            <span ng-show=\"isEditMode\" class=\"text-muted pull-right\">\n" +
+    "                                <small>To edit, please contact to customer care.</small>\n" +
+    "                            </span>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
     "                </div>\n" +
@@ -290,10 +284,9 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "                        </div>\n" +
     "                        <div class=\"col-xs-12 col-sm-10\">\n" +
     "                            <span ng-bind=\"(sex==1)?'Male':'Female'\"></span>\n" +
-    "                            &nbsp;&nbsp;&nbsp;\n" +
-    "                            <dfn ng-show=\"isEditMode\" class=\"text-muted\">\n" +
-    "                                To edit, please contact customer care\n" +
-    "                            </dfn>\n" +
+    "                            <span ng-show=\"isEditMode\" class=\"text-muted pull-right\">\n" +
+    "                                <small>To edit, please contact to customer care.</small>\n" +
+    "                            </span>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
     "                </div>\n" +
@@ -660,17 +653,13 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "                    <div class=\"dot-line padt10\"></div>\n" +
     "                    <div class=\"padt20\">\n" +
     "                        <div class=\"col-xs-12 col-sm-2\">\n" +
-    "                            <label ng-class=\"{'control-label':isEditMode}\">Email<span class=\"requiredFields\"> *</span></label>\n" +
+    "                            <label>Email<span class=\"requiredFields\"> *</span></label>\n" +
     "                        </div>\n" +
     "                        <div class=\"col-xs-12 col-sm-10\">\n" +
-    "                            <span ng-show=\"!isEditMode\" ng-bind=\"emailId\"></span>\n" +
-    "                            <div ng-show=\"isEditMode\" ng-class=\"{'has-error': myForm.email.$touched && myForm.email.$invalid, 'has-success': myForm.email.$touched && myForm.email.$valid}\">\n" +
-    "                                <input type=\"email\" class=\"form-control def-element-width\" name=\"email\" placeholder=\"(ex: xyz@abc.com)\"  ng-model=\"emailId\" />\n" +
-    "                                <div ng-messages=\"myForm.email.$touched && myForm.email.$error\" class=\"text-danger\">\n" +
-    "                                    <div ng-message=\"required\">Please write email address.</div>\n" +
-    "                                    <div ng-message=\"email\">Please write a vaild email address.</div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
+    "                            <span ng-bind=\"emailId\"></span>\n" +
+    "                            <span ng-show=\"isEditMode\" class=\"text-muted pull-right\">\n" +
+    "                                <small>To edit, please contact to customer care.</small>\n" +
+    "                            </span>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
     "                </div>\n" +
@@ -678,21 +667,13 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "                    <div class=\"dot-line padt10\"></div>\n" +
     "                    <div class=\"padt20\">\n" +
     "                        <div class=\"col-xs-12 col-sm-2\">\n" +
-    "                            <label ng-class=\"{'control-label':isEditMode}\">Contact Number<span class=\"requiredFields\"> *</span></label>\n" +
+    "                            <label>Contact Number<span class=\"requiredFields\"> *</span></label>\n" +
     "                        </div>\n" +
     "                        <div class=\"col-xs-12 col-sm-10\">\n" +
-    "                            <span ng-show=\"!isEditMode\" ng-bind=\"contactNumber\"></span>\n" +
-    "                            <div ng-show=\"isEditMode\" ng-class=\"{'has-error': myForm.contactNumber.$touched && myForm.contactNumber.$invalid, 'has-success': myForm.contactNumber.$touched && myForm.contactNumber.$valid}\">\n" +
-    "                                <div class=\"input-group\">\n" +
-    "                                    <span class=\"input-group-addon\">+91</span>\n" +
-    "                                    <input type=\"text\" class=\"form-control def-element-width\" name=\"contactNumber\" required placeholder=\"contact number\" ng-pattern=\"/^(\\d{10}(,([\\s]*)?\\d{10})*)?$/\" ng-model=\"contactNumber\" />\n" +
-    "                                </div>\n" +
-    "                                <span class=\"text-muted\">Hint: 99xxxxxxxx, 98xxxxxxxx </span>\n" +
-    "                                <div ng-messages=\"myForm.contactNumber.$touched && myForm.contactNumber.$error\" class=\"text-danger\">\n" +
-    "                                    <div ng-message=\"required\">Please write contact number.</div>\n" +
-    "                                    <div ng-message=\"pattern\">Please write valid contact number.</div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
+    "                            <span ng-bind=\"contactNumber\"></span>\n" +
+    "                            <span ng-show=\"isEditMode\" class=\"text-muted pull-right\">\n" +
+    "                                <small>To edit, please contact to customer care.</small>\n" +
+    "                            </span>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
     "                </div>\n" +
@@ -2496,9 +2477,9 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "</div>\n" +
     " ");
   $templateCache.put("search/memberDetailsPage.html",
-    "<div class=\"padt30\" ng-if=\"member\">\n" +
+    "<div class=\"padt30\" ng-if=\"member && isLoaded\">\n" +
     "    <div>\n" +
-    "        <button type=\"button\" class=\"btn btn-info\" ng-click=\"back()\">Back to Results</button>\n" +
+    "        <!--<button type=\"button\" class=\"btn btn-info\" ng-click=\"back()\">Back to Results</button>-->\n" +
     "    </div>\n" +
     "    <div class=\"row-fluid padt20\">\n" +
     "        <div class=\"bdr1 mrgb20 curve10\">\n" +
@@ -2769,7 +2750,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "        <p ng-bind=\"member.AboutMyPartner\"></p>\n" +
     "    </div>\n" +
     "</div>\n" +
-    "<div ng-if=\"!member\">\n" +
+    "<div ng-if=\"!member && isLoaded\">\n" +
     "    <div class=\"panel panel-default text-center\">\n" +
     "        <div class=\"panel-body\">\n" +
     "            <h1><i class=\"text-danger glyphicon glyphicon-ban-circle\"></i></h1>\n" +
@@ -3097,7 +3078,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "    <div >\n" +
     "        <div ng-include=\"'search/choosenSearchCriteria.html'\"></div>\n" +
     "    </div>\n" +
-    "    <div ng-if=\"dataList && dataList.length>0\">\n" +
+    "    <div ng-if=\"dataList && dataList.length>0 && isLoaded\">\n" +
     "        <div class=\"pager\"> Go to page:\n" +
     "            <ul class=\"yiiPager\" >\n" +
     "                <li class=\"previous\" ng-class=\"{'disabled': disablePrevious}\"><a href=\"javascript:void(0)\" ng-click=\"previousPage()\">&lt; Previous</a></li>\n" +
@@ -3172,7 +3153,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "            </ul>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "    <div class=\"text-center\" ng-if=\"dataList && dataList.length === 0\">\n" +
+    "    <div class=\"text-center\" ng-if=\"dataList && dataList.length === 0 && isLoaded\">\n" +
     "        <h4>----No match found----</h4>\n" +
     "    </div>\n" +
     "</div>\n" +
@@ -3188,7 +3169,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "        <div id=\"tabs-1\" class=\"tab-pane\" ng-class=\"{'active': activeSearchTab=='regular'}\">\n" +
     "            <h3>Basic Search Criteria</h3>\n" +
     "            <div class=\"padt20 form-horizontal\">\n" +
-    "                <div class=\"row\">\n" +
+    "                <div class=\"row\" ng-if=\"!global.currentUser\">\n" +
     "                    <div class=\"dot-line padt10\"></div>\n" +
     "                    <div class=\"padt20\">\n" +
     "                        <div class=\"col-xs-12 col-sm-2\">\n" +

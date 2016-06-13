@@ -13,6 +13,7 @@
                 <div ng-include="'layouts/flash.html'"></div>
                 <section ui-view>
                     <div style="text-align: center;">
+                        <div><img src="dist/images/logo.png" /></div>
                         <div><h2>Loading.....</h2></div>
                         <div><img src="dist/images/spinner-horizontal.gif" title="Loading...."></div>
                     </div>
@@ -20,12 +21,7 @@
             </div>
         </div>
         <div class="clearfix"></div>
-        <div ng-include="'layouts/footer.html'">
-            <div style="text-align: center;">
-                <div><img src="dist/images/logo.png" /></div>
-                <div><h3>Bhartiya Jain Milan Matrimony</h3></div>
-            </div>
-        </div>
+        <div ng-include="'layouts/footer.html'"></div>
         <div class="clearfix"></div>
         <div id="ajaxLoader" class="ajax-layer" style="display:none;">
             <span class="loading">Loading...</span>

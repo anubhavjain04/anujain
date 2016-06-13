@@ -3,14 +3,17 @@ var SearchMemberCtrl = function($scope, $state, $stateParams, FacetFactory, Sear
     var memberCode = $stateParams.memberCode;
     $scope.member = undefined;
     $scope.findOne = function(memberId){
+        $scope.isLoaded = false;
         SearchFactory.getMember(memberId).then(function(memberData){
             if(memberData){
                 $scope.member = memberData;
             }else{
                 $scope.member = undefined;
             }
+            $scope.isLoaded = true;
         },function(){
             $scope.member = undefined;
+            $scope.isLoaded = true;
         });
     };
     $scope.back = function(){

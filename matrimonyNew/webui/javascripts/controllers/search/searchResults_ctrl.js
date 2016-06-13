@@ -55,7 +55,10 @@ var SearchResultsCtrl = function($scope, $controller, $state, $stateParams, Face
             dataObject.page = $scope.currentPage;
         }
 
+        $scope.isLoaded = false;
+
         SearchFactory.getSearchResults(dataObject).then(function(data){
+            $scope.isLoaded = true;
             if(data){
                 $scope.totalItems = data.total;
                 $scope.start = data.start;
@@ -68,11 +71,12 @@ var SearchResultsCtrl = function($scope, $controller, $state, $stateParams, Face
                 $scope.setPageList();
             }else{
                 $scope.clearData();
-                alert("error found in getting results.");
+                $scope.$root.showAlert("Something went wrong, when getting search results.");
             }
         }, function(error){
+            $scope.isLoaded = true;
             $scope.clearData();
-            alert("error found in getting results.");
+            $scope.$root.showAlert("Something went wrong, when getting search results.");
         });
     };
     $scope.$watch("currentPage", function(newvalue){

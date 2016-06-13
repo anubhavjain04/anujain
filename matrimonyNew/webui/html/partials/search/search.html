@@ -8,7 +8,7 @@
         <div id="tabs-1" class="tab-pane" ng-class="{'active': activeSearchTab=='regular'}">
             <h3>Basic Search Criteria</h3>
             <div class="padt20 form-horizontal">
-                <div class="row">
+                <div class="row" ng-if="!global.currentUser">
                     <div class="dot-line padt10"></div>
                     <div class="padt20">
                         <div class="col-xs-12 col-sm-2">
