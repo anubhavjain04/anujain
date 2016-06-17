@@ -179,7 +179,7 @@
                                 
                                 </td>
                                 </tr>
-                                <tr>
+                               <?php /* <tr>
                                 	<td>Verify Code</td>
                                     <td>
                                     	 <?php
@@ -188,7 +188,7 @@
 											  echo recaptcha_get_html($publickey);
 										?>
                                     </td>
-                                </tr>
+                                </tr> */ ?>
                                 <tr>
                                 <td>
                                 </td>
