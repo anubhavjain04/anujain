@@ -290,10 +290,11 @@ body {
     background-color: #f8f8f8;
     z-index: 99;
     padding-top: 15px;
+
     .brand img{
-        width: 50px;
+        width: 259px;
         height: 50px;
-        background-image: url("../images/symbol-sm.png");
+        background-image: url("../images/matrimony-logo.png");
         background-repeat: no-repeat;
         background-position: right;
 
@@ -314,6 +315,9 @@ body {
     .member-details{
         display: block;
     }
+    .version{
+        padding-left: 50px;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -332,17 +336,6 @@ body {
         }
     }
 }
-
-@media (min-width: 500px) {
-    #top-header{
-        .brand img{
-            width: 259px;
-            height: 50px;
-            background-image: url("../images/matrimony-logo.png");
-        }
-    }
-}
-
 @media (max-width: 768px) {
     #top-header{
         .login-link{
@@ -356,7 +349,14 @@ body {
         }
     }
 }
-
+@media (max-width: 400px) {
+    #top-header{
+        .login-link{
+            padding-top: 0px;
+            margin-top: -10px;
+        }
+    }
+}
 
 
 .small input[type="text"], .small input[type="password"]{
@@ -1439,6 +1439,8 @@ img {
 	padding-right: 7px;
 }
 
+
+
 /*********image crop************/
 .cropArea {
     background: #E4E4E4;
@@ -1446,3 +1448,4 @@ img {
     width:350px;
     height:500px;
 }
+

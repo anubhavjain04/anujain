@@ -182,10 +182,11 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "        <a class=\"brand\" ui-sref='home'>\n" +
     "            <img src=\"dist/images/spacer.gif\"/>\n" +
     "        </a>\n" +
+    "        <div class=\"text-muted version\"><small>version: <span ng-bind=\"version\"></span></small></div>\n" +
     "    </div>\n" +
     "    <div ng-if=\"!global.auth\" class=\"pull-right login-panel\" ng-controller=\"LoginCtrl\">\n" +
     "        <span class=\"login-link\">\n" +
-    "            <a ui-sref=\"login\" class=\"btn btn-sm btn-primary\">Login</a>\n" +
+    "            <a ui-sref=\"login\" class=\"btn btn-xs btn-primary\">Login</a>\n" +
     "        </span>\n" +
     "        <form name=\"loginForm\" class=\"form-inline login-form\">\n" +
     "            <div ng-messages=\"(loginForm.password.$touched && loginForm.password.$error) || (loginForm.email.$touched && loginForm.email.$error)\"\n" +

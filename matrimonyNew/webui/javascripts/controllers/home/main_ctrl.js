@@ -1,6 +1,7 @@
 "use strict";
-var MainCtrl = function($scope, $rootScope, $http, $serverPath, $state, $timeout, Session) {
+var MainCtrl = function($scope, $rootScope, $http, $serverPath, $state, $timeout, $version, Session) {
     $scope.global = Session.sessionData;
+    $scope.version = $version;
     $scope.isStateLoading = false;
     $scope.signUpForm = false;
 

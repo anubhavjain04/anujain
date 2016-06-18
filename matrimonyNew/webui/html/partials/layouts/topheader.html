@@ -3,10 +3,11 @@
         <a class="brand" ui-sref='home'>
             <img src="dist/images/spacer.gif"/>
         </a>
+        <div class="text-muted version"><small>version: <span ng-bind="version"></span></small></div>
     </div>
     <div ng-if="!global.auth" class="pull-right login-panel" ng-controller="LoginCtrl">
         <span class="login-link">
-            <a ui-sref="login" class="btn btn-sm btn-primary">Login</a>
+            <a ui-sref="login" class="btn btn-xs btn-primary">Login</a>
         </span>
         <form name="loginForm" class="form-inline login-form">
             <div ng-messages="(loginForm.password.$touched && loginForm.password.$error) || (loginForm.email.$touched && loginForm.email.$error)"

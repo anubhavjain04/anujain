@@ -29,6 +29,7 @@ var _isMobile = (function() {
 this.app.value("$serverPath", sitePath);
 this.app.value("$siteBaseUrl", siteBaseUrl);
 this.app.value("$isMobile", _isMobile);
+this.app.value("$version", version);
 
 this.app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
