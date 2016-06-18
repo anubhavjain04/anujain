@@ -3169,19 +3169,20 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "        <div id=\"tabs-1\" class=\"tab-pane\" ng-class=\"{'active': activeSearchTab=='regular'}\">\n" +
     "            <h3>Basic Search Criteria</h3>\n" +
     "            <div class=\"padt20 form-horizontal\">\n" +
-    "                <div class=\"row\" ng-if=\"!global.currentUser\">\n" +
+    "                <div class=\"row\" ng-show=\"!global.currentUser\">\n" +
     "                    <div class=\"dot-line padt10\"></div>\n" +
     "                    <div class=\"padt20\">\n" +
     "                        <div class=\"col-xs-12 col-sm-2\">\n" +
     "                            <label class=\"control-label\">Looking for</label>\n" +
     "                        </div>\n" +
-    "                        <div class=\"col-xs-12 col-sm-10\">\n" +
-    "                            <label class=\"radio-inline\" for=\"bride\">\n" +
-    "                                <input type=\"radio\" id=\"bride\" name=\"sex\"  value=\"0\" ng-model=\"sex\"  />Bride\n" +
-    "                            </label>\n" +
-    "                            <label class=\"radio-inline\" for=\"groom\">\n" +
-    "                                <input type=\"radio\" id=\"groom\" name=\"sex\" value=\"1\" ng-model=\"sex\" />Groom\n" +
-    "                            </label>\n" +
+    "                        <div class=\"col-xs-12 col-sm-10 btn-group\">\n" +
+    "                            <label for=\"genderfemale\" class=\"btn btn-default\" ng-class=\"{'active': sex=='0'}\">\n" +
+    "                                <input type=\"radio\" id=\"genderfemale\" name=\"gender\" value=\"0\" ng-model=\"sex\" />\n" +
+    "                                Bride </label>\n" +
+    "                            &nbsp;\n" +
+    "                            <label for=\"gendermale\" class=\"btn btn-default\" ng-class=\"{'active': sex=='1'}\">\n" +
+    "                                <input type=\"radio\" id=\"gendermale\" name=\"gender\" value=\"1\" ng-model=\"sex\" />\n" +
+    "                                Groom </label>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
     "                </div>\n" +

@@ -8,19 +8,20 @@
         <div id="tabs-1" class="tab-pane" ng-class="{'active': activeSearchTab=='regular'}">
             <h3>Basic Search Criteria</h3>
             <div class="padt20 form-horizontal">
-                <div class="row" ng-if="!global.currentUser">
+                <div class="row" ng-show="!global.currentUser">
                     <div class="dot-line padt10"></div>
                     <div class="padt20">
                         <div class="col-xs-12 col-sm-2">
                             <label class="control-label">Looking for</label>
                         </div>
-                        <div class="col-xs-12 col-sm-10">
-                            <label class="radio-inline" for="bride">
-                                <input type="radio" id="bride" name="sex"  value="0" ng-model="sex"  />Bride
-                            </label>
-                            <label class="radio-inline" for="groom">
-                                <input type="radio" id="groom" name="sex" value="1" ng-model="sex" />Groom
-                            </label>
+                        <div class="col-xs-12 col-sm-10 btn-group">
+                            <label for="genderfemale" class="btn btn-default" ng-class="{'active': sex=='0'}">
+                                <input type="radio" id="genderfemale" name="gender" value="0" ng-model="sex" />
+                                Bride </label>
+                            &nbsp;
+                            <label for="gendermale" class="btn btn-default" ng-class="{'active': sex=='1'}">
+                                <input type="radio" id="gendermale" name="gender" value="1" ng-model="sex" />
+                                Groom </label>
                         </div>
                     </div>
                 </div>

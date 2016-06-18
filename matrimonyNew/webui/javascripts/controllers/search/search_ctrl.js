@@ -25,11 +25,15 @@ var SearchCtrl = function($scope, $state, $stateParams, Session, FacetFactory, $
 
     $scope.changeAgeCriteria = $scope.$watch('sex', function(newvalue){
         if(angular.isDefined(newvalue)){
-            var ageStart = ($scope.sex==0)?femaleAgeStart:maleAgeStart;
+            var ageStart = ($scope.sex=="0")?femaleAgeStart:maleAgeStart;
             $scope.ageFrom = ageStart;
             $scope.ageTo = ageStart+12;
         }
     });
+
+    //$scope.changeSex = function(){
+    //
+    //};
 
     $scope.showSearchResults = false;
 
