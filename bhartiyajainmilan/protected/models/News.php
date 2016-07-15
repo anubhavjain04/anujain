@@ -100,8 +100,9 @@ class News extends CActiveRecord
 		$criteria->compare('status',$this->status);
 		$criteria->compare('newsType',$this->newsType);
 		$criteria->compare('city',$this->city,true);
-		
+
 		$criteria->order = ' newsDate DESC, newsOrder ASC ';
+
 
 		return new CActiveDataProvider(get_class($this), array(
 			'pagination'=>array(

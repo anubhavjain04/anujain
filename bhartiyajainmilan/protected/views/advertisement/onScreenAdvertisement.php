@@ -19,7 +19,7 @@
           <br />
           and <br />
           <br />
-          National Vice President</strong> </h5>
+            National General Secretary (Org.)</strong> </h5>
         <hr />
         <h4 style="font-size: 1.5em; margin-bottom: 8px;"><strong>Bhartiya Jain Milan</strong></h4>
         <h5 class="p4" style="margin-bottom: 8px;"><strong>Mobile: </strong> 09837048560</h5>
@@ -33,25 +33,25 @@
     <div style="text-align: center;">
       <div class="website-contact">
         <div class="post"><strong>National President</strong></div>
-        <div class="name">Veer Jai Chand Jain</div>
-        <div class="contactNo"><strong>Mobile: </strong> 09259107200</div>
-        <div class="email"><strong>Email: </strong><a href="mailto:national.president@bhartiyajainmilan.com">national.president@bhartiyajainmilan.com</a></div>
+        <div class="name">Veer Suresh Jain Rituraj</div>
+        <div class="contactNo"><strong>Mobile: </strong> +91 9837481839</div>
+        <div class="email"><strong>Email: </strong><a href="mailto:tulsipublication@gmail.com">tulsipublication@gmail.com</a></div>
       </div>
     </div>
     <div style="float: left">
       <div class="website-contact">
         <div class="post"><strong>General Secretary (Administration)</strong></div>
         <div class="name">Veer Naresh Chand Jain</div>
-        <div class="contactNo"><strong>Mobile: </strong> 09897227228</div>
-        <div class="email"><strong>Email: </strong><a href="mailto:gen.secretary.admin@bhartiyajainmilan.com">gen.secretary.admin@bhartiyajainmilan.com</a></div>
+        <div class="contactNo"><strong>Mobile: </strong> +91 9897227228</div>
+        <div class="email"><strong>Email: </strong><a href="mailto:nareshchandjain24@gmail.com">nareshchandjain24@gmail.com</a></div>
       </div>
     </div>
     <div style="float: right;">
       <div class="website-contact">
         <div class="post"><strong>General Secretary (Organization)</strong></div>
-        <div class="name">Veer Vipin Jain</div>
-        <div class="contactNo"><strong>Mobile: </strong> 09412207908</div>
-        <div class="email"><strong>Email: </strong><a href="mailto:gen.secretary.org@bhartiyajainmilan.com">gen.secretary.org@bhartiyajainmilan.com</a></div>
+        <div class="name">Veer Narendra Jain Rajkamal</div>
+        <div class="contactNo"><strong>Mobile: </strong> +91 9837048560</div>
+        <div class="email"><strong>Email: </strong><a href="mailto:rajkamal@bhartiyajainmilan.com">rajkamal@bhartiyajainmilan.com</a></div>
       </div>
     </div>
   </div>

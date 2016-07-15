@@ -27,7 +27,7 @@ class NewsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('view', 'list'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -35,7 +35,7 @@ class NewsController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				//'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -52,6 +52,25 @@ class NewsController extends Controller
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+		));
+	}
+
+	// This function will return all recent programs list.
+	public function actionList(){
+		if (isset($_GET['pageSize'])) {
+			Yii::app()->user->setState('pageSize',(int)$_GET['pageSize']);
+			unset($_GET['pageSize']);  // would interfere with pager and repetitive page size change
+		}
+
+		$model=new News('search');
+		$model->unsetAttributes();  // clear any default values
+
+		if(isset($_GET['News']))
+			$model->attributes=$_GET['News'];
+		$model->status = 1;
+
+		$this->render('list',array(
+			'model'=>$model
 		));
 	}
 

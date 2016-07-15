@@ -158,7 +158,7 @@ $this->pageTitle="Bhartiya Jain Milan"
                         <div class="corner-bot-right">
                           <div class="padding">
                             <h2 class="title-1">Latest <strong>News</strong></h2>
-                            <h3 style="margin-bottom: 15px; color:#F00;"><span style="font-size: 0.75em;">Bhartiya Jain Milan in <span style="font-size: 1.5em;">Press </span>/ </span><span class="hindi">भारतीय जैन मिलन समाचारों में</span></h3>
+                            <h3 style="margin-bottom: 15px; color:#F00;"><span style="font-size: 0.75em;">Bhartiya Jain Milan in <span style="font-size: 1.5em;">News </span>/ </span><span class="hindi">भारतीय जैन मिलन समाचारों में</span></h3>
 							<p><i>Please click on news to view more..</i></p>
                             <ul class="lnews hindi-size hindi">
                             <?php 
@@ -177,7 +177,7 @@ $this->pageTitle="Bhartiya Jain Milan"
 							?>  
                             </ul>
                             <div style="text-align: right; margin-top: 5px;">
-                            <a class="button1 png" href='<?php echo Yii::app()->createUrl("/staticPages/history");?>'><span class="png"><span class="png">Read More</span></span> </a> 
+                            <a class="button1 png" href='<?php echo Yii::app()->createUrl("/news/list");?>'><span class="png"><span class="png">Read More</span></span> </a>
                             </div>
                           </div>
                         </div>

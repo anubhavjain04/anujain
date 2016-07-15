@@ -295,9 +295,9 @@
                             </p>
                             
                             <div style="font-size: .6em;">
-                            <div style="float: left; margin-right:130px;">
+                            <div style="float: left; margin-right:120px;">
                             	<h4 class="title-1">
-                                	<strong>वीर जयचन्द जैन</strong><br />
+                                	<strong>वीर सुरेश जैन रितुराज</strong><br />
                                     राष्ट्रीय अध्यक्ष
                                 </h4>
                                 
@@ -310,7 +310,7 @@
                             </div>
                             <div style="float: right;">
                             	<h4 class="title-1">
-                                	<strong>वीर विपिन जैन</strong><br />
+                                	<strong>वीर नरेन्द्र जैन राजकमल </strong><br />
                                      राष्ट्रीय महामन्त्री 'संगठन'
                                 </h4>
                                 
