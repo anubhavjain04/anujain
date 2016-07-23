@@ -138,7 +138,7 @@ this.app.factory("authHttpResponseInterceptor", function($q, $location, $rootSco
     };
 });
 
-this.app.config(function($httpProvider) {
+this.app.config(function($httpProvider, $locationProvider) {
     //$httpProvider.defaults.useXDomain = true;
     //$httpProvider.defaults.withCredentials = true;
     //$httpProvider.defaults.headers.post = {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'};
@@ -147,6 +147,9 @@ this.app.config(function($httpProvider) {
 
     //Http Intercpetor to check auth failures for xhr requests
     $httpProvider.interceptors.push('authHttpResponseInterceptor');
+
+    // use the HTML5 History API
+    $locationProvider.html5Mode(true);
 });
 
 this.app.run([
