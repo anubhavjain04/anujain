@@ -2,7 +2,11 @@
 <html lang='en' prefix="og: http://ogp.me/ns#" xmlns:ng='http://angularjs.org'>
 <head>
   <meta charset="utf-8">
-  <base href="<?php echo Yii::app()->request->baseUrl ?>/">
+  <?php /*
+  // comment out below line due to refresh problem
+    <base href="<?php echo Yii::app()->request->baseUrl ?>/">
+    */
+  ?>
   <meta content="IE=Edge,chrome=1" http-equiv="X-UA-Compatible">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="chrome=IE7" http-equiv="X-UA-Compatible">

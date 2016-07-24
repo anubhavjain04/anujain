@@ -149,7 +149,8 @@ this.app.config(function($httpProvider, $locationProvider) {
     $httpProvider.interceptors.push('authHttpResponseInterceptor');
 
     // use the HTML5 History API
-    $locationProvider.html5Mode(true);
+    // comment out below line due to refresh problem
+    //$locationProvider.html5Mode(true);
 });
 
 this.app.run([

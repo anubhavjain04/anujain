@@ -1,5 +1,7 @@
-<div ng-controller='MenuCtrl'>
+<div id="wrapper" ng-controller='MenuCtrl' ng-class="{'toggled':isOpened}">
+    <div class="overlay" ng-show="isOpened"></div>
     <div id="sidebar-wrapper" class="navbar navbar-fixed-top" role='navigation'>
+
         <div class="">
             <div >
                 <ul class="nav navbar-nav sidebar-nav" ng-click="$parent.toggleMenu()">
@@ -30,5 +32,12 @@
             </div>
             <!--/.navbar-collapse -->
         </div>
+    </div>
+    <div class="handle-sidebar-wrapper">
+        <button type="button" class="handle-sidebar" ng-click="toggleMenu()" ng-class="{'is-closed': !isOpened, 'is-open': isOpened}">
+            <span class="hand-top"></span>
+            <span class="hand-middle"></span>
+            <span class="hand-bottom"></span>
+        </button>
     </div>
 </div>

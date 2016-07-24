@@ -1,12 +1,6 @@
-<div id="wrapper" ng-controller="MainCtrl" ng-class="{'toggled':isClosed}">
-    <div class="overlay" ng-show="isClosed"></div>
+<div ng-controller="MainCtrl">
     <div ng-include="'layouts/topbar.html'"></div>
-    <div id="page-content-wrapper">
-        <button type="button" class="handle-sidebar" ng-click="toggleMenu()" ng-class="{'is-closed': !isClosed, 'is-open': isClosed}">
-            <span class="hand-top"></span>
-            <span class="hand-middle"></span>
-            <span class="hand-bottom"></span>
-        </button>
+    <div>
         <div ng-include="'layouts/topheader.html'"></div>
         <div id="page-body">
             <div ng-class="{'container': !$root.isLandingPage}">

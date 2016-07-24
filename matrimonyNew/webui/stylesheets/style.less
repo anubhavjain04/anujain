@@ -31,35 +31,27 @@ body {
     padding-left: 0;
     transition: all 0.5s ease;
 }
-#wrapper.toggled {
-    padding-left: 220px;
-    #sidebar-wrapper {
-        width: @width1;
-    }
-    #page-content-wrapper {
-        margin-right: -220px;
-        position: absolute;
-    }
-}
+
 #sidebar-wrapper {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
     background: #1a1a1a;
     height: @full-height;
-    left: 220px;
-    margin-left: -220px;
+    left: -@width1;
     overflow-x: hidden;
     overflow-y: auto;
-    transition: all 0.5s ease;
-    width: 0;
+    width: @width1;
     z-index: 1000;
     &::-webkit-scrollbar {
         display: none;
     }
 }
-#page-content-wrapper {
-    width: @full-width;
+#wrapper.toggled {
+    #sidebar-wrapper {
+        left: 0px;
+    }
 }
 
 /*-------------------------------*/
@@ -153,17 +145,29 @@ body {
 /*-------------------------------*/
 /*       Hamburger-Cross         */
 /*-------------------------------*/
+.handle-sidebar-wrapper{
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    position: fixed;
+    width: 40px;
+    height: 35px;
+    left: 20px;
+    top: 20px;
+    z-index: 100;
+    padding-left: 8px;
+}
 
 .handle-sidebar {
     background: transparent;
     border: none;
     display: block;
     height: 25px;
-    margin-left: 15px;
     position: fixed;
-    top: 27px;
     width: 32px;
     z-index: 100;
+    margin-top: 5px;
     &:hover {
         outline: none;
     }
@@ -264,6 +268,13 @@ body {
             display: block;
             opacity: 1;
         }
+    }
+}
+
+#wrapper.toggled {
+    .handle-sidebar-wrapper {
+        left: @width1;
+        background-color: #FFFFFF;
     }
 }
 /*-------------------------------*/

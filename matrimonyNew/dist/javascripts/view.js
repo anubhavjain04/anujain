@@ -141,8 +141,10 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "</div>\n" +
     "<!-- footer ends --> ");
   $templateCache.put("layouts/topbar.html",
-    "<div ng-controller='MenuCtrl'>\n" +
+    "<div id=\"wrapper\" ng-controller='MenuCtrl' ng-class=\"{'toggled':isOpened}\">\n" +
+    "    <div class=\"overlay\" ng-show=\"isOpened\"></div>\n" +
     "    <div id=\"sidebar-wrapper\" class=\"navbar navbar-fixed-top\" role='navigation'>\n" +
+    "\n" +
     "        <div class=\"\">\n" +
     "            <div >\n" +
     "                <ul class=\"nav navbar-nav sidebar-nav\" ng-click=\"$parent.toggleMenu()\">\n" +
@@ -173,6 +175,13 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "            </div>\n" +
     "            <!--/.navbar-collapse -->\n" +
     "        </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"handle-sidebar-wrapper\">\n" +
+    "        <button type=\"button\" class=\"handle-sidebar\" ng-click=\"toggleMenu()\" ng-class=\"{'is-closed': !isOpened, 'is-open': isOpened}\">\n" +
+    "            <span class=\"hand-top\"></span>\n" +
+    "            <span class=\"hand-middle\"></span>\n" +
+    "            <span class=\"hand-bottom\"></span>\n" +
+    "        </button>\n" +
     "    </div>\n" +
     "</div>\n" +
     "");
