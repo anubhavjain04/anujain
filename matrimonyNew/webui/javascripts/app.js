@@ -170,7 +170,7 @@ this.app.run([
     '$rootScope', '$location', 'ipCookie', '$http', '$browser', 'Session', '$timeout', function($rootScope, $location, ipCookie, $http, $browser, Session, $timeout) {
         Session.setAuthorization();
         var isAllowed = function(path){
-            var bypassUrls = [
+            var fixedUrls = [
                 "/",
                 "/login",
                 "/about-us",
@@ -179,14 +179,23 @@ this.app.run([
                 "/terms-n-conditions",
                 "/search",
                 "/search/results",
-                "/register",
+                "/register"
+            ];
+
+            var dynamicUrls = [
                 "/reset-password"
             ];
-            var matched = bypassUrls.filter(function(url){
-                return path.indexOf(url) == 0;
-            });
 
-            return (matched && matched.length>0)?true:false;
+            var isMatched = fixedUrls.indexOf(path) != -1;
+            if(!isMatched){
+                var matched = dynamicUrls.filter(function(url){
+                    return path.indexOf(url) == 0;
+                });
+                if(matched && matched.length>0){
+                    isMatched = true;
+                }
+            }
+            return isMatched;
         };
         $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
             angular.element("#ajaxLoader").show();

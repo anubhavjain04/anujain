@@ -3668,7 +3668,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "</div>\n" +
     "");
   $templateCache.put("static/aboutus.html",
-    "<div >\n" +
+    "<div class=\"text-justify\">\n" +
     "    <h3>About Us</h3>\n" +
     "    <div class=\"dot-line padt10\"></div>\n" +
     "    <h4>A exclusive matrimony portal for the Indian JAIN Community.</h4>\n" +
@@ -3696,7 +3696,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "</div>\n" +
     "");
   $templateCache.put("static/privacypolicy.html",
-    "<div >\n" +
+    "<div class=\"text-justify\">\n" +
     "    <h3>Privacy Policy</h3>\n" +
     "    <div class=\"dot-line padt10\"></div>\n" +
     "    <p> <strong><a href=\"http://www.jainmilanmatrimonial.com\">http://www.jainmilanmatrimonial.com</a></strong> is an online matrimonial portal endeavouring constantly to provide you with premium matrimonial services. This privacy statement is common to all the matrimonial sites operated under <a href=\"http://www.jainmilanmatrimonial.com\">http://www.jainmilanmatrimonial.com</a>. Since we are strongly committed to your right to privacy, we have drawn out a privacy statement with regard to the information we collect from you. </p>\n" +
@@ -3748,7 +3748,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "    <p> If you have any questions regarding our Privacy Statement, please write in to <a href=\"mailto:matrimony@bhartiyajainmilan.com\">matrimony@bhartiyajainmilan.com</a> </p>\n" +
     "</div>");
   $templateCache.put("static/termsnconditions.html",
-    "<div >\n" +
+    "<div class=\"text-justify\">\n" +
     "    <h3>Terms and Conditions governing usage of Jain Milan Matrimonial</h3>\n" +
     "    <div class=\"dot-line padt10\"></div>\n" +
     "    <h4>Dear User:</h4>\n" +
