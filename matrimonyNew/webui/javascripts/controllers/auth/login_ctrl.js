@@ -1,4 +1,4 @@
-var LoginCtrl = function($scope, $rootScope, $state, Session) {
+var LoginCtrl = function($scope, $rootScope, $state, $uibModal, Session, $modalRoutes) {
     $scope.user = {email: "", password: "", rememberMe: 1};
     $scope.global = Session.sessionData;
     $scope.isLogging = $rootScope.isLogging;
@@ -13,7 +13,10 @@ var LoginCtrl = function($scope, $rootScope, $state, Session) {
         Session.login({"LoginForm": {"emailid": $scope.user.email, "password": $scope.user.password, "rememberMe": $scope.user.rememberMe}}, undefined, errorCallback);
     };
     $scope.forgotPassword = function(){
-
+        var modalInstance = $uibModal.open({
+            templateUrl: $modalRoutes["forgotPassword"],
+            controller: ForgotPasswordCtrl
+        });
     };
 };
 

@@ -45,6 +45,7 @@
  * @property string $CreatedDate
  * @property string $ModifiedDate
  * @property string $ProfilePic
+ * @property string $Comments
  *
  * The followings are the available model relations:
  * @property MatrimonyMemberPayment[] $matrimonyMemberPayments
@@ -94,10 +95,11 @@ class MatrimonyMembers extends CActiveRecord
 			array('AboutMe, AboutMyPartner', 'length', 'max'=>500),
 			array('Email', 'length', 'max'=>100),
 			array('Weight', 'length', 'max'=>3),
+			array('Comments', 'length', 'max'=>200),
 			array('ProfilePic', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('pkMemberId, MemberName, Sex, DOB, MaritalStatus, Childrens, Height, fkSect, fkSubSect, fkCaste, OtherCaste, fkMotherTongue, fkCountryLivingIn, ContactNo, MemberPhoto, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, fkEducation, EmployedIn, Occupation, IncomeAnnual, AboutMe, AboutMyPartner, HomeAddress, WorkingAddress, Email, Status, ActivationCode, fkLoginId, MemberCode, Gotra,CreatedDate, ModifiedDate', 'safe', 'on'=>'search'),
+			array('pkMemberId, MemberName, Sex, DOB, MaritalStatus, Childrens, Height, fkSect, fkSubSect, fkCaste, OtherCaste, fkMotherTongue, fkCountryLivingIn, ContactNo, MemberPhoto, PhysicalStatus, fkResidingState, ResidingCity, MarryInSameSubSect, fkEducation, EmployedIn, Occupation, IncomeAnnual, AboutMe, AboutMyPartner, HomeAddress, WorkingAddress, Email, Status, ActivationCode, fkLoginId, MemberCode, Gotra,CreatedDate, ModifiedDate, Comments', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -169,6 +171,7 @@ class MatrimonyMembers extends CActiveRecord
 			'CreatedDate'=>'Created Date', 
 			'ModifiedDate'=>'Modified Date',
 			'ProfilePic' => 'Profile Pic',
+			'Comments' => 'Comments',
 		);
 	}
 

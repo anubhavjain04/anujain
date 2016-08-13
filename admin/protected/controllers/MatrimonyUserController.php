@@ -126,7 +126,9 @@ class MatrimonyUserController extends Controller
 				if($model->save()){
 					$memberModel->fkLoginId = $model->pkUserId;
 					$memberModel->save();
-					$this->sendMailToUser($memberModel, $pwd);
+					if(isset($_POST['sendmail'])) {
+						$this->sendMailToUser($memberModel, $pwd);
+					}
 					$this->redirect(array('matrimonyMembers/admin'));
 				}
 			}else{

@@ -61,7 +61,7 @@ class RegisterController extends Controller
 			
 			//if($done == 1){
 			
-				$currentTime = date('Y-m-d H:i',time());
+				$currentTime = date('Y-m-d H:i:s',time());
 	
 				$existingUser=MatrimonyUser::model()->find('LOWER(EmailID)=?',array(strtolower($registerData['emailId'])));
 				if($existingUser!==null){
@@ -192,7 +192,7 @@ class RegisterController extends Controller
 	
 	public function actionUpdateProfile($id){
 		if($id && $id != null && $_POST){
-			$currentTime = date('Y-m-d H:i',time());						
+			$currentTime = date('Y-m-d H:i:s',time());
 			$model=MatrimonyMembers::model()->find('fkLoginId=:fkLoginId',array('fkLoginId'=>$id));
 			if($model===null)
 				throw new CHttpException(404,'The requested page does not exist.');
@@ -314,9 +314,6 @@ class RegisterController extends Controller
 				.'</ul>'
 				.'<p>'
 					.'You can sign-in using matrimony id or registered email id. After sign-in, you can change your profile details instantly.'
-				.'</p>'
-				.'<p>'
-					.'After registration, you have to pay to activate your account.'
 				.'</p>'
 				.'<div style="margin-top: 20px;">thanks</div>'
 				.'<div style="margin-top: 30px;">'

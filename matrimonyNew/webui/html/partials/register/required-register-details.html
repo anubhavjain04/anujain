@@ -210,9 +210,9 @@
                 <div class="col-sm-12">
                     <label>
                         <checkbox ng-model="termsConditions" ></checkbox>
-                        I agree to the <a href="#nogo" class="link" data-toggle="modal" data-target="#privacyPolicy">Privacy Policy</a>
+                        I agree to the <a class="link" ng-click="openPopup('privacyPolicy')">Privacy Policy</a>
                         and
-                        <a href="#nogo" class="link" data-toggle="modal" data-target="#termsConditions">Terms &amp; Conditions</a>
+                        <a class="link" ng-click="openPopup('termsConditions')">Terms &amp; Conditions</a>
                     </label>
                 </div>
             </div>
@@ -224,4 +224,3 @@
         </form>
     </div>
 </div>
-<div ng-include="'register/register-modal.html'"></div>

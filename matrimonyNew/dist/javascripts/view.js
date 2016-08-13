@@ -1,4 +1,46 @@
 angular.module('templates-main', []).run(['$templateCache', function($templateCache) {
+  $templateCache.put("auth/forgot-password.html",
+    "<!-- Modal -->\n" +
+    "<div ng-controller=\"ForgotPasswordCtrl\" class=\"modal-content\">\n" +
+    "    <div class=\"modal-header\">\n" +
+    "        <button type=\"button\" class=\"close\" ng-click=\"$dismiss()\" aria-hidden=\"true\">&times;</button>\n" +
+    "        <h4 class=\"modal-title\">Forgot Password?</h4>\n" +
+    "    </div>\n" +
+    "    <div class=\"modal-body\">\n" +
+    "        <div class=\"well\">\n" +
+    "            <div ng-show=\"!isDone\">\n" +
+    "                <form name=\"forgotForm\">\n" +
+    "                    <div>\n" +
+    "                        Please enter your Matrimony ID / Email ID and we'll send you a link to reset your password.\n" +
+    "                    </div>\n" +
+    "                    <div class=\"form-group input-group-sm\">\n" +
+    "                        <label class=\"control-label\">Matrimony ID / Email ID</label>\n" +
+    "                        <input type=\"text\" placeholder=\"Matrimony ID / Email ID\" class=\"form-control def-element-width\" required name=\"email\" ng-model=\"email\"/>\n" +
+    "                        <div ng-messages=\"forgotForm.email.$touched && forgotForm.email.$error\" class=\"text-danger\">\n" +
+    "                            <div ng-message=\"required\">Please write Matrimony ID or registered Email ID.</div>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                    <div class=\"form-group\">\n" +
+    "                        <button type=\"submit\" class=\"btn btn-sm btn-success\" ng-click=\"sendResetPassword()\">Reset Password</button>\n" +
+    "                        <button type=\"button\" class=\"btn btn-sm btn-default\" ng-click=\"$dismiss()\">Close</button>\n" +
+    "                    </div>\n" +
+    "                </form>\n" +
+    "                <div class=\"text-danger\">\n" +
+    "                    <span ng-bind=\"errorMessage\"></span>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "            <div ng-if=\"isDone\">\n" +
+    "                <div class=\"form-group\">\n" +
+    "                    <span ng-bind=\"successMessage\"></span>\n" +
+    "                </div>\n" +
+    "                <div>\n" +
+    "                    <button type=\"button\" class=\"btn btn-sm btn-default\" ng-click=\"$dismiss()\">Close</button>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div><!-- /.modal-content -->\n" +
+    "");
   $templateCache.put("auth/login.html",
     "<div ng-show=\"!global.auth\" class=\"panel panel-default\">\n" +
     "    <div class=\"panel-body jumbotron\">\n" +
@@ -34,6 +76,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "                    <div class=\"form-group\">\n" +
     "                        <button type=\"submit\" class=\"btn btn-sm btn-success\" ng-click=\"login()\">Login</button>\n" +
     "                        <button type=\"button\" class=\"btn btn-sm btn-link\" ng-click=\"forgotPassword()\">Forgot password?</button>\n" +
+    "                        <span ng-include=\"'layouts/new.html'\"></span>\n" +
     "                    </div>\n" +
     "                </form>\n" +
     "            </div>\n" +
@@ -66,6 +109,60 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "        <img src=\"dist/images/spinner-horizontal.gif\" title=\"Logging..\">\n" +
     "    </div>\n" +
     "</div>");
+  $templateCache.put("auth/reset-password.html",
+    "<form name=\"myForm\">\n" +
+    "    <h1>Reset Password</h1>\n" +
+    "    <div class=\"col-xs-12 col-sm-12 tab-content\">\n" +
+    "        <div >\n" +
+    "            <div class=\"padt20 form-horizontal\">\n" +
+    "                <div class=\"row\">\n" +
+    "                    <div class=\"dot-line padt10\"></div>\n" +
+    "                    <div class=\"padt20\">\n" +
+    "                        <div class=\"col-xs-12 col-sm-2\">\n" +
+    "                            <label class=\"control-label\">New Password<span class=\"requiredFields\"> *</span></label>\n" +
+    "                        </div>\n" +
+    "                        <div class=\"col-xs-12 col-sm-10\" ng-class=\"{'has-error': myForm.newPassword.$touched && myForm.newPassword.$invalid, 'has-success': myForm.newPassword.$touched && myForm.newPassword.$valid}\">\n" +
+    "                            <input type=\"password\" placeholder=\"password\" name=\"newPassword\" required class=\"form-control def-element-width\" ng-model=\"newPassword\" ng-minlength=\"8\" />\n" +
+    "                            <div ng-messages=\"myForm.newPassword.$touched && myForm.newPassword.$error\" class=\"text-danger\">\n" +
+    "                                <div ng-message=\"required\">Please write password.</div>\n" +
+    "                                <div ng-message=\"minlength\">Password should be minimum 8 characters.</div>\n" +
+    "                            </div>\n" +
+    "\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"row\">\n" +
+    "                    <div class=\"dot-line padt10\"></div>\n" +
+    "                    <div class=\"padt20\">\n" +
+    "                        <div class=\"col-xs-12 col-sm-2\">\n" +
+    "                            <label class=\"control-label\">Confirm Password<span class=\"requiredFields\"> *</span></label>\n" +
+    "                        </div>\n" +
+    "                        <div class=\"col-xs-12 col-sm-10\" ng-class=\"{'has-error': myForm.confirmPassword.$touched && myForm.confirmPassword.$invalid, 'has-success': myForm.confirmPassword.$touched && myForm.confirmPassword.$valid}\">\n" +
+    "                            <input type=\"password\" placeholder=\"password again\" name=\"confirmPassword\" required class=\"form-control def-element-width\" ng-pattern=\"{{password}}\" ng-model=\"confirmPassword\" ng-minlength=\"8\">\n" +
+    "                            <div ng-messages=\"myForm.confirmPassword.$touched && myForm.confirmPassword.$error\" class=\"text-danger\">\n" +
+    "                                <div ng-message=\"required\">Please write password.</div>\n" +
+    "                                <div ng-message=\"minlength\">Password should be minimum 8 characters.</div>\n" +
+    "                                <div ng-message=\"pattern\">Password and confirm password should match.</div>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"row\">\n" +
+    "                    <div class=\"dot-line padt10\"></div>\n" +
+    "                    <div class=\"padt20\">\n" +
+    "                        <div class=\"col-xs-12 col-sm-2\"></div>\n" +
+    "                        <div class=\"col-xs-12 col-sm-10\">\n" +
+    "                            <div id=\"captchadiv\"></div>\n" +
+    "                            <button class=\"btn btn-success\" ng-click=\"change()\" ng-disabled=\"disableButton\">Change Password</button>\n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"padb35\"></div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</form>\n" +
+    "");
   $templateCache.put("directives/alert.html",
     "<div class=\"text-center\">\n" +
     "    <div class=\"\">\n" +
@@ -98,7 +195,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "</div>\n" +
     "\n" +
     "<div class=\"clearfix\"></div>\n" +
-    "<div style=\"position: relative;\">\n" +
+    "<div style=\"position: relative;\" class=\"container bgclr2 padt20\">\n" +
     "    <div ng-include=\"'search/quickSearch.html'\"></div>\n" +
     "</div>\n" +
     "");
@@ -140,6 +237,8 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "    </div>\n" +
     "</div>\n" +
     "<!-- footer ends --> ");
+  $templateCache.put("layouts/new.html",
+    "<i class=\"glyphicon glyphicon-info-sign\" style=\"color: #FFA500;\" title=\"new feature added\"></i>");
   $templateCache.put("layouts/topbar.html",
     "<div id=\"wrapper\" ng-controller='MenuCtrl' ng-class=\"{'toggled':isOpened}\">\n" +
     "    <div class=\"overlay\" ng-show=\"isOpened\"></div>\n" +
@@ -214,6 +313,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "\n" +
     "                <div></div>\n" +
     "                <button type=\"button\" class=\"btn btn-sm btn-link\" ng-click=\"forgotPassword()\">Forgot password?</button>\n" +
+    "                <span ng-include=\"'layouts/new.html'\"></span>\n" +
     "            </div>\n" +
     "            <button type=\"submit\" class=\"btn btn-sm btn-success\" ng-click=\"login()\">Login</button>\n" +
     "        </form>\n" +
@@ -1781,6 +1881,21 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "    </form>\n" +
     "</div>\n" +
     "");
+  $templateCache.put("register/privacy-policy.html",
+    "<!-- Modal -->\n" +
+    "<div class=\"modal-content\" style=\"width: 700px;\">\n" +
+    "    <div class=\"modal-header\">\n" +
+    "        <button type=\"button\" class=\"close\" ng-click=\"$dismiss()\" aria-hidden=\"true\">&times;</button>\n" +
+    "        <!--<h4 class=\"modal-title\" id=\"privacyPolicyLabel\">Privacy Policy</h4>-->\n" +
+    "    </div>\n" +
+    "    <div class=\"modal-body\">\n" +
+    "        <div ng-include=\"'static/privacypolicy.html'\"></div>\n" +
+    "    </div>\n" +
+    "    <div class=\"modal-footer\">\n" +
+    "        <button type=\"button\" class=\"btn btn-default\" ng-click=\"$dismiss()\">Close</button>\n" +
+    "    </div>\n" +
+    "</div><!-- /.modal-content -->\n" +
+    "");
   $templateCache.put("register/register-member.html",
     "<div ng-controller=\"RegistrationCtrl\">\n" +
     "    <form name=\"myForm\">\n" +
@@ -2084,9 +2199,9 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "                            <div class=\"col-xs-12 col-sm-10\">\n" +
     "                                <label class=\"label-normal\">\n" +
     "                                    <checkbox ng-model=\"termsConditions\" ></checkbox>\n" +
-    "                                    I agree to the <a href=\"#nogo\" class=\"link\" data-toggle=\"modal\" data-target=\"#privacyPolicy\">Privacy Policy</a>\n" +
+    "                                    I agree to the <a class=\"link\" ng-click=\"openPopup('privacyPolicy')\">Privacy Policy</a>\n" +
     "                                    and\n" +
-    "                                    <a href=\"#nogo\" class=\"link\" data-toggle=\"modal\" data-target=\"#termsConditions\">Terms &amp; Conditions</a>\n" +
+    "                                    <a class=\"link\" ng-click=\"openPopup('termsConditions')\">Terms &amp; Conditions</a>\n" +
     "                                </label>\n" +
     "                            </div>\n" +
     "                        </div>\n" +
@@ -2106,44 +2221,7 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "            </div>\n" +
     "        </div>\n" +
     "    </form>\n" +
-    "    <div ng-include=\"'register/register-modal.html'\"></div>\n" +
     "</div>");
-  $templateCache.put("register/register-modal.html",
-    "<!-- Modal -->\n" +
-    "<div class=\"modal fade\" id=\"privacyPolicy\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"privacyPolicyLabel\" aria-hidden=\"true\">\n" +
-    "    <div class=\"modal-dialog\">\n" +
-    "        <div class=\"modal-content\" style=\"width: 700px;\">\n" +
-    "            <div class=\"modal-header\">\n" +
-    "                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-    "                <!--<h4 class=\"modal-title\" id=\"privacyPolicyLabel\">Privacy Policy</h4>-->\n" +
-    "            </div>\n" +
-    "            <div class=\"modal-body\">\n" +
-    "                <div ng-include=\"'static/privacypolicy.html'\"></div>\n" +
-    "            </div>\n" +
-    "            <div class=\"modal-footer\">\n" +
-    "                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n" +
-    "            </div>\n" +
-    "        </div><!-- /.modal-content -->\n" +
-    "    </div><!-- /.modal-dialog -->\n" +
-    "</div><!-- /.modal -->\n" +
-    "\n" +
-    "<!-- Modal -->\n" +
-    "<div class=\"modal fade\" id=\"termsConditions\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"termsConditionsLabel\" aria-hidden=\"true\">\n" +
-    "    <div class=\"modal-dialog\">\n" +
-    "        <div class=\"modal-content\" style=\"width: 700px;\">\n" +
-    "            <div class=\"modal-header\">\n" +
-    "                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-    "                <!--<h4 class=\"modal-title\" id=\"termsConditionsLabel\">Terms &amp; Conditions</h4>-->\n" +
-    "            </div>\n" +
-    "            <div class=\"modal-body\">\n" +
-    "                <div ng-include=\"'static/termsnconditions.html'\"></div>\n" +
-    "            </div>\n" +
-    "            <div class=\"modal-footer\">\n" +
-    "                <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n" +
-    "            </div>\n" +
-    "        </div><!-- /.modal-content -->\n" +
-    "    </div><!-- /.modal-dialog -->\n" +
-    "</div><!-- /.modal -->");
   $templateCache.put("register/register.html",
     "<div>\n" +
     "    <h1>Register</h1>\n" +
@@ -2392,9 +2470,9 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "                <div class=\"col-sm-12\">\n" +
     "                    <label>\n" +
     "                        <checkbox ng-model=\"termsConditions\" ></checkbox>\n" +
-    "                        I agree to the <a href=\"#nogo\" class=\"link\" data-toggle=\"modal\" data-target=\"#privacyPolicy\">Privacy Policy</a>\n" +
+    "                        I agree to the <a class=\"link\" ng-click=\"openPopup('privacyPolicy')\">Privacy Policy</a>\n" +
     "                        and\n" +
-    "                        <a href=\"#nogo\" class=\"link\" data-toggle=\"modal\" data-target=\"#termsConditions\">Terms &amp; Conditions</a>\n" +
+    "                        <a class=\"link\" ng-click=\"openPopup('termsConditions')\">Terms &amp; Conditions</a>\n" +
     "                    </label>\n" +
     "                </div>\n" +
     "            </div>\n" +
@@ -2405,8 +2483,21 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "            </div>\n" +
     "        </form>\n" +
     "    </div>\n" +
-    "</div>\n" +
-    "<div ng-include=\"'register/register-modal.html'\"></div>");
+    "</div>");
+  $templateCache.put("register/terms-conditions.html",
+    "<div class=\"modal-content\" style=\"width: 700px;\">\n" +
+    "    <div class=\"modal-header\">\n" +
+    "        <button type=\"button\" class=\"close\" ng-click=\"$dismiss()\" aria-hidden=\"true\">&times;</button>\n" +
+    "        <!--<h4 class=\"modal-title\" id=\"termsConditionsLabel\">Terms &amp; Conditions</h4>-->\n" +
+    "    </div>\n" +
+    "    <div class=\"modal-body\">\n" +
+    "        <div ng-include=\"'static/termsnconditions.html'\"></div>\n" +
+    "    </div>\n" +
+    "    <div class=\"modal-footer\">\n" +
+    "        <button type=\"button\" class=\"btn btn-default\" ng-click=\"$dismiss()\">Close</button>\n" +
+    "    </div>\n" +
+    "</div><!-- /.modal-content -->\n" +
+    "");
   $templateCache.put("search/choosenSearchCriteria.html",
     "<div><h4>Search criteria:</h4></div>\n" +
     "<div>\n" +
@@ -3044,8 +3135,8 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
   $templateCache.put("search/quickSearch.html",
     "<div class=\"well\" ng-controller=\"SearchCtrl\">\n" +
     "    <h3>Quick Search:</h3>\n" +
-    "    <div>\n" +
-    "        <div class=\"pull-left\">\n" +
+    "    <div class=\"clearfix\">\n" +
+    "        <div class=\"pull-left small-view padr20\">\n" +
     "            <div class=\"btn-group\">\n" +
     "                <label for=\"gendermale\" class=\"btn btn-default\" ng-class=\"{'active': sex=='1'}\">\n" +
     "                    <input type=\"radio\" id=\"gendermale\" name=\"gender\" value=\"1\" ng-model=\"sex\" />\n" +
@@ -3056,25 +3147,25 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "                    Bride </label>\n" +
     "            </div>\n" +
     "        </div>\n" +
-    "        <div class=\"pull-left mrgl20\">\n" +
+    "        <div class=\"pull-left small-view padr20\">\n" +
     "            <select class=\"form-control clearwidth disinblk\" ng-model=\"ageFrom\" ng-options=\"item for item in facetVM.ageList track by item\"></select>\n" +
     "            <span class=\"padl5 padr5\">To</span>\n" +
     "            <select class=\"form-control clearwidth disinblk\" ng-model=\"ageTo\" ng-options=\"item for item in facetVM.ageList track by item\"></select>\n" +
     "            <span class=\"padl5 padr5\">Years</span>\n" +
     "        </div>\n" +
-    "        <div class=\"pull-left mrgl20\">\n" +
+    "        <div class=\"pull-left small-view padr20\">\n" +
     "            <select class=\"form-control clearwidth\" ng-model=\"selectedCaste[0]\">\n" +
     "                <option value=\"\">Any</option>\n" +
     "                <option ng-repeat=\"item in facetVM.casteList track by item.pkCasteId\" value=\"{{item.pkCasteId}}\" ng-bind=\"item.CasteName\" ng-selected=\"item.pkCasteId==selectedCaste[0]\"></option>\n" +
     "            </select>\n" +
     "        </div>\n" +
-    "        <div class=\"pull-left mrgl20\">\n" +
+    "        <div class=\"pull-left small-view padr20\">\n" +
     "            <select class=\"form-control clearwidth\" ng-model=\"selectedMotherTongue[0]\">\n" +
     "                <option value=\"\">Any</option>\n" +
     "                <option ng-repeat=\"item in facetVM.motherTongueList track by item.pkTongueId\" value=\"{{item.pkTongueId}}\" ng-bind=\"item.TongueName\" ng-selected=\"item.pkTongueId==selectedMotherTongue[0]\"></option>\n" +
     "            </select>\n" +
     "        </div>\n" +
-    "        <div class=\"pull-left mrgl20\">\n" +
+    "        <div class=\"pull-left small-view\">\n" +
     "            <button type=\"button\" class=\"btn btn-success\" ng-click=\"searchByCriteria()\">Search</button>\n" +
     "        </div>\n" +
     "    </div>\n" +

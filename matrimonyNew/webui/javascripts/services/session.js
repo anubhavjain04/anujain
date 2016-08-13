@@ -1,5 +1,5 @@
 "use strict";
-var Session = function(RESTUtil, $q, $location, $rootScope, ipCookie, $state){
+var Session = function(RESTUtil, $q, $location, $rootScope, ipCookie, $state, UserFactory){
     var Global = {
         currentUser: null,
         profilePicData: null,
@@ -45,7 +45,7 @@ var Session = function(RESTUtil, $q, $location, $rootScope, ipCookie, $state){
 
     var login = function(data, successcallback, errorcallback) {
         $rootScope.isLogging = true;
-        RESTUtil.post("site/login", data).then(function(resp){
+        UserFactory.login(data).then(function(resp){
             if(resp){
                 setCredentials(resp);
                 if (angular.isFunction(successcallback)) {
@@ -74,7 +74,7 @@ var Session = function(RESTUtil, $q, $location, $rootScope, ipCookie, $state){
     };
 
     var logout = function() {
-        RESTUtil.post("site/logout").then(function(){
+        UserFactory.logout().then(function(){
             clearCredentials();
             $state.go("home");
         }, function(){
@@ -84,7 +84,7 @@ var Session = function(RESTUtil, $q, $location, $rootScope, ipCookie, $state){
     };
 
     var loadUser = function(){
-        RESTUtil.post("site/user").then(function(resp){
+        UserFactory.loadUser().then(function(resp){
             if(resp){
                 setCredentials(resp);
                 var returnObject = $location.search();

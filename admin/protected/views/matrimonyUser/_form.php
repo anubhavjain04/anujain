@@ -36,10 +36,17 @@
 			<dd>
 				<?php echo $form->dropDownList($model,'Status',array('1'=>'Published', '0'=>'Un-Published')); ?>
 				<?php echo $form->error($model,'Status'); ?>
-            </dd>    
-        </dl>
+			</dd>
+		</dl>
 	</div>
-	
+
+	<div class="row">
+		<label>
+			<input type="checkbox" name="sendmail" checked="checked" value="1" />
+			<span>Send email to member</span>
+		</label>
+	</div>
+	<br /><br />
 	<?php echo $form->hiddenField($memberModel,'pkMemberId');  ?>
 
 	<div class="row buttons">

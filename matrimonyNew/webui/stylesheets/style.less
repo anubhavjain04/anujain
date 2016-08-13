@@ -10,6 +10,13 @@
 @profile-size: 200px;
 @mini-profile-size: 72px;
 
+// breakpoints
+@max-break-point: 1200px;
+@lg-break-point: 992px;
+@sm-break-point: 768px;
+@xs-break-point: 400px;
+
+
 body {
 	font-family: Arial, Verdana, Geneva, Helvetica, sans-serif;
     font-size: 12px;
@@ -331,7 +338,7 @@ body {
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: @max-break-point) {
     #top-header{
         .login-panel{
             padding-right: 60px;
@@ -339,7 +346,7 @@ body {
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: @lg-break-point) {
     #top-header{
         padding-left: 60px;
         .login-panel{
@@ -347,7 +354,7 @@ body {
         }
     }
 }
-@media (max-width: 768px) {
+@media (max-width: @sm-break-point) {
     #top-header{
         .login-link{
             display: block;
@@ -360,7 +367,7 @@ body {
         }
     }
 }
-@media (max-width: 400px) {
+@media (max-width: @xs-break-point) {
     #top-header{
         .login-link{
             padding-top: 0px;
@@ -375,7 +382,7 @@ body {
 }
 
 #page-body{
-	padding-top: @fixed-top-header-height;
+	padding-top: @fixed-top-header-height+20px;
 	min-height: 485px;
 }
 
@@ -489,7 +496,7 @@ span.arrow_icon{
     width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: @sm-break-point) {
     .jmm_banner{
         position: fixed;
     }
@@ -512,8 +519,18 @@ span.arrow_icon{
 }
 
 
-
-
+@media (max-width: @lg-break-point) {
+    .small-view {
+        width: 33%;
+        padding-top: 10px;
+    }
+}
+@media (max-width: @sm-break-point) {
+    .small-view {
+        width: 100%;
+        padding-top: 10px;
+    }
+}
 
 .search-header {
     background: none repeat scroll 0 0 #E36C14;
@@ -1353,17 +1370,17 @@ img {
     padding: 15px;
     width: 100%;
 }
-@media (min-width: 768px) {
+@media (min-width: @sm-break-point) {
     .register-panel {
         width: 50%;
     }
 }
-@media (min-width: 992px) {
+@media (min-width: @lg-break-point) {
     .register-panel {
         width: 41.66666667%;
     }
 }
-@media (min-width: 1200px) {
+@media (min-width: @max-break-point) {
     .register-panel {
         width: 33.33333333%;
     }

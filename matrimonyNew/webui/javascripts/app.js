@@ -35,8 +35,7 @@ this.app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");
     $stateProvider.state('home', {
         url: "/",
-        templateUrl: "home/home.html",
-        controller: "MainCtrl"
+        templateUrl: "home/home.html"
     }).state('search', {
         url: "/search",
         templateUrl: "search/search.html",
@@ -60,6 +59,10 @@ this.app.config(function($stateProvider, $urlRouterProvider) {
     }).state('logout', {
         url: "/logout",
         controller: "LogoutCtrl"
+    }).state('resetPassword', {
+        url: "/reset-password/:resetToken",
+        templateUrl: "auth/reset-password.html",
+        controller: "ResetPasswordCtrl"
     }).state('aboutUs', {
         url: "/about-us",
         templateUrl: "static/aboutus.html"
@@ -116,6 +119,16 @@ this.app.config(function($stateProvider, $urlRouterProvider) {
 
 });
 
+this.app.provider("$modalRoutes", function(){
+    this.$get = function(){
+        return {
+            "forgotPassword": "auth/forgot-password.html",
+            "privacyPolicy": "register/privacy-policy.html",
+            "termsConditions": "register/terms-conditions.html"
+        };
+    };
+});
+
 this.app.factory("authHttpResponseInterceptor", function($q, $location, $rootScope){
     return {
         response: function(response) {
@@ -157,17 +170,23 @@ this.app.run([
     '$rootScope', '$location', 'ipCookie', '$http', '$browser', 'Session', '$timeout', function($rootScope, $location, ipCookie, $http, $browser, Session, $timeout) {
         Session.setAuthorization();
         var isAllowed = function(path){
-            return [
-                    "/",
-                    "/login",
-                    "/about-us",
-                    "/contact-us",
-                    "/privacy-policy",
-                    "/terms-n-conditions",
-                    "/search",
-                    "/search/results",
-                    "/register"
-                ].indexOf(path) != -1;
+            var bypassUrls = [
+                "/",
+                "/login",
+                "/about-us",
+                "/contact-us",
+                "/privacy-policy",
+                "/terms-n-conditions",
+                "/search",
+                "/search/results",
+                "/register",
+                "/reset-password"
+            ];
+            var matched = bypassUrls.filter(function(url){
+                return path.indexOf(url) == 0;
+            });
+
+            return (matched && matched.length>0)?true:false;
         };
         $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
             angular.element("#ajaxLoader").show();

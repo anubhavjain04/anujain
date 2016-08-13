@@ -1,5 +1,5 @@
 "use strict";
-var RegistrationCtrl = function($scope, $rootScope, $state, $stateParams, $timeout, $location, FacetFactory, RegisterFactory, PasswordScore) {
+var RegistrationCtrl = function($scope, $rootScope, $state, $stateParams, $timeout, $location, $uibModal, $modalRoutes, FacetFactory, RegisterFactory, PasswordScore) {
     $scope.facetVM = FacetFactory;
     $scope.disableButton = false;
     $scope.termsConditions = true;
@@ -118,6 +118,12 @@ var RegistrationCtrl = function($scope, $rootScope, $state, $stateParams, $timeo
             });
             $scope.$root.showAlert("Please fill required details.");
         }
+    };
+
+    $scope.openPopup = function(template){
+        $uibModal.open({
+            templateUrl: $modalRoutes[template]
+        });
     };
 };
 angular.module("BJMMatrimony").controller("RegistrationCtrl", RegistrationCtrl);
