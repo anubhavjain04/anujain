@@ -116,6 +116,12 @@ var SearchCtrl = function($scope, $state, $stateParams, Session, FacetFactory, $
         }
     };
 
+    $scope.$watchCollection('selectedSect', function(newvalue, oldvalue){
+        if(!angular.equals(newvalue, oldvalue)){
+            $scope.facetVM.afterSectChange($scope.selectedSect);
+        }
+    });
+
     $scope.resetSelectedItems = function(itemObject, newItems){
         itemObject.length = 0;
         if(angular.isArray(newItems)) {
@@ -130,32 +136,21 @@ var SearchCtrl = function($scope, $state, $stateParams, Session, FacetFactory, $
     };
 
     $scope.searchByCriteria = function(){
-        $state.go("searchResults", $scope.generateSpecs());
+        $state.go("searchResults", $scope.generateSpecs(), { reload: true });
     };
 
-    var modalInstance = undefined;
-    $scope.openModal = function(template){
-        modalInstance = $uibModal.open({
-            templateUrl: template,
-            scope: $scope
-        });
+    // Search results panel
+    $scope.reset = function(){
+        $state.reload();
     };
-
     $scope.search = function(){
         $scope.searchByCriteria();
-        if(modalInstance) {
-            modalInstance.close();
-            modalInstance = undefined;
-        }
+
     };
 
-    $scope.closeModal = function(){
-        if(modalInstance) {
-            modalInstance.dismiss('cancel');
-            modalInstance = undefined;
-        }
+    $scope.isOpenedSidebar = false;
+    $scope.toggleSidebar = function(){
+        $scope.isOpenedSidebar = !$scope.isOpenedSidebar;
     };
-
-
 };
 angular.module("BJMMatrimony").controller("SearchCtrl", SearchCtrl);

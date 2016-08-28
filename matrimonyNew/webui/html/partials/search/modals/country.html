@@ -1,18 +1,10 @@
-<div class="modal-header">
-    <button type="button" class="close" ng-click="closeModal()" aria-hidden="true">&times;</button>
-    <h4 class="modal-title">Country</h4>
-</div>
-<div class="modal-body">
-    <ul class="list-unstyled list-group">
-        <li class="list-group-item" ng-repeat="item in facetVM.countryList track by item.pkCountryId">
+<div class="">
+    <ul>
+        <li ng-repeat="item in facetVM.countryList track by item.pkCountryId">
             <label class="label-normal">
                 <checkbox ng-init="item.selected = $parent.selectedCountry.indexOf(item.pkCountryId)>-1?true:false" name="country" ng-model="item.selected" ng-change="toggleSelection(item.pkCountryId, $parent.selectedCountry)" ></checkbox>
-                <span ng-bind="item.CountryName" class="disinblk"></span>
+                <span ng-bind="item.CountryName" class=""></span>
             </label>
         </li>
     </ul>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-default" ng-click="closeModal()">Close</button>
-    <button type="button" class="btn btn-primary" ng-click="search()">Search</button>
 </div>

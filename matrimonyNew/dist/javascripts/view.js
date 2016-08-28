@@ -2861,40 +2861,28 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "    </div>\n" +
     "</div>");
   $templateCache.put("search/modals/age.html",
-    "<div class=\"modal-header\">\n" +
-    "    <button type=\"button\" class=\"close\" ng-click=\"closeModal()\" aria-hidden=\"true\">&times;</button>\n" +
-    "    <h4 class=\"modal-title\">Age in years</h4>\n" +
-    "</div>\n" +
-    "<div class=\"modal-body form-horizontal\">\n" +
+    "<div class=\"form-horizontal\">\n" +
     "    <div class=\"form-group\">\n" +
-    "        <div class=\"col-xs-12 col-sm-2\">\n" +
+    "        <div class=\"col-xs-12 col-sm-3\">\n" +
     "            <label class=\"control-label\">From</label>\n" +
     "        </div>\n" +
-    "        <div class=\"col-xs-12 col-sm-10\">\n" +
+    "        <div class=\"col-xs-12 col-sm-9\">\n" +
     "            <select class=\"form-control\" ng-model=\"$parent.ageFrom\" ng-options=\"item for item in $parent.facetVM.ageList track by item\">\n" +
     "            </select>\n" +
     "        </div>\n" +
     "    </div>\n" +
     "    <div class=\"form-group\">\n" +
-    "        <div class=\"col-xs-12 col-sm-2\">\n" +
+    "        <div class=\"col-xs-12 col-sm-3\">\n" +
     "            <label class=\"control-label\">To</label>\n" +
     "        </div>\n" +
-    "        <div class=\"col-xs-12 col-sm-10\">\n" +
+    "        <div class=\"col-xs-12 col-sm-9\">\n" +
     "            <select class=\"form-control\" ng-model=\"$parent.ageTo\" ng-options=\"item for item in $parent.facetVM.ageList track by item\">\n" +
     "            </select>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "</div>\n" +
-    "<div class=\"modal-footer\">\n" +
-    "    <button type=\"button\" class=\"btn btn-default\" ng-click=\"closeModal()\" >Close</button>\n" +
-    "    <button type=\"button\" class=\"btn btn-primary\" ng-click=\"search()\">Search</button>\n" +
     "</div>");
   $templateCache.put("search/modals/annualIncome.html",
-    "<div class=\"modal-header\">\n" +
-    "    <button type=\"button\" class=\"close\" ng-click=\"closeModal()\" aria-hidden=\"true\">&times;</button>\n" +
-    "    <h4 class=\"modal-title\">Income (INR)</h4>\n" +
-    "</div>\n" +
-    "<div class=\"modal-body form-horizontal\">\n" +
+    "<div class=\"form-horizontal\">\n" +
     "    <div class=\"form-group\">\n" +
     "        <div class=\"col-xs-12 col-sm-3\">\n" +
     "            <label class=\"control-label\">Annual Income</label>\n" +
@@ -2905,94 +2893,71 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "            </select>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "\n" +
-    "</div>\n" +
-    "<div class=\"modal-footer\">\n" +
-    "    <button type=\"button\" class=\"btn btn-default\" ng-click=\"closeModal()\">Close</button>\n" +
-    "    <button type=\"button\" class=\"btn btn-primary\" ng-click=\"search()\">Search</button>\n" +
     "</div>");
   $templateCache.put("search/modals/caste.html",
-    "<div class=\"modal-header\">\n" +
-    "    <button type=\"button\" class=\"close\" ng-click=\"closeModal()\" aria-hidden=\"true\">&times;</button>\n" +
-    "    <h4 class=\"modal-title\">Caste</h4>\n" +
-    "</div>\n" +
-    "<div class=\"modal-body\">\n" +
-    "    <ul class=\"list-unstyled list-group\">\n" +
-    "        <li class=\"list-group-item\" ng-repeat=\"item in facetVM.casteList track by item.pkCasteId\">\n" +
+    "<div class=\"\">\n" +
+    "    <div class=\"clearfix\">\n" +
+    "        <div class=\"pull-left\">\n" +
+    "            <dfn>Search:</dfn>\n" +
+    "            <input type=\"text\" ng-model=\"searchBy\" class=\"form-control input-sm\" />\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <ul>\n" +
+    "        <li ng-repeat=\"item in facetVM.casteList | filter:searchBy track by item.pkCasteId\">\n" +
     "            <label class=\"label-normal\">\n" +
     "                <checkbox ng-init=\"item.selected = $parent.selectedCaste.indexOf(item.pkCasteId)>-1?true:false\" name=\"caste\" ng-model=\"item.selected\" ng-change=\"toggleSelection(item.pkCasteId, $parent.selectedCaste)\" ></checkbox>\n" +
-    "                <span ng-bind=\"item.CasteName\" class=\"disinblk\"></span>\n" +
+    "                <span ng-bind=\"item.CasteName\" class=\"\"></span>\n" +
     "            </label>\n" +
     "        </li>\n" +
     "    </ul>\n" +
-    "</div>\n" +
-    "<div class=\"modal-footer\">\n" +
-    "    <button type=\"button\" class=\"btn btn-default\" ng-click=\"closeModal()\">Close</button>\n" +
-    "    <button type=\"button\" class=\"btn btn-primary\" ng-click=\"search()\">Search</button>\n" +
     "</div>");
   $templateCache.put("search/modals/country.html",
-    "<div class=\"modal-header\">\n" +
-    "    <button type=\"button\" class=\"close\" ng-click=\"closeModal()\" aria-hidden=\"true\">&times;</button>\n" +
-    "    <h4 class=\"modal-title\">Country</h4>\n" +
-    "</div>\n" +
-    "<div class=\"modal-body\">\n" +
-    "    <ul class=\"list-unstyled list-group\">\n" +
-    "        <li class=\"list-group-item\" ng-repeat=\"item in facetVM.countryList track by item.pkCountryId\">\n" +
+    "<div class=\"\">\n" +
+    "    <ul>\n" +
+    "        <li ng-repeat=\"item in facetVM.countryList track by item.pkCountryId\">\n" +
     "            <label class=\"label-normal\">\n" +
     "                <checkbox ng-init=\"item.selected = $parent.selectedCountry.indexOf(item.pkCountryId)>-1?true:false\" name=\"country\" ng-model=\"item.selected\" ng-change=\"toggleSelection(item.pkCountryId, $parent.selectedCountry)\" ></checkbox>\n" +
-    "                <span ng-bind=\"item.CountryName\" class=\"disinblk\"></span>\n" +
+    "                <span ng-bind=\"item.CountryName\" class=\"\"></span>\n" +
     "            </label>\n" +
     "        </li>\n" +
     "    </ul>\n" +
-    "</div>\n" +
-    "<div class=\"modal-footer\">\n" +
-    "    <button type=\"button\" class=\"btn btn-default\" ng-click=\"closeModal()\">Close</button>\n" +
-    "    <button type=\"button\" class=\"btn btn-primary\" ng-click=\"search()\">Search</button>\n" +
     "</div>");
   $templateCache.put("search/modals/courseGroup.html",
-    "<div class=\"modal-header\">\n" +
-    "    <button type=\"button\" class=\"close\" ng-click=\"closeModal()\" aria-hidden=\"true\">&times;</button>\n" +
-    "    <h4 class=\"modal-title\">Education</h4>\n" +
-    "</div>\n" +
-    "<div class=\"modal-body\">\n" +
-    "    <ul class=\"list-unstyled list-group\">\n" +
-    "        <li class=\"list-group-item\" ng-repeat=\"item in facetVM.courseGroupList track by item.pkCourseGroupId\">\n" +
+    "<div class=\"\">\n" +
+    "    <div class=\"clearfix\">\n" +
+    "        <div class=\"pull-left\">\n" +
+    "            <dfn>Search:</dfn>\n" +
+    "            <input type=\"text\" ng-model=\"searchBy\" class=\"form-control input-sm\" />\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <ul>\n" +
+    "        <li ng-repeat=\"item in facetVM.courseGroupList | filter:searchBy track by item.pkCourseGroupId\">\n" +
     "            <label class=\"label-normal\">\n" +
     "                <checkbox ng-init=\"item.selected = $parent.selectedCourseGroup.indexOf(item.pkCourseGroupId)>-1?true:false\" name=\"courseGroup\" ng-model=\"item.selected\" ng-change=\"toggleSelection(item.pkCourseGroupId, $parent.selectedCourseGroup)\" ></checkbox>\n" +
-    "                <span ng-bind=\"item.GroupName\" class=\"disinblk\"></span>\n" +
+    "                <span ng-bind=\"item.GroupName\" class=\"\"></span>\n" +
     "            </label>\n" +
     "        </li>\n" +
     "    </ul>\n" +
-    "</div>\n" +
-    "<div class=\"modal-footer\">\n" +
-    "    <button type=\"button\" class=\"btn btn-default\" ng-click=\"closeModal()\">Close</button>\n" +
-    "    <button type=\"button\" class=\"btn btn-primary\" ng-click=\"search()\">Search</button>\n" +
     "</div>");
   $templateCache.put("search/modals/employedIn.html",
-    "<div class=\"modal-header\">\n" +
-    "    <button type=\"button\" class=\"close\" ng-click=\"closeModal()\" aria-hidden=\"true\">&times;</button>\n" +
-    "    <h4 class=\"modal-title\">Employed In</h4>\n" +
-    "</div>\n" +
-    "<div class=\"modal-body\">\n" +
-    "    <ul class=\"list-unstyled list-group\" >\n" +
-    "        <li class=\"list-group-item\" ng-repeat=\"item in facetVM.employedInList track by item.key\">\n" +
+    "<div class=\"\">\n" +
+    "    <div class=\"clearfix\">\n" +
+    "        <div class=\"pull-left\">\n" +
+    "            <dfn>Search:</dfn>\n" +
+    "            <input type=\"text\" ng-model=\"searchBy\" class=\"form-control input-sm\" />\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <ul>\n" +
+    "        <li ng-repeat=\"item in facetVM.employedInList | filter:searchBy track by item.key\">\n" +
     "            <label class=\"label-normal\">\n" +
     "                <checkbox ng-init=\"item.selected = $parent.selectedEmployedIn.indexOf(item.key)>-1?true:false\" name=\"physicalStatus\" ng-model=\"item.selected\" ng-change=\"toggleSelection(item.key, $parent.selectedEmployedIn)\" ></checkbox>\n" +
-    "                <span ng-bind=\"item.text\" class=\"disinblk\"></span>\n" +
+    "                <span ng-bind=\"item.text\" class=\"\"></span>\n" +
     "            </label>\n" +
     "        </li>\n" +
     "    </ul>\n" +
-    "</div>\n" +
-    "<div class=\"modal-footer\">\n" +
-    "    <button type=\"button\" class=\"btn btn-default\" ng-click=\"closeModal()\">Close</button>\n" +
-    "    <button type=\"button\" class=\"btn btn-primary\" ng-click=\"search()\">Search</button>\n" +
     "</div>");
   $templateCache.put("search/modals/height.html",
-    "<div class=\"modal-header\">\n" +
-    "    <button type=\"button\" class=\"close\" ng-click=\"closeModal()\" aria-hidden=\"true\">&times;</button>\n" +
-    "    <h4 class=\"modal-title\">Height</h4>\n" +
-    "</div>\n" +
-    "<div class=\"modal-body form-horizontal\">\n" +
+    "<div class=\"form-horizontal\">\n" +
     "    <div class=\"form-group\">\n" +
     "        <div class=\"col-xs-12 col-sm-2\">\n" +
     "            <label class=\"control-label\">From</label>\n" +
@@ -3013,124 +2978,84 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "            </select>\n" +
     "        </div>\n" +
     "    </div>\n" +
-    "</div>\n" +
-    "<div class=\"modal-footer\">\n" +
-    "    <button type=\"button\" class=\"btn btn-default\" ng-click=\"closeModal()\">Close</button>\n" +
-    "    <button type=\"button\" class=\"btn btn-primary\" ng-click=\"search()\">Search</button>\n" +
     "</div>");
   $templateCache.put("search/modals/maritalStatus.html",
-    "<div class=\"modal-header\">\n" +
-    "    <button type=\"button\" class=\"close\" ng-click=\"closeModal()\" aria-hidden=\"true\">&times;</button>\n" +
-    "    <h4 class=\"modal-title\">Marital Status</h4>\n" +
-    "</div>\n" +
-    "<div class=\"modal-body\">\n" +
-    "    <ul class=\"list-unstyled list-group\" >\n" +
-    "        <li class=\"list-group-item\" ng-repeat=\"item in facetVM.maritalStatusList track by item.key\">\n" +
+    "<div class=\"\">\n" +
+    "    <ul>\n" +
+    "        <li ng-repeat=\"item in facetVM.maritalStatusList track by item.key\">\n" +
     "            <label class=\"label-normal\">\n" +
     "                <checkbox ng-init=\"item.selected = $parent.selectedMaritalStatus.indexOf(item.key)>-1?true:false\" name=\"maritalStatus\" ng-model=\"item.selected\" ng-change=\"toggleSelection(item.key, $parent.selectedMaritalStatus)\" ></checkbox>\n" +
-    "                <span ng-bind=\"item.text\" class=\"disinblk\"></span>\n" +
+    "                <span ng-bind=\"item.text\" class=\"\"></span>\n" +
     "            </label>\n" +
     "        </li>\n" +
     "    </ul>\n" +
-    "</div>\n" +
-    "<div class=\"modal-footer\">\n" +
-    "    <button type=\"button\" class=\"btn btn-default\" ng-click=\"closeModal()\">Close</button>\n" +
-    "    <button type=\"button\" class=\"btn btn-primary\" ng-click=\"search()\">Search</button>\n" +
     "</div>");
   $templateCache.put("search/modals/motherToungue.html",
-    "<div class=\"modal-header\">\n" +
-    "    <button type=\"button\" class=\"close\" ng-click=\"closeModal()\" aria-hidden=\"true\">&times;</button>\n" +
-    "    <h4 class=\"modal-title\">Mother Toungue</h4>\n" +
-    "</div>\n" +
-    "<div class=\"modal-body\">\n" +
-    "    <ul class=\"list-unstyled list-group\" >\n" +
-    "        <li class=\"list-group-item\" ng-repeat=\"item in facetVM.motherTongueList track by item.pkTongueId\">\n" +
+    "<div class=\"\">\n" +
+    "    <div class=\"clearfix\">\n" +
+    "        <div class=\"pull-left\">\n" +
+    "            <dfn>Search:</dfn>\n" +
+    "            <input type=\"text\" ng-model=\"searchBy\" class=\"form-control input-sm\" />\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <ul>\n" +
+    "        <li ng-repeat=\"item in facetVM.motherTongueList | filter:searchBy track by item.pkTongueId\">\n" +
     "            <label class=\"label-normal\">\n" +
     "                <checkbox ng-init=\"item.selected = $parent.selectedMotherTongue.indexOf(item.pkTongueId)>-1?true:false\" name=\"motherToungue\" ng-model=\"item.selected\" ng-change=\"toggleSelection(item.pkTongueId, $parent.selectedMotherTongue)\" ></checkbox>\n" +
-    "                <span ng-bind=\"item.TongueName\" class=\"disinblk\"></span>\n" +
+    "                <span ng-bind=\"item.TongueName\" class=\"\"></span>\n" +
     "            </label>\n" +
     "        </li>\n" +
     "    </ul>\n" +
-    "</div>\n" +
-    "<div class=\"modal-footer\">\n" +
-    "    <button type=\"button\" class=\"btn btn-default\" ng-click=\"closeModal()\">Close</button>\n" +
-    "    <button type=\"button\" class=\"btn btn-primary\" ng-click=\"search()\">Search</button>\n" +
     "</div>");
   $templateCache.put("search/modals/occupationGroup.html",
-    "<div class=\"modal-header\">\n" +
-    "    <button type=\"button\" class=\"close\" ng-click=\"closeModal()\" aria-hidden=\"true\">&times;</button>\n" +
-    "    <h4 class=\"modal-title\">Occupation</h4>\n" +
-    "</div>\n" +
-    "<div class=\"modal-body\">\n" +
-    "    <ul class=\"list-unstyled list-group\">\n" +
-    "        <li class=\"list-group-item\" ng-repeat=\"item in facetVM.occupationGroupList track by item.pkOccGroupId\">\n" +
+    "<div class=\"\">\n" +
+    "    <div class=\"clearfix\">\n" +
+    "        <div class=\"pull-left\">\n" +
+    "            <dfn>Search:</dfn>\n" +
+    "            <input type=\"text\" ng-model=\"searchBy\" class=\"form-control input-sm\" />\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <ul>\n" +
+    "        <li ng-repeat=\"item in facetVM.occupationGroupList | filter:searchBy track by item.pkOccGroupId\">\n" +
     "            <label class=\"label-normal\">\n" +
     "                <checkbox ng-init=\"item.selected = $parent.selectedOccupationGroup.indexOf(item.pkOccGroupId)>-1?true:false\" name=\"occupationGroup\" ng-model=\"item.selected\" ng-change=\"toggleSelection(item.pkOccGroupId, $parent.selectedOccupationGroup)\" ></checkbox>\n" +
-    "                <span ng-bind=\"item.GroupName\" class=\"disinblk\"></span>\n" +
+    "                <span ng-bind=\"item.GroupName\" class=\"\"></span>\n" +
     "            </label>\n" +
     "        </li>\n" +
     "    </ul>\n" +
-    "</div>\n" +
-    "<div class=\"modal-footer\">\n" +
-    "    <button type=\"button\" class=\"btn btn-default\" ng-click=\"closeModal()\">Close</button>\n" +
-    "    <button type=\"button\" class=\"btn btn-primary\" ng-click=\"search()\">Search</button>\n" +
     "</div>");
   $templateCache.put("search/modals/physicalStatus.html",
-    "<div class=\"modal-header\">\n" +
-    "    <button type=\"button\" class=\"close\" ng-click=\"closeModal()\" aria-hidden=\"true\">&times;</button>\n" +
-    "    <h4 class=\"modal-title\">Physical Status</h4>\n" +
-    "</div>\n" +
-    "<div class=\"modal-body\">\n" +
-    "    <ul class=\"list-unstyled list-group\">\n" +
-    "        <li class=\"list-group-item\" ng-repeat=\"item in facetVM.physicalStatusList track by item.key\">\n" +
+    "<div class=\"\">\n" +
+    "    <ul>\n" +
+    "        <li ng-repeat=\"item in facetVM.physicalStatusList track by item.key\">\n" +
     "            <label class=\"label-normal\">\n" +
     "                <checkbox ng-init=\"item.selected = $parent.selectedPhysicalStatus.indexOf(item.key)>-1?true:false\" name=\"physicalStatus\" ng-model=\"item.selected\" ng-change=\"toggleSelection(item.key, $parent.selectedPhysicalStatus)\" ></checkbox>\n" +
-    "                <span ng-bind=\"item.text\" class=\"disinblk\"></span>\n" +
+    "                <span ng-bind=\"item.text\" class=\"\"></span>\n" +
     "            </label>\n" +
     "        </li>\n" +
     "    </ul>\n" +
-    "</div>\n" +
-    "<div class=\"modal-footer\">\n" +
-    "    <button type=\"button\" class=\"btn btn-default\" ng-click=\"closeModal()\">Close</button>\n" +
-    "    <button type=\"button\" class=\"btn btn-primary\" ng-click=\"search()\">Search</button>\n" +
     "</div>");
   $templateCache.put("search/modals/sect.html",
-    "<div class=\"modal-header\">\n" +
-    "    <button type=\"button\" class=\"close\" ng-click=\"closeModal()\" aria-hidden=\"true\">&times;</button>\n" +
-    "    <h4 class=\"modal-title\">Sect</h4>\n" +
-    "</div>\n" +
-    "<div class=\"modal-body\">\n" +
-    "    <ul class=\"list-unstyled list-group\">\n" +
-    "        <li class=\"list-group-item\" ng-repeat=\"item in facetVM.sectList track by item.pkSectId\">\n" +
+    "<div class=\"\">\n" +
+    "    <ul>\n" +
+    "        <li ng-repeat=\"item in facetVM.sectList track by item.pkSectId\">\n" +
     "            <label class=\"label-normal\">\n" +
     "                <checkbox ng-init=\"item.selected = $parent.selectedSect.indexOf(item.pkSectId)>-1?true:false\" name=\"sect\" ng-model=\"item.selected\" ng-change=\"toggleSelection(item.pkSectId, $parent.selectedSect)\" ></checkbox>\n" +
-    "                <span ng-bind=\"item.SectName\" class=\"disinblk\"></span>\n" +
+    "                <span ng-bind=\"item.SectName\" class=\"\"></span>\n" +
     "            </label>\n" +
     "        </li>\n" +
     "    </ul>\n" +
-    "</div>\n" +
-    "<div class=\"modal-footer\">\n" +
-    "    <button type=\"button\" class=\"btn btn-default\" ng-click=\"closeModal()\">Close</button>\n" +
-    "    <button type=\"button\" class=\"btn btn-primary\" ng-click=\"search()\">Search</button>\n" +
     "</div>");
   $templateCache.put("search/modals/subsect.html",
-    "<div class=\"modal-header\">\n" +
-    "    <button type=\"button\" class=\"close\" ng-click=\"closeModal()\" aria-hidden=\"true\">&times;</button>\n" +
-    "    <h4 class=\"modal-title\">Sub Sect</h4>\n" +
-    "</div>\n" +
-    "<div class=\"modal-body\">\n" +
-    "    <ul class=\"list-unstyled list-group\">\n" +
-    "        <li class=\"list-group-item\" ng-repeat=\"item in facetVM.subSectList track by item.pkSubSectId\">\n" +
+    "<div class=\"\">\n" +
+    "    <ul>\n" +
+    "        <li ng-repeat=\"item in facetVM.subSectList track by item.pkSubSectId\">\n" +
     "            <label class=\"label-normal\">\n" +
     "                <checkbox ng-init=\"item.selected = $parent.selectedSubSect.indexOf(item.pkSubSectId)>-1?true:false\" name=\"subsect\" ng-model=\"item.selected\" ng-change=\"toggleSelection(item.pkSubSectId, $parent.selectedSubSect)\" ></checkbox>\n" +
-    "                <span ng-bind=\"item.SubSectName\" class=\"disinblk\"></span>\n" +
+    "                <span ng-bind=\"item.SubSectName\" class=\"\"></span>\n" +
     "            </label>\n" +
     "        </li>\n" +
     "    </ul>\n" +
-    "</div>\n" +
-    "<div class=\"modal-footer\">\n" +
-    "    <button type=\"button\" class=\"btn btn-default\" ng-click=\"closeModal()\">Close</button>\n" +
-    "    <button type=\"button\" class=\"btn btn-primary\" ng-click=\"search()\">Search</button>\n" +
     "</div>");
   $templateCache.put("search/quickSearch.html",
     "<div class=\"well\" ng-controller=\"SearchCtrl\">\n" +
@@ -3175,10 +3100,6 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "<div class=\"row-fluid\">\n" +
     "    <h1>Your Search Results (<span ng-bind=\"totalItems\"></span>)</h1>\n" +
     "    <div class=\"dot-line mrgb20\"></div>\n" +
-    "    <!-- choosen search criteria -->\n" +
-    "    <div >\n" +
-    "        <div ng-include=\"'search/choosenSearchCriteria.html'\"></div>\n" +
-    "    </div>\n" +
     "    <div ng-if=\"dataList && dataList.length>0 && isLoaded\">\n" +
     "        <div class=\"pager\"> Go to page:\n" +
     "            <ul class=\"yiiPager\" >\n" +
@@ -3468,198 +3389,183 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "</div>\n" +
     "");
   $templateCache.put("search/searchResults.html",
-    "<div id=\"searchbar\" class=\"row row-offcanvas row-offcanvas-left\">\n" +
-    "    <div class=\"padt30\">\n" +
-    "        <div class=\"col-xs-6 col-sm-3 sidebar-offcanvas\" id=\"sidebar\" role=\"navigation\">\n" +
-    "            <div class=\"panel panel-default\">\n" +
-    "                <div class=\"panel-heading\">\n" +
-    "                    <h3 class=\"panel-title\">Refine your search</h3>\n" +
-    "                </div>\n" +
-    "                <div class=\"panel-body\">\n" +
-    "                    <div>\n" +
-    "                        <p> You can refine your search results by simply modify/change search criteria as given below:- </p>\n" +
+    "<div class=\"row row-offcanvas row-offcanvas-left\">\n" +
+    "    <div class=\"\">\n" +
+    "        <div id=\"searchbar-wrapper\" class=\"col-sm-12 col-md-3\" ng-class=\"{'is-open': isOpenedSidebar}\">\n" +
+    "            <div class=\"overlay\" ng-show=\"isOpenedSidebar\"></div>\n" +
+    "            <div id=\"searchbar\" class=\"sidebar-offcanvas\" role=\"navigation\">\n" +
+    "                <div class=\"panel panel-default search-bar\">\n" +
+    "                    <div class=\"clearfix panel-heading search-bar-heading\">\n" +
+    "                        <h3 class=\"pull-left panel-title\">Refine your search</h3>\n" +
+    "                        <a ng-click=\"toggleSidebar()\" class=\"pull-right close hidden-md hidden-lg\">\n" +
+    "                            <i class=\"glyphicon glyphicon-remove\"></i>\n" +
+    "                        </a>\n" +
     "                    </div>\n" +
-    "                    <div class=\"accordion\" id=\"accordion1\">\n" +
-    "                        <!-- Age -->\n" +
-    "                        <div class=\"accordion-group\">\n" +
-    "                            <div class=\"accordion-heading\"> <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion1\" href=\"#collapse1\"> Age </a> </div>\n" +
-    "                            <div id=\"collapse1\" class=\"accordion-body collapse in\">\n" +
-    "                                <div class=\"accordion-inner\">\n" +
-    "                                    <div><span class=\"glyphicon glyphicon-triangle-right\"></span><span ng-bind=\"ageFrom\"></span> yrs - <span ng-bind=\"ageTo\"></span> yrs </div>\n" +
-    "                                    <div class=\"tlright\"> <a class=\"btn btn-primary\" ng-click=\"openModal('search/modals/age.html')\" title=\"click here to change criteria\">change</a> </div>\n" +
-    "                                </div>\n" +
+    "                    <div class=\"filtered\">\n" +
+    "                        <div class=\"clearfix search-filter-header\">\n" +
+    "                            <div class=\"pull-left filter-icons\">\n" +
+    "                                <button ng-click=\"reset()\" class=\"btn btn-sm btn-link\">\n" +
+    "                                    <span class=\"glyphicon glyphicon-refresh\"></span>\n" +
+    "                                    <span>Reset</span>\n" +
+    "                                </button>\n" +
+    "                            </div>\n" +
+    "                            <div class=\"pull-right filter-icons\">\n" +
+    "                                <button ng-click=\"search()\" class=\"btn btn-sm btn-link\">\n" +
+    "                                    <span class=\"glyphicon glyphicon-search\"></span>\n" +
+    "                                    <span>Search</span>\n" +
+    "                                </button>\n" +
     "                            </div>\n" +
     "                        </div>\n" +
-    "\n" +
-    "                        <!-- Height -->\n" +
-    "                        <div class=\"accordion-group\">\n" +
-    "                            <div class=\"accordion-heading\"> <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion1\" href=\"#collapse2\"> Height </a> </div>\n" +
-    "                            <div id=\"collapse2\" class=\"accordion-body collapse\">\n" +
-    "                                <div class=\"accordion-inner\">\n" +
-    "                                    <div> <span class=\"glyphicon glyphicon-triangle-right\"></span> <span ng-bind=\"facetVM.heightInWords(heightFrom)\"></span> - <span ng-bind=\"facetVM.heightInWords(heightTo)\"></span> </div>\n" +
-    "                                    <div class=\"tlright\"> <a class=\"btn btn-primary\" ng-click=\"openModal('search/modals/height.html')\" title=\"click here to change criteria\">change</a> </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                        </div>\n" +
-    "\n" +
-    "                        <!-- Marital Status -->\n" +
-    "                        <div class=\"accordion-group\">\n" +
-    "                            <div class=\"accordion-heading\"> <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion1\" href=\"#collapse3\"> Marital Status </a> </div>\n" +
-    "                            <div id=\"collapse3\" class=\"accordion-body collapse\">\n" +
-    "                                <div class=\"accordion-inner\">\n" +
-    "                                    <div ng-if=\"selectedMaritalStatus.length > 0\" ng-repeat=\"item in selectedMaritalStatus track by item\">\n" +
-    "                                        <span class=\"glyphicon glyphicon-triangle-right\"></span><span ng-bind=\"getSelectedItem(item, facetVM.maritalStatusList, 'key').text\"></span>\n" +
-    "                                    </div>\n" +
-    "                                    <div ng-if=\"selectedMaritalStatus.length == 0 || (selectedMaritalStatus.length==1 && !selectedMaritalStatus[0])\"><span class=\"glyphicon glyphicon-triangle-right\"></span><span>Any</span></div>\n" +
-    "                                    <div class=\"tlright\"> <a class=\"btn btn-primary\" ng-click=\"openModal('search/modals/maritalStatus.html')\" title=\"click here to change criteria\">change</a> </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                        </div>\n" +
-    "                        <!-- Mother Toungue -->\n" +
-    "                        <div class=\"accordion-group\">\n" +
-    "                            <div class=\"accordion-heading\"> <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion1\" href=\"#collapse4\"> Mother Toungue </a> </div>\n" +
-    "                            <div id=\"collapse4\" class=\"accordion-body collapse\">\n" +
-    "                                <div class=\"accordion-inner\">\n" +
-    "                                    <div ng-if=\"selectedMotherTongue.length > 0\" ng-repeat=\"item in selectedMotherTongue track by item\">\n" +
-    "                                        <span class=\"glyphicon glyphicon-triangle-right\"></span><span ng-bind=\"getSelectedItem(item, facetVM.motherTongueList, 'pkTongueId').TongueName\"></span>\n" +
-    "                                    </div>\n" +
-    "                                    <div ng-if=\"selectedMotherTongue.length==0 || (selectedMotherTongue.length==1 && !selectedMotherTongue[0])\"><span class=\"glyphicon glyphicon-triangle-right\"></span><span>Any</span></div>\n" +
-    "\n" +
-    "                                    <div class=\"tlright\"> <a class=\"btn btn-primary\" ng-click=\"openModal('search/modals/motherToungue.html')\" title=\"click here to change criteria\">change</a> </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                        </div>\n" +
-    "\n" +
-    "                        <!-- Sect -->\n" +
-    "                        <div class=\"accordion-group\">\n" +
-    "                            <div class=\"accordion-heading\"> <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion1\" href=\"#collapse5\"> Sect </a> </div>\n" +
-    "                            <div id=\"collapse5\" class=\"accordion-body collapse\">\n" +
-    "                                <div class=\"accordion-inner\">\n" +
-    "                                    <div ng-if=\"selectedSect.length > 0\" ng-repeat=\"item in selectedSect track by item\">\n" +
-    "                                        <span class=\"glyphicon glyphicon-triangle-right\"></span><span ng-bind=\"getSelectedItem(item, facetVM.sectList, 'pkSectId').SectName\"></span>\n" +
-    "                                    </div>\n" +
-    "                                    <div ng-if=\"selectedSect.length==0 || (selectedSect.length==1 && !selectedSect[0])\"><span class=\"glyphicon glyphicon-triangle-right\"></span><span>Any</span></div>\n" +
-    "                                    <div class=\"tlright\"> <a class=\"btn btn-primary\" ng-click=\"openModal('search/modals/sect.html')\" title=\"click here to change criteria\">change</a> </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                        </div>\n" +
-    "\n" +
-    "                        <!-- Sub Sect -->\n" +
-    "                        <div class=\"accordion-group\">\n" +
-    "                            <div class=\"accordion-heading\"> <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion1\" href=\"#collapse6\"> Sub Sect </a> </div>\n" +
-    "                            <div id=\"collapse6\" class=\"accordion-body collapse\">\n" +
-    "                                <div class=\"accordion-inner\">\n" +
-    "                                    <div ng-if=\"selectedSubSect.length > 0\" ng-repeat=\"item in selectedSubSect track by item\">\n" +
-    "                                        <span class=\"glyphicon glyphicon-triangle-right\"></span><span ng-bind=\"getSelectedItem(item, facetVM.subSectList, 'pkSubSectId').SubSectName\"></span>\n" +
-    "                                    </div>\n" +
-    "                                    <div ng-if=\"selectedSubSect.length==0 || (selectedSubSect.length==1 && !selectedSubSect[0])\"><span class=\"glyphicon glyphicon-triangle-right\"></span><span>Any</span></div>\n" +
-    "                                    <div class=\"tlright\"> <a class=\"btn btn-primary\" ng-click=\"openModal('search/modals/subsect.html')\" title=\"click here to change criteria\">change</a> </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                        </div>\n" +
-    "\n" +
-    "                        <!-- Caste -->\n" +
-    "                        <div class=\"accordion-group\">\n" +
-    "                            <div class=\"accordion-heading\"> <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion1\" href=\"#collapse7\"> Caste </a> </div>\n" +
-    "                            <div id=\"collapse7\" class=\"accordion-body collapse\">\n" +
-    "                                <div class=\"accordion-inner\">\n" +
-    "                                    <div ng-if=\"selectedCaste.length > 0\" ng-repeat=\"item in selectedCaste track by item\">\n" +
-    "                                        <span class=\"glyphicon glyphicon-triangle-right\"></span><span ng-bind=\"getSelectedItem(item, facetVM.casteList, 'pkCasteId').CasteName\"></span>\n" +
-    "                                    </div>\n" +
-    "                                    <div ng-if=\"selectedCaste.length==0 || (selectedCaste.length==1 && !selectedCaste[0])\"><span class=\"glyphicon glyphicon-triangle-right\"></span><span>Any</span></div>\n" +
-    "                                    <div class=\"tlright\"> <a class=\"btn btn-primary\" ng-click=\"openModal('search/modals/caste.html')\" title=\"click here to change criteria\">change</a> </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                        </div>\n" +
-    "\n" +
-    "                        <!-- Education -->\n" +
-    "                        <div class=\"accordion-group\">\n" +
-    "                            <div class=\"accordion-heading\"> <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion1\" href=\"#collapse8\"> Education </a> </div>\n" +
-    "                            <div id=\"collapse8\" class=\"accordion-body collapse\">\n" +
-    "                                <div class=\"accordion-inner\">\n" +
-    "                                    <div ng-if=\"selectedCourseGroup.length > 0\" ng-repeat=\"item in selectedCourseGroup track by item\">\n" +
-    "                                        <span class=\"glyphicon glyphicon-triangle-right\"></span><span ng-bind=\"getSelectedItem(item, facetVM.courseGroupList, 'pkCourseGroupId').GroupName\"></span>\n" +
-    "                                    </div>\n" +
-    "                                    <div ng-if=\"selectedCourseGroup.length==0 || (selectedCourseGroup.length==1 && !selectedCourseGroup[0])\"><span class=\"glyphicon glyphicon-triangle-right\"></span><span>Any</span></div>\n" +
-    "                                    <div class=\"tlright\"> <a class=\"btn btn-primary\" ng-click=\"openModal('search/modals/courseGroup.html')\" title=\"click here to change criteria\">change</a> </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                        </div>\n" +
-    "\n" +
-    "                        <!-- Occupation -->\n" +
-    "                        <div class=\"accordion-group\">\n" +
-    "                            <div class=\"accordion-heading\"> <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion1\" href=\"#collapse9\"> Occupation </a> </div>\n" +
-    "                            <div id=\"collapse9\" class=\"accordion-body collapse\">\n" +
-    "                                <div class=\"accordion-inner\">\n" +
-    "                                    <div ng-if=\"selectedOccupationGroup.length > 0\" ng-repeat=\"item in selectedOccupationGroup track by item\">\n" +
-    "                                        <span class=\"glyphicon glyphicon-triangle-right\"></span><span ng-bind=\"getSelectedItem(item, facetVM.occupationGroupList, 'pkOccGroupId').GroupName\"></span>\n" +
-    "                                    </div>\n" +
-    "                                    <div ng-if=\"selectedOccupationGroup.length==0 || (selectedOccupationGroup.length==1 && !selectedOccupationGroup[0])\"><span class=\"glyphicon glyphicon-triangle-right\"></span><span>Any</span></div>\n" +
-    "                                    <div class=\"tlright\"> <a class=\"btn btn-primary\" ng-click=\"openModal('search/modals/occupationGroup.html')\" title=\"click here to change criteria\">change</a> </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                        </div>\n" +
-    "\n" +
-    "                        <!-- Annual Income -->\n" +
-    "                        <div class=\"accordion-group\">\n" +
-    "                            <div class=\"accordion-heading\"> <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion1\" href=\"#collapse10\"> Annual Income </a> </div>\n" +
-    "                            <div id=\"collapse10\" class=\"accordion-body collapse\">\n" +
-    "                                <div class=\"accordion-inner\">\n" +
-    "                                    <div ng-if=\"selectedAnnualIncome\"><span class=\"glyphicon glyphicon-triangle-right\"></span><span ng-bind=\"selectedAnnualIncome.text\"></span></div>\n" +
-    "                                    <div ng-if=\"!selectedAnnualIncome\"><span class=\"glyphicon glyphicon-triangle-right\"></span><span>Any</span></div>\n" +
-    "                                    <div class=\"tlright\"> <a class=\"btn btn-primary\" ng-click=\"openModal('search/modals/annualIncome.html')\" title=\"click here to change criteria\">change</a> </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                        </div>\n" +
-    "\n" +
-    "                        <!-- Country -->\n" +
-    "                        <div class=\"accordion-group\">\n" +
-    "                            <div class=\"accordion-heading\"> <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion1\" href=\"#collapse11\"> Country </a> </div>\n" +
-    "                            <div id=\"collapse11\" class=\"accordion-body collapse\">\n" +
-    "                                <div class=\"accordion-inner\">\n" +
-    "                                    <div ng-if=\"selectedCountry.length > 0\" ng-repeat=\"item in selectedCountry track by item\">\n" +
-    "                                        <span class=\"glyphicon glyphicon-triangle-right\"></span><span ng-bind=\"getSelectedItem(item, facetVM.countryList, 'pkCountryId').CountryName\"></span>\n" +
-    "                                    </div>\n" +
-    "                                    <div ng-if=\"selectedCountry.length==0 || (selectedCountry.length==1 && !selectedCountry[0])\"><span class=\"glyphicon glyphicon-triangle-right\"></span><span>Any</span></div>\n" +
-    "                                    <div class=\"tlright\"> <a class=\"btn btn-primary\" ng-click=\"openModal('search/modals/country.html')\" title=\"click here to change criteria\">change</a> </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                        </div>\n" +
-    "                        <!-- Physical Status -->\n" +
-    "                        <div class=\"accordion-group\">\n" +
-    "                            <div class=\"accordion-heading\"> <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion1\" href=\"#collapse12\"> Physical Status </a> </div>\n" +
-    "                            <div id=\"collapse12\" class=\"accordion-body collapse\">\n" +
-    "                                <div class=\"accordion-inner\">\n" +
-    "                                    <div ng-if=\"selectedPhysicalStatus.length > 0\" ng-repeat=\"item in selectedPhysicalStatus track by item\">\n" +
-    "                                        <span class=\"glyphicon glyphicon-triangle-right\"></span><span ng-bind=\"getSelectedItem(item, facetVM.physicalStatusList, 'key').text\"></span>\n" +
-    "                                    </div>\n" +
-    "                                    <div ng-if=\"selectedPhysicalStatus.length==0 || (selectedPhysicalStatus.length==1 && !selectedPhysicalStatus[0] && selectedPhysicalStatus[0] !== 0)\"><span class=\"glyphicon glyphicon-triangle-right\"></span><span>Any</span></div>\n" +
-    "                                    <div class=\"tlright\"> <a class=\"btn btn-primary\" ng-click=\"openModal('search/modals/physicalStatus.html')\" title=\"click here to change criteria\">change</a> </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                        </div>\n" +
-    "                        <!-- Employed in -->\n" +
-    "                        <div class=\"accordion-group\">\n" +
-    "                            <div class=\"accordion-heading\"> <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion1\" href=\"#collapse13\"> Employed in </a> </div>\n" +
-    "                            <div id=\"collapse13\" class=\"accordion-body collapse\">\n" +
-    "                                <div class=\"accordion-inner\">\n" +
-    "                                    <div ng-if=\"selectedEmployedIn.length > 0\" ng-repeat=\"item in selectedEmployedIn track by item\">\n" +
-    "                                        <span class=\"glyphicon glyphicon-triangle-right\"></span><span ng-bind=\"getSelectedItem(item, facetVM.employedInList, 'key').text\"></span>\n" +
-    "                                    </div>\n" +
-    "                                    <!-- ko if:  -->\n" +
-    "                                    <div ng-if=\"selectedEmployedIn.length==0 || (selectedEmployedIn.length==1 && !selectedEmployedIn[0])\"><span class=\"glyphicon glyphicon-triangle-right\"></span><span>Any</span></div>\n" +
-    "                                    <!-- /ko -->\n" +
-    "                                    <div class=\"tlright\"> <a class=\"btn btn-primary\" ng-click=\"openModal('search/modals/employedIn.html')\" title=\"click here to change criteria\">change</a> </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
+    "                        <div>\n" +
+    "                            <ul class=\"nav navbar-default search-filter-nav\">\n" +
+    "                                <li ng-init=\"acc1open = false;\" ng-class=\"{'open': acc1open}\">\n" +
+    "                                    <a ng-click=\"acc1open = !acc1open\">\n" +
+    "                                        <strong>Age:</strong>\n" +
+    "                                        <span ng-bind=\"ageFrom\"></span> yrs - <span ng-bind=\"ageTo\"></span> yrs\n" +
+    "                                        <i class=\"pull-right glyphicon\" ng-class=\"{'glyphicon-chevron-down': acc1open, 'glyphicon-chevron-right': !acc1open}\"></i>\n" +
+    "                                    </a>\n" +
+    "                                    <div class=\"search-filter-body\" ng-include=\"'search/modals/age.html'\"></div>\n" +
+    "                                </li>\n" +
+    "                                <li ng-init=\"acc2open = false;\" ng-class=\"{'open': acc2open}\">\n" +
+    "                                    <a ng-click=\"acc2open = !acc2open\">\n" +
+    "                                        <strong>Height:</strong>\n" +
+    "                                        <span ng-bind=\"facetVM.heightInWords(heightFrom)\"></span> - <span ng-bind=\"facetVM.heightInWords(heightTo)\"></span>\n" +
+    "                                        <i class=\"pull-right glyphicon\" ng-class=\"{'glyphicon-chevron-down': acc2open, 'glyphicon-chevron-right': !acc2open}\"></i>\n" +
+    "                                    </a>\n" +
+    "                                    <div class=\"search-filter-body\" ng-include=\"'search/modals/height.html'\"></div>\n" +
+    "                                </li>\n" +
+    "                                <li ng-init=\"acc3open = false;\" ng-class=\"{'open': acc3open}\">\n" +
+    "                                    <a ng-click=\"acc3open = !acc3open\">\n" +
+    "                                        <strong>Marital Status:</strong>\n" +
+    "                                        <span ng-if=\"selectedMaritalStatus.length > 0\" ng-repeat=\"item in selectedMaritalStatus track by item\">\n" +
+    "                                            <span ng-bind=\"getSelectedItem(item, facetVM.maritalStatusList, 'key').text + (($index != selectedMaritalStatus.length-1)?',':'')\"></span>\n" +
+    "                                        </span>\n" +
+    "                                        <span ng-if=\"selectedMaritalStatus.length == 0 || (selectedMaritalStatus.length==1 && !selectedMaritalStatus[0])\">\n" +
+    "                                            <span>Any</span>\n" +
+    "                                        </span>\n" +
+    "                                        <i class=\"pull-right glyphicon\" ng-class=\"{'glyphicon-chevron-down': acc3open, 'glyphicon-chevron-right': !acc3open}\"></i>\n" +
+    "                                    </a>\n" +
+    "                                    <div class=\"search-filter-body\" ng-include=\"'search/modals/maritalStatus.html'\"></div>\n" +
+    "                                </li>\n" +
+    "                                <li ng-init=\"acc4open = false;\" ng-class=\"{'open': acc4open}\">\n" +
+    "                                    <a ng-click=\"acc4open = !acc4open\">\n" +
+    "                                        <strong>Mother Toungue:</strong>\n" +
+    "                                        <span ng-if=\"selectedMotherTongue.length > 0\" ng-repeat=\"item in selectedMotherTongue track by item\">\n" +
+    "                                            <span ng-bind=\"getSelectedItem(item, facetVM.motherTongueList, 'pkTongueId').TongueName + (($index != selectedMotherTongue.length-1)?',':'')\"></span>\n" +
+    "                                        </span>\n" +
+    "                                        <span ng-if=\"selectedMotherTongue.length == 0 || (selectedMotherTongue.length==1 && !selectedMotherTongue[0])\">\n" +
+    "                                            <span>Any</span>\n" +
+    "                                        </span>\n" +
+    "                                        <i class=\"pull-right glyphicon\" ng-class=\"{'glyphicon-chevron-down': acc4open, 'glyphicon-chevron-right': !acc4open}\"></i>\n" +
+    "                                    </a>\n" +
+    "                                    <div class=\"search-filter-body\" ng-include=\"'search/modals/motherToungue.html'\"></div>\n" +
+    "                                </li>\n" +
+    "                                <li ng-init=\"acc5open = false;\" ng-class=\"{'open': acc5open}\">\n" +
+    "                                    <a ng-click=\"acc5open = !acc5open\">\n" +
+    "                                        <strong>Sect:</strong>\n" +
+    "                                        <span ng-if=\"selectedSect.length > 0\" ng-repeat=\"item in selectedSect track by item\">\n" +
+    "                                            <span ng-bind=\"getSelectedItem(item, facetVM.sectList, 'pkSectId').SectName + (($index != selectedSect.length-1)?',':'')\"></span>\n" +
+    "                                        </span>\n" +
+    "                                        <span ng-if=\"selectedSect.length==0 || (selectedSect.length==1 && !selectedSect[0])\"><span>Any</span></span>\n" +
+    "                                        <i class=\"pull-right glyphicon\" ng-class=\"{'glyphicon-chevron-down': acc5open, 'glyphicon-chevron-right': !acc5open}\"></i>\n" +
+    "                                    </a>\n" +
+    "                                    <div class=\"search-filter-body\" ng-include=\"'search/modals/sect.html'\"></div>\n" +
+    "                                </li>\n" +
+    "                                <li ng-init=\"acc6open = false;\" ng-class=\"{'open': acc6open}\">\n" +
+    "                                    <a ng-click=\"acc6open = !acc6open\">\n" +
+    "                                        <strong>Sub Sect:</strong>\n" +
+    "                                        <span ng-if=\"selectedSubSect.length > 0\" ng-repeat=\"item in selectedSubSect track by item\">\n" +
+    "                                            <span ng-bind=\"getSelectedItem(item, facetVM.subSectList, 'pkSubSectId').SubSectName + (($index != selectedSubSect.length-1)?',':'')\"></span>\n" +
+    "                                        </span>\n" +
+    "                                        <span ng-if=\"selectedSubSect.length==0 || (selectedSubSect.length==1 && !selectedSubSect[0])\"><span>Any</span></span>\n" +
+    "                                        <i class=\"pull-right glyphicon\" ng-class=\"{'glyphicon-chevron-down': acc6open, 'glyphicon-chevron-right': !acc6open}\"></i>\n" +
+    "                                    </a>\n" +
+    "                                    <div class=\"search-filter-body\" ng-include=\"'search/modals/subsect.html'\"></div>\n" +
+    "                                </li>\n" +
+    "                                <li ng-init=\"acc7open = false;\" ng-class=\"{'open': acc7open}\">\n" +
+    "                                    <a ng-click=\"acc7open = !acc7open\">\n" +
+    "                                        <strong>Caste:</strong>\n" +
+    "                                        <span ng-if=\"selectedCaste.length > 0\" ng-repeat=\"item in selectedCaste track by item\">\n" +
+    "                                            <span ng-bind=\"getSelectedItem(item, facetVM.casteList, 'pkCasteId').CasteName + (($index != selectedCaste.length-1)?',':'')\"></span>\n" +
+    "                                        </span>\n" +
+    "                                        <span ng-if=\"selectedCaste.length==0 || (selectedCaste.length==1 && !selectedCaste[0])\"><span>Any</span></span>\n" +
+    "                                        <i class=\"pull-right glyphicon\" ng-class=\"{'glyphicon-chevron-down': acc7open, 'glyphicon-chevron-right': !acc7open}\"></i>\n" +
+    "                                    </a>\n" +
+    "                                    <div class=\"search-filter-body\" ng-include=\"'search/modals/caste.html'\"></div>\n" +
+    "                                </li>\n" +
+    "                                <li ng-init=\"acc8open = false;\" ng-class=\"{'open': acc8open}\">\n" +
+    "                                    <a ng-click=\"acc8open = !acc8open\">\n" +
+    "                                        <strong>Education:</strong>\n" +
+    "                                        <span ng-if=\"selectedCourseGroup.length > 0\" ng-repeat=\"item in selectedCourseGroup track by item\">\n" +
+    "                                            <span ng-bind=\"getSelectedItem(item, facetVM.courseGroupList, 'pkCourseGroupId').GroupName + (($index != selectedCourseGroup.length-1)?',':'')\"></span>\n" +
+    "                                        </span>\n" +
+    "                                        <span ng-if=\"selectedCourseGroup.length==0 || (selectedCourseGroup.length==1 && !selectedCourseGroup[0])\"><span>Any</span></span>\n" +
+    "                                        <i class=\"pull-right glyphicon\" ng-class=\"{'glyphicon-chevron-down': acc8open, 'glyphicon-chevron-right': !acc8open}\"></i>\n" +
+    "                                    </a>\n" +
+    "                                    <div class=\"search-filter-body\" ng-include=\"'search/modals/courseGroup.html'\"></div>\n" +
+    "                                </li>\n" +
+    "                                <li ng-init=\"acc9open = false;\" ng-class=\"{'open': acc9open}\">\n" +
+    "                                    <a ng-click=\"acc9open = !acc9open\">\n" +
+    "                                        <strong>Occupation:</strong>\n" +
+    "                                        <span ng-if=\"selectedOccupationGroup.length > 0\" ng-repeat=\"item in selectedOccupationGroup track by item\">\n" +
+    "                                            <span ng-bind=\"getSelectedItem(item, facetVM.occupationGroupList, 'pkOccGroupId').GroupName + (($index != selectedOccupationGroup.length-1)?',':'')\"></span>\n" +
+    "                                        </span>\n" +
+    "                                        <span ng-if=\"selectedOccupationGroup.length==0 || (selectedOccupationGroup.length==1 && !selectedOccupationGroup[0])\"><span>Any</span></span>\n" +
+    "                                        <i class=\"pull-right glyphicon\" ng-class=\"{'glyphicon-chevron-down': acc9open, 'glyphicon-chevron-right': !acc9open}\"></i>\n" +
+    "                                    </a>\n" +
+    "                                    <div class=\"search-filter-body\" ng-include=\"'search/modals/occupationGroup.html'\"></div>\n" +
+    "                                </li>\n" +
+    "                                <li ng-init=\"acc10open = false;\" ng-class=\"{'open': acc10open}\">\n" +
+    "                                    <a ng-click=\"acc10open = !acc10open\">\n" +
+    "                                        <strong>Annual Income:</strong>\n" +
+    "                                        <span ng-if=\"selectedAnnualIncome\"><span ng-bind=\"selectedAnnualIncome.text\"></span></span>\n" +
+    "                                        <span ng-if=\"!selectedAnnualIncome\"><span>Any</span></span>\n" +
+    "                                        <i class=\"pull-right glyphicon\" ng-class=\"{'glyphicon-chevron-down': acc10open, 'glyphicon-chevron-right': !acc10open}\"></i>\n" +
+    "                                    </a>\n" +
+    "                                    <div class=\"search-filter-body\" ng-include=\"'search/modals/annualIncome.html'\"></div>\n" +
+    "                                </li>\n" +
+    "                                <li ng-init=\"acc11open = false;\" ng-class=\"{'open': acc11open}\">\n" +
+    "                                    <a ng-click=\"acc11open = !acc11open\">\n" +
+    "                                        <strong>Country:</strong>\n" +
+    "                                        <span ng-if=\"selectedCountry.length > 0\" ng-repeat=\"item in selectedCountry track by item\">\n" +
+    "                                            <span ng-bind=\"getSelectedItem(item, facetVM.countryList, 'pkCountryId').CountryName + (($index != selectedCountry.length-1)?',':'')\"></span>\n" +
+    "                                        </span>\n" +
+    "                                        <span ng-if=\"selectedCountry.length==0 || (selectedCountry.length==1 && !selectedCountry[0])\"><span>Any</span></span>\n" +
+    "                                        <i class=\"pull-right glyphicon\" ng-class=\"{'glyphicon-chevron-down': acc11open, 'glyphicon-chevron-right': !acc11open}\"></i>\n" +
+    "                                    </a>\n" +
+    "                                    <div class=\"search-filter-body\" ng-include=\"'search/modals/country.html'\"></div>\n" +
+    "                                </li>\n" +
+    "                                <li ng-init=\"acc12open = false;\" ng-class=\"{'open': acc12open}\">\n" +
+    "                                    <a ng-click=\"acc12open = !acc12open\">\n" +
+    "                                        <strong>Physical Status:</strong>\n" +
+    "                                        <span ng-if=\"selectedPhysicalStatus.length > 0\" ng-repeat=\"item in selectedPhysicalStatus track by item\">\n" +
+    "                                            <span ng-bind=\"getSelectedItem(item, facetVM.physicalStatusList, 'key').text + (($index != selectedPhysicalStatus.length-1)?',':'')\"></span>\n" +
+    "                                        </span>\n" +
+    "                                        <span ng-if=\"selectedPhysicalStatus.length==0 || (selectedPhysicalStatus.length==1 && !selectedPhysicalStatus[0] && selectedPhysicalStatus[0] !== 0)\"><span>Any</span></span>\n" +
+    "                                        <i class=\"pull-right glyphicon\" ng-class=\"{'glyphicon-chevron-down': acc12open, 'glyphicon-chevron-right': !acc12open}\"></i>\n" +
+    "                                    </a>\n" +
+    "                                    <div class=\"search-filter-body\" ng-include=\"'search/modals/physicalStatus.html'\"></div>\n" +
+    "                                </li>\n" +
+    "                                <li ng-init=\"acc13open = false;\" ng-class=\"{'open': acc13open}\">\n" +
+    "                                    <a ng-click=\"acc13open = !acc13open\">\n" +
+    "                                        <strong>Employed In:</strong>\n" +
+    "                                        <span ng-if=\"selectedEmployedIn.length > 0\" ng-repeat=\"item in selectedEmployedIn track by item\">\n" +
+    "                                            <span ng-bind=\"getSelectedItem(item, facetVM.employedInList, 'key').text + (($index != selectedEmployedIn.length-1)?',':'')\"></span>\n" +
+    "                                        </span>\n" +
+    "                                        <span ng-if=\"selectedEmployedIn.length==0 || (selectedEmployedIn.length==1 && !selectedEmployedIn[0])\"><span>Any</span></span>\n" +
+    "                                        <i class=\"pull-right glyphicon\" ng-class=\"{'glyphicon-chevron-down': acc13open, 'glyphicon-chevron-right': !acc13open}\"></i>\n" +
+    "                                    </a>\n" +
+    "                                    <div class=\"search-filter-body\" ng-include=\"'search/modals/employedIn.html'\"></div>\n" +
+    "                                </li>\n" +
+    "                            </ul>\n" +
     "                        </div>\n" +
     "                    </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
-    "        <div class=\"col-xs-12 col-sm-9\">\n" +
-    "            <p class=\"pull-left visible-xs\">\n" +
-    "                <button type=\"button\" class=\"btn btn-primary btn-xs\" data-toggle=\"offcanvas\" data-bind=\"click: function(){$root.toggleClass('#searchbar','active');}\">Refine Your Search</button>\n" +
+    "        <div class=\"col-sm-12 col-md-9\">\n" +
+    "            <p class=\"pull-left hidden-md hidden-lg\">\n" +
+    "                <button type=\"button\" class=\"btn btn-primary btn-xs\" data-toggle=\"offcanvas\" ng-click=\"toggleSidebar()\">Refine Your Search</button>\n" +
     "            </p>\n" +
     "            <div class=\"clearfix\"></div>\n" +
     "            <div ng-include=\"'search/renderResults.html'\"></div>\n" +

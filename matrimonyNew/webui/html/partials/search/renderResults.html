@@ -1,10 +1,6 @@
 <div class="row-fluid">
     <h1>Your Search Results (<span ng-bind="totalItems"></span>)</h1>
     <div class="dot-line mrgb20"></div>
-    <!-- choosen search criteria -->
-    <div >
-        <div ng-include="'search/choosenSearchCriteria.html'"></div>
-    </div>
     <div ng-if="dataList && dataList.length>0 && isLoaded">
         <div class="pager"> Go to page:
             <ul class="yiiPager" >
