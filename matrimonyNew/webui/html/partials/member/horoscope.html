@@ -125,20 +125,17 @@
                             <span ng-show="!isEditMode" ng-bind="birthHour+':'+birthMinute+' '+birthAmPm"></span>
                             <div ng-show="isEditMode">
                                 <div class="pull-left">
-                                    <select id="birthHour" class="form-control clearwidth" name="birthHour" ng-model="birthHour">
-                                        <option value="">-hour-</option>
+                                    Hour: <select id="birthHour" class="form-control clearwidth" name="birthHour" ng-model="birthHour">
                                         <option ng-repeat="item in facetVM.hourList track by item.key" ng-attr-value="{{item.key}}" ng-bind="item.text" ng-selected="birthHour==item.key"></option>
                                     </select>
                                 </div>
                                 <div class="pull-left">
-                                    <select class="form-control clearwidth" name="birthMinute" ng-model="birthMinute">
-                                        <option value="">-minutes-</option>
+                                    Minutes: <select class="form-control clearwidth" name="birthMinute" ng-model="birthMinute">
                                         <option ng-repeat="item in facetVM.minuteList track by item.key" ng-attr-value="{{item.key}}" ng-bind="item.text" ng-selected="birthMinute==item.key"></option>
                                     </select>
                                 </div>
                                 <div class="pull-left">
-                                    <select class="form-control clearwidth" name="birthAmPm" ng-model="birthAmPm" ng-options="item for item in facetVM.ampmList">
-                                        <option value="">-am/pm-</option>
+                                    AM/PM: <select class="form-control clearwidth" name="birthAmPm" ng-model="birthAmPm" ng-options="item for item in facetVM.ampmList">
                                     </select>
                                 </div>
                             </div>

@@ -23,7 +23,7 @@ var MemberCtrl = function($scope, $rootScope, $state, Session, FacetFactory, Mem
             var dobDate = mm.format('DD');
             var dobMonth = mm.format('MM');
             var dobYear = mm.format('YYYY');
-            var dobHour = mm.format('h');
+            var dobHour = mm.format('hh');
             var dobMinute = mm.format('mm');
             var dobAmPm = mm.format('a');
             $scope.sex = member.Sex;
@@ -155,9 +155,9 @@ var MemberCtrl = function($scope, $rootScope, $state, Session, FacetFactory, Mem
                 caste 			: ($scope.caste===undefined)?null:$scope.caste,
                 gotra			: ($scope.gotra===undefined)?null:$scope.gotra,
                 dob				: dob,
-                birthHour		: ($scope.birthHour===undefined)?null:$scope.birthHour,
-                birthMinute		: ($scope.birthMinute===undefined)?null:$scope.birthMinute,
-                birthAmPm		: ($scope.birthAmPm===undefined)?null:$scope.birthAmPm,
+                birthHour		: $scope.birthHour,
+                birthMinute		: $scope.birthMinute,
+                birthAmPm		: $scope.birthAmPm,
                 manglikStatus	: ($scope.manglikStatus===undefined)?null:$scope.manglikStatus
             };
             $scope.saveMemberDetails(formData);

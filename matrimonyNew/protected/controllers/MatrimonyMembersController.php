@@ -266,12 +266,11 @@ class MatrimonyMembersController extends Controller
 			//$model->RegisteredBy = (isset($data['registerBy']) && $data['registerBy'])?$data['registerBy']: $model->RegisteredBy;
 			//$model->Sex = (isset($data['sex']))?$data['sex']: $model->Sex;
 			// DOB with time update
-			$memberDOB = date('m/d/Y',strtotime($model->DOB));
-			$memberTOB = date('h:i a',strtotime($model->DOB));
-			//$memberDOB = (isset($data['dob']) && $data['dob'])?date('m/d/Y',strtotime($data['dob'])): $memberDOB;
+			$memberDOB = (isset($data['dob']) && $data['dob'])?date('m/d/Y',strtotime($data['dob'])): date('m/d/Y',strtotime($model->DOB));
+			//$memberTOB = date('h:i a',strtotime($model->DOB));
 
 			if(!isset($data['birthHour'])){
-				$data['birthHour'] = "00";
+				$data['birthHour'] = "12";
 			}
 			if(!isset($data['birthMinute'])){
 				$data['birthMinute'] = "00";

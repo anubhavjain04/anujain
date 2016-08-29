@@ -206,7 +206,7 @@ class RegisterController extends Controller
 			$memberProfile = $_POST;			
 			// set memder details
 			if(!isset($memberProfile['birthHour'])){
-				$memberProfile['birthHour'] = "00";
+				$memberProfile['birthHour'] = "12";
 			}
 			if(!isset($memberProfile['birthMinute'])){
 				$memberProfile['birthMinute'] = "00";

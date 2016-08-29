@@ -1077,20 +1077,17 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "                            <span ng-show=\"!isEditMode\" ng-bind=\"birthHour+':'+birthMinute+' '+birthAmPm\"></span>\n" +
     "                            <div ng-show=\"isEditMode\">\n" +
     "                                <div class=\"pull-left\">\n" +
-    "                                    <select id=\"birthHour\" class=\"form-control clearwidth\" name=\"birthHour\" ng-model=\"birthHour\">\n" +
-    "                                        <option value=\"\">-hour-</option>\n" +
+    "                                    Hour: <select id=\"birthHour\" class=\"form-control clearwidth\" name=\"birthHour\" ng-model=\"birthHour\">\n" +
     "                                        <option ng-repeat=\"item in facetVM.hourList track by item.key\" ng-attr-value=\"{{item.key}}\" ng-bind=\"item.text\" ng-selected=\"birthHour==item.key\"></option>\n" +
     "                                    </select>\n" +
     "                                </div>\n" +
     "                                <div class=\"pull-left\">\n" +
-    "                                    <select class=\"form-control clearwidth\" name=\"birthMinute\" ng-model=\"birthMinute\">\n" +
-    "                                        <option value=\"\">-minutes-</option>\n" +
+    "                                    Minutes: <select class=\"form-control clearwidth\" name=\"birthMinute\" ng-model=\"birthMinute\">\n" +
     "                                        <option ng-repeat=\"item in facetVM.minuteList track by item.key\" ng-attr-value=\"{{item.key}}\" ng-bind=\"item.text\" ng-selected=\"birthMinute==item.key\"></option>\n" +
     "                                    </select>\n" +
     "                                </div>\n" +
     "                                <div class=\"pull-left\">\n" +
-    "                                    <select class=\"form-control clearwidth\" name=\"birthAmPm\" ng-model=\"birthAmPm\" ng-options=\"item for item in facetVM.ampmList\">\n" +
-    "                                        <option value=\"\">-am/pm-</option>\n" +
+    "                                    AM/PM: <select class=\"form-control clearwidth\" name=\"birthAmPm\" ng-model=\"birthAmPm\" ng-options=\"item for item in facetVM.ampmList\">\n" +
     "                                    </select>\n" +
     "                                </div>\n" +
     "                            </div>\n" +
