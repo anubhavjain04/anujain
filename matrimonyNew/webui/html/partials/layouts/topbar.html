@@ -19,6 +19,9 @@
                     <li ng-if="!global.currentUser" ui-sref-active="active">
                         <a ui-sref="register">Register</a>
                     </li>
+                    <li ng-if="!global.currentUser" ui-sref-active="active">
+                        <a ui-sref="membership">Membership</a>
+                    </li>
                     <li ng-if="global.currentUser" ui-sref-active="active">
                         <a ui-sref="userProfile.basicDetails">My Profile</a>
                     </li>

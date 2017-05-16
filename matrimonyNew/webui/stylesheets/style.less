@@ -1465,22 +1465,26 @@ img {
 	background-size: 100% 100%; 
 	background-repeat: no-repeat;
 }
+.highlight-panel{
+  z-index: 1;
+  position: relative;
+}
 .register-panel{
     padding: 15px;
     width: 100%;
 }
 @media (min-width: @sm-break-point) {
-    .register-panel {
+    .register-panel, .highlight-panel {
         width: 50%;
     }
 }
 @media (min-width: @md-break-point) {
-    .register-panel {
+    .register-panel, .highlight-panel {
         width: 41.66666667%;
     }
 }
 @media (min-width: @lg-break-point) {
-    .register-panel {
+    .register-panel, .highlight-panel {
         width: 33.33333333%;
     }
 }

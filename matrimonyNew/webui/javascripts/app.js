@@ -36,6 +36,9 @@ this.app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('home', {
         url: "/",
         templateUrl: "home/home.html"
+    }).state('membership', {
+        url: "/membership",
+        templateUrl: "member/membership-plan.html"
     }).state('search', {
         url: "/search",
         templateUrl: "search/search.html",
@@ -179,7 +182,8 @@ this.app.run([
                 "/terms-n-conditions",
                 "/search",
                 "/search/results",
-                "/register"
+                "/register",
+                "/membership"
             ];
 
             var dynamicUrls = [

@@ -181,11 +181,18 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "<div class=\"jmm_banner\">\n" +
     "    <img src=\"dist/images/banner.jpg\" />\n" +
     "</div>\n" +
-    "\n" +
+    "<div class=\"highlight-panel\" style=\"\">\n" +
+    "    <div class=\"highlight\">\n" +
+    "        <h4>After registration, activate your profile by paying</h4>\n" +
+    "        Just Rs. 500 only (1 year)\n" +
+    "        <h5><a ui-sref=\"membership\">click here</a> to know about payment mode.</h5>\n" +
+    "        <div class=\"btn-success pad5\"><h5>(Note: To know more, please contact us at matrimony@bhartiyajainmilan.com )</h5></div>\n" +
+    "    </div>\n" +
+    "</div>\n" +
     "<div class=\"register-panel\">\n" +
     "    <div class=\"register-home panel panel-green\">\n" +
     "        <div class=\"panel-heading\">\n" +
-    "            <h3 class=\"panel-title\">Register Now - It's FREE !</h3>\n" +
+    "            <h3 class=\"panel-title\">Register Now </h3>\n" +
     "        </div>\n" +
     "        <div class=\"panel-body\">\n" +
     "            <div ng-include=\"'register/required-register-details.html'\"></div>\n" +
@@ -260,6 +267,9 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "                        <a ui-sref=\"search\">Search</a></li>\n" +
     "                    <li ng-if=\"!global.currentUser\" ui-sref-active=\"active\">\n" +
     "                        <a ui-sref=\"register\">Register</a>\n" +
+    "                    </li>\n" +
+    "                    <li ng-if=\"!global.currentUser\" ui-sref-active=\"active\">\n" +
+    "                        <a ui-sref=\"membership\">Membership</a>\n" +
     "                    </li>\n" +
     "                    <li ng-if=\"global.currentUser\" ui-sref-active=\"active\">\n" +
     "                        <a ui-sref=\"userProfile.basicDetails\">My Profile</a>\n" +
@@ -1136,6 +1146,115 @@ angular.module('templates-main', []).run(['$templateCache', function($templateCa
     "        </div>\n" +
     "    </div>\n" +
     "</form>");
+  $templateCache.put("member/membership-plan.html",
+    "<div class=\"clearfix\">\n" +
+    "\n" +
+    "    <h1>Membership Plan</h1>\n" +
+    "    <div class=\"text-center\">\n" +
+    "        <div class=\"jumbotron\">\n" +
+    "            <div class=\"text-center\">\n" +
+    "                <p class=\"text-primary\">After registration, you have to pay to activate your account.</p>\n" +
+    "                <h3>1 Year Subscription charges</h3>\n" +
+    "                <h1>Rs. 500/- </h1>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <h2>Payment Mode</h2>\n" +
+    "    <div>\n" +
+    "        <div class=\"well\">\n" +
+    "            <h3>Deposite in Bank</h3>\n" +
+    "            <p>You can pay account activation charges by depositing package amount into bank account number of <strong>Bhartiya Jain Milan.</strong></p>\n" +
+    "            <span>Bhartiya Jain Milan Bank account details are:-</span>\n" +
+    "            <div class=\"clearfix\">\n" +
+    "                <div class=\"col-xs-12 col-sm-12 row\">\n" +
+    "                    <div class=\"col-xs-12 col-sm-2\">\n" +
+    "                        <label>Bank Name</label>\n" +
+    "                    </div>\n" +
+    "                    <div class=\"col-xs-12 col-sm-10\">\n" +
+    "                        Punjab National Bank, Dehradun\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"col-xs-12 col-sm-12 row\">\n" +
+    "                    <div class=\"col-xs-12 col-sm-2\">\n" +
+    "                        <label>Name on Account</label>\n" +
+    "                    </div>\n" +
+    "                    <div class=\"col-xs-12 col-sm-10\">\n" +
+    "                        Bhartiya Jain Milan\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"col-xs-12 col-sm-12 row\">\n" +
+    "                    <div class=\"col-xs-12 col-sm-2\">\n" +
+    "                        <label>Account No.</label>\n" +
+    "                    </div>\n" +
+    "                    <div class=\"col-xs-12 col-sm-10\">\n" +
+    "                        1087000100178052\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"col-xs-12 col-sm-12 row\">\n" +
+    "                    <div class=\"col-xs-12 col-sm-2\">\n" +
+    "                        <label>IFCS Code</label>\n" +
+    "                    </div>\n" +
+    "                    <div class=\"col-xs-12 col-sm-10\">\n" +
+    "                        PUNBO108700\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "            <hr style=\"border-top: 1px solid #acacac;\" />\n" +
+    "            <span class=\"text-primary\">After deposite amount, You have to give deposite information on <strong><a href=\"mailto:matrimony@bhartiyajainmilan.com\">matrimony@bhartiyajainmilan.com</a></strong> with registration member id.</span>\n" +
+    "            <span class=\"text-primary\">After verfication, we will activate your account as soon as possible.</span>\n" +
+    "        </div>\n" +
+    "        <div class=\"well\">\n" +
+    "            <h3>Submit cash to authorized BJM matrimony executives</h3>\n" +
+    "            <p>You can submit your account activation charges to BJM matrimony authorized executives.</p>\n" +
+    "            <h5>Bhartiya Jain Milan Matrimony authorized executive are:-</h5>\n" +
+    "            <div class=\"padt20\">\n" +
+    "                <div class=\"pull-left\">\n" +
+    "                    <h2 class=\"clr8\">Narendra Jain Rajkamal</h2>\n" +
+    "                    <h5 class=\"clr9\"><strong>National General Secretary (Organization) / Prabhari Website</strong> </h5>\n" +
+    "                    <h4><strong>Bhartiya Jain Milan</strong></h4>\n" +
+    "                    <h5><strong>Mobile: </strong> 09837048560</h5>\n" +
+    "                    <h5><strong>Email: </strong><a href=\"mailto:rajkamal@bhartiyajainmilan.com\">rajkamal@bhartiyajainmilan.com</a></h5>\n" +
+    "\n" +
+    "                    <p class=\"padt10\">\n" +
+    "                        If you want further details about registration or payment mode. You can contact on below email id:-\n" +
+    "                    </p>\n" +
+    "                    <div>\n" +
+    "                        <h4>Contact Us</h4>\n" +
+    "                        <h5><strong>Email: </strong><a href=\"mailto:contactus@bhartiyajainmilan.com\">contactus@bhartiyajainmilan.com</a>, <a href=\"mailto:matrimony@bhartiyajainmilan.com\">matrimony@bhartiyajainmilan.com</a></h5>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"pull-right\">\n" +
+    "                    <div class=\"mrgb20\">\n" +
+    "                        <div class=\"clr9\"><h5 class=\"mrgb0\"><strong>National President</strong></h5></div>\n" +
+    "                        <div class=\"clr8\"><strong>Veer Suresh Jain Rituraj</strong></div>\n" +
+    "                        <div><strong>Mobile: </strong> +91 9837481839</div>\n" +
+    "                        <div><strong>Email: </strong><a href=\"mailto:tulsipublication@gmail.com\">tulsipublication@gmail.com</a></div>\n" +
+    "                    </div>\n" +
+    "                    <div class=\"mrgb20\">\n" +
+    "                        <div class=\"clr9\"><h5 class=\"mrgb0\"><strong>General Secretary (Administration)</strong></h5></div>\n" +
+    "                        <div class=\"clr8\"><strong>Veer Naresh Chand Jain</strong></div>\n" +
+    "                        <div><strong>Mobile: </strong> +91 9897227228</div>\n" +
+    "                        <div><strong>Email: </strong><a href=\"mailto:nareshchandjain24@gmail.com\">nareshchandjain24@gmail.com</a></div>\n" +
+    "                    </div>\n" +
+    "                    <div>\n" +
+    "                        <div class=\"clr9\"><h5 class=\"mrgb0\"><strong>General Secretary (Organization)</strong></h5></div>\n" +
+    "                        <div class=\"clr8\"><strong>Veer Narendra Jain Rajkamal</strong></div>\n" +
+    "                        <div><strong>Mobile: </strong> +91 9837048560</div>\n" +
+    "                        <div><strong>Email: </strong><a href=\"mailto:rajkamal@bhartiyajainmilan.com\">rajkamal@bhartiyajainmilan.com</a></div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "            <div class=\"clearfix\"></div>\n" +
+    "            <h1></h1>\n" +
+    "            <hr style=\"border-top: 1px solid #acacac;\" />\n" +
+    "            <span class=\"text-primary\">After deposite amount, You have to give deposite information on <strong><a href=\"mailto:matrimony@bhartiyajainmilan.com\">matrimony@bhartiyajainmilan.com</a></strong> with registration member id.</span>\n" +
+    "            <span class=\"text-primary\">After verfication, we will activate your account as soon as possible.</span>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <div class=\"clearfix\"></div>\n" +
+    "</div>");
   $templateCache.put("member/my-matrimony.html",
     "<form name=\"myForm\">\n" +
     "    <div class=\"clearfix\">\n" +
