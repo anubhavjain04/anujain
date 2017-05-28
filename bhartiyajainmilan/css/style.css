@@ -612,11 +612,16 @@ p {
 .pagination {
 	position: absolute;
 	z-index: 10;
-	bottom: 18px;
+	bottom: 12px;
 	left: 12px;
-	background: url(../images/bg_pagination.png) 0 0 no-repeat;
-	padding: 4px 7px;
+	padding: 4px 4px;
 	width: 101px;
+	background-color: #000000;
+	opacity: .7;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	padding-left: 35px;
 }
 
 .pagination li {
@@ -641,8 +646,8 @@ p {
 	color: #eeeeee;
 	position: absolute;
 	line-height: 17px;
-	bottom: 20px;
-	left: 95px;
+	bottom: 13px;
+	left: 18px;
 	text-decoration: none;
 	z-index: 11
 }
@@ -901,7 +906,7 @@ p {
 .stitle-2{
 	padding: 8px;
 	padding-top: 0px;
-	font-size: 1.45em;
+	font-size: 15px;
 	float: left;
 	padding-top: 3px;
 	color: #F00;

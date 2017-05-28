@@ -19,7 +19,7 @@ $this->pageTitle="Bhartiya Jain Milan"
 	<div class="fright hindi">
       <div class="slogan-1">
       	<div class="stitle-1">Bhartiya Jain Milan</div>
-        <div class="stitle-2">Sanskar Varsh</div>
+        <div class="stitle-2">Jain Gaurav Smriti Varsh</div>
         <div class="padding"><a class="button-top png" href="#"><span class="png"><span class="png">more</span></span> </a></div>
       </div>
       <div class="slogan-2 ">
