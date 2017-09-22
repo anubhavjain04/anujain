@@ -106,7 +106,7 @@
 			</div>
 			<div class="rightData ">
 				<div class="matrimony">
-                	<div class="padding"><a href="http://www.jainmilanmatrimonial.com/" target="_blank" title="Jain Milan Matrimonial">click here</a></div>
+                	<div class="padding"><a href="http://www.matrimony.bhartiyajainmilan.com" target="_blank" title="Jain Milan Matrimonial">click here</a></div>
                 </div>
 			</div>
 			
