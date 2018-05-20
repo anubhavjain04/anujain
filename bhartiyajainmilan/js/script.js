@@ -64,7 +64,7 @@ $(document).ready(function(){
 		});
 	}
 	
-	var advValue = $.cookie("mainadv");
+	/*var advValue = $.cookie("mainadv");
 	if(window.sessionStorage && !window.sessionStorage.getItem("screenAdd")){
 		window.sessionStorage.setItem("screenAdd", 1); 
 		getScreenAdvertisement();
@@ -72,5 +72,5 @@ $(document).ready(function(){
 		if(!advValue){
 			getScreenAdvertisement();
 		}
-	}
+	}*/
 });
