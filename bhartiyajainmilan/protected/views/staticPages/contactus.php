@@ -16,10 +16,9 @@
                           	<div>
 	                          	<div style="float: left;">
 		                            <h2 class="title-1"><strong>Contact Us</strong></h2>                            
-		                            <h4 style="margin-bottom: 8px; margin-top: 25px; color: #ff0000;">Narendra Jain Rajkamal</h4>
-		                            <h5 class="p4" style="margin-bottom: 8px; color: #008000;"><strong>Prabhari Website / National General Secretary (Org.)</strong> </h5>
-		                            <h4 style="font-size: 1.5em; margin-bottom: 8px;"><strong>Bhartiya Jain Milan</strong></h4>
-		                            <h5 class="p4" style="margin-bottom: 8px;"><strong>Mobile: </strong> 09837048560</h5>
+		                            <h4 style="margin-bottom: 8px; margin-top: 25px; color: #ff0000;">Bhartiya Jain Milan</h4>
+                                <h4 style="font-size: 1.5em; margin-bottom: 8px;"><strong>Kendriya Bhavan</strong></h4>
+                                <h5 class="p4" style="margin-bottom: 8px; color: #008000;"><strong>10 C / 210, Vasundhara (NCR), GHAZIABAD - U.P.</strong> </h5>
 		                            <h5 class="p4"><strong>Email: </strong><a href="mailto:contactus@bhartiyajainmilan.com">contactus@bhartiyajainmilan.com</a></h5>
 	                           	</div>
 	                           	<div style="float: right;">
