@@ -313,20 +313,19 @@
                                     राष्ट्रीय अध्यक्ष
                                 </h4>
                                 
-                            </div>                            
+                            </div>
                             <div style="float: left;">
                             	<h4 class="title-1">
-                                	<strong>वीर नरेश चन्द जैन</strong><br />
+                                	<strong>वीर नरेन्द्र जैन राजकमल </strong><br />
                                      राष्ट्रीय महामन्त्री 'प्रशासन'
                                 </h4>
                             </div>
                             <div style="float: right;">
                             	<h4 class="title-1">
-                                	<strong>वीर नरेन्द्र जैन राजकमल </strong><br />
+                                	<strong>वीर नरेश चन्द जैन</strong><br />
                                      राष्ट्रीय महामन्त्री 'संगठन'
                                 </h4>
-                                
-                            </div>
+                            </div>                            
                             </div>
                             <div class="clear"></div>
                           </div>
