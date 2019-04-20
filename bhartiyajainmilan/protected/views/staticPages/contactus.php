@@ -29,17 +29,17 @@
 	                            		<div class="email"><strong>Email: </strong><a href="mailto:tulsipublication@gmail.com">tulsipublication@gmail.com</a></div>
 	                            		
 	                            	</div>
-	                            	<div class="website-contact">
+                                <div class="website-contact">
 			                            <div class="post"><strong>National General Secretary (Administration)</strong></div>
-			                            <div class="name">Veer Naresh Chand Jain</div>
-	                            		<div class="contactNo"><strong>Mobile: </strong> +91 9897227228</div>
-	                            		<div class="email"><strong>Email: </strong><a href="mailto:nareshchandjain24@gmail.com">nareshchandjain24@gmail.com</a></div>
-	                            	</div>
-	                            	<div class="website-contact">
-			                            <div class="post"><strong>National General Secretary (Organization)</strong></div>
 			                            <div class="name">Veer Narendra Jain Rajkamal</div>
 	                            		<div class="contactNo"><strong>Mobile: </strong> +91 9837048560</div>
 	                            		<div class="email"><strong>Email: </strong><a href="mailto:rajkamal@bhartiyajainmilan.com">rajkamal@bhartiyajainmilan.com</a></div>
+	                            	</div>
+	                            	<div class="website-contact">
+			                            <div class="post"><strong>National General Secretary (Organization)</strong></div>
+			                            <div class="name">Veer Naresh Chand Jain</div>
+	                            		<div class="contactNo"><strong>Mobile: </strong> +91 9897227228</div>
+	                            		<div class="email"><strong>Email: </strong><a href="mailto:nareshchandjain24@gmail.com">nareshchandjain24@gmail.com</a></div>
 	                            	</div>
 	                            </div>
                            	</div> 
