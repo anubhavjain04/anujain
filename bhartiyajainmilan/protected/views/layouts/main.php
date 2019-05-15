@@ -1,6 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+  <?php
+    $version = "1.1.0";
+  ?>
 	<meta name="google-site-verification" content="awXJPP_NOlQAWUq94BTPaan1ObEOGOMX5wOllAITZpc" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="Content-Style-Type" content="text/css" />
@@ -9,39 +12,39 @@
     <meta name="author" content="rajkamal" />
 	<link href="<?php echo Yii::app()->request->baseUrl; ?>/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 	<!-- bhartiya jain milan CSS framework -->    
-    <link media="all" rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui/jquery-ui.css" /> 
-	<link media="all" rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui/jquery-ui-timepicker-addon.css" /> 
-    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/custom-layout.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo Yii::app()->request->baseUrl; ?>/droplist/droplist.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/login.css" rel="stylesheet" type="text/css" />
-	<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/pager.css" rel="stylesheet" type="text/css" />
+    <link media="all" rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui/jquery-ui.css?v=<?php echo $version ?>" /> 
+	<link media="all" rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui/jquery-ui-timepicker-addon.css?v=<?php echo $version ?>" /> 
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/custom-layout.css?v=<?php echo $version ?>" rel="stylesheet" type="text/css" media="all" />
+	<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css?v=<?php echo $version ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/droplist/droplist.css?v=<?php echo $version ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/login.css?v=<?php echo $version ?>" rel="stylesheet" type="text/css" />
+	<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/layout.css?v=<?php echo $version ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/pager.css?v=<?php echo $version ?>" rel="stylesheet" type="text/css" />
 	<!-- javascript -->
     <script type="text/javascript">
 	var sitePath = '<?php echo Yii::app()->homeUrl; ?>/';
 	var controller = '<?php echo Yii::app()->getController()->id;?>';
 	var action = '<?php echo Yii::app()->getController()->action->id;?>';
 	</script>
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/kdunicode.js" type="text/javascript"></script>
-	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.6.4.min.js" type="text/javascript"></script>
-	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.cookie.js" type="text/javascript"></script>
-    <script type='text/javascript' src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui.min.js"></script>
-	<script type='text/javascript' src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-sliderAccess.js"></script>
-    <script type='text/javascript' src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-timepicker-addon.js"></script>
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.pause.min.js" type="text/javascript"></script>
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.marquee.js" type="text/javascript"></script>
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/browser.js" type="text/javascript"></script>
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/common.js" type="text/javascript"></script>
-	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.easing.1.3.js" type="text/javascript"></script>
-	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/tms-0.3.js" type="text/javascript"></script>
-	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/tms_presets.js" type="text/javascript"></script>
-	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/script.js" type="text/javascript"></script>
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/scroller.js" type="text/javascript"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/kdunicode.js?v=<?php echo $version ?>" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.6.4.min.js?v=<?php echo $version ?>" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.cookie.js?v=<?php echo $version ?>" type="text/javascript"></script>
+    <script type='text/javascript' src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui.min.js?v=<?php echo $version ?>"></script>
+	<script type='text/javascript' src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-sliderAccess.js?v=<?php echo $version ?>"></script>
+    <script type='text/javascript' src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-ui-timepicker-addon.js?v=<?php echo $version ?>"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.pause.min.js?v=<?php echo $version ?>" type="text/javascript"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.marquee.js?v=<?php echo $version ?>" type="text/javascript"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/browser.js?v=<?php echo $version ?>" type="text/javascript"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/common.js?v=<?php echo $version ?>" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.easing.1.3.js?v=<?php echo $version ?>" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/tms-0.3.js?v=<?php echo $version ?>" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/tms_presets.js?v=<?php echo $version ?>" type="text/javascript"></script>
+	<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/script.js?v=<?php echo $version ?>" type="text/javascript"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/scroller.js?v=<?php echo $version ?>" type="text/javascript"></script>
     
 	<!--[if lt IE 7]>
-		<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie_style.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/ie_png.js"></script>
+		<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie_style.css?v=<?php echo $version ?>" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/ie_png.js?v=<?php echo $version ?>"></script>
 		<script type="text/javascript">
 			   ie_png.fix('.png, #header, .menu li a span span, .menu li a span, .menu li a');
 		</script>
@@ -75,9 +78,10 @@
             <li><a href='<?php echo Yii::app()->createUrl("/staticPages/monogramSutra");?>'>Monogram &amp; Sutra</a>|</li>
             <li><a href='<?php echo Yii::app()->createUrl("/staticPages/mahaveer");?>'>Prayer</a>|</li>
             <li><a href='<?php echo Yii::app()->createUrl("/magazine/monthlyMagazine");?>'>Magazines &amp; Newspapers</a>|</li>
+            <li><a href='<?php echo Yii::app()->createUrl("/staticPages/foundationMembership");?>'>Foundation Trusti Form</a>|</li>
             <li><a href='<?php echo Yii::app()->createUrl("/memberDetails/searchMember");?>'>Search Member</a>|</li>
             <li><a href='<?php echo Yii::app()->createUrl("/staticPages/sendProfile");?>'>Send Biodata / Profile</a>|</li>            
-            <li><a href='<?php echo Yii::app()->createUrl("/staticPages/contactUs");?>'>Contact Us</a></li>            
+            <li><a href='<?php echo Yii::app()->createUrl("/staticPages/contactUs");?>'>Contact Us</a></li>
           </ul>
           <div class="text-top">
             	<?php include("login.php") ?>

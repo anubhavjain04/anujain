@@ -31,12 +31,10 @@
                             </p>    
                             <table style="width:100%">
                             	<tr>
-                                	<td><a href="<?php echo Yii::app()->request->baseUrl; ?>/files/foundation/FoundationMembership-hindi.pdf" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/pdf.gif" title="In Hindi" /></a></td>
-                                    <td><a href="<?php echo Yii::app()->request->baseUrl; ?>/files/foundation/FoundationMembership-english.pdf" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/pdf.gif" title="In English" /></a></td>
+                                	<td><a href="<?php echo Yii::app()->request->baseUrl; ?>/files/foundation/FoundationMembership.pdf" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/pdf.gif" title="Foundation Trustiship Form" /></a></td>
                                 </tr>
                                 <tr>
-                                	<td><a href="<?php echo Yii::app()->request->baseUrl; ?>/files/foundation/FoundationMembership-hindi.pdf" target="_blank">Download in hindi</a></td>
-                                    <td><a href="<?php echo Yii::app()->request->baseUrl; ?>/files/foundation/FoundationMembership-english.pdf" target="_blank">Download in english</a></td>
+                                	<td><a href="<?php echo Yii::app()->request->baseUrl; ?>/files/foundation/FoundationMembership.pdf" target="_blank">Download Trustiship Form</a></td>
                                 </tr>
                             </table> 
                             

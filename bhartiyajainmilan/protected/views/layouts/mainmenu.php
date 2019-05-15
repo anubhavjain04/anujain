@@ -192,7 +192,8 @@
           </ul>
           <h5>Foundation</h5>
           <ul>
-            <li><a href='<?php echo Yii::app()->createUrl("/staticPages/howToJoinFoundation");?>'>How to join</a></li>            
+            <li><a href='<?php echo Yii::app()->createUrl("/staticPages/howToJoinFoundation");?>'>How to join</a></li>
+            <li><a href='<?php echo Yii::app()->createUrl("/staticPages/foundationMembership");?>'>Foundation Trusti Form</a></li>
             <li><a href='<?php echo Yii::app()->createUrl("/staticPages/foundationAchievements");?>'>Achievements</a></li>
           </ul>         
         </div>
