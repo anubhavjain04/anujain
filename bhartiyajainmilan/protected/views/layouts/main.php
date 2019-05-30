@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <?php
-    $version = "1.1.0";
+    $version = "1.1.1";
   ?>
 	<meta name="google-site-verification" content="awXJPP_NOlQAWUq94BTPaan1ObEOGOMX5wOllAITZpc" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
