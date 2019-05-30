@@ -212,7 +212,16 @@
 			title="Add Member Details">Add Program</a></li>
       </ul>
     </li>
-     <li><a class="collapsed heading">Magazine/Booklet</a>
+    <li><a class="collapsed heading">Gallery</a>
+      <ul class="navigation">
+        <li><a href="<?php echo Yii::app()->homeUrl.'/gallery/admin';?>"
+			title="Manage Gallery">Manage Gallery</a></li>
+        <li><a
+			href="<?php echo Yii::app()->homeUrl.'/gallery/create';?>"
+			title="Add Gallery Item">Add Gallery Item</a></li>
+      </ul>
+    </li>
+    <li><a class="collapsed heading">Magazine/Booklet</a>
       <ul class="navigation">
         <li><a href="<?php echo Yii::app()->homeUrl.'/magazineType/admin';?>"
 			title="Manage Member Details">Manage Magazine Type</a></li>

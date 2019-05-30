@@ -191,7 +191,7 @@ $this->pageTitle="Bhartiya Jain Milan"
           </div>
         </div>
       </div>
-      <div class="row-2">
+      <div class="row-2 p3">
         <div class="indent">
           <h3>Our Mission</h3>
         </div>
@@ -256,6 +256,32 @@ $this->pageTitle="Bhartiya Jain Milan"
 
         </div>
       </div>
+      <div class="row-2 p4">
+        <div class="gallery">
+          <div class="gHead p2">
+            <h2 class="title-1">
+              Latest Uploaded <strong>Videos</strong>
+              <a href='<?php echo Yii::app()->createUrl("/gallery/videos"); ?>'>see all</a>
+            </h2>
+          </div>
+          <div class="gVideos p2">
+            <?php foreach($latestVideos as $galleryItem) { ?>
+            <div class="gVideo">
+              <div class="gTitle"><?php echo $galleryItem->title ?></div>
+              <div class="gDesc"><?php echo $galleryItem->shortDesc ?></div>
+              <div><strong><?php echo date('d F Y',strtotime($galleryItem->date)); ?></strong></div>
+              <div class="media"><?php echo $galleryItem->longDesc ?></div>
+            </div>
+            <?php } ?>
+          </div> 
+          <div>
+            <a class="button png"
+              href='<?php echo Yii::app()->createUrl("/gallery/videos"); ?>'>
+                <span class="png"><span class="png">see all</span></span>
+            </a> 
+          </div>
+        </div>
+      </div> 
     </div>
      <?php include("rightNewsProgrames.php"); ?>
     

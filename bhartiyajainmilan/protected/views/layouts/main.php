@@ -78,7 +78,6 @@
             <li><a href='<?php echo Yii::app()->createUrl("/staticPages/monogramSutra");?>'>Monogram &amp; Sutra</a>|</li>
             <li><a href='<?php echo Yii::app()->createUrl("/staticPages/mahaveer");?>'>Prayer</a>|</li>
             <li><a href='<?php echo Yii::app()->createUrl("/magazine/monthlyMagazine");?>'>Magazines &amp; Newspapers</a>|</li>
-            <li><a href='<?php echo Yii::app()->createUrl("/staticPages/foundationMembership");?>'>Foundation Trusti Form</a>|</li>
             <li><a href='<?php echo Yii::app()->createUrl("/memberDetails/searchMember");?>'>Search Member</a>|</li>
             <li><a href='<?php echo Yii::app()->createUrl("/staticPages/sendProfile");?>'>Send Biodata / Profile</a>|</li>            
             <li><a href='<?php echo Yii::app()->createUrl("/staticPages/contactUs");?>'>Contact Us</a></li>

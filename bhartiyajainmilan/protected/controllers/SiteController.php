@@ -49,8 +49,17 @@ class SiteController extends Controller
 		$criteria2->limit = 10;
 		$criteria2->params=array(':Status'=>1, ":venueDate"=>$todayDate);
 		$programsOldData = $programsModel->findAll($criteria2);
+
+		// Gallery items
+		$galleryModel=new Gallery;
+		$criteria3=new CDbCriteria;
+		$criteria3->condition='status=:status and type=:type';
+		$criteria3->order = 'date DESC';
+		$criteria3->limit = 10;
+		$criteria3->params=array(':status'=>1, ':type'=>1);
+		$latestVideos = $galleryModel->findAll($criteria3);
 		
-		$this->render('index',array('programsNewData'=>$programsNewData, 'programsOldData'=>$programsOldData));
+		$this->render('index',array('programsNewData'=>$programsNewData, 'programsOldData'=>$programsOldData, 'latestVideos'=>$latestVideos));
 	}
 
 	/**

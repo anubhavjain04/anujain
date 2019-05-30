@@ -1,9 +1,9 @@
 <?php 
 return array(
-			'connectionString' => 'mysql:host=localhost;dbname=bjm',
+			'connectionString' => 'mysql:host=localhost;dbname=bhartiya_bjm',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'anubhav',
+			'password' => '',
 			'charset' => 'utf8',
 			//'tablePrefix' => 'cou_',
 );

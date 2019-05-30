@@ -668,12 +668,12 @@ p {
 	line-height: 2.4em;
 	text-transform: uppercase;
 	color: #c8c8c8;
-	padding-right: 7px;
+	padding-right: 15px;
 }
 
 .sub-menu li a {
 	color: #c8c8c8;
-	padding-right: 7px;
+	padding-right: 15px;
 }
 
 .sub-menu li a:hover {
@@ -788,7 +788,7 @@ p {
 	
 }
 
-.form-theme ul{
+.form-theme ul, .form-theme .alignment{
 	margin-left: 20px;
 }
 
@@ -1163,7 +1163,9 @@ h5{
 	color: #fff;
 }
 
-
+.reset-float {
+	clear: both;
+}
 
 .recent{
 	clear: both;
@@ -1445,6 +1447,65 @@ h5{
 	margin-left: 10px;
 	font-size: 1.076em;
 }
+
+/***Gallery***/
+.gallery .gHead {
+	background-color:#FFFFFF; 
+	text-indent: 3px; 
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.gallery .gHead span {
+	font-size: 2.107em;
+    line-height: 1.2em;
+    color: #1d1c1c;
+}
+
+.gallery .gHead a {
+	color: #11A7E8;
+	text-decoration: none;
+	margin-top: 5px;
+	float: right;
+}
+
+.gallery .gHead a:hover {
+	color: #1d1c1c;
+}
+
+.gallery p {
+	margin: 0;
+	padding: 0;
+}
+
+.gallery.list .gVideos {
+	padding: 10px;
+	background-color: #f5f5f5;
+}
+
+.gallery .gVideos .gVideo {
+	padding: 20px;
+	margin-top:	10px;
+	background-color: #ffffff;
+	border-radius: 10px;
+}
+
+.gallery .gVideo .gTitle {
+	font-size: 1.8em;
+    line-height: 1.28em;
+    margin: 0px 0 10px;
+    color: #74A021;
+}
+.gallery .gVideo .gDesc {
+	margin: 0px 0 5px;
+	font-size: 14px;
+    color: #00699B;
+}
+
+.gallery .gVideo .media {
+	padding-top: 20px;
+}
+/************/
 
 .sponsar{
 }

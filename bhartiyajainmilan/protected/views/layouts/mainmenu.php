@@ -256,7 +256,7 @@
       </div>
       <!--[if lte IE 6]></td></tr></table></a><![endif]--> 
     </li>
-     <li class="level1-li sub"><a class="level1-a" href="#nogo">BJM Samachaar<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+    <li class="level1-li sub"><a class="level1-a" href="#nogo">BJM Samachaar<!--[if gte IE 7]><!--></a><!--<![endif]--> 
       <!--[if lte IE 6]><table><tr><td><![endif]-->
       <div class="listHolder col1">
         <div class="listCol">
@@ -279,6 +279,23 @@
       </div>
       <!--[if lte IE 6]></td></tr></table></a><![endif]--> 
     </li>
+    <li class="level1-li sub"><a class="level1-a" href="#nogo">Gallery<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+      <!--[if lte IE 6]><table><tr><td><![endif]-->
+      <div class="listHolder col1">
+        <div class="listCol">
+          <h5>Gallery</h5>
+          <ul>
+            <li><a href='<?php echo Yii::app()->createUrl("/gallery/videos");?>'>Videos</a></li>
+            <li><a href='#'>Audios</a></li>
+            <li><a href='#'>Images</a></li>
+          </ul>
+        </div>        
+        <div class="bottomLine">
+          <p></p>
+        </div>
+      </div>
+      <!--[if lte IE 6]></td></tr></table></a><![endif]--> 
+    </li>
        
     <?php 
 		if(isset(Yii::app()->session['currentUser'])){
@@ -291,11 +308,14 @@
 			}
 		}
 	?>
-  </ul>
+  </ul>  
   <div style="float: right; height:30px; width:30px;">
     <a href="https://twitter.com/bjm_1966" target="_blank" title="Bhartiya Jain Milan on Twitter"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/twitter.png" alt="" /> </a>
   </div>
   <div style="float: right; height:30px; width:30px;">
-      <a href="http://www.facebook.com/bhartiyajainmilan" target="_blank" title="Bhartiya Jain Milan on Facebook"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fb.png" alt="" /> </a>
-    </div>
+    <a href="http://www.facebook.com/bhartiyajainmilan" target="_blank" title="Bhartiya Jain Milan on Facebook"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fb.png" alt="" /> </a>
+  </div>
+  <div style="float: right; height:30px; width:30px;">
+    <a href="https://www.youtube.com/channel/UCVafHOvdwQVdVH70w0SCiHQ" target="_blank" title="Bhartiya Jain Milan on Youtube"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/youtube.png" alt="" /> </a>
+  </div>
 </div>

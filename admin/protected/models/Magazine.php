@@ -101,6 +101,7 @@ class Magazine extends CActiveRecord
 		$criteria->compare('fkMagTypeId',$this->fkMagTypeId,true);
 		$criteria->compare('Status',$this->Status);
 		$criteria->compare('Type',$this->Type,true);
+		$criteria->order = 'MagzineDate DESC';
 
 		return new CActiveDataProvider(get_class($this), array(
 			'pagination'=>array(

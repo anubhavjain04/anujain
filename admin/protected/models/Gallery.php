@@ -1,25 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "programs".
+ * This is the model class for table "gallery".
  *
- * The followings are the available columns in table 'programs':
- * @property string $pkProgramId
- * @property string $programName
+ * The followings are the available columns in table 'gallery':
+ * @property string $pkGalleryId
+ * @property string $title
  * @property string $shortDesc
  * @property string $longDesc
- * @property string $venuePlace
- * @property string $venueDate
- * @property string $fkLevelCode
- * @property string $fkLevelTableId
- * @property integer $Status
+ * @property string $date
+ * @property integer $status
+ * @property integer $type
+ * @property string $folderPath
  */
-class Programs extends CActiveRecord
+class Gallery extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Programs the static model class
+	 * @return Gallery the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -31,7 +30,7 @@ class Programs extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'programs';
+		return 'gallery';
 	}
 
 	/**
@@ -42,16 +41,14 @@ class Programs extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('programName, shortDesc, venuePlace, venueDate, fkLevelCode', 'required'),
-			array('Status', 'numerical', 'integerOnly'=>true),
-			array('programName', 'length', 'max'=>70),
+			array('title, shortDesc, date', 'required'),
+			array('status, type', 'numerical', 'integerOnly'=>true),
+			array('title, folderPath', 'length', 'max'=>100),
 			array('shortDesc', 'length', 'max'=>150),
 			array('longDesc', 'safe'),
-			array('venuePlace, fkLevelCode', 'length', 'max'=>45),
-			array('fkLevelTableId', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('pkProgramId, programName, shortDesc, longDesc, venuePlace, venueDate, fkLevelCode, fkLevelTableId, Status', 'safe', 'on'=>'search'),
+			array('pkGalleryId, title, shortDesc, longDesc, date, status, type, folderPath', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -72,15 +69,14 @@ class Programs extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'pkProgramId' => 'Pk Program',
-			'programName' => 'Program Name',
+			'pkGalleryId' => 'Pk Gallery',
+			'title' => 'Title',
 			'shortDesc' => 'Short Desc',
 			'longDesc' => 'Long Desc',
-			'venuePlace' => 'Venue Place',
-			'venueDate' => 'Venue Date',
-			'fkLevelCode' => 'Level',
-			'fkLevelTableId' => 'Sub Level',
-			'Status' => 'Status',
+			'date' => 'Date',
+			'status' => 'Status',
+			'type' => 'Type',
+			'folderPath' => 'Folder Path',
 		);
 	}
 
@@ -95,16 +91,16 @@ class Programs extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('pkProgramId',$this->pkProgramId,true);
-		$criteria->compare('programName',$this->programName,true);
+		$criteria->compare('pkGalleryId',$this->pkGalleryId,true);
+		$criteria->compare('title',$this->title,true);
 		$criteria->compare('shortDesc',$this->shortDesc,true);
 		$criteria->compare('longDesc',$this->longDesc,true);
-		$criteria->compare('venuePlace',$this->venuePlace,true);
-		$criteria->compare('venueDate',$this->venueDate,true);
-		$criteria->compare('fkLevelCode',$this->fkLevelCode,true);
-		$criteria->compare('fkLevelTableId',$this->fkLevelTableId,true);
-		$criteria->compare('Status',$this->Status);
-		$criteria->order = 'venueDate DESC';
+		$criteria->compare('date',$this->date,true);
+		$criteria->compare('status',$this->status);
+		$criteria->compare('type',$this->type);
+		$criteria->compare('folderPath',$this->folderPath,true);
+		$criteria->order = 'date DESC';
+		
 
 		return new CActiveDataProvider(get_class($this), array(
 			'pagination'=>array(
