@@ -279,14 +279,14 @@
       </div>
       <!--[if lte IE 6]></td></tr></table></a><![endif]--> 
     </li>
-    <li class="level1-li sub"><a class="level1-a" href="#nogo">Gallery<!--[if gte IE 7]><!--></a><!--<![endif]--> 
+    <li class="level1-li sub"><a class="level1-a" href="#nogo">Gallery Video/Audio<!--[if gte IE 7]><!--></a><!--<![endif]--> 
       <!--[if lte IE 6]><table><tr><td><![endif]-->
       <div class="listHolder col1">
         <div class="listCol">
           <h5>Gallery</h5>
           <ul>
             <li><a href='<?php echo Yii::app()->createUrl("/gallery/videos");?>'>Videos</a></li>
-            <li><a href='#'>Audios</a></li>
+            <li><a href='<?php echo Yii::app()->createUrl("/gallery/audios");?>'>Audios</a></li>
             <li><a href='#'>Images</a></li>
           </ul>
         </div>        
