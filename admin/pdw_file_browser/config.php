@@ -1,10 +1,10 @@
 <?php
 error_reporting(E_PARSE);
 $root_self_directory = dirname($_SERVER['PHP_SELF']);
-$root_name_array = explode("/",$root_self_directory);
-$root_directory = $root_name_array[1];
-
-$dir = "/".$root_directory."/upload/";
+//$root_name_array = explode("/",$root_self_directory);
+//$root_directory = $root_name_array[1];
+$root_directory = realpath($root_self_directory . DIRECTORY_SEPARATOR . '..');
+$dir = $root_directory."/upload/";
 
 /*
 PDW File Browser v1.3 beta
