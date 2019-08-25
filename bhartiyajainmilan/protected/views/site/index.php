@@ -1,20 +1,19 @@
 <?php 
-$this->pageTitle="Bhartiya Jain Milan" 
-
+  $this->pageTitle="Bhartiya Jain Milan";
 ?>
 
 <div id="header-banner">
   <div class="row-2 relative">    
     <div class="slider fleft">
       <ul class="items">
-        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/1.jpg" alt=""/></li>
-        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/2.jpg" alt=""/></li>
-        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/3.jpg" alt=""/></li>
-        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/4.jpg" alt=""/></li>
-        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/5.jpg" alt=""/></li>
-        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/6.jpg" alt=""/></li>
-		<li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/7.jpg" alt=""/></li>
-        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/8.jpg" alt=""/></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/1.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/2.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/3.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/4.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/5.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/6.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
+		<li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/7.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/8.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
       </ul>
       <a href="#" class="play">stop</a> </div>
 	<div class="fright hindi">
