@@ -16,7 +16,7 @@
     "grunt-preprocess": "^4.1.0",
     "grunt-rename-assets": "0.0.1",
     "grunt-replace": "^0.9.2",
-    "lodash": "^3.5.0",
+    "lodash": "^4.17.15",
     "uri-path": "~0.0.2"
   },
   "devDependencies": {
