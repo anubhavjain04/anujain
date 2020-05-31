@@ -70,6 +70,18 @@ class BranchMaster extends CActiveRecord
 	}
 
 	/**
+	 * @return array scope definitions.
+	 */
+	public function scopes()
+	{
+		return array(
+			'published'=>array(
+				'condition'=>'Status=1',
+			),
+		);
+	}
+
+	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
 	public function attributeLabels()

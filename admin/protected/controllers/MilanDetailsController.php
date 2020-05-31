@@ -103,6 +103,7 @@ class MilanDetailsController extends Controller
 			 $query = 'Select bm.pkBranchId, Concat(bm.BranchCode," - ",bm.BranchName) as BranchName, concat("Zone-",zm.ZoneCode,"(",zm.ZoneName,")") as ZoneName'
 					  .' from branch_master bm'
 					  .' inner join zone_master zm on (zm.pkZoneId=bm.fkZoneId)'
+					  . ' where bm.Status=1'
 					  .' order by (zm.ZoneCode*1),(bm.BranchName)';
 			 $command=$connection->createCommand($query);
 			 $allBranches = CHtml::listData($command->queryAll(),'pkBranchId','BranchName','ZoneName');
@@ -158,6 +159,7 @@ class MilanDetailsController extends Controller
 			 $query = 'Select bm.pkBranchId, Concat(bm.BranchCode," - ",bm.BranchName) as BranchName, concat("Zone-",zm.ZoneCode,"(",zm.ZoneName,")") as ZoneName'
 					  .' from branch_master bm'
 					  .' inner join zone_master zm on (zm.pkZoneId=bm.fkZoneId)'
+					  . ' where bm.Status=1'
 					  .' order by (zm.ZoneCode*1),(bm.BranchName)';
 			 $command=$connection->createCommand($query);
 			 $allBranches = CHtml::listData($command->queryAll(),'pkBranchId','BranchName','ZoneName');

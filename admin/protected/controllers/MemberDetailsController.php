@@ -105,7 +105,7 @@ class MemberDetailsController extends Controller
 					$criteria=new CDbCriteria;
 					$criteria->condition='fkMemberId='.$model->pkMemberId;
 					$zoneModel = $zoneMember->find($criteria);
-					if(count($zoneModel)==0){
+					if(!isset($zoneModel)){
 						$zoneMember->fkMemberId=$model->pkMemberId;
 						$zoneMember->fkZoneId=$_POST['zoneId'];
 						$zoneMember->Status=1;
@@ -121,7 +121,7 @@ class MemberDetailsController extends Controller
 					$criteria=new CDbCriteria;
 					$criteria->condition='fkMemberId='.$model->pkMemberId;
 					$milanModel = $milanDetails->find($criteria);
-					if(count($milanModel)==0){
+					if(!isset($milanModel)){
 						$milanDetails->fkMemberId=$model->pkMemberId;
 						$milanDetails->fkBranchId=$_POST['branchId'];						
 						$milanDetails->save();
@@ -249,7 +249,7 @@ class MemberDetailsController extends Controller
 					$criteria->condition='fkMemberId='.$model->pkMemberId;
 					$zoneModel = $zoneMember->find($criteria);
 					
-					if(count($zoneModel)==0){
+					if(!isset($zoneModel)){
 						$zoneMember->fkMemberId=$model->pkMemberId;
 						$zoneMember->fkZoneId=$_POST['zoneId'];
 						$zoneMember->Status=1;
@@ -265,7 +265,7 @@ class MemberDetailsController extends Controller
 					$criteria=new CDbCriteria;
 					$criteria->condition='fkMemberId='.$model->pkMemberId;
 					$milanModel = $milanDetails->find($criteria);
-					if(count($milanModel)==0){
+					if(!isset($milanModel)){
 						$milanDetails->fkMemberId=$model->pkMemberId;
 						$milanDetails->fkBranchId=$_POST['branchId'];						
 						$milanDetails->save();
@@ -343,13 +343,11 @@ class MemberDetailsController extends Controller
 			
 			$branchModel = null;
 			
-			if(count($milanModel)>0){
+			if(isset($milanModel)){	
 				$criteria1=new CDbCriteria;
 				$criteria1->condition='pkBranchId='.$milanModel->fkBranchId;
 				$branchModel = BranchMaster::model()->find($criteria1);
 			}
-			
-			
 		}
 
 		$this->render('update',array(
@@ -552,7 +550,7 @@ class MemberDetailsController extends Controller
 			$criteria->condition='fkZoneId=:fkZoneId';
 			$criteria->order = 'BranchName ASC';
 			$criteria->params=array(":fkZoneId"=>$zoneId);			
-			$branchModel = $branchMaster->findAll($criteria);
+			$branchModel = $branchMaster->published()->findAll($criteria);
 			
 			
 			

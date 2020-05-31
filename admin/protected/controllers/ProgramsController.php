@@ -279,7 +279,7 @@ class ProgramsController extends Controller
 			$levelCode = $_POST['lCode'];
 			if($levelCode=='BRANCH'){
 				$branchModel = new BranchMaster();
-				$branchData = $branchModel->findAll();
+				$branchData = $branchModel->published()->findAll();
 				
 				foreach($branchData as $item){
 					echo CHtml::tag('option', array('value'=>$item['pkBranchId']),  $item['BranchName']);

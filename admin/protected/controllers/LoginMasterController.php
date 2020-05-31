@@ -86,7 +86,7 @@ class LoginMasterController extends Controller
 
 			$loginMasterList = LoginMaster::model()->find($criteria);
 				
-			if(count($loginMasterList)>0){
+			if(isset($loginMasterList)){
 				 $model->addError('UserId','This user-id is already exists.');
 			}else{
 				if($model->validate()){
@@ -131,7 +131,7 @@ class LoginMasterController extends Controller
 			//$existModel = LoginMaster::model()->find('UserId=:UserId',array(':UserId'=>$model->UserId));
 
 			$loginMasterList = LoginMaster::model()->find($criteria);
-			if(count($loginMasterList)>0){
+			if(isset($loginMasterList)){
 				 $model->addError('UserId','This user-id is already exists.');
 			}else{
 				if($model->validate()){
