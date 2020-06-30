@@ -308,12 +308,15 @@
 			}
 		}
 	?>
-  </ul>  
+  </ul>
   <div style="float: right; height:30px; width:30px;">
-    <a href="https://twitter.com/bjm_1966" target="_blank" title="Bhartiya Jain Milan on Twitter"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/twitter.png" alt="" /> </a>
+    <a href="https://instagram.com/jainmilan1966" target="_blank" title="Bhartiya Jain Milan on Instagram"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/instagram.png" alt="" /> </a>
+  </div>  
+  <div style="float: right; height:30px; width:30px;">
+    <a href="https://twitter.com/jainmilan1966" target="_blank" title="Bhartiya Jain Milan on Twitter"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/twitter.png" alt="" /> </a>
   </div>
   <div style="float: right; height:30px; width:30px;">
-    <a href="http://www.facebook.com/bhartiyajainmilan" target="_blank" title="Bhartiya Jain Milan on Facebook"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fb.png" alt="" /> </a>
+    <a href="http://www.facebook.com/jainmilan1966" target="_blank" title="Bhartiya Jain Milan on Facebook"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fb.png" alt="" /> </a>
   </div>
   <div style="float: right; height:30px; width:30px;">
     <a href="https://www.youtube.com/channel/UCVafHOvdwQVdVH70w0SCiHQ" target="_blank" title="Bhartiya Jain Milan on Youtube"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/youtube.png" alt="" /> </a>
