@@ -12,14 +12,16 @@
         <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/4.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
         <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/5.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
         <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/6.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
-		<li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/7.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
+		    <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/7.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
         <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/8.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/9.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/10.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
       </ul>
       <a href="#" class="play">stop</a> </div>
 	<div class="fright hindi">
       <div class="slogan-1">
       	<div class="stitle-1">Bhartiya Jain Milan</div>
-        <div class="stitle-2">Mandir/Sthanak Seva Sanskar Varsh</div>
+        <div class="stitle-2">Jainatv & Janganna Jaagrukta Varsh</div>
         <div class="padding"><a class="button-top png" href="#"><span class="png"><span class="png">more</span></span> </a></div>
       </div>
       <div class="slogan-2 ">

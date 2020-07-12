@@ -8,6 +8,6 @@
 			'addImgPath'=>'/resources/advertisement-img',
 			'tempPath'=>'/resources/temp',
 			'favicon'=>'/images/favicon.ico',
-			'version'=>'1.1.3'
+			'version'=>'1.1.4'
 		);
 ?>
