@@ -16,6 +16,7 @@
         <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/8.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
         <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/9.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
         <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/10.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
+        <li><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/head-slider/11.jpg?v=<?php echo Yii::app()->params['version'] ?>" alt=""/></li>
       </ul>
       <a href="#" class="play">stop</a> </div>
 	<div class="fright hindi">
