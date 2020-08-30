@@ -121,7 +121,9 @@ class BranchMaster extends CActiveRecord
 		$criteria->compare('RunningStatus',$this->RunningStatus);
 		
 		//$criteria->compare('fkZoneId',$this->fkZoneId,true);
-		$criteria->compare('fkZone->ZoneCode',$this->fkZoneId,true);
+		$criteria->compare('fkZone.ZoneCode',$this->fkZoneId,true);
+
+		$criteria->order = 'fkZone.ZoneCode ASC, BranchName ASC';
 		
 
 		return new CActiveDataProvider(get_class($this), array(

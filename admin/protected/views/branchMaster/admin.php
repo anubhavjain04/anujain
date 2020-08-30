@@ -31,7 +31,7 @@ $pageSize=Yii::app()->user->getState('pageSize',Yii::app()->params['defaultPageS
 'cssFile'=>Yii::app()->request->baseUrl.'/css/gridview/styles.css',
 	'id'=>'branch-master-grid',
 	'dataProvider'=>$model->search(),
-	'selectableRows'=>5,
+	'selectableRows'=>10,
 	'filter'=>$model,
 	'columns'=>array(				
 array(
