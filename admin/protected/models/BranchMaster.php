@@ -46,7 +46,7 @@ class BranchMaster extends CActiveRecord
 		// will receive user inputs.
 		return array(
 		array('BranchName, BranchCode, City, District, State, fkZoneId', 'required'),
-		array('Status', 'numerical', 'integerOnly'=>true),
+		array('Status, RunningStatus', 'numerical', 'integerOnly'=>true),
 		array('BranchName', 'length', 'max'=>100),
 		array('BranchCode, fkZoneId', 'length', 'max'=>10),
 		array('City, District, State', 'length', 'max'=>45),
